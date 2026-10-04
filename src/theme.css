@@ -1,0 +1,92 @@
+/* Shared by the landing, Threetopia Creators and generated documentation.
+   Tailwind Stone is the UI palette; world artwork keeps its own colours. */
+:root {
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-300: #d6d3d1;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-700: #44403c;
+  --stone-800: #292524;
+  --stone-900: #1c1917;
+  --stone-950: #0c0a09;
+
+  --theme-background: var(--stone-50);
+  --theme-surface: #fff;
+  --theme-subtle: var(--stone-100);
+  --theme-selected: var(--stone-200);
+  --theme-border: var(--stone-200);
+  --theme-border-strong: var(--stone-300);
+  --theme-text: var(--stone-900);
+  --theme-text-secondary: var(--stone-600);
+  /* Slightly deepen Stone 500 so small text also clears 4.5:1 on Stone 100. */
+  --theme-text-muted: color-mix(in srgb, var(--stone-500) 90%, var(--stone-600));
+  --theme-accent: var(--stone-800);
+  --theme-accent-hover: var(--stone-700);
+  --theme-focus: var(--stone-500);
+  --theme-inverse: var(--stone-50);
+  --theme-shadow-rgb: 28, 25, 23;
+  --theme-paper-rgb: 250, 250, 249;
+
+  /* Status colours stay distinct from navigation and selection. */
+  --theme-success: #496044;
+  --theme-success-soft: #edf1e9;
+  --theme-warning: #855e2c;
+  --theme-warning-soft: #f5eddf;
+  --theme-danger: #9a4836;
+  --theme-danger-soft: #f8eae4;
+
+  /* Product type scale. Use captions for metadata, small for secondary UI,
+     UI for controls/navigation, and body for reading. Never shrink on mobile. */
+  --text-caption: 12px;
+  --text-small: 13px;
+  --text-ui: 14px;
+  --text-body: 16px;
+  --text-card-title: 18px;
+  --text-section: 24px;
+  --text-page: 32px;
+  --leading-ui: 1.5;
+  --leading-body: 1.7;
+  --leading-heading: 1.2;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --tracking-heading: -.035em;
+
+  /* The same control geometry, surfaces and spacing on every site. */
+  --control-height: 40px;
+  --control-height-small: 32px;
+  --control-height-large: 48px;
+  --radius-small: 6px;
+  --radius-control: 8px;
+  --radius-panel: 12px;
+  --radius-dialog: 16px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --site-sidebar-width: 480px;
+  --site-brand-column-width: 240px;
+  --page-gutter: clamp(24px, 4vw, 48px);
+  --shadow-panel: 0 2px 8px rgb(var(--theme-shadow-rgb) / .04);
+  --shadow-popover: 0 12px 36px rgb(var(--theme-shadow-rgb) / .12), 0 2px 5px rgb(var(--theme-shadow-rgb) / .04);
+  --focus-ring: 2px solid var(--theme-focus);
+  --transition-ui: 150ms ease;
+  color-scheme: light;
+}
+
+@media (max-width: 1180px) {
+  :root { --site-sidebar-width: 200px; --site-brand-column-width: 200px; --page-gutter: 24px; }
+}
+@media (max-width: 800px) {
+  :root { --text-page: 28px; --page-gutter: 20px; }
+}
+
+::selection { color: var(--stone-900); background: var(--stone-300); }

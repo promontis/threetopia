@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "id": "lagoon",
+  "name": "Lagoon Tree Village",
+  "credit": {
+    "name": "cryptomanavan",
+    "url": "https://lagoon-tree-village-creatures.netlify.app/"
+  },
+  "frame": {
+    "width": 240,
+    "height": 133.00680272108843
+  },
+  "oceanColor": "#3eb3bb",
+  "capture": {
+    "version": 1,
+    "source": "packages/world-sources/lagoon/original",
+    "projection": {
+      "type": "fixed-perspective",
+      "position": [
+        -30,
+        165,
+        180
+      ],
+      "quaternion": [
+        -0.3877214992040739,
+        -0.05159148389504725,
+        -0.02174076148864557,
+        0.9200748323556873
+      ],
+      "fov": 48,
+      "aspect": 1.3333333333333333,
+      "near": 0.1,
+      "far": 9000
+    },
+    "frozenTime": 10,
+    "width": 2400,
+    "height": 1800,
+    "components": [
+      {
+        "id": "water",
+        "effect": "water",
+        "sourceObject": "lagoon-surface"
+      },
+      {
+        "id": "canopy-origin",
+        "effect": "foliage",
+        "sourceObject": "tree-origin-leaves"
+      },
+      {
+        "id": "canopy-nest",
+        "effect": "foliage",
+        "sourceObject": "tree-nest-leaves"
+      },
+      {
+        "id": "canopy-perch",
+        "effect": "foliage",
+        "sourceObject": "tree-perch-leaves"
+      },
+      {
+        "id": "canopy-canopy",
+        "effect": "foliage",
+        "sourceObject": "tree-canopy-leaves"
+      },
+      {
+        "id": "canopy-westShore",
+        "effect": "foliage",
+        "sourceObject": "tree-westShore-leaves"
+      },
+      {
+        "id": "canopy-northShore",
+        "effect": "foliage",
+        "sourceObject": "tree-northShore-leaves"
+      },
+      {
+        "id": "canopy-eastShore",
+        "effect": "foliage",
+        "sourceObject": "tree-eastShore-leaves"
+      },
+      {
+        "id": "canopy-southShore",
+        "effect": "foliage",
+        "sourceObject": "tree-southShore-leaves"
+      },
+      {
+        "id": "canopy-fallsTree",
+        "effect": "foliage",
+        "sourceObject": "tree-fallsTree-leaves"
+      },
+      {
+        "id": "canopy-spawnTree",
+        "effect": "foliage",
+        "sourceObject": "tree-spawnTree-leaves"
+      },
+      {
+        "id": "palms",
+        "effect": "foliage",
+        "sourceObject": "palmFronds"
+      },
+      {
+        "id": "falls",
+        "effect": "waterfall",
+        "sourceObject": "waterfall-sheets, waterfall-mist, waterfall-streams"
+      }
+    ],
+    "note": "Native beauty plus visibility mattes. Fixed viewpoint; no orbit. Perimeter adapted by lagoon-native-view.js.",
+    "native": {
+      "source": "packages/world-sources/lagoon/original",
+      "renderer": "Original WebGL, materials, water and post-processing",
+      "island": true,
+      "adaptations": [
+        "Compact perimeter and seabed",
+        "Peripheral scatter removed",
+        "Native water extended with deep-water scattering outside coast",
+        "Full tree leaf counts and near palm geometry"
+      ],
+      "leafCards": [
+        {
+          "id": "origin",
+          "count": 32373
+        },
+        {
+          "id": "nest",
+          "count": 13023
+        },
+        {
+          "id": "perch",
+          "count": 6680
+        },
+        {
+          "id": "canopy",
+          "count": 20230
+        },
+        {
+          "id": "westShore",
+          "count": 14420
+        },
+        {
+          "id": "northShore",
+          "count": 12457
+        },
+        {
+          "id": "eastShore",
+          "count": 12307
+        },
+        {
+          "id": "southShore",
+          "count": 10462
+        },
+        {
+          "id": "fallsTree",
+          "count": 9363
+        },
+        {
+          "id": "spawnTree",
+          "count": 9250
+        }
+      ],
+      "untouchedTreeRoots": [
+        {
+          "id": "origin",
+          "heightChange": 0
+        },
+        {
+          "id": "nest",
+          "heightChange": -4.440892098500626e-16
+        },
+        {
+          "id": "perch",
+          "heightChange": -2.220446049250313e-16
+        },
+        {
+          "id": "canopy",
+          "heightChange": -2.220446049250313e-16
+        },
+        {
+          "id": "westShore",
+          "heightChange": 0
+        },
+        {
+          "id": "northShore",
+          "heightChange": 4.440892098500626e-16
+        },
+        {
+          "id": "eastShore",
+          "heightChange": -2.220446049250313e-16
+        },
+        {
+          "id": "southShore",
+          "heightChange": 2.220446049250313e-16
+        },
+        {
+          "id": "fallsTree",
+          "heightChange": 5.551115123125783e-17
+        },
+        {
+          "id": "spawnTree",
+          "heightChange": 0
+        }
+      ],
+      "errors": []
+    },
+    "errors": [],
+    "crop": [
+      72,
+      364,
+      2277,
+      1586
+    ]
+  },
+  "sourceHashes": {
+    "scripts/atlas/lagoon-native-view.js": "98e4cf32ca6baaebc3ddb88ec554b95084ed1f98d48346662de93b216fe3e1e9",
+    "scripts/atlas/lagoon-native-bake.js": "92093ff438a820296099a04ae078bd82eaeed7826003a353ebefcc13ef86b035",
+    "scripts/atlas/pack-lagoon-bake.py": "a73c29be187fd038d9b06bfdb79dfa3f6cf33ac1d0e3b4e84003de31e6610f04",
+    "packages/world-sources/lagoon/original/assets/index-BjH0GYGf.js": "42c5f2d0aa7b5398b1f38f3a6f641ce7d421abb788ad13a5ebea2c454ead5ff3"
+  },
+  "tiers": [
+    {
+      "resolution": 384,
+      "layers": [
+        {
+          "id": "base",
+          "effect": "still",
+          "src": "384/base.webp",
+          "pixels": [
+            383,
+            212
+          ],
+          "rect": [
+            -119.78231292517006,
+            66.28571428571428,
+            239.56462585034012,
+            132.68027210884352
+          ],
+          "bytes": 27728
+        }
+      ],
+      "bytes": 27728,
+      "textureBytes": 433045
+    },
+    {
+      "resolution": 1024,
+      "layers": [
+        {
+          "id": "base",
+          "effect": "still",
+          "src": "1024/base.webp",
+          "pixels": [
+            1022,
+            566
+          ],
+          "rect": [
+            -119.78231292517006,
+            66.28571428571428,
+            239.56462585034012,
+            132.68027210884352
+          ],
+          "bytes": 145874
+        },
+        {
+          "id": "water",
+          "effect": "water",
+          "sourceObject": "lagoon-surface",
+          "src": "1024/water.webp",
+          "pixels": [
+            1008,
+            554
+          ],
+          "rect": [
+            -118.04081632653062,
+            65.52380952380952,
+            236.19047619047618,
+            129.9591836734694
+          ],
+          "bytes": 115048
+        },
+        {
+          "id": "canopy-origin",
+          "effect": "foliage",
+          "sourceObject": "tree-origin-leaves",
+          "src": "1024/canopy-origin.webp",
+          "pixels": [
+            208,
+            144
+          ],
+          "rect": [
+            -51.97278911564626,
+            47.238095238095234,
+            48.6530612244898,
+            33.85034013605442
+          ],
+          "bytes": 20230
+        },
+        {
+          "id": "canopy-nest",
+          "effect": "foliage",
+          "sourceObject": "tree-nest-leaves",
+          "src": "1024/canopy-nest.webp",
+          "pixels": [
+            119,
+            101
+          ],
+          "rect": [
+            -13.224489795918366,
+            47.3469387755102,
+            27.972789115646258,
+            23.619047619047617
+          ],
+          "bytes": 7820
+        },
+        {
+          "id": "canopy-perch",
+          "effect": "foliage",
+          "sourceObject": "tree-perch-leaves",
+          "src": "1024/canopy-perch.webp",
+          "pixels": [
+            103,
+            73
+          ],
+          "rect": [
+            9.306122448979597,
+            31.455782312925173,
+            24.163265306122447,
+            17.08843537414966
+          ],
+          "bytes": 6082
+        },
+        {
+          "id": "canopy-canopy",
+          "effect": "foliage",
+          "sourceObject": "tree-canopy-leaves",
+          "src": "1024/canopy-canopy.webp",
+          "pixels": [
+            162,
+            124
+          ],
+          "rect": [
+            20.190476190476197,
+            57.578231292517,
+            37.87755102040816,
+            28.95238095238095
+          ],
+          "bytes": 12478
+        },
+        {
+          "id": "canopy-westShore",
+          "effect": "foliage",
+          "sourceObject": "tree-westShore-leaves",
+          "src": "1024/canopy-westShore.webp",
+          "pixels": [
+            146,
+            88
+          ],
+          "rect": [
+            -81.68707482993197,
+            48.76190476190476,
+            34.176870748299315,
+            20.68027210884354
+          ],
+          "bytes": 9142
+        },
+        {
+          "id": "canopy-northShore",
+          "effect": "foliage",
+          "sourceObject": "tree-northShore-leaves",
+          "src": "1024/canopy-northShore.webp",
+          "pixels": [
+            98,
+            70
+          ],
+          "rect": [
+            -27.700680272108844,
+            54.965986394557824,
+            22.965986394557824,
+            16.3265306122449
+          ],
+          "bytes": 6152
+        },
+        {
+          "id": "canopy-eastShore",
+          "effect": "foliage",
+          "sourceObject": "tree-eastShore-leaves",
+          "src": "1024/canopy-eastShore.webp",
+          "pixels": [
+            137,
+            97
+          ],
+          "rect": [
+            55.56462585034015,
+            35.156462585034014,
+            32.0,
+            22.639455782312925
+          ],
+          "bytes": 10980
+        },
+        {
+          "id": "canopy-southShore",
+          "effect": "foliage",
+          "sourceObject": "tree-southShore-leaves",
+          "src": "1024/canopy-southShore.webp",
+          "pixels": [
+            147,
+            104
+          ],
+          "rect": [
+            2.4489795918367374,
+            10.122448979591839,
+            34.50340136054422,
+            24.38095238095238
+          ],
+          "bytes": 11066
+        },
+        {
+          "id": "canopy-fallsTree",
+          "effect": "foliage",
+          "sourceObject": "tree-fallsTree-leaves",
+          "src": "1024/canopy-fallsTree.webp",
+          "pixels": [
+            97,
+            73
+          ],
+          "rect": [
+            30.204081632653068,
+            58.44897959183673,
+            22.74829931972789,
+            17.197278911564627
+          ],
+          "bytes": 3836
+        },
+        {
+          "id": "canopy-spawnTree",
+          "effect": "foliage",
+          "sourceObject": "tree-spawnTree-leaves",
+          "src": "1024/canopy-spawnTree.webp",
+          "pixels": [
+            129,
+            100
+          ],
+          "rect": [
+            -79.94557823129253,
+            9.142857142857142,
+            30.258503401360542,
+            23.510204081632654
+          ],
+          "bytes": 11690
+        },
+        {
+          "id": "palms",
+          "effect": "foliage",
+          "sourceObject": "palmFronds",
+          "src": "1024/palms.webp",
+          "pixels": [
+            772,
+            352
+          ],
+          "rect": [
+            -85.71428571428572,
+            66.28571428571428,
+            181.00680272108843,
+            82.50340136054422
+          ],
+          "bytes": 96962
+        },
+        {
+          "id": "falls",
+          "effect": "waterfall",
+          "sourceObject": "waterfall-sheets, waterfall-mist, waterfall-streams",
+          "src": "1024/falls.webp",
+          "pixels": [
+            233,
+            82
+          ],
+          "rect": [
+            5.278911564625854,
+            57.9047619047619,
+            54.53061224489796,
+            19.156462585034014
+          ],
+          "bytes": 4784
+        }
+      ],
+      "bytes": 462144,
+      "textureBytes": 8349745
+    },
+    {
+      "resolution": 2048,
+      "layers": [
+        {
+          "id": "base",
+          "effect": "still",
+          "src": "2048/base.webp",
+          "pixels": [
+            2044,
+            1132
+          ],
+          "rect": [
+            -119.78231292517006,
+            66.28571428571428,
+            239.56462585034012,
+            132.68027210884352
+          ],
+          "bytes": 492082
+        },
+        {
+          "id": "water",
+          "effect": "water",
+          "sourceObject": "lagoon-surface",
+          "src": "2048/water.webp",
+          "pixels": [
+            2015,
+            1109
+          ],
+          "rect": [
+            -118.04081632653062,
+            65.52380952380952,
+            236.19047619047618,
+            129.9591836734694
+          ],
+          "bytes": 320958
+        },
+        {
+          "id": "canopy-origin",
+          "effect": "foliage",
+          "sourceObject": "tree-origin-leaves",
+          "src": "2048/canopy-origin.webp",
+          "pixels": [
+            415,
+            289
+          ],
+          "rect": [
+            -51.97278911564626,
+            47.238095238095234,
+            48.6530612244898,
+            33.85034013605442
+          ],
+          "bytes": 58518
+        },
+        {
+          "id": "canopy-nest",
+          "effect": "foliage",
+          "sourceObject": "tree-nest-leaves",
+          "src": "2048/canopy-nest.webp",
+          "pixels": [
+            239,
+            202
+          ],
+          "rect": [
+            -13.224489795918366,
+            47.3469387755102,
+            27.972789115646258,
+            23.619047619047617
+          ],
+          "bytes": 21188
+        },
+        {
+          "id": "canopy-perch",
+          "effect": "foliage",
+          "sourceObject": "tree-perch-leaves",
+          "src": "2048/canopy-perch.webp",
+          "pixels": [
+            206,
+            146
+          ],
+          "rect": [
+            9.306122448979597,
+            31.455782312925173,
+            24.163265306122447,
+            17.08843537414966
+          ],
+          "bytes": 16106
+        },
+        {
+          "id": "canopy-canopy",
+          "effect": "foliage",
+          "sourceObject": "tree-canopy-leaves",
+          "src": "2048/canopy-canopy.webp",
+          "pixels": [
+            323,
+            247
+          ],
+          "rect": [
+            20.190476190476197,
+            57.578231292517,
+            37.87755102040816,
+            28.95238095238095
+          ],
+          "bytes": 34404
+        },
+        {
+          "id": "canopy-westShore",
+          "effect": "foliage",
+          "sourceObject": "tree-westShore-leaves",
+          "src": "2048/canopy-westShore.webp",
+          "pixels": [
+            292,
+            176
+          ],
+          "rect": [
+            -81.68707482993197,
+            48.76190476190476,
+            34.176870748299315,
+            20.68027210884354
+          ],
+          "bytes": 24704
+        },
+        {
+          "id": "canopy-northShore",
+          "effect": "foliage",
+          "sourceObject": "tree-northShore-leaves",
+          "src": "2048/canopy-northShore.webp",
+          "pixels": [
+            196,
+            139
+          ],
+          "rect": [
+            -27.700680272108844,
+            54.965986394557824,
+            22.965986394557824,
+            16.3265306122449
+          ],
+          "bytes": 15548
+        },
+        {
+          "id": "canopy-eastShore",
+          "effect": "foliage",
+          "sourceObject": "tree-eastShore-leaves",
+          "src": "2048/canopy-eastShore.webp",
+          "pixels": [
+            273,
+            193
+          ],
+          "rect": [
+            55.56462585034015,
+            35.156462585034014,
+            32.0,
+            22.639455782312925
+          ],
+          "bytes": 29710
+        },
+        {
+          "id": "canopy-southShore",
+          "effect": "foliage",
+          "sourceObject": "tree-southShore-leaves",
+          "src": "2048/canopy-southShore.webp",
+          "pixels": [
+            294,
+            208
+          ],
+          "rect": [
+            2.4489795918367374,
+            10.122448979591839,
+            34.50340136054422,
+            24.38095238095238
+          ],
+          "bytes": 30972
+        },
+        {
+          "id": "canopy-fallsTree",
+          "effect": "foliage",
+          "sourceObject": "tree-fallsTree-leaves",
+          "src": "2048/canopy-fallsTree.webp",
+          "pixels": [
+            194,
+            147
+          ],
+          "rect": [
+            30.204081632653068,
+            58.44897959183673,
+            22.74829931972789,
+            17.197278911564627
+          ],
+          "bytes": 8932
+        },
+        {
+          "id": "canopy-spawnTree",
+          "effect": "foliage",
+          "sourceObject": "tree-spawnTree-leaves",
+          "src": "2048/canopy-spawnTree.webp",
+          "pixels": [
+            258,
+            201
+          ],
+          "rect": [
+            -79.94557823129253,
+            9.142857142857142,
+            30.258503401360542,
+            23.510204081632654
+          ],
+          "bytes": 33722
+        },
+        {
+          "id": "palms",
+          "effect": "foliage",
+          "sourceObject": "palmFronds",
+          "src": "2048/palms.webp",
+          "pixels": [
+            1545,
+            704
+          ],
+          "rect": [
+            -85.71428571428572,
+            66.28571428571428,
+            181.00680272108843,
+            82.50340136054422
+          ],
+          "bytes": 283100
+        },
+        {
+          "id": "falls",
+          "effect": "waterfall",
+          "sourceObject": "waterfall-sheets, waterfall-mist, waterfall-streams",
+          "src": "2048/falls.webp",
+          "pixels": [
+            465,
+            163
+          ],
+          "rect": [
+            5.278911564625854,
+            57.9047619047619,
+            54.53061224489796,
+            19.156462585034014
+          ],
+          "bytes": 10648
+        }
+      ],
+      "bytes": 1380592,
+      "textureBytes": 33401815
+    }
+  ]
+}

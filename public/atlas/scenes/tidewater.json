@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "kind": "scene-tile",
+  "units": "metres",
+  "origin": "tile-centre",
+  "radius": 400,
+  "source": {
+    "kind": "runtime",
+    "id": "tidewater"
+  },
+  "bounds": {
+    "minY": -12,
+    "maxY": 180
+  },
+  "omit": [],
+  "landmarks": [
+    {
+      "id": "fishing-pier",
+      "label": "Fishing pier",
+      "kind": "harbour",
+      "position": [
+        45,
+        2,
+        67.5
+      ]
+    },
+    {
+      "id": "fishing-village",
+      "label": "Fishing village",
+      "kind": "village",
+      "position": [
+        30,
+        4.24,
+        -80.5
+      ]
+    },
+    {
+      "id": "reef",
+      "label": "The reef",
+      "kind": "nature",
+      "position": [
+        -88,
+        2,
+        95.5
+      ]
+    }
+  ]
+}

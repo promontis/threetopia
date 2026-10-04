@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.threetopia.com/schema/package.json",
+  "title": "Threetopia upload manifest v1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "name",
+    "version",
+    "kind",
+    "title",
+    "description",
+    "license",
+    "changelog",
+    "files"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^@[a-z][a-z0-9-]{2,29}/[a-z][a-z0-9-]{1,49}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "kind": {
+      "enum": [
+        "asset",
+        "world"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "changelog": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8000
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "bytes",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 180,
+            "pattern": "^[a-zA-Z0-9_./-]+$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 33554432
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "maxProperties": 32,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+      }
+    },
+    "tile": {
+      "type": "object",
+      "description": "Full immutable canonical contract returned by the tile reservation API. Independently verified by the CLI and registry.",
+      "required": [
+        "version",
+        "q",
+        "r",
+        "variant",
+        "radius",
+        "slot",
+        "mapScale",
+        "edges",
+        "boundaries",
+        "recipe",
+        "hash"
+      ],
+      "properties": {
+        "version": {
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "q": {
+          "type": "integer"
+        },
+        "r": {
+          "type": "integer"
+        },
+        "variant": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "version": {
+                "enum": [
+                  2,
+                  3,
+                  4
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "rotation",
+              "legacyEdges",
+              "connections"
+            ],
+            "properties": {
+              "rotation": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 5
+              },
+              "slot": {
+                "type": "object",
+                "required": [
+                  "origin",
+                  "regions",
+                  "floorY",
+                  "height"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "version": {
+                "const": 4
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "navigation",
+              "art"
+            ],
+            "properties": {
+              "slot": {
+                "properties": {
+                  "regions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "x",
+                        "z",
+                        "radius",
+                        "floorY"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "content": {
+      "type": "object",
+      "required": [
+        "world",
+        "map",
+        "overview"
+      ],
+      "properties": {
+        "world": {
+          "type": "string",
+          "pattern": "\\.glb$"
+        },
+        "map": {
+          "type": "string",
+          "pattern": "\\.glb$"
+        },
+        "overview": {
+          "type": "string",
+          "pattern": "\\.glb$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "exports": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "world"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tile",
+          "content"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "asset"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "exports"
+        ],
+        "not": {
+          "required": [
+            "tile"
+          ]
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

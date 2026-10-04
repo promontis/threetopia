@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lagoon lite — Threetopia</title><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml"></head>
+<body>
+  <main class="tile-study" aria-label="Lagoon lite map tile">
+    <div class="tile-canvas" role="region" tabindex="0" aria-label="Rotatable 3D map tile" aria-describedby="map-help"></div>
+    <header class="map-header"><a class="back" href="/map/lite/" aria-label="View all four map tiles">↖</a><div><p class="eyebrow">THREETOPIA / TILE STUDY 02</p><h1>Lagoon <em>lite</em><span class="desert-tag">Desert</span></h1></div></header>
+    <nav class="view-switch" aria-label="Tile view">
+      <button data-view="tile" aria-pressed="true">Map tile</button><button data-view="slot" aria-pressed="false">Empty slot</button><button data-view="component" aria-pressed="false">Component</button>
+    </nav>
+    <div class="north" aria-hidden="true"><span>↑</span>N</div>
+    <div class="slot-label" hidden><span>CREATOR SLOT</span><strong>Your component</strong><small>One recognizable element from your world</small></div>
+    <p class="map-status" role="status" data-status>Loading Lagoon…</p>
+    <p id="map-help" class="sr-only">Drag to rotate the tile. Scroll, pinch or use plus and minus to zoom. Press the left and right arrow keys to rotate. Press 0 to reset the view. Press Space to pause or resume animation.</p>
+    <aside class="component-caption"><span class="caption-dot"></span><div><strong data-caption>Lagoon Tree Village</strong><p data-description>Four treehouses · three rope bridges</p></div></aside>
+    <footer class="map-footer">
+      <div class="credit">Lagoon by <a href="https://lagoon-tree-village-creatures.netlify.app/" target="_blank" rel="noopener">cryptomanavan</a></div>
+      <nav class="map-controls" aria-label="Map controls">
+        <button data-motion aria-pressed="true" aria-label="Pause animation">Ⅱ</button><span class="divider"></span>
+        <button data-out aria-label="Zoom out">−</button><button data-reset>Whole tile</button><button data-in aria-label="Zoom in">+</button>
+      </nav>
+      <div class="map-options"><button data-neighbours aria-pressed="false">Connections</button><details class="budget"><summary>Budget <span data-budget-dot>·</span></summary><div class="budget-panel"><p class="eyebrow">CREATOR COMPONENT</p><strong>Fits the slot</strong><dl><dt>Triangles</dt><dd data-triangles>—</dd><dt>Draw calls</dt><dd data-draws>—</dd><dt>Download</dt><dd data-bytes>—</dd><dt>Textures</dt><dd data-textures>—</dd><dt>Detail</dt><dd data-lod>Tile</dd></dl><a href="/docs/#map-slots">Slot specification & budget ↗</a></div></details></div>
+    </footer>
+    <p class="gesture-hint">Drag to rotate</p>
+  </main>
+  <script type="module" src="/src/tiles/lagoon-lite/preview.ts"></script>
+</body></html>

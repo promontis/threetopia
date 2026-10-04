@@ -1,0 +1,6 @@
+{
+  "name":"threetopia-thumbnails-test",
+  "compatibility_date":"2026-10-02",
+  "d1_databases":[{"binding":"DB","database_name":"thumbnails-test","database_id":"thumbnails-test"}],
+  "r2_buckets":[{"binding":"PACKAGES","bucket_name":"thumbnails-test"}]
+}

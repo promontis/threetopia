@@ -1,0 +1,92 @@
+{
+  "name": "@threetopia/world-map",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Portable, bounded map representations and Wang tile placement for Threetopia worlds.",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./renderer": "./renderer.js",
+    "./renderer.css": "./renderer.css",
+    "./image-renderer": {
+      "types": "./image-renderer.d.ts",
+      "default": "./image-renderer.js"
+    },
+    "./image-renderer.css": "./image-renderer.css",
+    "./image-format": {
+      "types": "./image-format.d.ts",
+      "default": "./image-format.js"
+    },
+    "./scene-renderer": {
+      "types": "./scene-renderer.d.ts",
+      "default": "./scene-renderer.js"
+    },
+    "./scene-camera": {
+      "types": "./scene-camera.d.ts",
+      "default": "./scene-camera.js"
+    },
+    "./scene-renderer.css": "./scene-renderer.css",
+    "./scene-format": {
+      "types": "./scene-format.d.ts",
+      "default": "./scene-format.js"
+    },
+    "./gltf-scene": "./gltf-scene.js",
+    "./baked-map": {
+      "types": "./baked-map.d.ts",
+      "default": "./baked-map.js"
+    },
+    "./tile-slot": {
+      "types": "./tile-slot.d.ts",
+      "default": "./tile-slot.js"
+    },
+    "./desert-tile": {
+      "types": "./desert-tile.d.ts",
+      "default": "./desert-tile.js"
+    },
+    "./landmark": {
+      "types": "./landmark.d.ts",
+      "default": "./landmark.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "renderer.js",
+    "README.md",
+    "renderer.css",
+    "image-renderer.js",
+    "image-renderer.css",
+    "image-format.js",
+    "assets",
+    "image-renderer.d.ts",
+    "image-format.d.ts",
+    "map-atmosphere.js",
+    "map-motion.js",
+    "map-ocean.webp",
+    "map-motion.d.ts",
+    "scene-renderer.js",
+    "scene-renderer.d.ts",
+    "scene-renderer.css",
+    "scene-camera.js",
+    "scene-camera.d.ts",
+    "scene-format.js",
+    "scene-format.d.ts",
+    "gltf-scene.js",
+    "image-camera.js",
+    "image-camera.d.ts",
+    "baked-map.js",
+    "baked-map.d.ts",
+    "tile-slot.js",
+    "tile-slot.d.ts",
+    "desert-tile.js",
+    "desert-tile.d.ts",
+    "tile-water.js",
+    "landmark.js",
+    "landmark.d.ts"
+  ],
+  "peerDependencies": {
+    "three": ">=0.184.0 <0.187.0"
+  }
+}

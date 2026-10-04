@@ -1,0 +1,39 @@
+<section class="section section-earn" id="earn">
+        <div class="section-head">
+          <p class="kicker">04 · Creators earn</p>
+          <h2>Your €8 follows your choices.</h2>
+          <p class="section-lede">
+            The world is free to explore. Builders subscribe for <strong>€10 a month</strong>: €2 funds
+            Threetopia, €8 is <em>your</em> creator allocation. It's split evenly over the root
+            components you explicitly chose, then shared within each root by everyone whose verified
+            work it builds on. Not downloads, not views, not likes: verified use.
+          </p>
+        </div>
+        <div class="earn-grid">
+          <div class="calculator" id="calculator">
+            <div class="calc-head">
+              <div>
+                <p class="calc-title">Choose your roots</p>
+                <p class="calc-note">Try adding your own packages: you never pay yourself.</p>
+              </div>
+              <div class="split" aria-label="Subscription split">
+                <span class="split-platform">€2 platform</span><span class="split-creators">€8 your creators</span>
+              </div>
+            </div>
+            <div class="chips" role="group" aria-label="Root components" data-chips></div>
+            <div class="bars" data-bars aria-live="polite"></div>
+            <p class="calc-foot" data-foot></p>
+          </div>
+          <div class="rules">
+            <h3>Weighted by depth, not by package count</h3>
+            <p>Inside a root, each creator receives weight <span class="math">1 / 2<sup>depth</sup></span>: the root author 1, direct dependencies ½, the next level ¼. Packages from one payout account collapse into one share at their shallowest depth.</p>
+            <ul class="rule-list">
+              <li><b>Downloads don't pay.</b> Nor do views, stars, CI reinstalls or 100,000 copies of one mesh.</li>
+              <li><b>Splitting doesn't pay.</b> Five packages by Alex still count as one Alex.</li>
+              <li><b>You never pay yourself.</b> Self-only roots can't dilute the creators you depend on.</li>
+              <li><b>It always reconciles.</b> Integer cents, deterministic rounding, reversals instead of edits.</li>
+            </ul>
+            <p class="fineprint">Prototype policy. The €10 price and 20/80 split are assumptions to be validated; payments in the prototype are simulated.</p>
+          </div>
+        </div>
+      </section>

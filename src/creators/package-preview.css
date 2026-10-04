@@ -1,0 +1,49 @@
+.package-preview { min-width: 0; overflow: hidden; margin-bottom: 22px; border: 1px solid var(--line); border-radius: var(--radius-panel); background: var(--theme-surface) }
+.package-preview-toolbar { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap }
+.package-preview-toolbar>strong { font-size: var(--text-ui); white-space: nowrap; margin-right: auto }
+.package-preview-toolbar label { display: flex; align-items: center; gap: 8px; font-size: var(--text-caption); font-weight: var(--weight-normal); color: var(--muted) }
+.package-preview-toolbar label[hidden] { display: none }
+.package-preview-select { position: relative; display: inline-flex; color: var(--theme-text-secondary) }
+.package-preview-select>svg { position: absolute; right: 10px; top: 50%; width: 14px; height: 14px; transform: translateY(-50%); pointer-events: none }
+.package-preview-toolbar select { appearance: none; -webkit-appearance: none; font-size: var(--text-small); padding: 4px 32px 4px 10px; max-width: 200px; background: var(--theme-surface); min-height: var(--control-height-small); line-height: 20px; cursor: pointer }
+.package-preview-actions { display: flex; gap: 6px }
+.package-preview-actions button { display: grid; place-items: center; width: var(--control-height-small); height: var(--control-height-small); border-radius: var(--radius-small); color: var(--theme-text-secondary) }
+.package-preview-actions button:hover { background: var(--theme-subtle) }
+.package-preview-actions svg { width: 17px; height: 17px }
+.package-preview-stage { position: relative; height: clamp(330px,34vw,510px); background: var(--stone-100) }
+.package-preview-canvas { position: absolute; inset: 0; overflow: hidden }
+.package-preview-canvas canvas { display: block; width: 100%; height: 100%; outline-offset: -4px; cursor: grab }
+.package-preview-canvas canvas:active { cursor: grabbing }
+.package-preview-status { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 30px; text-align: center; background: var(--stone-100) }
+.package-preview-status[hidden] { display: none }
+.package-preview-status p { font-size: var(--text-ui) }
+.package-preview-spinner { width: 22px; height: 22px; border: 2px solid var(--stone-300); border-top-color: var(--stone-600); border-radius: 50%; animation: package-preview-spin .9s linear infinite }
+@keyframes package-preview-spin {
+to { transform: rotate(360deg) }
+}
+.package-preview-footer { display: flex; justify-content: space-between; gap: 14px; padding: 11px 17px; border-top: 1px solid var(--line); font-size: var(--text-caption); color: var(--muted); flex-wrap: wrap }
+.package-preview-footer i { font-style: normal; margin: 0 5px; color: var(--stone-400) }
+.package-preview-empty { min-height: 250px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; padding: 30px; background: var(--stone-100); text-align: center }
+.package-preview-empty>span { font-size: 35px; color: var(--stone-400) }
+.package-preview-empty h2 { font-size: var(--text-card-title) }
+.package-preview-empty p { max-width: 340px; font-size: var(--text-ui) }
+.package-preview-expanded .package-preview-stage { height: calc(100vh - 325px); min-height: 420px }
+@media(max-width:600px) {
+.package-preview-toolbar { gap: 12px; flex-wrap: wrap; padding: 12px 16px }
+.package-preview-toolbar>strong { flex: 1 }
+.package-preview-toolbar label { gap: 5px }
+.package-preview-toolbar select { max-width: 160px }
+.package-preview-stage { height: 350px }
+.package-preview-footer { padding: 10px 12px; font-size: var(--text-caption); flex-wrap: wrap }
+.package-preview-version { order: 3 }
+.package-preview-choice { order: 4 }
+.package-preview-actions { margin-left: auto }
+.package-preview-toolbar::after { content: ''; width: 100%; order: 2 }
+.package-preview-expanded .package-preview-stage { min-height: 400px }
+}
+@media(prefers-reduced-motion:reduce) {
+.package-preview-spinner { animation: none }
+}
+@media(max-width:800px) {
+.package-preview-toolbar select { font-size: var(--text-body) }
+}

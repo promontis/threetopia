@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "tidewater",
+  "title": "Tidewater",
+  "tile": {
+    "q": -1,
+    "r": 1
+  },
+  "edges": [
+    "open-sea",
+    "open-sea",
+    "open-sea",
+    "open-sea",
+    "open-sea",
+    "shore-path"
+  ],
+  "scene": {
+    "kind": "runtime",
+    "id": "tidewater"
+  },
+  "map": "tidewater.json"
+}

@@ -1,0 +1,107 @@
+{
+  "version": 2,
+  "kind": "image-tile",
+  "origin": "tile-centre",
+  "radius": 400,
+  "capture": {
+    "kind": "world-render",
+    "revision": "6eecbbe7b76997a2c8630b115d888b55b4c209f4a0ce5bf7e74fb566cc30ea19",
+    "source": {
+      "kind": "runtime",
+      "id": "lagoon"
+    },
+    "camera": {
+      "yaw": -20,
+      "elevation": 45,
+      "projection": "orthographic"
+    }
+  },
+  "terrain": {
+    "src": "/map/renders/lagoon-terrain.webp",
+    "preview": "/map/renders/lagoon-all.webp",
+    "position": [
+      0,
+      -80.61017305526642
+    ],
+    "size": [
+      811.8462033235697,
+      733.7613283699498
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  },
+  "components": [
+    {
+      "id": "vegetation",
+      "label": "Source trees & plants",
+      "src": "/map/renders/lagoon-vegetation.webp",
+      "position": [
+        0,
+        -80.61017305526642
+      ],
+      "size": [
+        811.8462033235697,
+        733.7613283699498
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "foliage",
+        "speed": 0.4,
+        "isolated": true
+      }
+    },
+    {
+      "id": "waterfalls",
+      "label": "Source waterfalls",
+      "src": "/map/renders/lagoon-waterfalls.webp",
+      "position": [
+        0,
+        -80.61017305526642
+      ],
+      "size": [
+        811.8462033235697,
+        733.7613283699498
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "waterfall",
+        "speed": 0.6,
+        "isolated": true
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "tree-village",
+      "label": "Tree village",
+      "position": [
+        -36.21962425813366,
+        10.917429041100611
+      ]
+    },
+    {
+      "id": "arrival",
+      "label": "Arrival beach",
+      "position": [
+        -44.15692544334089,
+        30.643671079250048
+      ]
+    },
+    {
+      "id": "canopy",
+      "label": "Canopy walk",
+      "position": [
+        25.026229524455136,
+        -16.884957497124425
+      ]
+    }
+  ]
+}

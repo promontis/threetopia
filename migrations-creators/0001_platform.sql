@@ -1,0 +1,15 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE creators(id TEXT PRIMARY KEY,email TEXT NOT NULL UNIQUE,handle TEXT UNIQUE,display_name TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL);
+CREATE TABLE challenges(id TEXT PRIMARY KEY,email TEXT NOT NULL,code_hash TEXT NOT NULL,expires_at INTEGER NOT NULL,attempts INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,consumed_at INTEGER);
+CREATE INDEX challenges_email ON challenges(email,created_at);
+CREATE TABLE credentials(hash TEXT PRIMARY KEY,creator_id TEXT NOT NULL REFERENCES creators(id),kind TEXT NOT NULL CHECK(kind IN ('session','cli')),label TEXT NOT NULL,created_at INTEGER NOT NULL,expires_at INTEGER NOT NULL,last_used_at INTEGER NOT NULL);
+CREATE INDEX credentials_creator ON credentials(creator_id);
+CREATE TABLE devices(hash TEXT PRIMARY KEY,user_code TEXT NOT NULL UNIQUE,creator_id TEXT REFERENCES creators(id),expires_at INTEGER NOT NULL,status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','approved','denied','consumed')),created_at INTEGER NOT NULL);
+CREATE TABLE tiles(id TEXT PRIMARY KEY,creator_id TEXT NOT NULL REFERENCES creators(id),q INTEGER NOT NULL,r INTEGER NOT NULL,variant TEXT NOT NULL,contract TEXT NOT NULL,created_at INTEGER NOT NULL,UNIQUE(q,r));
+CREATE TABLE packages(id TEXT PRIMARY KEY,creator_id TEXT NOT NULL REFERENCES creators(id),name TEXT NOT NULL UNIQUE,kind TEXT NOT NULL CHECK(kind IN ('asset','world')),title TEXT NOT NULL,description TEXT NOT NULL DEFAULT '',tile_id TEXT UNIQUE REFERENCES tiles(id),created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL,archived INTEGER NOT NULL DEFAULT 0);
+CREATE INDEX packages_creator ON packages(creator_id);
+CREATE TABLE versions(id TEXT PRIMARY KEY,package_id TEXT NOT NULL REFERENCES packages(id),version TEXT NOT NULL,state TEXT NOT NULL CHECK(state IN ('uploading','ready','published','rejected')),manifest TEXT NOT NULL,report TEXT,created_at INTEGER NOT NULL,published_at INTEGER,UNIQUE(package_id,version));
+CREATE TABLE files(version_id TEXT NOT NULL REFERENCES versions(id) ON DELETE CASCADE,path TEXT NOT NULL,bytes INTEGER NOT NULL,sha256 TEXT NOT NULL,object_key TEXT NOT NULL,uploaded INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(version_id,path));
+CREATE TABLE installations(creator_id TEXT NOT NULL REFERENCES creators(id),project_id TEXT NOT NULL,package_id TEXT NOT NULL REFERENCES packages(id),version TEXT NOT NULL,installed_at INTEGER NOT NULL,removed_at INTEGER,PRIMARY KEY(creator_id,project_id,package_id));
+CREATE INDEX installations_package ON installations(package_id,removed_at);
+CREATE TABLE dependencies(version_id TEXT NOT NULL REFERENCES versions(id) ON DELETE CASCADE,package_id TEXT NOT NULL REFERENCES packages(id),version TEXT NOT NULL,PRIMARY KEY(version_id,package_id));

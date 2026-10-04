@@ -1,0 +1,45 @@
+.waitlist-intro h2 { color: var(--ink); max-width: 16ch; margin-bottom: 20px; }
+.waitlist-intro > p { max-width: 350px; }
+.waitlist-intro .waitlist-aside { margin-top: 16px; font-size: var(--text-small); color: var(--ink-faint); }
+.waitlist-contact { display: inline-flex; gap: 12px; margin-top: 28px; font-size: var(--text-small); text-decoration: none; text-underline-offset: 5px; }
+.waitlist-contact:hover { color: var(--ink); text-decoration: underline; }
+.waitlist { min-width: 0; }
+.waitlist-form { display: grid; gap: 22px; position: relative; }
+.waitlist-optional { display: grid; grid-template-columns: 1.25fr 1fr; gap: 16px; }
+.waitlist-field { min-width: 0; }
+.waitlist-field label { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; font-size: var(--text-small); font-weight: var(--weight-medium); }
+.waitlist-field label span { font-size: var(--text-caption); color: var(--ink-faint); font-weight: 400; }
+.waitlist-field input { width: 100%; min-width: 0; height: var(--control-height); border: 1px solid var(--theme-border-strong); border-radius: var(--radius-control); background: var(--theme-surface); padding: 0 12px; color: var(--ink); font: 400 var(--text-ui)/20px var(--sans); transition: border-color .15s, box-shadow .15s; }
+.waitlist-field input::placeholder { color: var(--theme-text-muted); opacity: 1; }
+.waitlist-field input:hover { border-color: var(--stone-400); }
+.waitlist-field input:focus { border-color: var(--theme-focus); outline: var(--focus-ring); box-shadow: none; outline-offset: 3px; }
+.waitlist-field input[aria-invalid="true"] { border-color: var(--theme-danger); }
+.waitlist-field-error, .waitlist-message { color: var(--theme-danger); font-size: var(--text-caption); line-height: 1.6; }
+.waitlist-field-error { margin-top: 7px; }
+.waitlist-message:empty, .waitlist-challenge:empty { display: none; }
+.waitlist-submit { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; padding: 9px 16px; border: 1px solid var(--theme-accent); border-radius: var(--radius-control); background: var(--theme-accent); color: var(--theme-inverse); font: 500 var(--text-ui)/20px var(--sans); cursor: pointer; transition: background .15s; }
+.waitlist-submit:hover { background: var(--theme-accent-hover); }
+.waitlist-submit:disabled { cursor: default; opacity: .65; }
+.waitlist-submit span { font-size: var(--text-body); font-weight: 400; }
+.waitlist-note { color: var(--ink-faint); font-size: var(--text-caption); line-height: 1.75; max-width: 400px; }
+.waitlist-form > .waitlist-note { margin-top: -10px; }
+.waitlist-honey { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.waitlist-success { padding: 8px 0 20px; }
+.waitlist-success-mark { display: grid; place-items: center; width: 32px; height: 32px; margin-bottom: 22px; border: 1px solid var(--theme-border-strong); border-radius: 50%; color: var(--theme-success); }
+.waitlist-success h3 { font-size: var(--text-section); line-height: 1.3; letter-spacing: -.02em; font-weight: var(--weight-medium); }
+.waitlist-success p { color: var(--ink-soft); font-size: var(--text-ui); line-height: 1.8; margin-top: 14px; }
+.waitlist-success .waitlist-note, .waitlist-success .waitlist-local { font-size: var(--text-caption); }
+.waitlist-local a { display: block; color: var(--ink); text-underline-offset: 4px; }
+.waitlist-back { margin-top: 22px; padding: 0 0 4px; border: 0; border-bottom: 1px solid var(--theme-border-strong); background: none; color: var(--ink); font: 400 var(--text-small) var(--sans); cursor: pointer; }
+.waitlist [hidden] { display: none; }
+@media (max-width: 760px) {
+  .waitlist-intro h2 { max-width: none; margin-bottom: 14px; }
+  .waitlist-contact { margin-top: 18px; }
+  .waitlist-form { margin-top: 8px; }
+  .waitlist-field input { font-size: var(--text-body); height: var(--control-height); border-radius: var(--radius-control); padding: 0 12px; font: 400 var(--text-ui)/20px var(--sans); }
+  .waitlist-optional { grid-template-columns: 1fr; gap: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .waitlist-field input, .waitlist-submit { transition: none; } }
+
+/* Keep fields readable and prevent iOS from zooming the form on focus. */
+@media (max-width: 800px) { .waitlist-field input { font-size: var(--text-body); } }

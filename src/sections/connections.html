@@ -1,0 +1,35 @@
+<section class="story-section connection-section" id="tech">
+  <div class="story-width connection-heading">
+    <h2>How the scenes connect</h2>
+    <p>Build a scene on a hex tile. Shared edges let its paths and rivers continue into the next creator’s tile.</p>
+  </div>
+
+  <div class="story-width connection-lab" data-connection-lab data-scene="forest">
+    <div class="connection-toolbar">
+      <h3>One tile. Six neighbours.</h3>
+      <span class="connection-concept">Concept</span>
+    </div>
+    <div class="hex-stage">
+      <!-- include:src/sections/hex-map.html -->
+      <div class="hex-caption"><span class="hex-caption-line" aria-hidden="true"></span>Your scene</div>
+    </div>
+    <div class="hex-scene-picker">
+      <span id="hex-scene-label">Make it your own</span>
+      <div class="hex-scene-options" role="group" aria-labelledby="hex-scene-label">
+        <button type="button" data-scene-choice="forest" aria-pressed="true" disabled>Forest</button>
+        <button type="button" data-scene-choice="village" aria-pressed="false" disabled>Village</button>
+        <button type="button" data-scene-choice="garden" aria-pressed="false" disabled>Garden</button>
+      </div>
+      <span class="hex-connection-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The edges stay connected.</span>
+    </div>
+    <p class="hex-scene-announcement" role="status" aria-live="polite" aria-atomic="true" data-scene-announcement></p>
+  </div>
+
+  <div class="story-width connection-notes">
+    <details class="connection-details">
+      <summary>How the edges work <span aria-hidden="true">+</span></summary>
+      <p>Tiles use shared border pieces for ground height, paths and water. The planned CLI checks that they match; the preview is where you walk across the joins. Threetopia provides the camera, controls and loading.</p>
+    </details>
+    <p class="connection-proposal">Hex tile concept · format in development</p>
+  </div>
+</section>

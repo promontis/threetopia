@@ -1,0 +1,5 @@
+{
+  "name": "threetopia-account-test",
+  "compatibility_date": "2026-10-01",
+  "d1_databases": [{"binding":"DB","database_name":"account-test","database_id":"account-test"}]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@threetopia/source-punk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pinned upstream scene source for the shared Threetopia runtime",
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": "./src/*"
+  },
+  "upstream": {
+    "url": "https://github.com/ektogamat/threejs-conference",
+    "revision": "8cc20593b2270e2ce832e7b7b44356705daddec4"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  }
+}

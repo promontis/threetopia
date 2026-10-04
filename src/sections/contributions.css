@@ -1,0 +1,60 @@
+/* Two ways to contribute, illustrated with credited examples of existing work. */
+.contribution-section { padding-top: 0; }
+.contribution-heading { margin-bottom: 36px; }
+.contribution-heading h2 { margin-bottom: 12px; }
+.contribution-heading > p { color: var(--ink-soft); font-size: var(--text-body); line-height: 1.8; }
+.contribution-options { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; }
+.contribution-option { min-width: 0; }
+.contribution-example { margin: 0; }
+.contribution-preview { position: relative; display: block; overflow: hidden; aspect-ratio: 1.78; border-radius: var(--radius-control); background: var(--stone-200); isolation: isolate; }
+.contribution-preview::after { position: absolute; inset: 0; z-index: 1; content: ''; border: 1px solid rgba(var(--theme-shadow-rgb),.08); border-radius: inherit; pointer-events: none; background: linear-gradient(180deg, rgba(var(--theme-shadow-rgb),.14), transparent 30%, transparent 70%, rgba(var(--theme-shadow-rgb),.1)); }
+.contribution-preview img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+/* Frame the flock, rather than the sky in the full video frame. */
+.contribution-preview-birds img { transform: scale(2.3); transform-origin: 33% 57%; }
+.contribution-preview-village img { object-position: 49% 51%; }
+.contribution-example-tag { position: absolute; top: 17px; left: 18px; z-index: 2; padding: 5px 9px; border: 1px solid #ffffff35; border-radius: var(--radius-small); background: rgba(var(--theme-shadow-rgb),.6); color: var(--theme-inverse); font-size: var(--text-caption); font-weight: var(--weight-medium); letter-spacing: .02em; }
+.contribution-preview-arrow { position: absolute; right: 18px; bottom: 18px; z-index: 2; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #ffffff70; border-radius: 50%; color: var(--theme-inverse); background: rgba(var(--theme-shadow-rgb),.4); font-size: 19px; transition: background .2s, transform .2s; }
+.contribution-preview:is(:hover, :focus-visible) .contribution-preview-arrow { background: var(--theme-inverse); color: var(--theme-text); transform: translate(2px, -2px); }
+.contribution-preview:focus-visible { outline-offset: 5px; }
+@media (hover: hover) {
+  .contribution-preview-birds:hover img { transform: scale(2.38); }
+  .contribution-preview-village:hover img { transform: scale(1.025); }
+}
+.contribution-example figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 10px; color: var(--theme-text-muted); font-size: var(--text-caption); line-height: 1.6; }
+.contribution-example figcaption > span:last-child { flex-shrink: 0; color: var(--theme-text-muted); }
+.contribution-copy { padding-top: 25px; }
+.contribution-copy h3 { font: 500 22px/1.3 var(--sans); letter-spacing: -.03em; margin-bottom: 10px; }
+.contribution-copy p { max-width: 450px; color: var(--ink-soft); font-size: var(--text-body); line-height: 1.8; }
+.contribution-invitation { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 38px; padding-top: 27px; border-top: 1px solid var(--line); }
+.contribution-invitation p { font-size: var(--text-ui); color: var(--theme-text-secondary); }
+.contribution-invitation a { display: inline-flex; align-items: center; gap: 26px; padding-block: 8px; color: var(--theme-accent); text-decoration: none; font-size: var(--text-ui); font-weight: var(--weight-medium); }
+.contribution-invitation a span { font-size: 19px; transition: transform .2s; }
+.contribution-invitation a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.contribution-invitation a:hover span { transform: translate(2px, -2px); }
+@media (min-width: 1600px) { .story-section.contribution-section { padding-top: 0; } }
+@media (max-width: 1050px) {
+  .contribution-options { gap: 28px; }
+  .contribution-copy p { font-size: var(--text-ui); }
+  .contribution-example figcaption { font-size: var(--text-caption); }
+}
+@media (max-width: 760px) {
+  .contribution-section { padding-top: 0; }
+  .contribution-heading { margin-bottom: 26px; }
+  .contribution-heading > p { font-size: var(--text-ui); }
+  .contribution-options { grid-template-columns: 1fr; gap: 32px; }
+  .contribution-preview { aspect-ratio: 1.55; border-radius: var(--radius-control); }
+  .contribution-example-tag { top: 13px; left: 13px; font-size: var(--text-caption); }
+  .contribution-preview-arrow { width: 30px; height: 30px; right: 13px; bottom: 13px; font-size: var(--text-card-title); }
+  .contribution-example figcaption { font-size: var(--text-caption); }
+  .contribution-copy { padding-top: 18px; }
+  .contribution-copy h3 { font-size: 21px; margin-bottom: 8px; }
+  .contribution-copy p { font-size: var(--text-ui); line-height: 1.75; }
+  .contribution-invitation { align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 29px; padding-top: 22px; }
+  .contribution-invitation p, .contribution-invitation a { font-size: var(--text-small); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contribution-preview img, .contribution-preview-arrow, .contribution-invitation a span { transition: none; }
+  .contribution-preview-birds:hover img { transform: scale(2.3); }
+  .contribution-preview-village:hover img { transform: none; }
+  .contribution-preview:is(:hover, :focus-visible) .contribution-preview-arrow, .contribution-invitation a:hover span { transform: none; }
+}

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "kind": "compact-tile-proposal",
+  "radius": 105,
+  "sourceCenter": {
+    "x": -12,
+    "z": 3
+  },
+  "sourceRevision": "index-BjH0GYGf.js",
+  "source": "@threetopia/source-lagoon",
+  "camera": {
+    "yaw": -20,
+    "elevation": 45
+  },
+  "frame": {
+    "x0": -103.40481406628184,
+    "x1": 103.40481406628186,
+    "y0": -98.05288880827274,
+    "y1": 71.18283112318393,
+    "x": 7.105427357601002e-15,
+    "y": -13.435028842544405,
+    "width": 280.8096281325637,
+    "height": 227.23571993145669
+  },
+  "boundary": [
+    {
+      "x": 67.49269901708664,
+      "y": -56.875898144068685
+    },
+    {
+      "x": 103.40481406628186,
+      "y": 12.892719416742143
+    },
+    {
+      "x": 35.91211504919522,
+      "y": 69.76861756081084
+    },
+    {
+      "x": -67.49269901708664,
+      "y": 56.875898144068685
+    },
+    {
+      "x": -103.40481406628184,
+      "y": -12.89271941674216
+    },
+    {
+      "x": -35.912115049195236,
+      "y": -69.76861756081084
+    }
+  ],
+  "connections": [
+    {
+      "edge": 0,
+      "width": 40,
+      "height": 2.4,
+      "position": {
+        "x": 108.00137944054603,
+        "y": -29.492919942062386
+      }
+    },
+    {
+      "edge": 2,
+      "width": 40,
+      "height": 2.4,
+      "position": {
+        "x": -19.957848247952008,
+        "y": 78.3379433452725
+      }
+    },
+    {
+      "edge": 4,
+      "width": 40,
+      "height": 2.4,
+      "position": {
+        "x": -88.04353119259403,
+        "y": -53.936192227753224
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "name": "Tree village",
+      "source": [
+        -42,
+        16,
+        4
+      ],
+      "position": {
+        "x": -27.848758480251583,
+        "y": -3.3939025951568302
+      }
+    },
+    {
+      "name": "Waterfall",
+      "source": [
+        30,
+        7,
+        -36
+      ],
+      "position": {
+        "x": 26.12830448330707,
+        "y": -41.0212854506791
+      }
+    },
+    {
+      "name": "Lagoon",
+      "source": [
+        -12,
+        0,
+        15
+      ],
+      "position": {
+        "x": 4.104241719908025,
+        "y": 7.973556292664096
+      }
+    }
+  ],
+  "capture": {
+    "revision": "4af1c216ebacfcca2a236cbaaee8c7b6e5edff61599935dfb80bef59979809ef",
+    "inputs": [
+      "src/tiles/lagoon/layout.ts",
+      "src/tiles/lagoon/scene.js",
+      "src/tiles/lagoon/capture.js",
+      "src/explore/package-loader.ts",
+      "src/explore/materials.js",
+      "public/world-assets/lagoon/scene.json"
+    ]
+  },
+  "terrain": {
+    "src": "/map/lagoon/renders/terrain.webp",
+    "position": [
+      7.105427357601002e-15,
+      -13.435028842544405
+    ],
+    "size": [
+      280.8096281325637,
+      227.23571993145669
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  },
+  "components": [
+    {
+      "id": "vegetation",
+      "src": "/map/lagoon/renders/vegetation.webp",
+      "position": [
+        7.105427357601002e-15,
+        -13.435028842544405
+      ],
+      "size": [
+        280.8096281325637,
+        227.23571993145669
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "foliage",
+        "isolated": true,
+        "speed": 0.4
+      }
+    },
+    {
+      "id": "waterfall",
+      "src": "/map/lagoon/renders/waterfall.webp",
+      "position": [
+        7.105427357601002e-15,
+        -13.435028842544405
+      ],
+      "size": [
+        280.8096281325637,
+        227.23571993145669
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "waterfall",
+        "isolated": true,
+        "speed": 0.6
+      }
+    }
+  ],
+  "neighbours": {
+    "src": "/map/lagoon/renders/connections.webp",
+    "position": [
+      7.105427357601002e-15,
+      -13.435028842544405
+    ],
+    "size": [
+      280.8096281325637,
+      227.23571993145669
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  }
+}

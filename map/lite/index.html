@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Threetopia — Map preview</title><meta name="description" content="Explore the Threetopia map preview. The playable world is not available yet."><meta name="robots" content="noindex"><link rel="describedby" href="https://docs.threetopia.com/llms.txt"><link rel="icon" href="/favicon.svg" type="image/svg+xml"></head>
+<body class="world-map-page"><script>if(new URLSearchParams(location.search).has('creator'))document.documentElement.classList.add('creator-map');</script><main class="tile-study" aria-label="Threetopia world map">
+  <h1 class="sr-only">Threetopia world map</h1>
+  <div class="tile-canvas" role="region" tabindex="0" aria-label="Rotatable world map" aria-describedby="map-help"></div>
+  <a class="map-brand brand" href="https://threetopia.com/" aria-label="Threetopia home" title="Threetopia home"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="/brand-mark.svg#mark"/></svg><span class="brand-wordmark">threetopia</span></a>
+  <aside class="map-preview-notice" aria-label="Preview status" data-card-keep-clear><strong>Map preview only</strong><span>The playable world is not available yet.</span></aside>
+  <div class="north" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="m12 3 6 16-6-4-6 4Z"/></svg></span></div>
+  <div class="world-labels" role="group" aria-label="World details"></div>
+  <p class="map-status" role="status" data-status>Loading worlds…</p>
+  <p id="map-help" class="sr-only">Click a tile or its info card to view full world and creator details. Drag to rotate. Scroll or pinch to zoom. Right-drag or use two fingers to pan while zoomed in. Press 0 to show all worlds. Press H to open settings. Press R to start or stop a video recording. Press Space to pause or resume animation. Press Escape to close settings or details, or stop a recording.</p>
+  <nav class="map-controls" aria-label="Map controls">
+    <button type="button" data-out aria-label="Zoom out" title="Zoom out (−)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+    <button type="button" data-reset aria-label="Show all worlds" title="Show all worlds (0)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5V6a2 2 0 0 1 2-2h2.5M15.5 4H18a2 2 0 0 1 2 2v2.5M20 15.5V18a2 2 0 0 1-2 2h-2.5M8.5 20H6a2 2 0 0 1-2-2v-2.5"/><circle cx="12" cy="12" r="3"/></svg></button>
+    <button type="button" data-in aria-label="Zoom in" title="Zoom in (+)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+  </nav>
+  <p class="gesture-hint">Click a tile for details <span>·</span> drag to rotate</p>
+</main>
+<!-- include:src/sections/world-details.html -->
+<script type="module" src="/src/tiles/lite/entry.ts"></script></body></html>

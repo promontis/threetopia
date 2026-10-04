@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "kind": "scene-tile",
+  "units": "metres",
+  "origin": "tile-centre",
+  "radius": 400,
+  "source": {
+    "kind": "runtime",
+    "id": "punk"
+  },
+  "bounds": {
+    "minY": -12,
+    "maxY": 180
+  },
+  "omit": [],
+  "landmarks": [
+    {
+      "id": "neon-streets",
+      "label": "Neon streets",
+      "kind": "city",
+      "position": [
+        -80.5,
+        2.15,
+        9
+      ]
+    },
+    {
+      "id": "city-skyline",
+      "label": "City skyline",
+      "kind": "city",
+      "position": [
+        -12.5,
+        2.15,
+        -90
+      ]
+    }
+  ]
+}

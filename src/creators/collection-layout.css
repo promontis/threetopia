@@ -1,0 +1,94 @@
+/* Collection pages share Explore tiles' full-width heading and dividers.
+   Padding belongs to each section's content, never to the outer workspace. */
+#app:has(.collection-workspace) {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - var(--site-header-height));
+}
+.workspace.collection-workspace {
+  --workspace-gutter: var(--page-gutter);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+}
+.collection-workspace > .collection-body {
+  flex: 1;
+  min-width: 0;
+  padding: 32px var(--workspace-gutter) 40px;
+}
+.collection-body > .section-heading { margin: 0 0 22px; }
+.collection-workspace > .stats-row {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 22px var(--workspace-gutter);
+}
+.collection-workspace > .getting-started {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 28px var(--workspace-gutter);
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+}
+.collection-workspace > .package-catalog {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.collection-workspace .catalog-search-area { padding: 26px var(--workspace-gutter) 0; }
+.collection-workspace .catalog-search-help { margin-bottom: 8px; }
+.collection-workspace .catalog-toolbar { padding: 16px var(--workspace-gutter); }
+.collection-workspace .catalog-active {
+  padding: 14px var(--workspace-gutter);
+  border-bottom: 1px solid var(--theme-border);
+}
+.collection-workspace .catalog-layout {
+  flex: 1;
+  grid-template-columns: calc(196px + var(--workspace-gutter)) minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  align-items: stretch;
+}
+/* The column owns the uninterrupted divider; its filters can scroll/stick. */
+.catalog-filter-column { min-width: 0; }
+.collection-workspace .catalog-filter-column { border-right: 1px solid var(--theme-border); }
+.collection-workspace .catalog-filters {
+  top: var(--site-header-height);
+  max-height: calc(100dvh - var(--site-header-height));
+  padding: 28px 24px 40px var(--workspace-gutter);
+  border: 0;
+}
+.collection-workspace .catalog-results { padding: 28px var(--workspace-gutter) 40px 32px; }
+@media (min-width: 1550px) {
+  .collection-workspace .catalog-layout { grid-template-columns: calc(215px + var(--workspace-gutter)) minmax(0, 1fr); }
+}
+@media (max-width: 1180px) {
+  .workspace.collection-workspace { --workspace-gutter: var(--page-gutter); }
+}
+@media (max-width: 1100px) {
+  .collection-workspace .catalog-layout { grid-template-columns: calc(166px + var(--workspace-gutter)) minmax(0, 1fr); }
+  .collection-workspace .catalog-filters { padding-right: 18px; }
+  .collection-workspace .catalog-results { padding-left: 24px; }
+}
+@media (max-width: 760px) {
+  .collection-workspace .catalog-filter-column { border-right: 0; }
+  .collection-workspace .catalog-filters-open .catalog-filter-column { border-bottom: 1px solid var(--theme-border); }
+  .collection-workspace .catalog-filters {
+    position: static;
+    max-height: none;
+    margin: 0;
+    padding: 22px var(--workspace-gutter) 0;
+    border-radius: 0;
+    background: var(--theme-background);
+  }
+  .collection-workspace .catalog-results { padding: 24px var(--workspace-gutter) 32px; }
+}
+@media (max-width: 600px) {
+  .workspace.collection-workspace { --workspace-gutter: var(--page-gutter); }
+  .collection-workspace > .collection-body { padding-block: 24px 32px; }
+  .collection-workspace > .stats-row { padding-block: 18px; }
+  .collection-workspace > .getting-started { padding-block: 24px; }
+  .collection-workspace .catalog-search-area { padding-top: 22px; }
+}

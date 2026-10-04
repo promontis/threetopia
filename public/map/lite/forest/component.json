@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "kind": "map-landmark",
+  "id": "forest",
+  "title": "Sakura pine",
+  "source": {
+    "world": "forest",
+    "creator": "Meng To",
+    "url": "https://valley.mengto.here.now/",
+    "revision": "scene-SV5IBQX7.js",
+    "selection": "Native pine at (-16, -130), for instancing on the map ridge",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "scale": 1,
+    "objects": [
+      "bark",
+      "foliage-pine"
+    ],
+    "triangles": 6526
+  },
+  "adaptations": [
+    "Native geometry reduced and merged by material role",
+    "Native landmark groups composed in map space",
+    "Native base colours sampled into vertex colours; source surface shaders omitted",
+    "Native leaf cards and cutout texture retained with reduced density where applicable",
+    "Hidden and subpixel details removed; duplicate and degenerate faces removed after quantization",
+    "Native landmark groups are individually scaled and positioned in a shared map riverbed; source-world distances are intentionally compressed"
+  ],
+  "anchor": "ground-centre",
+  "units": "map-metres",
+  "surface": null,
+  "bounds": {
+    "radius": 2.4389092602311346,
+    "height": 2.9968855381011963
+  },
+  "lods": [
+    {
+      "level": "tile",
+      "url": "landmark.glb",
+      "triangles": 1177,
+      "drawCalls": 2,
+      "bytes": 211696,
+      "textureSize": 512,
+      "sha256": "669ab6435e7dc64f8af34973aa10763f2e5bb81813b30cc8b88de235f173aad7",
+      "parts": [
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 2816,
+          "triangles": 344
+        },
+        {
+          "name": "foliage-pine",
+          "role": "foliage",
+          "source": 3710,
+          "triangles": 850
+        }
+      ]
+    },
+    {
+      "level": "overview",
+      "url": "overview.glb",
+      "triangles": 592,
+      "drawCalls": 2,
+      "bytes": 69660,
+      "textureSize": 256,
+      "sha256": "8dd2c4e77ec6dca1a47c4d02e67565890d665233f982ce817b135d73ea5be68a",
+      "parts": [
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 2816,
+          "triangles": 199
+        },
+        {
+          "name": "foliage-pine",
+          "role": "foliage",
+          "source": 3710,
+          "triangles": 400
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "extraction": "ab6036a2213fa64d53de88bcc681f5238765c01da73587937a668324cb8b3d93",
+    "builder": "45c480d77c0d5a3d512d1ef36aaf4cfb5a501fb1150407eabacab76cbb166ea6",
+    "extractor": "d5684a1490f9ae1c726e8452a48425dabbcf08d74416cb6e0c60e7b60d6b3331",
+    "writer": "27c5b720c926d3e5568747fadc44528ad78eddf744edb90ed95b2f3b2b036566"
+  }
+}

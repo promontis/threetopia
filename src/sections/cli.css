@@ -1,0 +1,15 @@
+/* 08 CLI: animated terminal + command reference */
+.terminal-bar em { margin-left: auto; font: var(--text-caption) var(--mono); font-style: normal; color: var(--stone-400); letter-spacing: .04em; }
+.terminal-live pre { min-height: 560px; }
+.terminal-live .caret { display: inline-block; width: 8px; height: 1.05em; vertical-align: -0.2em; background: var(--stone-200); animation: caret 1s steps(2) infinite; }
+.terminal-live.is-done .caret { animation-duration: 1.6s; }
+@keyframes caret { 50% { opacity: 0; } }
+.terminal .bad { color: #f08a72; }
+.commands { list-style: none; margin: 0; padding: 0; counter-reset: cmd; display: grid; gap: 6px; }
+.commands li { counter-increment: cmd; display: grid; grid-template-columns: 30px 1fr; column-gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.commands li::before { content: counter(cmd, decimal-leading-zero); font: 600 var(--text-caption) var(--mono); color: var(--grass); padding-top: 4px; }
+.commands li > code { font-size: var(--text-body); font-weight: var(--weight-semibold); background: none; padding: 0; color: var(--ink); }
+.commands li > span { grid-column: 2; margin-top: 4px; color: var(--ink-soft); font-size: var(--text-body); }
+.commands li > span code { font-size: var(--text-small); }
+@media (max-width: 1020px) { .terminal-live pre { min-height: 0; } }
+@media (max-width: 760px) { .terminal code { font-size: var(--text-caption); } }

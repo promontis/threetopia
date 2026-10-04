@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "kind": "map-landmark",
+  "id": "punk",
+  "title": "Punk",
+  "world": {
+    "id": "punk",
+    "title": "Threejs-Punk Drive",
+    "creator": "Anderson Mancini",
+    "contributors": [
+      "Sunag"
+    ],
+    "url": "https://www.threejspunk.com/"
+  },
+  "source": {
+    "world": "punk",
+    "creator": "Anderson Mancini · Sunag",
+    "url": "https://www.threejspunk.com/",
+    "revision": "f38336e874dd7f301dee458cf7039058e6ccc64fdd1776233b9205c472fe18f9",
+    "selection": "Five original black city buildings, nine original neon signs and the rigged Quadra Turbo-R",
+    "triangles": 154331,
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "scale": 1,
+    "objects": [
+      "bld_12",
+      "twr_02",
+      "bld_00",
+      "bld_17",
+      "bld_01",
+      "sign_01",
+      "sign_22",
+      "sign_09",
+      "sign_19",
+      "sign_17",
+      "sign_20",
+      "sign_12",
+      "sign_00",
+      "sign_14",
+      "QuadraRig"
+    ]
+  },
+  "adaptations": [
+    "Original map kit landmarks uniformly miniaturized and composed around a shared road",
+    "Dark native material palette retained; black plaster mean and car texture colours baked into vertices",
+    "Hidden room meshes replaced by three-fenestra interiors on original glass and lit window faces",
+    "Original panes and adjoining reveals pinned at both LODs; no pruning of windows; glass and display panels separated from plaster by 3/1024 map metres",
+    "Enclosed plaster omitted conservatively; original display panels retained with host cyan scanlines",
+    "Original neon geometry merged; no sign image overlays or video decoders",
+    "Quadra body and four wheel groups reduced into one host-animated draw",
+    "Three measured draws at both LODs, including car and neon"
+  ],
+  "anchor": "ground-centre",
+  "units": "map-metres",
+  "surface": null,
+  "bounds": {
+    "radius": 6.6177727486635645,
+    "height": 8.615234375
+  },
+  "lods": [
+    {
+      "level": "tile",
+      "url": "landmark.glb",
+      "triangles": 32253,
+      "drawCalls": 3,
+      "bytes": 498380,
+      "totalBytes": 579976,
+      "sha256": "c79decfaa9eeed5935546372cb7fbf5f38526febafd941413c94763303eb749f",
+      "parts": [
+        {
+          "role": "structure",
+          "triangles": 24615
+        },
+        {
+          "role": "lights",
+          "triangles": 4647
+        },
+        {
+          "role": "car",
+          "triangles": 2991
+        }
+      ]
+    },
+    {
+      "level": "overview",
+      "url": "overview.glb",
+      "triangles": 23268,
+      "drawCalls": 3,
+      "bytes": 360516,
+      "totalBytes": 442112,
+      "sha256": "223d0679a9247a8f95e1f0a7f8ccc5f8d376cfbec75ca8b93a10ed1fe43b39ca",
+      "parts": [
+        {
+          "role": "structure",
+          "triangles": 20938
+        },
+        {
+          "role": "lights",
+          "triangles": 1899
+        },
+        {
+          "role": "car",
+          "triangles": 431
+        }
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "id": "west-tower",
+      "node": "bld_12",
+      "x": -2.65,
+      "z": -3.2,
+      "scale": 0.22,
+      "yaw": 0
+    },
+    {
+      "id": "central-spire",
+      "node": "twr_02",
+      "x": 0,
+      "z": -3.9,
+      "scale": 0.074,
+      "yaw": 0
+    },
+    {
+      "id": "east-tower",
+      "node": "bld_00",
+      "x": 2.6,
+      "z": -3.2,
+      "scale": 0.22,
+      "yaw": 0
+    },
+    {
+      "id": "west-market",
+      "node": "bld_17",
+      "x": -2.6,
+      "z": 0.25,
+      "scale": 0.2,
+      "yaw": 0
+    },
+    {
+      "id": "east-arcade",
+      "node": "bld_01",
+      "x": 2.4,
+      "z": 0.4,
+      "scale": 0.18,
+      "yaw": 0
+    }
+  ],
+  "signs": [
+    {
+      "node": "sign_01",
+      "x": -3.63,
+      "y": 2.55,
+      "z": 1.2,
+      "scale": 0.22,
+      "yaw": 1.5707963267948966
+    },
+    {
+      "node": "sign_22",
+      "x": -1.67,
+      "y": 1.15,
+      "z": 1.3,
+      "scale": 0.27,
+      "yaw": 1.5707963267948966
+    },
+    {
+      "node": "sign_09",
+      "x": -2.55,
+      "y": 0.73,
+      "z": 1.3,
+      "scale": 0.34,
+      "yaw": 0
+    },
+    {
+      "node": "sign_19",
+      "x": 3.39,
+      "y": 2.2,
+      "z": 1.16,
+      "scale": 0.33,
+      "yaw": 1.5707963267948966
+    },
+    {
+      "node": "sign_17",
+      "x": 2.44,
+      "y": 1.05,
+      "z": 1.2,
+      "scale": 0.43,
+      "yaw": 0
+    },
+    {
+      "node": "sign_20",
+      "x": 1.45,
+      "y": 3.1,
+      "z": -2.2,
+      "scale": 0.32,
+      "yaw": 1.5707963267948966
+    },
+    {
+      "node": "sign_12",
+      "x": 2.7,
+      "y": 2.07,
+      "z": -2.21,
+      "scale": 0.38,
+      "yaw": 0
+    },
+    {
+      "node": "sign_00",
+      "x": -3.63,
+      "y": 4.05,
+      "z": -2.16,
+      "scale": 0.34,
+      "yaw": 1.5707963267948966
+    },
+    {
+      "node": "sign_14",
+      "x": -2.52,
+      "y": 1.4,
+      "z": -2.14,
+      "scale": 0.3,
+      "yaw": 0
+    }
+  ],
+  "driving": {
+    "car": "Quadra Turbo-R",
+    "scale": 0.22,
+    "forward": [
+      0,
+      0,
+      1
+    ],
+    "wheelbase": 0.6518996,
+    "wheels": [
+      {
+        "id": "FL",
+        "node": "Wheel_FL",
+        "front": true,
+        "left": true,
+        "position": [
+          0.9502,
+          0.39757,
+          1.48159
+        ],
+        "radius": 0.39397,
+        "width": 0.35341
+      },
+      {
+        "id": "FR",
+        "node": "Wheel_FR",
+        "front": true,
+        "left": false,
+        "position": [
+          -0.9502,
+          0.39757,
+          1.48159
+        ],
+        "radius": 0.39397,
+        "width": 0.35341
+      },
+      {
+        "id": "RR",
+        "node": "Wheel_RR",
+        "front": false,
+        "left": false,
+        "position": [
+          -1.00285,
+          0.44403,
+          -1.48159
+        ],
+        "radius": 0.44403,
+        "width": 0.43175
+      },
+      {
+        "id": "RL",
+        "node": "Wheel_RL",
+        "front": false,
+        "left": true,
+        "position": [
+          1.00285,
+          0.44403,
+          -1.48159
+        ],
+        "radius": 0.44403,
+        "width": 0.43175
+      }
+    ]
+  },
+  "interiors": {
+    "package": "three-fenestra",
+    "version": "0.3.0",
+    "mode": "native-facades",
+    "url": "https://github.com/codedgar/three-fenestra",
+    "textureBytes": 1747626.6666666667,
+    "textures": [
+      {
+        "url": "rooms.webp",
+        "size": 512,
+        "bytes": 52422,
+        "sha256": "a26c7dcc8c53c47e78dc4b55735c9799a7f9e6d382a4932da8f3d5c32d6b2c94"
+      },
+      {
+        "url": "overlay.webp",
+        "size": 256,
+        "bytes": 29174,
+        "sha256": "c6f8475a30c3ee648436896f6a645ed82cf75684ce68d4cabe8ce5364c3c1ea2"
+      }
+    ]
+  },
+  "sourceHashes": {
+    "kit": "f38336e874dd7f301dee458cf7039058e6ccc64fdd1776233b9205c472fe18f9",
+    "metadata": "853ce1b1f19f931d7abaab4e530ea971371015ca1de0da8d81e02c2f879a273d",
+    "car": "6025577fe9f82c7de7c5fca916ab2db264b2d2fd976c2e444114c48134fdef22",
+    "builder": "cd14281f2c53ea4f8269619d5aaaaedf20f9405560985238931cb3d3fc4bcc3f",
+    "extractor": "1bc0a7d24eeb21c0a6f3bd6d491c3bb7d887f4a1948b17341b0a6f5d51741274",
+    "writer": "3e15aa3304733f2e474082763e8f26e4a3bba34fd8a412970f02bf01c33c613f"
+  }
+}

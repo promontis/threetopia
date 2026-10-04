@@ -1,0 +1,5 @@
+{
+  "name": "threetopia-catalog-test",
+  "compatibility_date": "2026-10-01",
+  "d1_databases": [{"binding": "DB", "database_name": "catalog-test", "database_id": "catalog-test"}]
+}

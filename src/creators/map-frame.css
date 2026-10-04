@@ -1,0 +1,19 @@
+.map-board{position:relative;background:var(--theme-background)}
+.map-board iframe{opacity:0;pointer-events:none;transition:opacity .2s ease}
+.map-board[data-map-state=ready] iframe{opacity:1;pointer-events:auto}
+.map-loading-screen{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px;text-align:center;background:radial-gradient(ellipse at 50% 45%,var(--theme-surface),transparent 65%),var(--theme-background)}
+.map-loading-screen[hidden],.map-loading-screen [hidden]{display:none!important}
+.map-loading-copy{display:flex;flex-direction:column;align-items:center}
+.map-loading-tiles{width:74px;height:58px;margin-bottom:24px;overflow:visible;stroke:var(--stone-400);stroke-width:1.1;stroke-linejoin:round}
+.map-loading-tiles path{fill:var(--stone-100);animation:map-tile-breathe 2.8s ease-in-out infinite}
+.map-loading-tiles path:nth-child(2){animation-delay:.18s;fill:var(--stone-50)}
+.map-loading-tiles path:nth-child(3){animation-delay:.36s;fill:var(--stone-200)}
+.map-loading-copy h2{font-size:var(--text-body);font-weight:var(--weight-medium);letter-spacing:-.3px;color:var(--theme-text)}
+.map-loading-copy p{min-height:20px;max-width:290px;margin-top:7px;color:var(--theme-text-muted);font-size:var(--text-ui);line-height:1.7}
+.map-loading-track{width:130px;height:3px;border-radius:var(--radius-small);overflow:hidden;background:var(--theme-border)}
+.map-loading-track span{display:block;width:45%;height:100%;border-radius:inherit;background:var(--stone-500);animation:map-loading-progress 1.7s ease-in-out infinite}
+.map-board[data-map-state=error] .map-loading-track{display:none}
+.map-board[data-map-state=error] .map-loading-tiles path{animation:none}
+@keyframes map-loading-progress{from{transform:translateX(-110%)}to{transform:translateX(325%)}}
+@keyframes map-tile-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.map-board iframe{transition:none}.map-loading-tiles path,.map-loading-track span{animation:none}.map-loading-track span{width:40%;margin:auto}}

@@ -1,0 +1,39 @@
+<section class="story-section cli-section" id="cli">
+  <div class="story-width cli-heading">
+    <h2>Check it from your repo</h2>
+    <p>The CLI would check the tile format and every neighbouring edge. The preview is where you test the actual crossing. This is the workflow we’re building.</p>
+  </div>
+  <div class="story-width packages-grid">
+    <div class="terminal terminal-live" role="figure" aria-label="Example terminal session (illustrative)" data-terminal>
+      <div class="terminal-bar"><i></i><i></i><i></i><span>~/my-forest</span><em>workflow preview</em></div>
+      <pre><code data-terminal-out><span class="prompt">$</span> threetopia check
+  Tile forest · (0, 0) · rotation 0°
+<span class="ok">  ✓ Size &amp; scale · 50 m · 1 unit = 1 m</span>
+<span class="bad">  × East ground · forest 0 m / village 1 m
+  Placement blocked.</span>
+<span class="dim">  Fix: use the shared path-3m border mesh.</span>
+
+<span class="dim">  # After updating the village boundary</span>
+<span class="prompt">$</span> threetopia check
+<span class="ok">  ✓ All 6 boundary profiles
+  ✓ Declared heights, corners &amp; water
+  ✓ Asset manifest &amp; collider references
+  Ready to preview.</span>
+
+<span class="prompt">$</span> threetopia preview
+<span class="dim">  Open forest with its six neighbours.
+  # Inspect seams, collisions &amp; frame cost</span>
+
+<span class="prompt">$</span> threetopia publish
+<span class="ok">  ✓ Published forest@0.1.0.</span></code></pre>
+    </div>
+    <ol class="commands">
+      <li><code>threetopia init</code><span>Set up a tile with the shared coordinates, lifecycle hooks and asset manifest.</span></li>
+      <li><code>threetopia add &lt;component&gt;</code><span>Use a shared edge profile or build with something another creator has made.</span></li>
+      <li><code>threetopia check</code><span>Check size, scale, edge declarations and asset references. For a placement, compare all six sides with their neighbours.</span></li>
+      <li><code>threetopia preview</code><span>Load the tiles together. Walk across borders and inspect collisions, materials, lighting and frame cost.</span></li>
+      <li><code>threetopia publish</code><span>Publish a version of your tile or component, with its dependencies and creator credits, ready for placement.</span></li>
+    </ol>
+  </div>
+  <p class="story-width cli-note">A preview of the intended workflow. The CLI is still in development.</p>
+</section>

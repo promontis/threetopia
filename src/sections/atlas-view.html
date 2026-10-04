@@ -1,0 +1,26 @@
+<div class="atlas-layout">
+  <div class="atlas-stage" data-atlas-stage>
+    <div class="atlas-map-tools">
+      <button class="atlas-tool" data-atlas-build aria-pressed="false"><span aria-hidden="true">＋</span> Build here</button>
+      <button class="atlas-tool atlas-layers-button" data-atlas-layers-toggle aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Zm0 5 9 5 9-5M3 18l9 5 9-5"/></svg> Layers</button>
+    </div>
+    <div class="atlas-zoom"><button data-atlas-plus aria-label="Zoom in">＋</button><button data-atlas-minus aria-label="Zoom out">−</button><span></span><button data-atlas-fit aria-label="Show all worlds">⤢</button><button data-atlas-location aria-label="Centre on your position">⌖</button></div>
+    <div class="atlas-bottom-tools"><button data-atlas-motion aria-pressed="true" aria-label="Pause map animations"><span data-motion-icon aria-hidden="true">Ⅱ</span><span data-motion-label>Motion on</span></button><label><input type="checkbox" data-atlas-boundaries> Tile edges</label></div>
+    <div class="atlas-compass" aria-label="North"><span>N</span><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="23"/><path d="M32 1v62M1 32h62M32 9l6 23-6 23-6-23Z"/><path class="compass-fill" d="m32 9 6 23-6-5Z"/></svg></div>
+    <div class="atlas-scale"><span data-atlas-scale>Loading map…</span><small>Drag to explore · scroll to zoom</small></div>
+    <div class="atlas-world-dock" data-atlas-worlds aria-label="Worlds"></div>
+    <p class="atlas-status" data-atlas-status role="status">Loading the map…</p>
+  </div>
+  <aside class="atlas-panel atlas-build-panel" data-atlas-build-panel aria-label="Available tiles" hidden>
+    <div class="atlas-panel-header"><p>EXPAND THE WORLD</p><button data-atlas-explore aria-label="Close tile placement">×</button></div>
+    <h2>Available tiles</h2><p class="atlas-panel-description">Choose an ocean tile around the centre. Review its neighbours and shared edges.</p>
+    <div data-atlas-slots></div><a class="atlas-docs-link" href="/docs/#image-layers">Creator documentation ↗</a>
+  </aside>
+  <aside class="atlas-panel atlas-layers-panel" data-atlas-layers-panel aria-label="Map layers" hidden>
+    <div class="atlas-panel-header"><p>MAP COMPOSITION</p><button data-atlas-layers-close aria-label="Close layers">×</button></div>
+    <h2>Layers</h2><p class="atlas-panel-description">Explore each tile’s landscape, moving objects and atmosphere.</p>
+    <div data-atlas-layer-list></div>
+    <a class="atlas-docs-link" href="/docs/#image-layers">Make a map tile ↗</a>
+  </aside>
+  <aside class="atlas-panel atlas-details" data-atlas-details aria-label="Selected place" hidden></aside>
+</div>

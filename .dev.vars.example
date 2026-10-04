@@ -1,0 +1,5 @@
+# Local `pnpm dev` captures email instead of sending it. No secrets are needed.
+# The local Cloudflare email binding never sends external messages.
+# Never commit .dev.vars. Set production secrets with `wrangler secret put`.
+# Optional local override for integration fixtures:
+# TURNSTILE_SECRET_KEY=...
