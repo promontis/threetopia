@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "kind": "scene-tile",
+  "units": "metres",
+  "origin": "tile-centre",
+  "radius": 400,
+  "source": {
+    "kind": "runtime",
+    "id": "lagoon"
+  },
+  "bounds": {
+    "minY": -12,
+    "maxY": 180
+  },
+  "omit": [],
+  "landmarks": [
+    {
+      "id": "tree-village",
+      "label": "Tree village",
+      "kind": "village",
+      "position": [
+        -40,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "arrival",
+      "label": "Arrival beach",
+      "kind": "spawn",
+      "position": [
+        -57,
+        2,
+        27.5
+      ]
+    },
+    {
+      "id": "canopy",
+      "label": "Canopy walk",
+      "kind": "nature",
+      "position": [
+        31,
+        2,
+        -12
+      ]
+    }
+  ]
+}

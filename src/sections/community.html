@@ -1,0 +1,60 @@
+<section class="story-section world-questions" id="faq">
+  <div class="story-width questions-layout">
+    <h2>A few practical questions</h2>
+    <div class="world-answers">
+      <details><summary>Can I bring a project I already maintain?</summary><p>Yes. Your project can stay in its own repo. A standalone demo may need an adapter: it must use the world’s renderer and controls, expose update and cleanup hooks, and declare the assets it uses.</p></details>
+      <details><summary>Do I need to build a whole scene?</summary><p>No. Grass, water, materials, birds or a single building can all be contributions. Other creators can use those parts in their scenes.</p></details>
+      <details><summary>Do our scenes need to look alike?</summary><p>The interiors can have their own style. Shared border geometry, material transitions and lighting rules help the joins feel continuous. Exactly how much freedom that leaves is something we want to test with the first creators.</p></details>
+      <details><summary>What if two tiles don’t match?</summary><p>Rotate the tile, choose a compatible neighbour or build a transition tile. All six boundaries need to fit, including their corner heights. Matching declarations still need a preview together; they do not prove that the actual meshes line up.</p></details>
+      <details><summary>Can I explore Threetopia yet?</summary><p>Yes. Walk from Lagoon Tree Village through Sakura River Valley and Tidewater to Threejs-Punk in one connected world. <a href="https://world.threetopia.com/">Step inside the world.</a> You’ll need a browser with WebGPU. The creator tools are still in development.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="story-section story-invitation" id="beta">
+  <div class="story-width invitation-layout">
+    <div class="invitation-copy waitlist-intro">
+      <h2>Join the first creators.</h2>
+      <p>Leave your email to get an invite when the first shared world is ready.</p>
+      <p class="waitlist-aside">Already building something? We’d love to see it.</p>
+      <a class="waitlist-contact" href="https://x.com/promontis" target="_blank" rel="noopener noreferrer">Get in touch on X <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="waitlist" data-waitlist>
+      <form class="waitlist-form" aria-label="Join the waitlist" method="post" action="/api/waitlist">
+        <div class="waitlist-field">
+          <label for="waitlist-email">Email</label>
+          <input id="waitlist-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required aria-describedby="waitlist-email-error">
+          <p class="waitlist-field-error" id="waitlist-email-error" hidden></p>
+        </div>
+        <div class="waitlist-optional">
+          <div class="waitlist-field">
+            <label for="waitlist-project">Your project <span>optional</span></label>
+            <input id="waitlist-project" name="projectUrl" type="url" placeholder="https://your-demo.com" maxlength="2048" aria-describedby="waitlist-project-error">
+            <p class="waitlist-field-error" id="waitlist-project-error" hidden></p>
+          </div>
+          <div class="waitlist-field">
+            <label for="waitlist-x">X handle <span>optional</span></label>
+            <input id="waitlist-x" name="xHandle" type="text" placeholder="@yourname" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="waitlist-x-error">
+            <p class="waitlist-field-error" id="waitlist-x-error" hidden></p>
+          </div>
+        </div>
+        <div class="waitlist-honey" aria-hidden="true" inert>
+          <label for="waitlist-company">Company</label><input id="waitlist-company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="waitlist-challenge" data-waitlist-challenge></div>
+        <button class="waitlist-submit" type="submit" disabled>Join the waitlist <span aria-hidden="true">↗</span></button>
+        <p class="waitlist-note">We’ll email you about early access to Threetopia. Confirm your email to join.</p>
+        <p class="waitlist-message" role="status" aria-live="polite" data-waitlist-message></p>
+        <noscript><p class="waitlist-note">Enable JavaScript to join the waitlist, or get in touch using the X link.</p></noscript>
+      </form>
+      <div class="waitlist-success" data-waitlist-success hidden>
+        <span class="waitlist-success-mark" aria-hidden="true">✓</span>
+        <h3 tabindex="-1">Check your inbox.</h3>
+        <p data-waitlist-result></p>
+        <p class="waitlist-local" data-waitlist-local hidden>Local preview: no email was sent. <a data-waitlist-preview>Preview confirmation email</a></p>
+        <p class="waitlist-note">No email? Check your spam folder, or try again in a minute.</p>
+        <button class="waitlist-back" type="button" data-waitlist-back>Back to the form</button>
+      </div>
+    </div>
+  </div>
+</section>

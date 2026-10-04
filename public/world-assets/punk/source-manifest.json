@@ -1,0 +1,141 @@
+{
+  "source": "https://github.com/ektogamat/threejs-conference",
+  "revision": "8cc20593b2270e2ce832e7b7b44356705daddec4",
+  "files": [
+    {
+      "path": "custom_noise.webp",
+      "bytes": 16692,
+      "sha256": "4c65d7c41c126a5662fea82318cea3ca6778e9ebcf5e42362e6080de4cf04ad0"
+    },
+    {
+      "path": "custom_perlin.webp",
+      "bytes": 89878,
+      "sha256": "a61440777841c434f81dd53baead30674f08cb17600cd02a30599ca1228a9afa"
+    },
+    {
+      "path": "hdri/sunflowers_puresky_1k.hdr",
+      "bytes": 1482923,
+      "sha256": "39a18be788fda30e1b1929d4ebd78b5da14433a6e2271eff1928a35e481c5111"
+    },
+    {
+      "path": "hdri/white_home_studio_1k.hdr",
+      "bytes": 1520776,
+      "sha256": "62b0ecd8e67a8e02ec040494dc919cb6496f9bb8568b395b159e3a7480beae69"
+    },
+    {
+      "path": "libs/basis/basis_transcoder.js",
+      "bytes": 57529,
+      "sha256": "8478b5b6d6b74e7d3082b89f6417321d8d1dc0307f2b30d4484bb11b441696a1"
+    },
+    {
+      "path": "libs/basis/basis_transcoder.wasm",
+      "bytes": 527333,
+      "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
+    },
+    {
+      "path": "libs/draco/draco_decoder.js",
+      "bytes": 512465,
+      "sha256": "8625489da79a805f4f2a7d511c3e52d8b4085608a9d2a4d5f4f9de5db0aea04f"
+    },
+    {
+      "path": "libs/draco/draco_decoder.wasm",
+      "bytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    {
+      "path": "libs/draco/draco_encoder.js",
+      "bytes": 954360,
+      "sha256": "6d4132d7b68d26d20a43a1ed59ff4b4a694fbaad41b339158db050dbd0e68f56"
+    },
+    {
+      "path": "libs/draco/draco_wasm_wrapper.js",
+      "bytes": 58456,
+      "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
+    },
+    {
+      "path": "models/billboards.glb",
+      "bytes": 7968,
+      "sha256": "9a8a53eb1445b8935e2918584e83d4e2f6a22b619d7e7ebcfaaade6184a0598c"
+    },
+    {
+      "path": "models/colider.glb",
+      "bytes": 2700,
+      "sha256": "fc928780d0b184871513f9c4dec0dcb195e27f6bb7ba29a13d59e78dda0e5ecc"
+    },
+    {
+      "path": "models/cyberpunk_compressed.glb",
+      "bytes": 4747816,
+      "sha256": "f28aa552177bdc758ad2863e5c0b2642a41226774239c35a6d9617144fb53ba4"
+    },
+    {
+      "path": "models/plane.glb",
+      "bytes": 2478132,
+      "sha256": "26f238dd8e9146078f6120b2074cd7061ab57ad8751c085170fdae8fa7ab4e9f"
+    },
+    {
+      "path": "models/quadra.glb",
+      "bytes": 2675848,
+      "sha256": "cc856c042226cec255d9f686cc9966149a7ba191cbe81a9c0addea9e1cea59d0"
+    },
+    {
+      "path": "textures/rainDrop.png",
+      "bytes": 4852,
+      "sha256": "d50a7fbd63f35d8e3426c566b12e451217ed4994f262c175fe37a0dccc64b261"
+    },
+    {
+      "path": "textures/smoke.png",
+      "bytes": 182047,
+      "sha256": "45bd83b65d18ede6f9a2ec7ea45fedfd77c86e60c2041ac535d5f44b5d99c6be"
+    },
+    {
+      "path": "textures/water-splash.webp",
+      "bytes": 3442,
+      "sha256": "7090659cf8a470b9fdd9cc0b765e8881c8a8e0ad50507e9d9d08d6ee1a297dc5"
+    },
+    {
+      "path": "textures/wet-puddles-albedo.jpg",
+      "bytes": 995495,
+      "sha256": "02b5d56bbf392b8eb17128a24c824bac427df1fb223da8d4992519444db6bff0"
+    },
+    {
+      "path": "textures/wet-puddles-normal.jpg",
+      "bytes": 1124507,
+      "sha256": "37ba6e3cb14567e3b892be65e36477d8626b2c8b02207c936d2535e792504591"
+    },
+    {
+      "path": "textures/wet-puddles-roughness.jpg",
+      "bytes": 1303850,
+      "sha256": "736eb52bf60596ee1b42ae5830e0b761ae82295dda5c8138880e2b42ad8cd5bd"
+    },
+    {
+      "path": "video/imagine-art-feed-item-2.mp4",
+      "bytes": 619318,
+      "sha256": "552f1f96e93e8692be1208342919edc0c7f2a190379f41c6f6c1e60dd1cbbaba"
+    },
+    {
+      "path": "video/imagine-art-feed-item-3.mp4",
+      "bytes": 649017,
+      "sha256": "b0f729f506e3e7f69774726f7aba7ef3b7742997a6af6d4be21a9de9467e1256"
+    },
+    {
+      "path": "video/imagine-art-feed-item-4.mp4",
+      "bytes": 666077,
+      "sha256": "c20c6e6f0709fde6678cea89ee76bcd3824d11a24772d7789fd16e9b7cb4aa3d"
+    },
+    {
+      "path": "video/imagine-art-feed-item-5.mp4",
+      "bytes": 680921,
+      "sha256": "da7fceb955eed1de2eff1416afb0bf17bf3d8883ead47566e11d71497ec7f206"
+    },
+    {
+      "path": "video/imagine-art-feed-item-6.mp4",
+      "bytes": 580687,
+      "sha256": "8115833c7f74b7db8a1438f9156ab0d645e2ab38182293b22a14137cefeafd45"
+    },
+    {
+      "path": "video/imagine-art-feed-item.mp4",
+      "bytes": 619083,
+      "sha256": "66b324dfe94515d16a18ea370d88f4722685b02cca32de78b99b4e89dabfc9be"
+    }
+  ]
+}

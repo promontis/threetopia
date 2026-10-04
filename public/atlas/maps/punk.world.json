@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "punk",
+  "title": "Threejs-Punk",
+  "tile": {
+    "q": 0,
+    "r": -1
+  },
+  "edges": [
+    "open-sea",
+    "shore-path",
+    "open-sea",
+    "open-sea",
+    "open-sea",
+    "open-sea"
+  ],
+  "map": "punk.json"
+}

@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "kind": "image-tile",
+  "origin": "tile-centre",
+  "radius": 400,
+  "capture": {
+    "kind": "world-render",
+    "revision": "6eecbbe7b76997a2c8630b115d888b55b4c209f4a0ce5bf7e74fb566cc30ea19",
+    "source": {
+      "kind": "runtime",
+      "id": "tidewater"
+    },
+    "camera": {
+      "yaw": -20,
+      "elevation": 45,
+      "projection": "orthographic"
+    }
+  },
+  "terrain": {
+    "src": "/map/renders/tidewater-terrain.webp",
+    "preview": "/map/renders/tidewater-all.webp",
+    "position": [
+      1.2944667560077505e-8,
+      -80.61017293767554
+    ],
+    "size": [
+      811.846202383877,
+      733.7613283699496
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  },
+  "components": [
+    {
+      "id": "vegetation",
+      "label": "Source trees & plants",
+      "src": "/map/renders/tidewater-vegetation.webp",
+      "position": [
+        1.2944667560077505e-8,
+        -80.61017293767554
+      ],
+      "size": [
+        811.846202383877,
+        733.7613283699496
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "foliage",
+        "speed": 0.4,
+        "isolated": true
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "fishing-pier",
+      "label": "Fishing pier",
+      "position": [
+        65.37252760984852,
+        32.55402626470356
+      ]
+    },
+    {
+      "id": "fishing-village",
+      "label": "Fishing village",
+      "position": [
+        0.6581570858609211,
+        -63.74274909495853
+      ]
+    },
+    {
+      "id": "reef",
+      "label": "The reef",
+      "position": [
+        -50.030026941558575,
+        83.32434437976715
+      ]
+    }
+  ]
+}

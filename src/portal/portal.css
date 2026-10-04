@@ -1,0 +1,86 @@
+.hero-entry {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: clamp(152px, 12vw, 216px);
+  aspect-ratio: 3 / 5;
+  border-radius: 50%;
+  color: var(--theme-inverse);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* A transparent, usable portal is present before WebGL loads, and without it. */
+.hero-entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(var(--theme-paper-rgb), .95);
+  border-radius: 50%;
+  background: linear-gradient(rgba(var(--theme-shadow-rgb), .03), rgba(var(--theme-shadow-rgb), .12)), url('/portal/forest-path-v2.webp') center / cover;
+  box-shadow: 0 0 0 3px rgba(var(--theme-paper-rgb), .1), 0 0 28px rgba(var(--theme-paper-rgb), .4), inset 0 0 12px rgba(var(--theme-paper-rgb), .3);
+  transition: opacity .3s, transform .45s ease, box-shadow .4s ease;
+}
+.hero-entry:focus-visible::before {
+  transform: scale(1.065);
+  box-shadow: 0 0 0 3px rgba(var(--theme-paper-rgb), .2), 0 0 46px rgba(var(--theme-paper-rgb), .7), inset 0 0 18px rgba(var(--theme-paper-rgb), .45);
+}
+@media (hover: hover) {
+  .hero-entry:hover::before {
+    transform: scale(1.065);
+    box-shadow: 0 0 0 3px rgba(var(--theme-paper-rgb), .2), 0 0 46px rgba(var(--theme-paper-rgb), .7), inset 0 0 18px rgba(var(--theme-paper-rgb), .45);
+  }
+}
+.hero-entry[data-portal-state='ready']::before { opacity: 0; }
+.portal-canvas { position: absolute; left: -100%; top: 50%; display: block; width: 300%; height: auto; aspect-ratio: 1; pointer-events: none; transform: translateY(-50%) translateZ(0); backface-visibility: hidden; opacity: 0; transition: opacity .2s ease; }
+.hero-entry[data-portal-state='ready'] .portal-canvas { opacity: 1; }
+.portal-label {
+  position: relative;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: clamp(11px, .8vw, 12px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: .22em;
+  text-indent: .22em;
+  text-transform: uppercase;
+  color: var(--theme-inverse);
+  text-shadow: 0 1px 5px rgba(var(--theme-shadow-rgb), .85), 0 0 12px rgba(var(--theme-paper-rgb), .4);
+  transition: opacity .2s, transform .3s, text-shadow .3s;
+}
+.hero-entry:hover .portal-label, .hero-entry:focus-visible .portal-label {
+  text-shadow: 0 0 12px rgba(var(--theme-paper-rgb), .9);
+}
+/* Keep the link's accessible name while the shader draws the visible lettering. */
+.hero-entry[data-portal-state='ready'][data-portal-label='integrated'] .portal-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.hero .hero-entry:focus-visible { outline: 1px solid var(--theme-inverse); outline-offset: 12px; border-radius: 50%; }
+
+/* The approach is rendered inside the existing canvas. Scaling the canvas
+   itself produced huge composited layers and stale frames on history return. */
+.hero-entry.is-entering { pointer-events: none; }
+.hero-entry.is-entering .portal-label { opacity: 0; }
+
+@media (max-width: 1199px) {
+  .hero-entry { width: 144px; }
+}
+@media (max-width: 760px) {
+  .hero .hero-entry { width: 138px; margin-top: 16px; margin-bottom: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-entry::before, .portal-label, .portal-canvas { transition: none; }
+  .hero-entry:is(:hover, :focus-visible)::before { transform: none; }
+}

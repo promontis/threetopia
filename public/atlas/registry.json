@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "tiles": [
+    {
+      "id": "lagoon",
+      "title": "Lagoon Tree Village",
+      "short": "Lagoon",
+      "creator": "cryptomanavan",
+      "q": 0,
+      "r": 0,
+      "edges": [
+        "shore-path",
+        "open-sea",
+        "shore-path",
+        "open-sea",
+        "shore-path",
+        "open-sea"
+      ],
+      "color": "#b9aa79",
+      "description": "Winding stairs, woven homes and a village among the trees.",
+      "map": "/atlas/maps/lagoon.json",
+      "imageMap": "/map/tiles/lagoon.json",
+      "sceneMap": "/atlas/scenes/lagoon.json"
+    },
+    {
+      "id": "sakura",
+      "title": "Sakura River Valley",
+      "short": "Sakura",
+      "creator": "Meng To",
+      "q": 1,
+      "r": 0,
+      "edges": [
+        "open-sea",
+        "open-sea",
+        "open-sea",
+        "shore-path",
+        "open-sea",
+        "open-sea"
+      ],
+      "color": "#b6818d",
+      "description": "Follow the river beneath the blossoms, across the red bridge.",
+      "map": "/atlas/maps/sakura.json",
+      "imageMap": "/map/tiles/sakura.json",
+      "sceneMap": "/atlas/scenes/sakura.json"
+    },
+    {
+      "id": "tidewater",
+      "title": "Tidewater",
+      "short": "Tidewater",
+      "creator": "Dan Greenheck",
+      "q": -1,
+      "r": 1,
+      "edges": [
+        "open-sea",
+        "open-sea",
+        "open-sea",
+        "open-sea",
+        "open-sea",
+        "shore-path"
+      ],
+      "color": "#6eaaa4",
+      "description": "A fishing village where the forest opens onto the sea.",
+      "map": "/atlas/maps/tidewater.json",
+      "imageMap": "/map/tiles/tidewater.json",
+      "sceneMap": "/atlas/scenes/tidewater.json"
+    },
+    {
+      "id": "punk",
+      "title": "Threejs-Punk",
+      "short": "Punk",
+      "creator": "Anderson Mancini & Sunag",
+      "q": 0,
+      "r": -1,
+      "edges": [
+        "open-sea",
+        "shore-path",
+        "open-sea",
+        "open-sea",
+        "open-sea",
+        "open-sea"
+      ],
+      "color": "#8683b1",
+      "description": "The coast becomes a city of neon, wet streets and distant towers.",
+      "map": "/atlas/maps/punk.json",
+      "imageMap": "/map/tiles/punk.json",
+      "sceneMap": "/atlas/scenes/punk.json"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+/* One shell across the landing, creator app and documentation. */
+:root { --site-header-height: 64px; }
+body:has(> .site-header), body:has(#home-view > .site-header) {
+  padding-top: var(--site-header-height);
+}
+html:has(.site-header) { scroll-padding-top: calc(var(--site-header-height) + 24px); }
+.site-header {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: calc(var(--site-brand-column-width) - 48px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  height: var(--site-header-height);
+  padding: 0 24px;
+  border-bottom: 1px solid var(--theme-border);
+  background: var(--theme-background);
+  color: var(--theme-text);
+  font-family: var(--sans);
+  line-height: 1.4;
+}
+.site-header a { text-decoration: none; }
+.site-header a:focus-visible, .site-header button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  color: var(--theme-text);
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -.9px;
+  white-space: nowrap;
+}
+.site-brand:hover { color: var(--theme-text); }
+.site-brand-mark { display: block; width: 30px; height: 30px; flex: none; fill: currentColor; }
+.site-nav { display: flex; align-self: stretch; gap: 8px; min-width: 0; }
+.site-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 14px;
+  color: var(--theme-text-muted);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.site-nav-link::after {
+  position: absolute;
+  content: '';
+  inset: auto 12px -1px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: transparent;
+}
+.site-nav-link:hover { color: var(--theme-text); }
+.site-nav-link[aria-current] { color: var(--theme-text); font-weight: 600; }
+.site-nav-link[aria-current]::after { background: var(--theme-text); }
+.site-nav-arrow { width: 12px; height: 12px; stroke: currentColor; stroke-width: 1.4; }
+.site-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 0; }
+.site-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--control-height);
+  padding: 8px 16px;
+  border: 1px solid var(--theme-accent);
+  border-radius: var(--radius-control);
+  background: var(--theme-accent);
+  color: var(--theme-inverse);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.site-cta:hover { color: var(--theme-inverse); background: var(--theme-accent-hover); }
+.site-account-control { position: relative; display: flex; align-items: center; gap: 12px; flex: none; }
+.site-sign-in { padding: 8px 2px; color: var(--theme-text-secondary); font-size: var(--text-ui); font-weight: 500; white-space: nowrap; }
+.site-sign-in:hover { color: var(--theme-text); }
+.site-header .site-account { display: flex; align-items: center; gap: 9px; min-height: var(--control-height); padding: 4px 0 4px 8px; border: 0; background: none; color: var(--theme-text-secondary); font: inherit; font-size: var(--text-small); cursor: pointer; }
+.site-account:hover { color: var(--theme-text); }
+.site-account > svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.5; }
+.site-account[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.site-account-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 248px;
+  max-width: calc(100vw - 32px);
+  padding: 6px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-panel);
+  background: var(--theme-surface);
+  box-shadow: var(--shadow-popover);
+  color: var(--theme-text);
+  font-size: var(--text-ui);
+}
+.site-account-panel[hidden] { display: none; }
+.site-account-identity { display: grid; gap: 4px; padding: 10px 10px 14px; border-bottom: 1px solid var(--theme-border); margin-bottom: 6px; }
+.site-account-identity strong { font-size: var(--text-ui); font-weight: 600; overflow-wrap: anywhere; }
+.site-account-identity > span { color: var(--theme-text-muted); font-size: var(--text-small); overflow-wrap: anywhere; }
+.site-account-links { display: grid; gap: 2px; }
+.site-header .site-account-links a, .site-header .site-account-links button {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  min-height: var(--control-height); padding: 9px 10px; border: 0; border-radius: var(--radius-small); background: none; color: var(--theme-text-secondary);
+  text-align: left; font: inherit; font-size: var(--text-ui); line-height: 1.4; cursor: pointer;
+}
+.site-header .site-account-links :is(a,button):hover, .site-header .site-account-links :is(a,button):focus-visible { background: var(--theme-subtle); color: var(--theme-text); }
+.site-header .site-account-links button:disabled { cursor: wait; opacity: .6; }
+.site-account-divider { height: 1px; margin: 5px -6px; background: var(--theme-border); }
+.site-account-error { margin: 6px 10px 10px; font-size: var(--text-small); line-height: 1.5; color: var(--theme-danger); }
+.site-account-avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--theme-border-strong);
+  border-radius: 50%;
+  background: var(--theme-selected);
+  color: var(--theme-text-secondary);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+.site-account-name { max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 900px) {
+  :root { --site-header-height: 104px; }
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 60px 44px;
+    gap: 0 16px;
+    padding: 0 20px;
+  }
+  .site-brand { font-size: 22px; gap: 8px; }
+  .site-actions { grid-column: 2; grid-row: 1; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; gap: 8px; margin: 0 -12px; }
+  .site-nav-link { padding: 0 12px; }
+  .site-cta { padding-inline: 12px; }
+  .site-account-control { gap: 9px; }
+  .site-account-name { display: none; }
+}
+@media (max-width: 360px) {
+  .site-header { padding: 0 16px; gap: 0 10px; }
+  .site-brand { font-size: 20px; }
+  .site-brand-mark { width: 27px; height: 27px; }
+}

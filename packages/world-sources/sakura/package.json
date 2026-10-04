@@ -1,0 +1,15 @@
+{
+  "name": "@threetopia/source-sakura",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pinned upstream scene source for the shared Threetopia runtime",
+  "exports": {
+    "./package.json": "./package.json",
+    "./snapshot": "./source-manifest.json"
+  },
+  "upstream": {
+    "url": "https://valley.mengto.here.now/",
+    "revision": "scene-SV5IBQX7"
+  }
+}

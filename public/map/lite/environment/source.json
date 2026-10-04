@@ -1,0 +1,53 @@
+{
+  "source": "https://github.com/dgreenheck/tidewater",
+  "creator": "Dan Greenheck",
+  "geometry": [
+    "world/terrain/RockGeometry.js",
+    "world/vegetation/PlantGeometry.js"
+  ],
+  "adaptations": [
+    "Native rock fracture geometry and cavity colours, subdivision 2",
+    "Native far palm, young palm and fern geometry; native material palettes baked as vertex colour",
+    "Instanced, seeded placement belongs to the map host"
+  ],
+  "bytes": 46828,
+  "sha256": "a117f35448148f85ef45ac92f7317ce221f4fcc1f60392c6e8ea9aafb489aafb",
+  "meshes": [
+    {
+      "name": "rock-0",
+      "triangles": 320
+    },
+    {
+      "name": "rock-1",
+      "triangles": 320
+    },
+    {
+      "name": "rock-2",
+      "triangles": 320
+    },
+    {
+      "name": "rock-3",
+      "triangles": 320
+    },
+    {
+      "name": "rock-4",
+      "triangles": 320
+    },
+    {
+      "name": "rock-5",
+      "triangles": 320
+    },
+    {
+      "name": "palm",
+      "triangles": 184
+    },
+    {
+      "name": "young-palm",
+      "triangles": 180
+    },
+    {
+      "name": "fern",
+      "triangles": 144
+    }
+  ]
+}

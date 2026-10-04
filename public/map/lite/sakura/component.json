@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "kind": "map-landmark",
+  "id": "sakura",
+  "title": "Sakura",
+  "source": {
+    "world": "sakura",
+    "creator": "Meng To",
+    "url": "https://valley.mengto.here.now/",
+    "revision": "scene-SV5IBQX7.js",
+    "selection": "Native five-storey pagoda, red arched bridge, covered riverboat and cherry trees, composed into a compact river valley",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "scale": 1,
+    "objects": [
+      "bark",
+      "bark",
+      "bark",
+      "bark",
+      "foliage-sakura",
+      "foliage-sakura",
+      "foliage-sakura",
+      "foliage-sakura",
+      "arch-stone",
+      "arch-stone",
+      "arch-woodDark",
+      "arch-woodDark",
+      "arch-lacquer",
+      "arch-lacquer",
+      "arch-plaster",
+      "arch-tile",
+      "arch-black",
+      "arch-gold",
+      "arch-bronze",
+      "arch-bronze",
+      "arch-granite",
+      "arch-granite",
+      "arch-lanternGlow",
+      "hull",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "boat-wood",
+      "boat-darkWood",
+      "boat-bamboo",
+      "boat-rope",
+      "boat-iron",
+      "boat-reed",
+      "boat-clay",
+      "boat-black"
+    ],
+    "triangles": 214088
+  },
+  "adaptations": [
+    "Native geometry reduced and merged by material role",
+    "Native landmark groups composed in map space",
+    "Native base colours sampled into vertex colours; source surface shaders omitted",
+    "Native leaf cards and cutout texture retained with reduced density where applicable",
+    "Hidden and subpixel details removed; duplicate and degenerate faces removed after quantization",
+    "Native landmark groups are individually scaled and positioned in a shared map riverbed; source-world distances are intentionally compressed"
+  ],
+  "anchor": "ground-centre",
+  "units": "map-metres",
+  "surface": null,
+  "bounds": {
+    "radius": 6.979623895082283,
+    "height": 5.564500331878662
+  },
+  "lods": [
+    {
+      "level": "tile",
+      "url": "landmark.glb",
+      "triangles": 21175,
+      "drawCalls": 3,
+      "bytes": 514804,
+      "textureSize": 512,
+      "sha256": "e19e198e35869dc86b0ba0f5e7b6c747bf3d1c7df367d2d1ecbe92f6d88fb170",
+      "parts": [
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 10516,
+          "triangles": 641
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 8822,
+          "triangles": 473
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 10516,
+          "triangles": 620
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 8822,
+          "triangles": 407
+        },
+        {
+          "name": "arch-stone",
+          "role": "structure",
+          "source": 60,
+          "triangles": 60
+        },
+        {
+          "name": "arch-stone",
+          "role": "structure",
+          "source": 14,
+          "triangles": 14
+        },
+        {
+          "name": "arch-woodDark",
+          "role": "structure",
+          "source": 44736,
+          "triangles": 4374
+        },
+        {
+          "name": "arch-woodDark",
+          "role": "structure",
+          "source": 1896,
+          "triangles": 564
+        },
+        {
+          "name": "arch-lacquer",
+          "role": "structure",
+          "source": 9456,
+          "triangles": 1198
+        },
+        {
+          "name": "arch-lacquer",
+          "role": "structure",
+          "source": 1424,
+          "triangles": 308
+        },
+        {
+          "name": "arch-plaster",
+          "role": "structure",
+          "source": 2640,
+          "triangles": 456
+        },
+        {
+          "name": "arch-tile",
+          "role": "structure",
+          "source": 48556,
+          "triangles": 3476
+        },
+        {
+          "name": "arch-black",
+          "role": "structure",
+          "source": 24,
+          "triangles": 16
+        },
+        {
+          "name": "arch-gold",
+          "role": "structure",
+          "source": 184,
+          "triangles": 46
+        },
+        {
+          "name": "arch-bronze",
+          "role": "structure",
+          "source": 2212,
+          "triangles": 160
+        },
+        {
+          "name": "arch-bronze",
+          "role": "structure",
+          "source": 864,
+          "triangles": 102
+        },
+        {
+          "name": "arch-granite",
+          "role": "structure",
+          "source": 664,
+          "triangles": 90
+        },
+        {
+          "name": "arch-granite",
+          "role": "structure",
+          "source": 278,
+          "triangles": 58
+        },
+        {
+          "name": "arch-lanternGlow",
+          "role": "structure",
+          "source": 48,
+          "triangles": 24
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 5764,
+          "triangles": 2080
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 4860,
+          "triangles": 1632
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 5764,
+          "triangles": 2010
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 4860,
+          "triangles": 1474
+        },
+        {
+          "name": "hull",
+          "role": "boat",
+          "source": 5508,
+          "triangles": 449
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 480,
+          "triangles": 76
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 28,
+          "triangles": 18
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 12
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 12
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 28,
+          "triangles": 18
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 12
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 12
+        },
+        {
+          "name": "boat-wood",
+          "role": "boat",
+          "source": 1716,
+          "triangles": 144
+        },
+        {
+          "name": "boat-darkWood",
+          "role": "boat",
+          "source": 2284,
+          "triangles": 266
+        },
+        {
+          "name": "boat-bamboo",
+          "role": "boat",
+          "source": 15032,
+          "triangles": 410
+        },
+        {
+          "name": "boat-rope",
+          "role": "boat",
+          "source": 14120,
+          "triangles": 416
+        },
+        {
+          "name": "boat-iron",
+          "role": "boat",
+          "source": 272,
+          "triangles": 56
+        },
+        {
+          "name": "boat-reed",
+          "role": "boat",
+          "source": 1376,
+          "triangles": 129
+        },
+        {
+          "name": "boat-clay",
+          "role": "boat",
+          "source": 192,
+          "triangles": 48
+        },
+        {
+          "name": "boat-black",
+          "role": "boat",
+          "source": 16,
+          "triangles": 14
+        }
+      ]
+    },
+    {
+      "level": "overview",
+      "url": "overview.glb",
+      "triangles": 6877,
+      "drawCalls": 3,
+      "bytes": 176392,
+      "textureSize": 256,
+      "sha256": "7ce2873342ed78858333e42a353eb0b4dbadb12eb7ae8be986116e6277e190f3",
+      "parts": [
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 10516,
+          "triangles": 226
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 8822,
+          "triangles": 162
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 10516,
+          "triangles": 211
+        },
+        {
+          "name": "bark",
+          "role": "structure",
+          "source": 8822,
+          "triangles": 160
+        },
+        {
+          "name": "arch-stone",
+          "role": "structure",
+          "source": 60,
+          "triangles": 26
+        },
+        {
+          "name": "arch-stone",
+          "role": "structure",
+          "source": 14,
+          "triangles": 6
+        },
+        {
+          "name": "arch-woodDark",
+          "role": "structure",
+          "source": 44736,
+          "triangles": 1590
+        },
+        {
+          "name": "arch-woodDark",
+          "role": "structure",
+          "source": 1896,
+          "triangles": 206
+        },
+        {
+          "name": "arch-lacquer",
+          "role": "structure",
+          "source": 9456,
+          "triangles": 404
+        },
+        {
+          "name": "arch-lacquer",
+          "role": "structure",
+          "source": 1424,
+          "triangles": 114
+        },
+        {
+          "name": "arch-plaster",
+          "role": "structure",
+          "source": 2640,
+          "triangles": 456
+        },
+        {
+          "name": "arch-tile",
+          "role": "structure",
+          "source": 48556,
+          "triangles": 1270
+        },
+        {
+          "name": "arch-black",
+          "role": "structure",
+          "source": 24,
+          "triangles": 6
+        },
+        {
+          "name": "arch-gold",
+          "role": "structure",
+          "source": 184,
+          "triangles": 16
+        },
+        {
+          "name": "arch-bronze",
+          "role": "structure",
+          "source": 2212,
+          "triangles": 60
+        },
+        {
+          "name": "arch-bronze",
+          "role": "structure",
+          "source": 864,
+          "triangles": 36
+        },
+        {
+          "name": "arch-granite",
+          "role": "structure",
+          "source": 664,
+          "triangles": 32
+        },
+        {
+          "name": "arch-granite",
+          "role": "structure",
+          "source": 278,
+          "triangles": 20
+        },
+        {
+          "name": "arch-lanternGlow",
+          "role": "structure",
+          "source": 48,
+          "triangles": 8
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 5764,
+          "triangles": 548
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 4860,
+          "triangles": 430
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 5764,
+          "triangles": 530
+        },
+        {
+          "name": "foliage-sakura",
+          "role": "foliage",
+          "source": 4860,
+          "triangles": 388
+        },
+        {
+          "name": "hull",
+          "role": "boat",
+          "source": 5508,
+          "triangles": 163
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 480,
+          "triangles": 28
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 28,
+          "triangles": 6
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 4
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 4
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 28,
+          "triangles": 6
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 4
+        },
+        {
+          "name": "",
+          "role": "boat",
+          "source": 14,
+          "triangles": 4
+        },
+        {
+          "name": "boat-wood",
+          "role": "boat",
+          "source": 1716,
+          "triangles": 40
+        },
+        {
+          "name": "boat-darkWood",
+          "role": "boat",
+          "source": 2284,
+          "triangles": 96
+        },
+        {
+          "name": "boat-bamboo",
+          "role": "boat",
+          "source": 15032,
+          "triangles": 36
+        },
+        {
+          "name": "boat-rope",
+          "role": "boat",
+          "source": 14120,
+          "triangles": 138
+        },
+        {
+          "name": "boat-iron",
+          "role": "boat",
+          "source": 272,
+          "triangles": 20
+        },
+        {
+          "name": "boat-reed",
+          "role": "boat",
+          "source": 1376,
+          "triangles": 46
+        },
+        {
+          "name": "boat-clay",
+          "role": "boat",
+          "source": 192,
+          "triangles": 16
+        },
+        {
+          "name": "boat-black",
+          "role": "boat",
+          "source": 16,
+          "triangles": 4
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "extraction": "d2195240fbc16fe8e30249b2c390a50fe65b20ad5077aac3fb17df23868c3509",
+    "builder": "1d78f99c12e32e3a1a08413373812cdc56935ba9c3f9ad890420f844d321728f",
+    "extractor": "1bc0a7d24eeb21c0a6f3bd6d491c3bb7d887f4a1948b17341b0a6f5d51741274",
+    "writer": "3e15aa3304733f2e474082763e8f26e4a3bba34fd8a412970f02bf01c33c613f"
+  }
+}

@@ -1,0 +1,1 @@
+{"$schema":"./node_modules/wrangler/config-schema.json","name":"threetopia-docs","account_id":"403d2b98d35ee85533629161a1b24a03","compatibility_date":"2026-10-01","workers_dev":false,"preview_urls":false,"routes":[{"pattern":"docs.threetopia.com","custom_domain":true}],"assets":{"directory":"dist/docs","not_found_handling":"none"}}

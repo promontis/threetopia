@@ -1,0 +1,10 @@
+{
+  "name": "@threetopia/source-procedural-buildings",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Pinned Chiro geometry-node evaluator and Chinese apartment kit for offline map generation.",
+  "repository": "https://github.com/achrefelouafi/ProceduralBuildingsThreeJS",
+  "peerDependencies": {"three": ">=0.185.1"}
+}

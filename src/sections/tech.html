@@ -1,0 +1,61 @@
+<section class="section section-tech" id="tech">
+        <div class="section-head">
+          <p class="kicker">02 · The technology</p>
+          <h2>One renderer. One coordinate system. One graph of packages.</h2>
+          <p class="section-lede">
+            A marketplace is only as good as what runs underneath it. Threetopia is one Three.js scene
+            streamed from regions that many people published, and a package graph that says exactly whose code is running where.
+          </p>
+        </div>
+        <div class="tech-grid">
+          <article class="tech">
+            <p class="tech-label">Renderer</p>
+            <h3>Three.js WebGPU, TSL materials</h3>
+            <p>The connected world uses <code>WebGPURenderer</code> and node materials written in TSL. The map has a separate renderer with simplified scene assets, bounded zoom and adjustable render quality.</p>
+            <pre><code><span class="kw">import</span> { WebGPURenderer }
+  <span class="kw">from</span> <span class="str">'three/webgpu'</span></code></pre>
+          </article>
+          <article class="tech">
+            <p class="tech-label">Regions</p>
+            <h3>128 m blocks with an edge contract</h3>
+            <p>A region is 128 m square. The interior is free. Along each edge an 8 m band follows a shared profile: height samples, surface class, and connectors for rivers (level, width) and paths (width, slope). The world is a grid of these, so any region can be moved or turned by a quarter and still be checkable.</p>
+            <pre><code>edges: {
+  N: river({ level: <span class="num">0</span>, width: <span class="num">6</span> }),
+  E: path({ width: <span class="num">3</span> }),
+  S: none, W: none }</code></pre>
+          </article>
+          <article class="tech">
+            <p class="tech-label">Seam solver</p>
+            <h3>Wang-tile seams, checked before placement</h3>
+            <p>Move or turn a region and the solver compares each edge with its neighbour: terrain blends inside the band, water must meet at the same level, paths within the slope limit, a river against a path needs an adapter. It reports every seam before mutating anything and rebuilds only the seams that changed.</p>
+            <pre><code>N  river ↔ river  <span class="ok">✓</span> level 0.00 · 6 m
+E  river ↔ path   <span class="bad">✕</span> no adapter</code></pre>
+          </article>
+          <article class="tech">
+            <p class="tech-label">Packages</p>
+            <h3>Ordinary npm, immutable versions</h3>
+            <p>A component is a normal npm package: code plus static assets (textures, models, audio), at most 100 MB packed, on a private registry with a standard <code>package.json</code> and lockfile. A published version never changes. Components run as reviewed runtime code and validated recipe data, never as arbitrary uploaded scripts.</p>
+            <pre><code><span class="str">"name"</span>: <span class="str">"@threetopia/alex-ocean"</span>,
+<span class="str">"version"</span>: <span class="str">"1.4.0"</span>,
+<span class="str">"threetopia"</span>: { <span class="str">"kind"</span>: <span class="str">"water"</span>,
+  <span class="str">"recipe"</span>: <span class="str">"./recipe.json"</span> }</code></pre>
+          </article>
+          <article class="tech">
+            <p class="tech-label">Provenance</p>
+            <h3>Verified from the build, not from package.json</h3>
+            <p>At publish time the built output is analysed. Only dependencies that are actually imported become verified edges; a package that is listed but never imported earns nothing. The tarball is content-hashed and the hash is part of the version. That graph, not a list you typed, is what settlement uses.</p>
+            <pre><code>verified  tom-waves <span class="ok">✓</span>  sarah-noise <span class="ok">✓</span>
+ignored   mia-sparkles <span class="bad">✕</span> never imported
+hash      sha256:9f3c…a1e2</code></pre>
+          </article>
+          <article class="tech">
+            <p class="tech-label">Settlement</p>
+            <h3>Deterministic, cent-exact, auditable</h3>
+            <p>Once a month, €8 of every subscriber is split evenly over the roots they chose, then inside each root by <span class="math">1 / 2<sup>depth</sup></span> per payout account. Every line traces back to one root envelope; envelopes reconcile to the cent. The same code that will run settlement runs the calculator further down this page, with unit tests.</p>
+            <pre><code>alex-ocean  €4.00
+  Alex €1.78 · Sarah €0.89
+  Tom  €0.89 · Bob   €0.44</code></pre>
+          </article>
+        </div>
+        <p class="tech-status"><b>Running today:</b> the WebGPU renderer and the nine-region world it rendered, the seam checks between those regions, and the settlement policy behind the calculator (unit-tested). <b>Prototype:</b> the registry, the CLI, region streaming and payments.</p>
+      </section>

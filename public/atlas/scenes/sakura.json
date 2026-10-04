@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "kind": "scene-tile",
+  "units": "metres",
+  "origin": "tile-centre",
+  "radius": 400,
+  "source": {
+    "kind": "runtime",
+    "id": "sakura"
+  },
+  "bounds": {
+    "minY": -12,
+    "maxY": 180
+  },
+  "omit": [],
+  "landmarks": [
+    {
+      "id": "red-bridge",
+      "label": "Red bridge",
+      "kind": "bridge",
+      "position": [
+        2,
+        2,
+        80
+      ]
+    },
+    {
+      "id": "river-temple",
+      "label": "River temple",
+      "kind": "village",
+      "position": [
+        45,
+        2.49,
+        -105
+      ]
+    },
+    {
+      "id": "blossom-grove",
+      "label": "Blossom grove",
+      "kind": "nature",
+      "position": [
+        10,
+        3.15,
+        -30
+      ]
+    }
+  ]
+}

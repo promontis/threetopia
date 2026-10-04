@@ -1,0 +1,20 @@
+{
+  "name": "@threetopia/cli",
+  "version": "0.5.1",
+  "type": "module",
+  "description": "Authenticate, create, validate, preview, install and publish Threetopia packages.",
+  "bin": {
+    "threetopia": "./bin/threetopia.js"
+  },
+  "files": [
+    "bin/threetopia.js",
+    "lib",
+    "sdk",
+    "runtime",
+    "README.md"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": ">=22.13"
+  }
+}

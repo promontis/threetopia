@@ -1,0 +1,80 @@
+<section class="story-section package-section" id="packages" aria-labelledby="package-title" data-package-explorer>
+  <div class="story-width package-heading">
+    <div>
+      <p class="package-eyebrow">Package explorer</p>
+      <h2 id="package-title">Find the pieces for your world.</h2>
+    </div>
+    <p>Browse packages, meet their makers and see how they fit into a world.</p>
+  </div>
+
+  <div class="story-width explorer-window">
+    <div class="package-window-bar">
+      <span class="package-window-name"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7Z M3 7l9 5 9-5M12 12v10M7.5 4.5l9 5v5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Packages</span>
+      <span class="package-preview-label">Interactive concept</span>
+    </div>
+    <div class="explorer-toolbar">
+      <label class="package-search"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.4"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><input type="search" placeholder="Search packages or creators…" aria-label="Search packages or creators" maxlength="120" data-package-search disabled /></label>
+      <div class="package-filters" role="group" aria-label="Package type">
+        <button type="button" data-package-filter="all" aria-pressed="true" disabled>All</button>
+        <button type="button" data-package-filter="Component" aria-pressed="false" disabled>Components</button>
+        <button type="button" data-package-filter="Scene" aria-pressed="false" disabled>Scenes</button>
+      </div>
+    </div>
+    <div class="explorer-body">
+      <div class="explorer-results">
+        <p class="package-results-label" role="status" aria-live="polite" data-package-results>6 example packages</p>
+        <div class="package-browser-grid" data-package-grid></div>
+        <div class="package-empty" data-package-empty hidden>
+          <p>No packages found.</p><span>Try another name, creator or category.</span>
+          <button type="button" data-package-clear>Clear search &amp; filters</button>
+        </div>
+        <noscript><p class="package-no-script">Enable JavaScript to try the explorer and Package X-ray previews.</p></noscript>
+      </div>
+      <aside class="package-detail" aria-label="Selected package" data-package-detail></aside>
+    </div>
+  </div>
+  <p class="story-width package-footnote">Explorer concept · existing projects shown as example listings.</p>
+</section>
+
+<section class="story-section xray-section" id="package-xray" aria-labelledby="xray-title" data-package-xray>
+  <div class="story-width package-heading">
+    <div>
+      <p class="package-eyebrow">Package X-ray</p>
+      <h2 id="xray-title" tabindex="-1">See what a place is made of.</h2>
+    </div>
+    <p>At any location in Threetopia, reveal the packages in your view. Pick a part of the scene to see who made it and open it in the explorer.</p>
+  </div>
+
+  <div class="story-width xray-window" data-xray-window data-exploded="true">
+    <div class="package-window-bar">
+      <span class="package-window-name"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5ZM3 12l9 5 9-5M3 16l9 5 9-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Package X-ray</span>
+      <span class="package-preview-label">Interactive concept</span>
+    </div>
+    <div class="xray-location-bar">
+      <span class="xray-location-prompt">Try a location</span>
+      <div class="xray-locations" role="group" aria-label="Example location">
+        <button type="button" data-xray-location="riverbank" aria-pressed="true" disabled>Riverbank</button>
+        <button type="button" data-xray-location="village" aria-pressed="false" disabled>Tree village</button>
+        <button type="button" data-xray-location="garden" aria-pressed="false" disabled>Sakura garden</button>
+        <button type="button" data-xray-location="city" aria-pressed="false" disabled>City canal</button>
+      </div>
+    </div>
+    <div class="xray-body">
+      <div class="xray-viewport">
+        <div class="xray-view-toolbar">
+          <div><span class="xray-place" data-xray-place>Riverbank</span><span class="xray-position" data-xray-position>Position 24, 2, 18 · tile 0, 0</span></div>
+          <button type="button" class="xray-toggle" aria-pressed="true" data-xray-toggle disabled><span class="xray-toggle-track" aria-hidden="true"><span></span></span>X-ray</button>
+        </div>
+        <div class="xray-artwork" data-xray-artwork></div>
+        <div class="xray-view-caption"><span data-xray-view-caption>A scene, separated into its packages.</span><span class="xray-axis" aria-hidden="true">X <i></i> Z</span></div>
+      </div>
+      <aside class="xray-inspector" aria-label="Packages at this location">
+        <div class="xray-inspector-heading"><span>In your view</span><span data-xray-count>3 packages</span></div>
+        <div class="xray-package-list" data-xray-packages></div>
+        <div class="xray-selection" data-xray-selection></div>
+      </aside>
+    </div>
+    <p class="package-sr-only" role="status" aria-live="polite" aria-atomic="true" data-xray-announcement></p>
+  </div>
+  <p class="story-width package-footnote">X-ray concept · illustrative locations and package combinations.</p>
+</section>

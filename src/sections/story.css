@@ -1,0 +1,100 @@
+/* The story below the hero: open, warm paper and quiet technical details. */
+.world-story {
+  background: var(--theme-background);
+  color: var(--ink);
+}
+.story-section { padding: 80px var(--page-gutter); scroll-margin-top: 68px; }
+.story-width { width: min(100%, 1240px); margin-inline: auto; }
+.story-section h2 { font-family: var(--sans); font-size: var(--text-page); line-height: 1.25; letter-spacing: -.035em; font-weight: var(--weight-semibold); }
+.invitation-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: start; gap: 72px; }
+.connection-heading > p, .invitation-copy { color: var(--ink-soft); font-size: var(--text-body); line-height: 1.8; }
+.world-story #core { padding-top: 84px; padding-bottom: 0; }
+.intro-layout { padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+.intro-copy { max-width: 750px; }
+.intro-copy h2 { font-family: var(--sans); font-size: clamp(38px, 3.5vw, 50px); line-height: 1.15; letter-spacing: -.025em; font-weight: var(--weight-medium); max-width: 660px; margin-bottom: 24px; text-wrap: balance; }
+.intro-copy > p { color: var(--theme-text-secondary); font-size: var(--text-body); line-height: 1.85; }
+.intro-copy > p + p { margin-top: 16px; }
+.connection-section { padding-top: 56px; }
+.connection-heading { margin-bottom: 42px; }
+.connection-heading h2 { margin-bottom: 16px; }
+.connection-heading > p { max-width: 740px; }
+.concept-footnote { margin-top: 18px; font-size: var(--text-caption); color: var(--ink-faint); text-align: right; }
+.world-story .cli-section { padding-top: 80px; border-block: 1px solid var(--line); background: var(--theme-subtle); }
+.cli-heading { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: start; margin-bottom: 44px; }
+.cli-heading > p { color: var(--ink-soft); font-size: var(--text-body); line-height: 1.8; }
+.world-story .packages-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 64px; }
+.world-story .terminal { background: var(--stone-900); border: 1px solid var(--stone-700); border-radius: var(--radius-panel); box-shadow: 0 22px 50px -30px rgba(var(--theme-shadow-rgb),.44); }
+.world-story .terminal-bar { background: var(--stone-800); border-color: var(--stone-700); color: var(--stone-400); }
+.world-story .terminal-bar i { background: var(--stone-500); }
+.world-story .terminal-bar i:nth-child(2) { background: var(--stone-400); }
+.world-story .terminal-bar i:nth-child(3) { background: var(--stone-400); }
+.world-story .terminal-bar em { color: var(--stone-400); font-size: var(--text-caption); letter-spacing: .02em; }
+.world-story .terminal pre { padding: 26px; color: var(--stone-200); font-size: var(--text-caption); line-height: 1.85; min-height: 525px; }
+.world-story .terminal code { font-size: inherit; line-height: inherit; color: inherit; }
+.world-story .terminal .dim { color: var(--stone-400); }
+.world-story .terminal .ok, .world-story .terminal .prompt { color: var(--stone-200); }
+.world-story .terminal .caret { background: var(--stone-200); }
+.world-story .commands li { padding: 18px 0; column-gap: 12px; }
+.world-story .commands li:first-child { padding-top: 0; }
+.world-story .commands li:last-child { border: 0; }
+.world-story .commands li > code { font-size: var(--text-small); font-weight: var(--weight-medium); }
+.world-story .commands li > span { font-size: var(--text-ui); line-height: 1.8; margin-top: 7px; }
+.world-story .commands li::before { color: var(--theme-text-muted); font-weight: 400; font-size: var(--text-caption); }
+.cli-note { font-size: var(--text-caption); color: var(--ink-faint); margin-top: 20px; }
+.questions-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 100px; }
+.world-questions h2 { font-size: 28px; }
+.world-answers details { border-bottom: 1px solid var(--line); }
+.world-answers details:first-child { border-top: 1px solid var(--line); }
+.world-answers summary { display: flex; justify-content: space-between; gap: 22px; align-items: center; list-style: none; cursor: pointer; padding: 24px 0; font-size: var(--text-body); font-weight: var(--weight-medium); line-height: 1.5; }
+.world-answers summary::-webkit-details-marker { display: none; }
+.world-answers summary::after { content: '+'; font: 300 22px var(--sans); color: var(--theme-text-muted); flex-shrink: 0; }
+.world-answers details[open] summary::after { content: '−'; }
+.world-answers details > p { padding: 0 28px 24px 0; color: var(--ink-soft); font-size: var(--text-ui); line-height: 1.8; }
+.world-answers a { text-underline-offset: 3px; }
+.story-invitation { padding-top: 0; padding-bottom: 90px; }
+.invitation-layout { padding-top: 60px; border-top: 1px solid var(--line); }
+.invitation-layout h2 { max-width: 18ch; }
+.creator-contact { display: inline-flex; align-items: center; justify-content: center; gap: 28px; padding: 9px 16px; margin-top: 24px; border-radius: var(--radius-control); background: var(--theme-accent); color: var(--theme-background); text-decoration: none; font-size: var(--text-ui); font-weight: var(--weight-medium); }
+.creator-contact:hover { background: var(--theme-accent-hover); }
+.invitation-note { margin-top: 16px; font-size: var(--text-caption); color: var(--ink-faint); max-width: 410px; }
+.story-link { display: inline-flex; align-items: center; gap: 24px; margin-top: 20px; padding-bottom: 6px; border-bottom: 1px solid var(--theme-border-strong); color: var(--theme-text-secondary); text-decoration: none; font-size: var(--text-ui); }
+.story-link:hover { border-color: var(--theme-text-secondary); }
+.world-story ~ .footer { background: var(--theme-background); border-top: 1px solid var(--theme-border); color: var(--theme-text-muted); font-size: var(--text-caption); padding-inline: var(--page-gutter); }
+.world-story :focus-visible { outline-color: var(--theme-focus); }
+@media (min-width: 1600px) { .story-section { padding-block: 96px; padding: 80px var(--page-gutter); } .connection-section { padding-top: 64px; } .story-invitation { padding-top: 0; } }
+@media (max-width: 1050px) {
+  .cli-heading, .invitation-layout { gap: 40px; grid-template-columns: 1fr 1.1fr; }
+  .story-section h2 { font-size: var(--text-page); font-weight: var(--weight-semibold); }
+  .intro-copy h2 { font-size: 42px; font-weight: var(--weight-medium); }
+  .world-story .packages-grid { gap: 36px; }
+  .world-story .terminal pre { padding: 20px; font-size: var(--text-caption); min-height: 520px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .questions-layout { gap: 50px; }
+}
+@media (max-width: 760px) {
+  .story-section { padding: 80px var(--page-gutter); }
+  .world-story #core { padding-top: 56px; padding-bottom: 0; }
+  .story-section h2 { font-size: var(--text-page); font-weight: var(--weight-semibold); }
+  .cli-heading, .invitation-layout, .questions-layout { grid-template-columns: 1fr; gap: 24px; }
+  .intro-layout { padding-bottom: 40px; }
+  .intro-copy h2 { font-size: 36px; margin-bottom: 20px; font-weight: var(--weight-medium); }
+  .intro-copy > p { font-size: var(--text-body); line-height: 1.85; }
+  .connection-section { padding-top: 40px; }
+  .intro-copy, .connection-heading > p, .cli-heading > p, .invitation-copy { font-size: var(--text-ui); max-width: 520px; }
+  .connection-heading, .cli-heading { margin-bottom: 28px; }
+  .concept-footnote { text-align: left; font-size: var(--text-caption); line-height: 1.6; }
+  .world-story .packages-grid { grid-template-columns: 1fr; gap: 34px; }
+  .world-story .cli-section { padding-top: 56px; }
+  .world-story .terminal pre { min-height: 550px; font-size: var(--text-caption); padding: 20px 16px; }
+  .world-story .terminal code { font-size: inherit; }
+  .world-story .terminal-bar { padding: 13px 16px; }
+  .world-story .terminal-bar span { font-size: var(--text-caption); }
+  .world-story .terminal-bar em { font-size: var(--text-caption); }
+  .world-story .commands li { padding: 15px 0; }
+  .world-story .commands li > span { font-size: var(--text-small); }
+  .cli-note { font-size: var(--text-caption); }
+  .world-answers summary { font-size: var(--text-ui); padding: 21px 0; }
+  .world-answers details > p { font-size: var(--text-small); }
+  .story-invitation { padding-top: 0; padding-bottom: 70px; }
+  .invitation-layout { padding-top: 40px; }
+  .world-story ~ .footer { padding-inline: var(--page-gutter); font-size: var(--text-caption); }
+}

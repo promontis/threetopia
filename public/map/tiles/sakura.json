@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "kind": "image-tile",
+  "origin": "tile-centre",
+  "radius": 400,
+  "capture": {
+    "kind": "world-render",
+    "revision": "6eecbbe7b76997a2c8630b115d888b55b4c209f4a0ce5bf7e74fb566cc30ea19",
+    "source": {
+      "kind": "runtime",
+      "id": "sakura"
+    },
+    "camera": {
+      "yaw": -20,
+      "elevation": 45,
+      "projection": "orthographic"
+    }
+  },
+  "terrain": {
+    "src": "/map/renders/sakura-terrain.webp",
+    "preview": "/map/renders/sakura-all.webp",
+    "position": [
+      4.439569920577924e-7,
+      -80.6101730486034
+    ],
+    "size": [
+      811.8462023838772,
+      733.7613283699498
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  },
+  "components": [
+    {
+      "id": "vegetation",
+      "label": "Source trees & plants",
+      "src": "/map/renders/sakura-vegetation.webp",
+      "position": [
+        4.439569920577924e-7,
+        -80.6101730486034
+      ],
+      "size": [
+        811.8462023838772,
+        733.7613283699498
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "foliage",
+        "speed": 0.4,
+        "isolated": true
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "red-bridge",
+      "label": "Red bridge",
+      "position": [
+        29.240996707625314,
+        51.25913886342493
+      ]
+    },
+    {
+      "id": "river-temple",
+      "label": "River temple",
+      "position": [
+        6.3740528861706665,
+        -82.41232776512423
+      ]
+    },
+    {
+      "id": "blossom-grove",
+      "label": "Blossom grove",
+      "position": [
+        -0.8636780919109768,
+        -24.579724718877618
+      ]
+    }
+  ]
+}

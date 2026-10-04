@@ -1,0 +1,18 @@
+{
+  "name": "@threetopia/source-tidewater",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pinned upstream scene source for the shared Threetopia runtime",
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": "./src/*"
+  },
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  }
+}

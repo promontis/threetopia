@@ -1,0 +1,8 @@
+/* The home DOM keeps its dimensions and scroll position behind the world view. */
+html { scrollbar-gutter: stable; }
+html[data-view='world'] { overflow: hidden; }
+#home-view.is-covered { visibility: hidden; }
+#home-view[hidden], #world-view[hidden] { display: none !important; }
+
+/* Avoid a second, native smooth scroll when history restores the home view. */
+html[data-switching-view] { scroll-behavior: auto; }

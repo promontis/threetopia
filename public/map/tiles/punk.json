@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "kind": "image-tile",
+  "origin": "tile-centre",
+  "radius": 400,
+  "capture": {
+    "kind": "world-render",
+    "revision": "6eecbbe7b76997a2c8630b115d888b55b4c209f4a0ce5bf7e74fb566cc30ea19",
+    "source": {
+      "kind": "runtime",
+      "id": "punk"
+    },
+    "camera": {
+      "yaw": -20,
+      "elevation": 45,
+      "projection": "orthographic"
+    }
+  },
+  "terrain": {
+    "src": "/map/renders/punk-terrain.webp",
+    "preview": "/map/renders/punk-all.webp",
+    "position": [
+      1.2944724403496366e-8,
+      -80.61017293767554
+    ],
+    "size": [
+      811.846202383877,
+      733.7613283699496
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ]
+  },
+  "components": [
+    {
+      "id": "lights",
+      "label": "City billboards",
+      "src": "/map/renders/punk-lights.webp",
+      "position": [
+        1.2944724403496366e-8,
+        -80.61017293767554
+      ],
+      "size": [
+        811.846202383877,
+        733.7613283699496
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect": {
+        "kind": "light",
+        "speed": 0.5,
+        "isolated": true
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "neon-streets",
+      "label": "Neon streets",
+      "position": [
+        -72.56707468333461,
+        23.928391033109
+      ]
+    },
+    {
+      "id": "city-skyline",
+      "label": "City skyline",
+      "position": [
+        -42.52797065913404,
+        -58.29889224143211
+      ]
+    }
+  ]
+}

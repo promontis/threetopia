@@ -1,0 +1,1419 @@
+{
+  "version": 1,
+  "kind": "map-landmark",
+  "id": "lagoon-village",
+  "title": "Lagoon Tree Village",
+  "source": {
+    "world": "lagoon",
+    "component": "connected-village",
+    "revision": "index-BjH0GYGf",
+    "creator": "cryptomanavan",
+    "url": "https://lagoon-tree-village-creatures.netlify.app/",
+    "objects": [
+      "tree-origin-bark-near",
+      "origin:plank",
+      "origin:beam",
+      "origin:plank@in",
+      "origin:plank@in",
+      "origin:beam@in",
+      "origin:dark",
+      "origin:thatch",
+      "origin:thatchUnder@in",
+      "origin:bark@in",
+      "origin:dark@in",
+      "origin:cloth@in",
+      "origin:rug@in",
+      "origin:wicker@in",
+      "origin:stone@in",
+      "origin:leaf@in",
+      "origin:wicker",
+      "origin:metal@in",
+      "origin:cloth",
+      "origin:bark",
+      "origin:leaf",
+      "origin:stone",
+      "origin:rope",
+      "origin:metal",
+      "origin:window",
+      "origin:straw",
+      "origin:linen",
+      "tree-nest-bark-near",
+      "nest:plank",
+      "nest:beam",
+      "nest:bark",
+      "nest:plank@in",
+      "nest:wicker",
+      "nest:wicker@in",
+      "nest:beam@in",
+      "nest:dark",
+      "nest:thatch",
+      "nest:thatchUnder@in",
+      "nest:bark@in",
+      "nest:rug@in",
+      "nest:dark@in",
+      "nest:cloth@in",
+      "nest:stone@in",
+      "nest:plank@in",
+      "nest:leaf@in",
+      "nest:metal",
+      "nest:rope",
+      "nest:stone",
+      "nest:window",
+      "nest:straw",
+      "tree-perch-bark-near",
+      "perch:plank",
+      "perch:beam",
+      "perch:plank@in",
+      "perch:bark",
+      "perch:plank@in",
+      "perch:beam@in",
+      "perch:dark",
+      "perch:thatch",
+      "perch:thatchUnder@in",
+      "perch:bark@in",
+      "perch:dark@in",
+      "perch:cloth@in",
+      "perch:stone@in",
+      "perch:wicker@in",
+      "perch:rug@in",
+      "perch:leaf@in",
+      "perch:metal",
+      "perch:rope",
+      "perch:stone",
+      "perch:window",
+      "perch:straw",
+      "tree-canopy-bark-near",
+      "canopy:plank",
+      "canopy:beam",
+      "canopy:plank@in",
+      "canopy:plank@in",
+      "canopy:beam@in",
+      "canopy:dark",
+      "canopy:thatch",
+      "canopy:thatchUnder@in",
+      "canopy:bark@in",
+      "canopy:sail",
+      "canopy:dark@in",
+      "canopy:cloth@in",
+      "canopy:rug@in",
+      "canopy:stone@in",
+      "canopy:wicker@in",
+      "canopy:leaf@in",
+      "canopy:cloth",
+      "canopy:bark",
+      "canopy:leaf",
+      "canopy:rug",
+      "canopy:wicker",
+      "canopy:stone",
+      "canopy:rope",
+      "canopy:metal",
+      "canopy:window",
+      "canopy:straw",
+      "connections.west:plank",
+      "connections.west:beam",
+      "connections.west:rope",
+      "connections.west:metal",
+      "connections.west:stone",
+      "tree-origin-leaves",
+      "tree-nest-leaves",
+      "tree-perch-leaves",
+      "tree-canopy-leaves"
+    ],
+    "triangles": 2444193,
+    "leafCards": 72306,
+    "trees": [
+      {
+        "id": "origin",
+        "position": [
+          -42,
+          2,
+          4
+        ],
+        "mapPosition": [
+          -3.6622572288722584,
+          0.2154268958160152,
+          0.6462806874480456
+        ]
+      },
+      {
+        "id": "nest",
+        "position": [
+          -12,
+          1.6,
+          -10
+        ],
+        "mapPosition": [
+          -0.4308537916320304,
+          0.17234151665281217,
+          -0.8617075832640608
+        ]
+      },
+      {
+        "id": "perch",
+        "position": [
+          8,
+          1.3,
+          12
+        ],
+        "mapPosition": [
+          1.7234151665281217,
+          0.1400274822804099,
+          1.5079882707121064
+        ]
+      },
+      {
+        "id": "canopy",
+        "position": [
+          30,
+          1.8,
+          -12
+        ],
+        "mapPosition": [
+          4.093111020504289,
+          0.1938842062344137,
+          -1.077134479080076
+        ]
+      }
+    ],
+    "bridges": [
+      {
+        "id": "B1",
+        "from": "origin.L1",
+        "to": "nest.L1",
+        "a": [
+          -35.8,
+          7,
+          0.2
+        ],
+        "b": [
+          -16.4,
+          8,
+          -7.6
+        ],
+        "width": 1.25,
+        "sag": 1.35,
+        "mapA": [
+          -2.994433851842611,
+          0.7539941353560532,
+          0.23696958539761676
+        ],
+        "mapB": [
+          -0.9047929624272637,
+          0.8617075832640608,
+          -0.6031953082848426
+        ]
+      },
+      {
+        "id": "B2",
+        "from": "nest.L1",
+        "to": "perch.L1",
+        "a": [
+          -8.6,
+          8,
+          -6.3
+        ],
+        "b": [
+          5.4,
+          7.5,
+          9.2
+        ],
+        "width": 1.15,
+        "sag": 1.2,
+        "mapA": [
+          -0.06462806874480452,
+          0.8617075832640608,
+          -0.4631678260044327
+        ],
+        "mapB": [
+          1.443360201967302,
+          0.8078508593100571,
+          1.2063906165696852
+        ]
+      },
+      {
+        "id": "B3",
+        "from": "perch.L1",
+        "to": "canopy.L1",
+        "a": [
+          10.7,
+          7.5,
+          9.4
+        ],
+        "b": [
+          25.6,
+          6.5,
+          -7.4
+        ],
+        "width": 1.2,
+        "sag": 1.4,
+        "mapA": [
+          2.014241475879742,
+          0.8078508593100571,
+          1.2279333061512867
+        ],
+        "mapB": [
+          3.6191718497090557,
+          0.7001374114020494,
+          -0.5816526187032411
+        ]
+      }
+    ]
+  },
+  "adaptations": [
+    "The four distinct native treehouses and three native bridges retain their original relative positions under one uniform transform",
+    "Original structure meshes decimated with native normals and sampled native material colours",
+    "All source board front faces contribute to the decks; adjacent coplanar boards merge in pairs at tile detail and groups of up to six in overview, removing subpixel gaps, thickness and bevels",
+    "Original leaf-card transforms, atlas, clump normals, AO and tint retained; native randomized LOD density reduced with coverage compensation",
+    "Small roof straw fringes omitted; enclosed interior details omitted in overview; geometry below the source water level clipped",
+    "Duplicate, degenerate and coplanar ground faces removed after export quantization to prevent z-fighting"
+  ],
+  "anchor": "ground-centre",
+  "units": "map-metres",
+  "surface": "village-ground.json",
+  "bounds": {
+    "radius": 7.15,
+    "height": 4.416721016293432
+  },
+  "lods": [
+    {
+      "level": "tile",
+      "url": "village.glb",
+      "triangles": 23384,
+      "drawCalls": 2,
+      "bytes": 649144,
+      "textureSize": 512,
+      "sha256": "0f2f644f112e44a749faedab48209748f1c8535361225b85c72676c23092948c",
+      "reduction": 0.9904328340683407,
+      "cleanup": [
+        {
+          "name": "Native village treehouses and bridges",
+          "duplicate": 1477,
+          "degenerate": 112,
+          "ground": 1
+        },
+        {
+          "name": "Native village leaves",
+          "duplicate": 0,
+          "degenerate": 0,
+          "ground": 0
+        }
+      ],
+      "parts": [
+        {
+          "name": "tree-origin-bark-near",
+          "source": 176451,
+          "triangles": 1247,
+          "error": 0.012948250398039818
+        },
+        {
+          "name": "origin:plank",
+          "source": 32460,
+          "triangles": 1902,
+          "sourceBoards": 1623,
+          "preservedBoards": 279,
+          "joinedBoards": 1344,
+          "boardFaces": 951,
+          "error": 0
+        },
+        {
+          "name": "origin:beam",
+          "source": 39458,
+          "triangles": 510,
+          "error": 0.009745373390614986
+        },
+        {
+          "name": "origin:plank@in",
+          "source": 9220,
+          "triangles": 508,
+          "sourceBoards": 461,
+          "preservedBoards": 47,
+          "joinedBoards": 414,
+          "boardFaces": 254,
+          "error": 0
+        },
+        {
+          "name": "origin:plank@in",
+          "source": 7144,
+          "triangles": 84,
+          "sourceBoards": 62,
+          "preservedBoards": 22,
+          "joinedBoards": 40,
+          "boardFaces": 42,
+          "error": 0.13364067673683167
+        },
+        {
+          "name": "origin:beam@in",
+          "source": 11096,
+          "triangles": 58,
+          "error": 0.011778736487030983
+        },
+        {
+          "name": "origin:dark",
+          "source": 11764,
+          "triangles": 102,
+          "error": 0.015340895392000675
+        },
+        {
+          "name": "origin:thatch",
+          "source": 100540,
+          "triangles": 255,
+          "error": 0.1312183439731598
+        },
+        {
+          "name": "origin:thatchUnder@in",
+          "source": 49430,
+          "triangles": 10,
+          "error": 0.49725624918937683
+        },
+        {
+          "name": "origin:bark@in",
+          "source": 18758,
+          "triangles": 24,
+          "error": 0.01070704497396946
+        },
+        {
+          "name": "origin:dark@in",
+          "source": 4504,
+          "triangles": 30,
+          "error": 0.015539448708295822
+        },
+        {
+          "name": "origin:cloth@in",
+          "source": 44240,
+          "triangles": 28,
+          "error": 0.0712624117732048
+        },
+        {
+          "name": "origin:rug@in",
+          "source": 80,
+          "triangles": 7,
+          "error": 0.07101074606180191
+        },
+        {
+          "name": "origin:wicker@in",
+          "source": 2048,
+          "triangles": 8,
+          "error": 0.02234877645969391
+        },
+        {
+          "name": "origin:stone@in",
+          "source": 3352,
+          "triangles": 29,
+          "error": 0.01276432629674673
+        },
+        {
+          "name": "origin:leaf@in",
+          "source": 540,
+          "triangles": 27,
+          "error": 0.011037904769182205
+        },
+        {
+          "name": "origin:wicker",
+          "source": 1792,
+          "triangles": 8,
+          "error": 0.02705078385770321
+        },
+        {
+          "name": "origin:metal@in",
+          "source": 504,
+          "triangles": 30,
+          "error": 0.03089321032166481
+        },
+        {
+          "name": "origin:cloth",
+          "source": 2240,
+          "triangles": 42,
+          "error": 0.04593227058649063
+        },
+        {
+          "name": "origin:bark",
+          "source": 88,
+          "triangles": 27,
+          "error": 0.002679696772247553
+        },
+        {
+          "name": "origin:leaf",
+          "source": 5852,
+          "triangles": 27,
+          "error": 0.008353971876204014
+        },
+        {
+          "name": "origin:stone",
+          "source": 3084,
+          "triangles": 4,
+          "error": 0.023055443540215492
+        },
+        {
+          "name": "origin:rope",
+          "source": 153080,
+          "triangles": 288,
+          "error": 0.004135177470743656
+        },
+        {
+          "name": "origin:metal",
+          "source": 17528,
+          "triangles": 51,
+          "error": 0.006236911751329899
+        },
+        {
+          "name": "origin:window",
+          "source": 1924,
+          "triangles": 51,
+          "error": 0.01844027265906334
+        },
+        {
+          "name": "origin:linen",
+          "source": 60,
+          "triangles": 16,
+          "error": 0.06257353723049164
+        },
+        {
+          "name": "tree-nest-bark-near",
+          "source": 78480,
+          "triangles": 565,
+          "error": 0.016088293865323067
+        },
+        {
+          "name": "nest:plank",
+          "source": 7700,
+          "triangles": 526,
+          "sourceBoards": 385,
+          "preservedBoards": 141,
+          "joinedBoards": 244,
+          "boardFaces": 263,
+          "error": 0
+        },
+        {
+          "name": "nest:beam",
+          "source": 23698,
+          "triangles": 502,
+          "error": 0.011854255571961403
+        },
+        {
+          "name": "nest:bark",
+          "source": 23174,
+          "triangles": 24,
+          "error": 0.05102456733584404
+        },
+        {
+          "name": "nest:plank@in",
+          "source": 720,
+          "triangles": 42,
+          "sourceBoards": 36,
+          "preservedBoards": 6,
+          "joinedBoards": 30,
+          "boardFaces": 21,
+          "error": 0
+        },
+        {
+          "name": "nest:wicker",
+          "source": 31324,
+          "triangles": 190,
+          "error": 0.4795242249965668
+        },
+        {
+          "name": "nest:wicker@in",
+          "source": 7256,
+          "triangles": 17,
+          "error": 0.3819260597229004
+        },
+        {
+          "name": "nest:beam@in",
+          "source": 7006,
+          "triangles": 58,
+          "error": 0.02048046886920929
+        },
+        {
+          "name": "nest:dark",
+          "source": 652,
+          "triangles": 102,
+          "error": 0.00581687968224287
+        },
+        {
+          "name": "nest:thatch",
+          "source": 19142,
+          "triangles": 248,
+          "error": 0.04984629526734352
+        },
+        {
+          "name": "nest:thatchUnder@in",
+          "source": 11134,
+          "triangles": 27,
+          "error": 0.31803205609321594
+        },
+        {
+          "name": "nest:bark@in",
+          "source": 6092,
+          "triangles": 22,
+          "error": 0.025126973167061806
+        },
+        {
+          "name": "nest:rug@in",
+          "source": 30,
+          "triangles": 7,
+          "error": 0.0824631080031395
+        },
+        {
+          "name": "nest:dark@in",
+          "source": 512,
+          "triangles": 30,
+          "error": 0.0480811782181263
+        },
+        {
+          "name": "nest:cloth@in",
+          "source": 13716,
+          "triangles": 30,
+          "error": 0.07785559445619583
+        },
+        {
+          "name": "nest:stone@in",
+          "source": 1244,
+          "triangles": 30,
+          "error": 0.019884515553712845
+        },
+        {
+          "name": "nest:plank@in",
+          "source": 400,
+          "triangles": 32,
+          "sourceBoards": 20,
+          "preservedBoards": 12,
+          "joinedBoards": 8,
+          "boardFaces": 16,
+          "error": 0
+        },
+        {
+          "name": "nest:leaf@in",
+          "source": 130,
+          "triangles": 27,
+          "error": 0.03427113965153694
+        },
+        {
+          "name": "nest:metal",
+          "source": 6112,
+          "triangles": 50,
+          "error": 0.00831849779933691
+        },
+        {
+          "name": "nest:rope",
+          "source": 25698,
+          "triangles": 338,
+          "error": 0.004003763198852539
+        },
+        {
+          "name": "nest:stone",
+          "source": 144,
+          "triangles": 40,
+          "error": 0.03145860880613327
+        },
+        {
+          "name": "nest:window",
+          "source": 224,
+          "triangles": 51,
+          "error": 0.006642963271588087
+        },
+        {
+          "name": "tree-perch-bark-near",
+          "source": 47357,
+          "triangles": 448,
+          "error": 0.016601622104644775
+        },
+        {
+          "name": "perch:plank",
+          "source": 6540,
+          "triangles": 436,
+          "sourceBoards": 327,
+          "preservedBoards": 109,
+          "joinedBoards": 218,
+          "boardFaces": 218,
+          "error": 0
+        },
+        {
+          "name": "perch:beam",
+          "source": 9304,
+          "triangles": 510,
+          "error": 0.009758224710822105
+        },
+        {
+          "name": "perch:plank@in",
+          "source": 2260,
+          "triangles": 152,
+          "sourceBoards": 113,
+          "preservedBoards": 39,
+          "joinedBoards": 74,
+          "boardFaces": 76,
+          "error": 0
+        },
+        {
+          "name": "perch:bark",
+          "source": 780,
+          "triangles": 18,
+          "error": 0.015949588268995285
+        },
+        {
+          "name": "perch:plank@in",
+          "source": 2560,
+          "triangles": 32,
+          "sourceBoards": 20,
+          "preservedBoards": 12,
+          "joinedBoards": 8,
+          "boardFaces": 16,
+          "error": 0.24406003952026367
+        },
+        {
+          "name": "perch:beam@in",
+          "source": 2840,
+          "triangles": 58,
+          "error": 0.020619520917534828
+        },
+        {
+          "name": "perch:dark",
+          "source": 4992,
+          "triangles": 102,
+          "error": 0.01662910170853138
+        },
+        {
+          "name": "perch:thatch",
+          "source": 26476,
+          "triangles": 251,
+          "error": 0.05248742178082466
+        },
+        {
+          "name": "perch:thatchUnder@in",
+          "source": 17070,
+          "triangles": 27,
+          "error": 0.48565152287483215
+        },
+        {
+          "name": "perch:bark@in",
+          "source": 6742,
+          "triangles": 27,
+          "error": 0.017719313502311707
+        },
+        {
+          "name": "perch:dark@in",
+          "source": 1040,
+          "triangles": 30,
+          "error": 0.02795436419546604
+        },
+        {
+          "name": "perch:cloth@in",
+          "source": 6824,
+          "triangles": 30,
+          "error": 0.11994142830371857
+        },
+        {
+          "name": "perch:stone@in",
+          "source": 1100,
+          "triangles": 30,
+          "error": 0.013726464472711086
+        },
+        {
+          "name": "perch:wicker@in",
+          "source": 512,
+          "triangles": 8,
+          "error": 0.12086694687604904
+        },
+        {
+          "name": "perch:rug@in",
+          "source": 10,
+          "triangles": 6,
+          "error": 0.05532340332865715
+        },
+        {
+          "name": "perch:leaf@in",
+          "source": 130,
+          "triangles": 27,
+          "error": 0.03250154107809067
+        },
+        {
+          "name": "perch:metal",
+          "source": 5048,
+          "triangles": 50,
+          "error": 0.010136397555470467
+        },
+        {
+          "name": "perch:rope",
+          "source": 24744,
+          "triangles": 213,
+          "error": 0.004769698716700077
+        },
+        {
+          "name": "perch:stone",
+          "source": 144,
+          "triangles": 40,
+          "error": 0.03285524249076843
+        },
+        {
+          "name": "perch:window",
+          "source": 828,
+          "triangles": 51,
+          "error": 0.012155040167272091
+        },
+        {
+          "name": "tree-canopy-bark-near",
+          "source": 122920,
+          "triangles": 1088,
+          "error": 0.012345130555331707
+        },
+        {
+          "name": "canopy:plank",
+          "source": 31620,
+          "triangles": 1832,
+          "sourceBoards": 1581,
+          "preservedBoards": 251,
+          "joinedBoards": 1330,
+          "boardFaces": 916,
+          "error": 0
+        },
+        {
+          "name": "canopy:beam",
+          "source": 43494,
+          "triangles": 497,
+          "error": 0.008834529668092728
+        },
+        {
+          "name": "canopy:plank@in",
+          "source": 3340,
+          "triangles": 190,
+          "sourceBoards": 167,
+          "preservedBoards": 23,
+          "joinedBoards": 144,
+          "boardFaces": 95,
+          "error": 0
+        },
+        {
+          "name": "canopy:plank@in",
+          "source": 2596,
+          "triangles": 24,
+          "sourceBoards": 20,
+          "preservedBoards": 4,
+          "joinedBoards": 16,
+          "boardFaces": 12,
+          "error": 0.1426699310541153
+        },
+        {
+          "name": "canopy:beam@in",
+          "source": 4640,
+          "triangles": 60,
+          "error": 0.014001351781189442
+        },
+        {
+          "name": "canopy:dark",
+          "source": 5280,
+          "triangles": 102,
+          "error": 0.015361868776381016
+        },
+        {
+          "name": "canopy:thatch",
+          "source": 44142,
+          "triangles": 241,
+          "error": 0.05392282456159592
+        },
+        {
+          "name": "canopy:thatchUnder@in",
+          "source": 14858,
+          "triangles": 8,
+          "error": 0.4919659495353699
+        },
+        {
+          "name": "canopy:bark@in",
+          "source": 4902,
+          "triangles": 21,
+          "error": 0.01116339024156332
+        },
+        {
+          "name": "canopy:sail",
+          "source": 4320,
+          "triangles": 101,
+          "error": 0.023854654282331467
+        },
+        {
+          "name": "canopy:dark@in",
+          "source": 824,
+          "triangles": 30,
+          "error": 0.024348167702555656
+        },
+        {
+          "name": "canopy:cloth@in",
+          "source": 6628,
+          "triangles": 30,
+          "error": 0.041420139372348785
+        },
+        {
+          "name": "canopy:rug@in",
+          "source": 10,
+          "triangles": 6,
+          "error": 0.060892973095178604
+        },
+        {
+          "name": "canopy:stone@in",
+          "source": 1100,
+          "triangles": 29,
+          "error": 0.01197732798755169
+        },
+        {
+          "name": "canopy:wicker@in",
+          "source": 1024,
+          "triangles": 8,
+          "error": 0.020572518929839134
+        },
+        {
+          "name": "canopy:leaf@in",
+          "source": 140,
+          "triangles": 27,
+          "error": 0.07194813340902328
+        },
+        {
+          "name": "canopy:cloth",
+          "source": 17728,
+          "triangles": 54,
+          "error": 0.021744664758443832
+        },
+        {
+          "name": "canopy:bark",
+          "source": 66,
+          "triangles": 27,
+          "error": 0.0031986581161618233
+        },
+        {
+          "name": "canopy:leaf",
+          "source": 4352,
+          "triangles": 27,
+          "error": 0.009312682785093784
+        },
+        {
+          "name": "canopy:rug",
+          "source": 30,
+          "triangles": 7,
+          "error": 0.08253978192806244
+        },
+        {
+          "name": "canopy:wicker",
+          "source": 768,
+          "triangles": 8,
+          "error": 0.026506293565034866
+        },
+        {
+          "name": "canopy:stone",
+          "source": 3404,
+          "triangles": 15,
+          "error": 0.08281435817480087
+        },
+        {
+          "name": "canopy:rope",
+          "source": 152178,
+          "triangles": 283,
+          "error": 0.0036270844284445047
+        },
+        {
+          "name": "canopy:metal",
+          "source": 19022,
+          "triangles": 44,
+          "error": 0.0047320351004600525
+        },
+        {
+          "name": "canopy:window",
+          "source": 825,
+          "triangles": 51,
+          "error": 0.006406890694051981
+        },
+        {
+          "name": "connections.west:plank",
+          "source": 8140,
+          "triangles": 412,
+          "sourceBoards": 401,
+          "preservedBoards": 11,
+          "joinedBoards": 390,
+          "boardFaces": 206,
+          "error": 0
+        },
+        {
+          "name": "connections.west:beam",
+          "source": 8102,
+          "triangles": 249,
+          "error": 0.0022786962799727917
+        },
+        {
+          "name": "connections.west:rope",
+          "source": 153260,
+          "triangles": 471,
+          "error": 0.0012589206453412771
+        },
+        {
+          "name": "connections.west:metal",
+          "source": 1824,
+          "triangles": 56,
+          "error": 0.0006930970121175051
+        },
+        {
+          "name": "connections.west:stone",
+          "source": 1088,
+          "triangles": 99,
+          "error": 0.0113755464553833
+        }
+      ]
+    },
+    {
+      "level": "overview",
+      "url": "village-overview.glb",
+      "triangles": 7920,
+      "drawCalls": 2,
+      "bytes": 207060,
+      "textureSize": 256,
+      "sha256": "18ab7f0ee1b20d3e9c8e3e90851446f1649cd9a0ca040d1d97e67ede15644317",
+      "reduction": 0.9967596666875325,
+      "cleanup": [
+        {
+          "name": "Native village treehouses and bridges",
+          "duplicate": 398,
+          "degenerate": 5,
+          "ground": 0
+        },
+        {
+          "name": "Native village leaves",
+          "duplicate": 0,
+          "degenerate": 0,
+          "ground": 0
+        }
+      ],
+      "parts": [
+        {
+          "name": "tree-origin-bark-near",
+          "source": 176451,
+          "triangles": 255,
+          "error": 0.030821476131677628
+        },
+        {
+          "name": "origin:plank",
+          "source": 32460,
+          "triangles": 1358,
+          "sourceBoards": 1623,
+          "preservedBoards": 219,
+          "joinedBoards": 1404,
+          "boardFaces": 679,
+          "error": 0
+        },
+        {
+          "name": "origin:beam",
+          "source": 39458,
+          "triangles": 114,
+          "error": 0.01324445940554142
+        },
+        {
+          "name": "origin:plank@in",
+          "source": 9220,
+          "triangles": 400,
+          "sourceBoards": 461,
+          "preservedBoards": 53,
+          "joinedBoards": 408,
+          "boardFaces": 200,
+          "error": 0
+        },
+        {
+          "name": "origin:plank@in",
+          "source": 7144,
+          "triangles": 54,
+          "sourceBoards": 62,
+          "preservedBoards": 13,
+          "joinedBoards": 49,
+          "boardFaces": 27,
+          "error": 0.13364067673683167
+        },
+        {
+          "name": "origin:dark",
+          "source": 11764,
+          "triangles": 24,
+          "error": 0.015340895392000675
+        },
+        {
+          "name": "origin:thatch",
+          "source": 100540,
+          "triangles": 61,
+          "error": 0.49419155716896057
+        },
+        {
+          "name": "origin:wicker",
+          "source": 1792,
+          "triangles": 8,
+          "error": 0.02705078385770321
+        },
+        {
+          "name": "origin:cloth",
+          "source": 2240,
+          "triangles": 12,
+          "error": 0.15718400478363037
+        },
+        {
+          "name": "origin:bark",
+          "source": 88,
+          "triangles": 8,
+          "error": 0.009367074817419052
+        },
+        {
+          "name": "origin:leaf",
+          "source": 5852,
+          "triangles": 8,
+          "error": 0.011639225296676159
+        },
+        {
+          "name": "origin:stone",
+          "source": 3084,
+          "triangles": 6,
+          "error": 0.023055443540215492
+        },
+        {
+          "name": "origin:rope",
+          "source": 153080,
+          "triangles": 80,
+          "error": 0.007621705997735262
+        },
+        {
+          "name": "origin:metal",
+          "source": 17528,
+          "triangles": 11,
+          "error": 0.013006087392568588
+        },
+        {
+          "name": "origin:window",
+          "source": 1924,
+          "triangles": 12,
+          "error": 0.043867070227861404
+        },
+        {
+          "name": "origin:linen",
+          "source": 60,
+          "triangles": 8,
+          "error": 0.08679299801588058
+        },
+        {
+          "name": "tree-nest-bark-near",
+          "source": 78480,
+          "triangles": 133,
+          "error": 0.0321614108979702
+        },
+        {
+          "name": "nest:plank",
+          "source": 7700,
+          "triangles": 436,
+          "sourceBoards": 385,
+          "preservedBoards": 128,
+          "joinedBoards": 257,
+          "boardFaces": 218,
+          "error": 0
+        },
+        {
+          "name": "nest:beam",
+          "source": 23698,
+          "triangles": 116,
+          "error": 0.018251096829771996
+        },
+        {
+          "name": "nest:bark",
+          "source": 23174,
+          "triangles": 5,
+          "error": 0.05882500857114792
+        },
+        {
+          "name": "nest:plank@in",
+          "source": 720,
+          "triangles": 30,
+          "sourceBoards": 36,
+          "preservedBoards": 5,
+          "joinedBoards": 31,
+          "boardFaces": 15,
+          "error": 0
+        },
+        {
+          "name": "nest:wicker",
+          "source": 31324,
+          "triangles": 190,
+          "error": 0.4795242249965668
+        },
+        {
+          "name": "nest:dark",
+          "source": 652,
+          "triangles": 24,
+          "error": 0.011181299574673176
+        },
+        {
+          "name": "nest:thatch",
+          "source": 19142,
+          "triangles": 61,
+          "error": 0.18522495031356812
+        },
+        {
+          "name": "nest:plank@in",
+          "source": 400,
+          "triangles": 28,
+          "sourceBoards": 20,
+          "preservedBoards": 12,
+          "joinedBoards": 8,
+          "boardFaces": 14,
+          "error": 0
+        },
+        {
+          "name": "nest:metal",
+          "source": 6112,
+          "triangles": 2,
+          "error": 0.00831849779933691
+        },
+        {
+          "name": "nest:rope",
+          "source": 25698,
+          "triangles": 52,
+          "error": 0.005677950568497181
+        },
+        {
+          "name": "nest:stone",
+          "source": 144,
+          "triangles": 9,
+          "error": 0.42476513981819153
+        },
+        {
+          "name": "nest:window",
+          "source": 224,
+          "triangles": 12,
+          "error": 0.03283342719078064
+        },
+        {
+          "name": "tree-perch-bark-near",
+          "source": 47357,
+          "triangles": 102,
+          "error": 0.036493320018053055
+        },
+        {
+          "name": "perch:plank",
+          "source": 6540,
+          "triangles": 408,
+          "sourceBoards": 327,
+          "preservedBoards": 108,
+          "joinedBoards": 219,
+          "boardFaces": 204,
+          "error": 0
+        },
+        {
+          "name": "perch:beam",
+          "source": 9304,
+          "triangles": 122,
+          "error": 0.014559009112417698
+        },
+        {
+          "name": "perch:plank@in",
+          "source": 2260,
+          "triangles": 152,
+          "sourceBoards": 113,
+          "preservedBoards": 39,
+          "joinedBoards": 74,
+          "boardFaces": 76,
+          "error": 0
+        },
+        {
+          "name": "perch:bark",
+          "source": 780,
+          "triangles": 2,
+          "error": 0.015949588268995285
+        },
+        {
+          "name": "perch:plank@in",
+          "source": 2560,
+          "triangles": 28,
+          "sourceBoards": 20,
+          "preservedBoards": 12,
+          "joinedBoards": 8,
+          "boardFaces": 14,
+          "error": 0.24406003952026367
+        },
+        {
+          "name": "perch:dark",
+          "source": 4992,
+          "triangles": 24,
+          "error": 0.025286313146352768
+        },
+        {
+          "name": "perch:thatch",
+          "source": 26476,
+          "triangles": 61,
+          "error": 0.27201563119888306
+        },
+        {
+          "name": "perch:metal",
+          "source": 5048,
+          "triangles": 0,
+          "error": 0.010136397555470467
+        },
+        {
+          "name": "perch:rope",
+          "source": 24744,
+          "triangles": 55,
+          "error": 0.007023336365818977
+        },
+        {
+          "name": "perch:stone",
+          "source": 144,
+          "triangles": 10,
+          "error": 0.2871490716934204
+        },
+        {
+          "name": "perch:window",
+          "source": 828,
+          "triangles": 12,
+          "error": 0.047331538051366806
+        },
+        {
+          "name": "tree-canopy-bark-near",
+          "source": 122920,
+          "triangles": 246,
+          "error": 0.030108598992228508
+        },
+        {
+          "name": "canopy:plank",
+          "source": 31620,
+          "triangles": 1460,
+          "sourceBoards": 1581,
+          "preservedBoards": 237,
+          "joinedBoards": 1344,
+          "boardFaces": 730,
+          "error": 0
+        },
+        {
+          "name": "canopy:beam",
+          "source": 43494,
+          "triangles": 120,
+          "error": 0.010818561539053917
+        },
+        {
+          "name": "canopy:plank@in",
+          "source": 3340,
+          "triangles": 142,
+          "sourceBoards": 167,
+          "preservedBoards": 18,
+          "joinedBoards": 149,
+          "boardFaces": 71,
+          "error": 0
+        },
+        {
+          "name": "canopy:plank@in",
+          "source": 2596,
+          "triangles": 16,
+          "sourceBoards": 20,
+          "preservedBoards": 2,
+          "joinedBoards": 18,
+          "boardFaces": 8,
+          "error": 0.1426699310541153
+        },
+        {
+          "name": "canopy:dark",
+          "source": 5280,
+          "triangles": 24,
+          "error": 0.018730387091636658
+        },
+        {
+          "name": "canopy:thatch",
+          "source": 44142,
+          "triangles": 61,
+          "error": 0.29263147711753845
+        },
+        {
+          "name": "canopy:sail",
+          "source": 4320,
+          "triangles": 24,
+          "error": 0.0561339370906353
+        },
+        {
+          "name": "canopy:cloth",
+          "source": 17728,
+          "triangles": 12,
+          "error": 0.03592084348201752
+        },
+        {
+          "name": "canopy:bark",
+          "source": 66,
+          "triangles": 8,
+          "error": 0.010531553998589516
+        },
+        {
+          "name": "canopy:leaf",
+          "source": 4352,
+          "triangles": 8,
+          "error": 0.010288922116160393
+        },
+        {
+          "name": "canopy:rug",
+          "source": 30,
+          "triangles": 8,
+          "error": 0.07119598984718323
+        },
+        {
+          "name": "canopy:wicker",
+          "source": 768,
+          "triangles": 8,
+          "error": 0.026506293565034866
+        },
+        {
+          "name": "canopy:stone",
+          "source": 3404,
+          "triangles": 0,
+          "error": 0.08281435817480087
+        },
+        {
+          "name": "canopy:rope",
+          "source": 152178,
+          "triangles": 81,
+          "error": 0.006310013588517904
+        },
+        {
+          "name": "canopy:metal",
+          "source": 19022,
+          "triangles": 11,
+          "error": 0.008851486258208752
+        },
+        {
+          "name": "canopy:window",
+          "source": 825,
+          "triangles": 12,
+          "error": 0.03631437197327614
+        },
+        {
+          "name": "connections.west:plank",
+          "source": 8140,
+          "triangles": 212,
+          "sourceBoards": 401,
+          "preservedBoards": 8,
+          "joinedBoards": 393,
+          "boardFaces": 106,
+          "error": 0
+        },
+        {
+          "name": "connections.west:beam",
+          "source": 8102,
+          "triangles": 60,
+          "error": 0.0029572066850960255
+        },
+        {
+          "name": "connections.west:rope",
+          "source": 153260,
+          "triangles": 93,
+          "error": 0.0021706579718738794
+        },
+        {
+          "name": "connections.west:metal",
+          "source": 1824,
+          "triangles": 24,
+          "error": 0.0009499005391262472
+        },
+        {
+          "name": "connections.west:stone",
+          "source": 1088,
+          "triangles": 0,
+          "error": 0.08408840000629425
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "source-village.json": "94e8a15b4277ca66b078775d31ce3c0093e50948a9e4eec4b31726f14cfd75ff",
+    "build-lagoon-lite.mjs": "bbf6f69b205f709675a63cfb505693b66b661e22c230ba9014c9e1cde6c92ea6",
+    "lagoon-board-lod.mjs": "ac87ba892c3440dc2970160c51e2a447b87b9ad61092c67eb27120f8b4202433",
+    "landmark-glb.mjs": "fb8fac532784c2fd414bbd46343c2440019b3d84650414b7ddfce2c1826a30d3"
+  }
+}

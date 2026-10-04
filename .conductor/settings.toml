@@ -1,0 +1,15 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+[scripts]
+setup = "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm install --frozen-lockfile"
+run_mode = "concurrent"
+
+[scripts.run.dev]
+available_in = [ "local" ]
+command = "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm dev --port $CONDUCTOR_PORT --strictPort --host 127.0.0.1"
+default = true
+icon = "play"
+
+[scripts.run.test]
+command = "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm test"
+icon = "test-tube"

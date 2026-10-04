@@ -1,0 +1,5 @@
+packages:
+  - 'packages/world-sources/*'
+  - 'packages/world-map'
+  - 'packages/cli'
+  - 'packages/platform'

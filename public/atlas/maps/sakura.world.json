@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "sakura",
+  "title": "Sakura River Valley",
+  "tile": {
+    "q": 1,
+    "r": 0
+  },
+  "edges": [
+    "open-sea",
+    "open-sea",
+    "open-sea",
+    "shore-path",
+    "open-sea",
+    "open-sea"
+  ],
+  "map": "sakura.json"
+}

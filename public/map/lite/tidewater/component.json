@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "kind": "map-landmark",
+  "id": "tidewater",
+  "title": "Tidewater",
+  "source": {
+    "world": "tidewater",
+    "creator": "Dan Greenheck",
+    "url": "https://dgreenheck.github.io/tidewater/",
+    "revision": "workspace-source-tidewater",
+    "selection": "Native lobster boat and dock head, with the last 20 metres of the pier; original relative positions",
+    "origin": [
+      59,
+      0,
+      34
+    ],
+    "scale": 0.48062989770788533,
+    "objects": [
+      "village_wood",
+      "village_hard",
+      "boat-hull",
+      "boat-gelcoat",
+      "boat-wood",
+      "boat-fittings",
+      "boat-trap",
+      "boat-glow",
+      "boat-glass"
+    ],
+    "triangles": 45744
+  },
+  "adaptations": [
+    "Native geometry reduced and merged by material role",
+    "All retained objects share one source origin and uniform scale",
+    "Native base colours sampled into vertex colours; source surface shaders omitted",
+    "Native leaf cards and cutout texture retained with reduced density where applicable",
+    "Hidden and subpixel details removed; duplicate and degenerate faces removed after quantization",
+    "Native wood, paint and hull color-node palettes baked at low frequency; no grain or weather-mask shaders"
+  ],
+  "anchor": "ground-centre",
+  "units": "map-metres",
+  "surface": "surface.json",
+  "bounds": {
+    "radius": 7.15,
+    "height": 2.6242392598196296
+  },
+  "lods": [
+    {
+      "level": "tile",
+      "url": "landmark.glb",
+      "triangles": 17740,
+      "drawCalls": 2,
+      "bytes": 169600,
+      "textureSize": 0,
+      "sha256": "1a01f8339c09d1cc71ab193dce5ea02e881856f1ba4d02ca22e0737099e264e4",
+      "parts": [
+        {
+          "name": "village_wood",
+          "role": "structure",
+          "source": 7526,
+          "triangles": 7526
+        },
+        {
+          "name": "village_hard",
+          "role": "structure",
+          "source": 7302,
+          "triangles": 1605
+        },
+        {
+          "name": "boat-hull",
+          "role": "boat",
+          "source": 5958,
+          "triangles": 1952
+        },
+        {
+          "name": "boat-gelcoat",
+          "role": "boat",
+          "source": 4166,
+          "triangles": 2607
+        },
+        {
+          "name": "boat-wood",
+          "role": "boat",
+          "source": 3342,
+          "triangles": 919
+        },
+        {
+          "name": "boat-fittings",
+          "role": "boat",
+          "source": 16632,
+          "triangles": 3107
+        },
+        {
+          "name": "boat-trap",
+          "role": "boat",
+          "source": 120,
+          "triangles": 120
+        },
+        {
+          "name": "boat-glow",
+          "role": "boat",
+          "source": 398,
+          "triangles": 104
+        },
+        {
+          "name": "boat-glass",
+          "role": "boat",
+          "source": 300,
+          "triangles": 90
+        }
+      ]
+    },
+    {
+      "level": "overview",
+      "url": "overview.glb",
+      "triangles": 7393,
+      "drawCalls": 2,
+      "bytes": 92816,
+      "textureSize": 0,
+      "sha256": "3282cc1a802232ce28595f7bf075c72cac9681dba82c17fa1b6035f20d09d575",
+      "parts": [
+        {
+          "name": "village_wood",
+          "role": "structure",
+          "source": 7526,
+          "triangles": 3993
+        },
+        {
+          "name": "village_hard",
+          "role": "structure",
+          "source": 7302,
+          "triangles": 563
+        },
+        {
+          "name": "boat-hull",
+          "role": "boat",
+          "source": 5958,
+          "triangles": 649
+        },
+        {
+          "name": "boat-gelcoat",
+          "role": "boat",
+          "source": 4166,
+          "triangles": 868
+        },
+        {
+          "name": "boat-wood",
+          "role": "boat",
+          "source": 3342,
+          "triangles": 297
+        },
+        {
+          "name": "boat-fittings",
+          "role": "boat",
+          "source": 16632,
+          "triangles": 1084
+        },
+        {
+          "name": "boat-trap",
+          "role": "boat",
+          "source": 120,
+          "triangles": 16
+        },
+        {
+          "name": "boat-glow",
+          "role": "boat",
+          "source": 398,
+          "triangles": 34
+        },
+        {
+          "name": "boat-glass",
+          "role": "boat",
+          "source": 300,
+          "triangles": 30
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "extraction": "f8f988ba6b4fd14e97a1e965e9e31db39b4d43054c1291b04d617d721941fb1e",
+    "builder": "07fc490bc6096bb0bf02748839f571d5c84437befba37b62230e5e3681cf48ec",
+    "extractor": "a37ba15d8efe1b8b0c088a103594c358b2553ded62f99a5e63948c495b7a97a3",
+    "writer": "27c5b720c926d3e5568747fadc44528ad78eddf744edb90ed95b2f3b2b036566"
+  }
+}

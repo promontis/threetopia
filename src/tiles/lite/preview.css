@@ -1,0 +1,210 @@
+@import '../../theme.css';
+@import '../../typography.css';
+@import '../../brand.css';
+
+.world-map-page {
+  --map-aqua: var(--stone-100);
+  --map-ink: var(--stone-50);
+  --map-ink-2: var(--stone-300);
+  --map-ink-3: var(--stone-400);
+  --map-glass: rgba(28, 25, 23, .78);
+  --map-fill: rgba(231, 229, 228, .09);
+  --map-line: rgba(231, 229, 228, .14);
+  --map-line-2: rgba(231, 229, 228, .26);
+  --map-action-size: 44px;
+  --map-action-gap: 12px;
+  --map-action-top: max(32px, env(safe-area-inset-top));
+  --map-action-right: max(28px, env(safe-area-inset-right));
+  margin: 0;
+  background: var(--stone-900);
+  color: var(--map-ink);
+  font: 400 14px/1.5 var(--sans);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  --map-panel: rgba(28, 25, 23, .96);
+  --map-hover: rgba(87, 83, 78, .8);
+}
+.world-map-page *, .world-map-page *::before, .world-map-page *::after { box-sizing: border-box; }
+.world-map-page button, .world-map-page a { -webkit-tap-highlight-color: transparent; }
+.world-map-page button { font: inherit; color: inherit; cursor: pointer; }
+.world-map-page a { color: inherit; }
+/* Focus stays in place for keyboard controls and dialog return, without
+   drawing a frame around the entire map or a ring around each control. */
+.world-map-page :focus { outline: none; }
+.world-map-page button:disabled { opacity: .3; cursor: default; }
+
+.tile-study { position: relative; height: 100svh; min-height: 360px; overflow: hidden; }
+.tile-canvas { position: absolute; inset: 0; touch-action: none; cursor: grab; }
+.tile-canvas:active { cursor: grabbing; }
+.tile-canvas canvas { display: block; width: 100%; height: 100%; }
+
+.map-brand {
+  position: absolute;
+  top: max(24px, env(safe-area-inset-top));
+  left: max(24px, env(safe-area-inset-left));
+  height: 48px;
+  border-radius: var(--radius-panel);
+  filter: drop-shadow(0 2px 6px #1c191766);
+  transition: color .18s;
+}
+.world-map-page .map-brand { color: var(--map-ink); }
+.world-map-page .map-brand:hover { color: var(--map-aqua); }
+.world-map-page .map-brand:focus-visible { color: var(--map-aqua); text-decoration: underline; text-underline-offset: 5px; }
+
+.north, .map-controls, .world-label, .map-status, .map-preview-notice {
+  background: var(--map-glass);
+  border: 1px solid var(--map-line);
+  box-shadow: inset 0 1px 0 #fafaf908, 0 6px 24px #1c191724;
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  backdrop-filter: blur(12px) saturate(1.5);
+}
+.map-preview-notice {
+  position: absolute;
+  top: max(88px, calc(env(safe-area-inset-top) + 64px));
+  left: max(24px, env(safe-area-inset-left));
+  max-width: calc(100% - 48px);
+  display: grid;
+  gap: 3px;
+  padding: 11px 14px;
+  border-radius: var(--radius-panel);
+  pointer-events: none;
+}
+.map-preview-notice strong { font-size: var(--text-small); font-weight: 600; }
+.map-preview-notice span { color: var(--map-ink-2); font-size: var(--text-caption); }
+.north {
+  position: absolute;
+  top: var(--map-action-top);
+  right: var(--map-action-right);
+  display: grid;
+  place-items: center;
+  width: var(--map-action-size);
+  height: var(--map-action-size);
+  padding: 0;
+  border-color: var(--map-line-2);
+  border-radius: var(--radius-panel);
+  pointer-events: none;
+}
+.north span { display: block; width: 22px; height: 22px; color: #fff; }
+.north svg { display: block; width: 100%; height: 100%; fill: #ffffff12; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.world-labels { position: absolute; inset: 0; pointer-events: none; }
+.world-card-leaders { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.world-card-leaders path { fill: none; stroke: var(--map-ink-3); stroke-width: 1; stroke-linecap: round; }
+.world-map-page .world-label {
+  position: absolute;
+  transform: translate(var(--card-x, -50%), var(--card-y, 10px));
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 8px;
+  align-items: center;
+  gap: 9px;
+  width: 184px;
+  height: 64px;
+  padding: 9px;
+  border-radius: var(--radius-panel);
+  text-align: left;
+  background: var(--map-glass);
+  pointer-events: auto;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color .18s, border-color .18s, color .18s, box-shadow .18s;
+}
+.world-map-page .world-label[hidden] { display: none; }
+.world-card-copy { display: grid; gap: 3px; min-width: 0; }
+.world-card-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--map-ink); font-size: var(--text-ui); font-weight: 600; letter-spacing: -.025em; line-height: 1.25; }
+.world-card-creator { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--map-ink-2); font-size: var(--text-caption); font-weight: 400; line-height: 1.3; }
+.world-card-arrow { color: #fff; font-size: 18px; font-weight: 400; }
+.world-card-avatar { display: block; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--map-line-2); object-fit: cover; }
+.world-map-page .world-label:hover, .world-map-page .world-label[data-selected=true] {
+  background: var(--map-hover);
+  border-color: var(--map-line-2);
+  color: var(--map-aqua);
+  box-shadow: inset 0 1px 0 #fafaf908, 0 0 14px var(--map-fill), 0 6px 24px #1c191724;
+}
+.world-map-page .world-label:focus-visible { background: var(--map-hover); color: var(--map-aqua); }
+.world-label:focus-visible .world-card-title { text-decoration: underline; text-underline-offset: 3px; }
+
+.map-controls {
+  position: absolute;
+  bottom: max(26px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  border-radius: var(--radius-dialog);
+}
+.map-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-panel);
+  background: transparent;
+  color: var(--map-ink-2);
+  transition: background-color .18s, border-color .18s, color .18s;
+}
+.map-controls button[data-reset] { background: var(--map-fill); }
+.map-controls button:hover:not(:disabled) { background: var(--map-fill); border-color: var(--map-line-2); color: var(--map-aqua); }
+.map-controls button:focus-visible:not(:disabled) { background: var(--map-hover); color: var(--map-aqua); }
+.map-controls svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.gesture-hint {
+  position: absolute;
+  bottom: max(89px, calc(env(safe-area-inset-bottom) + 63px));
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  color: var(--map-ink-2);
+  font-size: var(--text-caption);
+  white-space: nowrap;
+  text-shadow: 0 1px 5px #1c191799;
+  pointer-events: none;
+}
+.gesture-hint span { color: var(--map-aqua); padding: 0 5px; }
+.map-status { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); max-width: calc(100% - 40px); margin: 0; padding: 15px 23px; border-radius: var(--radius-dialog); text-align: center; font-size: var(--text-small); }
+.map-status:empty { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* Shared creator content, with the dark Stone surface inside the map. */
+.world-map-page .creator-dialog {
+  border: 1px solid var(--map-line-2);
+  border-radius: var(--radius-dialog);
+  background: var(--map-panel);
+  color: var(--map-ink);
+  box-shadow: 0 20px 70px #1c191766;
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  scrollbar-color: var(--map-ink-3) transparent;
+}
+.world-map-page .creator-dialog::backdrop { background: #1c191740; backdrop-filter: blur(5px); }
+.world-map-page .creator-dialog h2 { color: var(--map-ink); font: 600 var(--text-page)/var(--leading-heading) var(--sans); letter-spacing: -.035em; font-variation-settings: normal; font-size: var(--text-page); }
+.world-map-page .creator-profile > img { border: 1px solid var(--map-line); }
+.world-map-page .creator-profile > span > span, .world-map-page .creator-preview figcaption { color: var(--map-ink-3); }
+.world-map-page .creator-category { color: var(--map-aqua); }
+.world-map-page .creator-description { color: var(--map-ink-2); }
+.world-map-page .creator-close { background: var(--stone-800); border-color: var(--map-line-2); color: var(--map-ink-2); font: 26px/1 var(--sans); }
+.world-map-page .creator-close:hover { background: var(--stone-700); border-color: var(--map-line-2); color: var(--map-aqua); }
+.world-map-page .creator-close:focus-visible { background: var(--map-hover); color: var(--map-aqua); }
+.world-map-page .creator-dialog a:focus-visible { color: var(--map-aqua); text-decoration: underline; text-underline-offset: 4px; }
+.world-map-page .creator-preview-image { background: var(--stone-950); border: 1px solid var(--map-line); border-radius: var(--radius-panel); }
+.world-map-page .creator-links { border-color: var(--map-line); }
+.world-map-page .creator-links a { color: var(--map-ink); text-decoration-color: var(--map-line-2); }
+.world-map-page .creator-links a > span { color: var(--map-aqua); }
+.world-map-page .creator-links a:hover { color: var(--map-aqua); }
+
+@media (max-width: 650px) {
+  .world-map-page { --map-action-top: max(26px, env(safe-area-inset-top)); --map-action-right: max(20px, env(safe-area-inset-right)); }
+  .map-brand { top: max(18px, env(safe-area-inset-top)); left: max(16px, env(safe-area-inset-left)); }
+  .map-preview-notice { top: max(82px, calc(env(safe-area-inset-top) + 64px)); left: max(16px, env(safe-area-inset-left)); max-width: calc(100% - 32px); }
+  .world-map-page .world-label { width: min(164px, calc(50vw - 18px)); height: 56px; padding: 7px; gap: 7px; grid-template-columns: 40px minmax(0, 1fr) 6px; border-radius: var(--radius-control); background: var(--map-glass); }
+  .world-card-title { font-size: var(--text-small); }
+  .world-card-creator { font-size: var(--text-caption); }
+  .world-card-avatar { width: 40px; height: 40px; border-radius: 50%; }
+  .map-controls { bottom: max(20px, env(safe-area-inset-bottom)); }
+  .gesture-hint { bottom: max(83px, calc(env(safe-area-inset-bottom) + 63px)); font-size: var(--text-caption); }
+  .world-map-page .creator-dialog h2 { font-size: var(--text-page); font: 600 var(--text-page)/var(--leading-heading) var(--sans); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .world-label, .map-brand, .map-controls button { transition: none; }
+}

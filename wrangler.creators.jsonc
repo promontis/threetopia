@@ -1,0 +1,22 @@
+{
+  "$schema":"./node_modules/wrangler/config-schema.json",
+  "name":"threetopia-creators",
+  "account_id":"403d2b98d35ee85533629161a1b24a03",
+  "main":"src/creators/server/index.ts",
+  "compatibility_date":"2026-10-01",
+  "compatibility_flags":["nodejs_compat"],
+  "workers_dev":false,"preview_urls":false,
+  "triggers":{"crons":["* * * * *","17 3 * * *"]},
+  "browser":{"binding":"THUMBNAIL_BROWSER","remote":true},
+  "queues":{
+    "producers":[{"binding":"THUMBNAIL_QUEUE","queue":"threetopia-tile-thumbnails"}],
+    "consumers":[{"queue":"threetopia-tile-thumbnails","max_batch_size":1,"max_batch_timeout":1,"max_concurrency":1,"max_retries":3,"retry_delay":60}]
+  },
+  "routes":[{"pattern":"creators.threetopia.com","custom_domain":true}],
+  "assets":{"binding":"ASSETS","directory":"dist/creators","not_found_handling":"single-page-application","run_worker_first":["/","/index.html","/packages/my/","/catalog","/catalog/","/packages/","/tiles/mine","/tiles/mine/","/tiles/my/","/api/*"]},
+  "vars":{"SITE_URL":"https://creators.threetopia.com","AUTH_LOCAL":"false","AUTH_FROM":"hello@threetopia.com"},
+  "d1_databases":[{"binding":"DB","database_name":"threetopia-creators","database_id":"1d80815b-5dfa-4955-bebe-c50c98f3138f","migrations_dir":"migrations-creators"}],
+  "r2_buckets":[{"binding":"PACKAGES","bucket_name":"threetopia-packages"}],
+  "send_email":[{"name":"AUTH_EMAIL","allowed_sender_addresses":["hello@threetopia.com"]}],
+  "ratelimits":[{"name":"AUTH_LIMITER","namespace_id":"51901002","simple":{"limit":10,"period":60}}]
+}

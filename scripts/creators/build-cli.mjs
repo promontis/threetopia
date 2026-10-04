@@ -1,0 +1,11 @@
+import {build} from 'esbuild';
+import {readdir,copyFile,mkdir,readFile,writeFile} from 'node:fs/promises';
+await mkdir('packages/cli/sdk',{recursive:true});
+for(const f of await readdir('packages/platform'))if(f.endsWith('.js')||f.endsWith('.json')||f==='HOST-ASSETS-LICENSE.md')await copyFile(`packages/platform/${f}`,`packages/cli/sdk/${f}`);
+await build({entryPoints:['src/creators/local-preview.ts'],bundle:true,format:'esm',target:'es2022',minify:true,outfile:'packages/cli/runtime/preview.js',plugins:[{name:'portable-host-worker',setup(b){b.onLoad({filter:/host-loader\.ts$/},async args=>({contents:(await readFile(args.path,'utf8')).replace('./registry-host.worker.ts','./registry-host.worker.js'),loader:'ts'}));}}]});
+await build({entryPoints:['src/creators/registry-host.worker.ts'],bundle:true,format:'esm',target:'es2022',minify:true,outfile:'packages/cli/runtime/registry-host.worker.js'});
+const pkg=JSON.parse(await readFile('packages/cli/package.json','utf8'));
+pkg.files=['bin/threetopia.js','lib','sdk','runtime','README.md'];pkg.dependencies={};pkg.description='Authenticate, create, validate, preview, install and publish Threetopia packages.';
+await writeFile('packages/cli/package.json',JSON.stringify(pkg,null,2)+'\n');
+await copyFile('node_modules/three/LICENSE','packages/cli/runtime/THREE-LICENSE.txt');
+console.log('Built standalone CLI and bundled local preview.');

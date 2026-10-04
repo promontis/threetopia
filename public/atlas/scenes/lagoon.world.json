@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "lagoon",
+  "title": "Lagoon Tree Village",
+  "tile": {
+    "q": 0,
+    "r": 0
+  },
+  "edges": [
+    "shore-path",
+    "open-sea",
+    "shore-path",
+    "open-sea",
+    "shore-path",
+    "open-sea"
+  ],
+  "scene": {
+    "kind": "runtime",
+    "id": "lagoon"
+  },
+  "map": "lagoon.json"
+}

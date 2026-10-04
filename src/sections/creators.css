@@ -1,0 +1,30 @@
+.creators-section { border-bottom: 1px solid var(--line); }
+.creators-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: 100px; }
+.creators-eyebrow { color: var(--theme-text-muted); font: var(--text-caption)/1.6 var(--mono); letter-spacing: .06em; margin-bottom: 22px; }
+.creators-copy h2 { font-family: var(--sans); font-size: clamp(36px, 3.6vw, 48px); font-weight: var(--weight-medium); line-height: 1.15; letter-spacing: -.03em; }
+.creators-intro { max-width: 370px; margin-top: 22px; color: var(--ink-soft); font-size: var(--text-body); line-height: 1.8; }
+.creators-join { gap: 40px; margin-top: 24px; }
+.creators-join span { transition: transform .2s ease; }
+.creators-join:hover span { transform: translate(2px, -2px); }
+.creators-tally { min-width: 0; padding: 20px 0 20px 72px; border-left: 1px solid var(--theme-border); }
+.creators-number { color: var(--theme-text-secondary); font: 500 clamp(92px, 11vw, 156px)/1.05 var(--sans); letter-spacing: -.075em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.creators-label { margin-top: 14px; font-size: var(--text-body); letter-spacing: -.02em; }
+.creators-note { margin-top: 9px; color: var(--ink-soft); font-size: var(--text-caption); line-height: 1.7; }
+@media (max-width: 1050px) {
+  .creators-layout { gap: 48px; }
+  .creators-tally { padding-left: 40px; }
+  .creators-number { font-size: clamp(76px, 10vw, 112px); }
+}
+@media (max-width: 760px) {
+  .creators-layout { grid-template-columns: 1fr; gap: 36px; }
+  .creators-eyebrow { margin-bottom: 18px; }
+  .creators-copy h2 { font-size: 36px; }
+  .creators-intro { font-size: var(--text-ui); margin-top: 18px; }
+  .creators-join { margin-top: 20px; }
+  .creators-tally { padding: 28px 0 0; border-left: 0; border-top: 1px solid var(--theme-border); }
+  .creators-number { font-size: clamp(64px, 22vw, 112px); }
+  .creators-label { margin-top: 12px; font-size: var(--text-body); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .creators-join span { transition: none; }
+}

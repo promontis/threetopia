@@ -1,0 +1,37 @@
+<div class="explore-canvas" data-world-canvas></div>
+<header class="explore-header">
+  <a class="explore-brand" href="https://threetopia.com/" aria-label="Threetopia home"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="/brand-mark.svg#mark" /></svg><span>threetopia</span></a>
+  <span class="explore-edition">World</span>
+  <button class="explore-pill" data-world-map disabled aria-expanded="false">Map <span>M</span></button>
+</header>
+<div class="explore-location" data-world-location><p>YOU ARE IN</p><h1 tabindex="-1">Lagoon Tree Village</h1><span data-world-creator>by cryptomanavan</span></div>
+<div class="explore-crosshair" aria-hidden="true"></div>
+<footer class="explore-footer" inert>
+  <div class="explore-instructions"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</span><span><kbd>SHIFT</kbd> run</span><span><kbd>SPACE</kbd> jump</span><span><kbd>Q</kbd><kbd>E</kbd> turn</span><span>Click the view to look around · <kbd>ESC</kbd> release</span></div>
+  <div class="explore-actions"><label class="explore-destination">Destination<select data-world-destination><option value="sakura">Sakura</option><option value="tidewater">Tidewater</option><option value="punk">Punk</option><option value="lagoon">Lagoon · centre</option></select></label><button class="explore-pill" data-world-guide disabled>Walk to Sakura <span>↗</span></button><button class="explore-pill explore-credits-button" data-world-credits>Credits <span>＋</span></button></div>
+</footer>
+<div class="explore-joystick" data-world-joystick inert role="group" aria-label="Touch movement"><span></span></div>
+<button class="explore-jump" data-world-jump inert aria-label="Jump">↑</button>
+<div class="explore-loading" data-world-loading>
+  <div class="explore-loading-copy">
+    <h2>Loading world</h2>
+    <div class="explore-progress" data-world-progressbar role="progressbar" aria-label="Loading world" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-world-progress></span></div>
+    <p class="explore-loading-status" data-world-status role="status">Loading…</p>
+    <noscript><p class="explore-no-script">Enable JavaScript to load the world.</p><style>.explore-progress,.explore-loading-status{display:none}</style></noscript>
+    <button class="explore-retry" data-world-retry hidden>Try again</button>
+    <a class="explore-loading-return" href="https://threetopia.com/">← Back to Threetopia</a>
+  </div>
+</div>
+<div class="explore-minimap" data-world-minimap hidden>
+  <div class="atlas-stage explore-minimap-stage" data-world-minimap-stage inert aria-hidden="true"></div>
+  <span class="explore-minimap-north" aria-hidden="true">N</span>
+  <button class="explore-minimap-open" data-world-minimap-open aria-label="Open world map" aria-keyshortcuts="M"><span>Map <kbd>M</kbd></span></button>
+</div>
+<dialog class="explore-dialog explore-map-dialog" data-world-map-dialog aria-labelledby="world-map-title">
+  <header class="explore-atlas-header"><div><p class="explore-eyebrow">MAP</p><h2 id="world-map-title">World map</h2></div><nav><a href="/atlas/">Creator atlas ↗</a><button data-close-dialog aria-label="Close map">× <kbd>ESC</kbd></button></nav></header>
+  <div class="atlas-shell" data-world-atlas><!-- include:src/sections/atlas-view.html --></div>
+  <div class="explore-atlas-footer"><span>Threetopia</span><label><input type="checkbox" data-world-grid> Show tile boundaries in the world</label><span data-world-distance>0 m walked</span></div>
+</dialog>
+<dialog class="explore-dialog" data-world-credits-dialog aria-labelledby="world-credits-title"><div class="explore-dialog-top"><p class="explore-eyebrow">CREDITS</p><button data-close-dialog aria-label="Close credits">×</button></div><h2 id="world-credits-title">World credits</h2><p>Source worlds and their creators.</p><div class="explore-source-list" data-world-sources></div><p class="explore-map-note">Scene snapshots and material adaptations are documented with the project. Individual demo features may differ in this shared world.</p></dialog>
+<output class="explore-toast" data-world-toast aria-live="polite"></output>
+<div class="explore-inspector" data-world-inspector hidden><button data-world-hide-inspector aria-label="Hide diagnostics">×</button><label>Simulation <select data-world-timescale><option value="1">1×</option><option value="8">8×</option><option value="32">32×</option></select></label><label><input type="checkbox" data-world-rain checked> City rain</label><label><input type="checkbox" data-world-reflections checked> Street reflections</label><pre data-world-diagnostics></pre></div>
