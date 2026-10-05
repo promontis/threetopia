@@ -20,6 +20,18 @@ importers:
       '@threetopia/source-tidewater':
         specifier: workspace:*
         version: link:packages/world-sources/tidewater
+      '@dgreenheck/tidewater-gulls':
+        specifier: workspace:*
+        version: link:packages/components/tidewater-gulls
+      '@dgreenheck/tidewater-map-tile':
+        specifier: workspace:*
+        version: link:packages/components/tidewater-map-tile
+      '@dgreenheck/tidewater-rocks':
+        specifier: workspace:*
+        version: link:packages/components/tidewater-rocks
+      '@dgreenheck/tidewater-vegetation':
+        specifier: workspace:*
+        version: link:packages/components/tidewater-vegetation
       '@threetopia/world-map':
         specifier: workspace:*
         version: link:packages/world-map
@@ -42,6 +54,9 @@ importers:
         specifier: npm:three@0.186.0
         version: three@0.186.0
     devDependencies:
+      '@babel/parser':
+        specifier: 7.29.9
+        version: 7.29.9
       '@cloudflare/puppeteer':
         specifier: 1.4.0
         version: 1.4.0
@@ -90,6 +105,326 @@ importers:
 
   packages/cli: {}
 
+  packages/components/tidewater-audio:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-boat:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-ocean':
+        specifier: workspace:*
+        version: link:../tidewater-ocean
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-core:
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-debris:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-terrain':
+        specifier: workspace:*
+        version: link:../tidewater-terrain
+      '@dgreenheck/tidewater-village':
+        specifier: workspace:*
+        version: link:../tidewater-village
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-gulls:
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-lighting:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-map-tile:
+    dependencies:
+      '@dgreenheck/tidewater-boat':
+        specifier: workspace:*
+        version: link:../tidewater-boat
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-gulls':
+        specifier: workspace:*
+        version: link:../tidewater-gulls
+      '@dgreenheck/tidewater-player':
+        specifier: workspace:*
+        version: link:../tidewater-player
+      '@dgreenheck/tidewater-rocks':
+        specifier: workspace:*
+        version: link:../tidewater-rocks
+      '@dgreenheck/tidewater-terrain':
+        specifier: workspace:*
+        version: link:../tidewater-terrain
+      '@dgreenheck/tidewater-vegetation':
+        specifier: workspace:*
+        version: link:../tidewater-vegetation
+      '@dgreenheck/tidewater-village':
+        specifier: workspace:*
+        version: link:../tidewater-village
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-ocean:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-player:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-postprocessing:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-reef:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-ocean':
+        specifier: workspace:*
+        version: link:../tidewater-ocean
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-rocks:
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-sky:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-terrain:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-rocks':
+        specifier: workspace:*
+        version: link:../tidewater-rocks
+      '@dgreenheck/tidewater-vegetation':
+        specifier: workspace:*
+        version: link:../tidewater-vegetation
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-ui:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-vegetation:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-village:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-reef':
+        specifier: workspace:*
+        version: link:../tidewater-reef
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-whale:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-ocean':
+        specifier: workspace:*
+        version: link:../tidewater-ocean
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-wildlife:
+    dependencies:
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-gulls':
+        specifier: workspace:*
+        version: link:../tidewater-gulls
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-ocean':
+        specifier: workspace:*
+        version: link:../tidewater-ocean
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
+  packages/components/tidewater-world-tile:
+    dependencies:
+      '@dgreenheck/tidewater-audio':
+        specifier: workspace:*
+        version: link:../tidewater-audio
+      '@dgreenheck/tidewater-boat':
+        specifier: workspace:*
+        version: link:../tidewater-boat
+      '@dgreenheck/tidewater-core':
+        specifier: workspace:*
+        version: link:../tidewater-core
+      '@dgreenheck/tidewater-debris':
+        specifier: workspace:*
+        version: link:../tidewater-debris
+      '@dgreenheck/tidewater-lighting':
+        specifier: workspace:*
+        version: link:../tidewater-lighting
+      '@dgreenheck/tidewater-map-tile':
+        specifier: workspace:*
+        version: link:../tidewater-map-tile
+      '@dgreenheck/tidewater-ocean':
+        specifier: workspace:*
+        version: link:../tidewater-ocean
+      '@dgreenheck/tidewater-player':
+        specifier: workspace:*
+        version: link:../tidewater-player
+      '@dgreenheck/tidewater-postprocessing':
+        specifier: workspace:*
+        version: link:../tidewater-postprocessing
+      '@dgreenheck/tidewater-reef':
+        specifier: workspace:*
+        version: link:../tidewater-reef
+      '@dgreenheck/tidewater-sky':
+        specifier: workspace:*
+        version: link:../tidewater-sky
+      '@dgreenheck/tidewater-terrain':
+        specifier: workspace:*
+        version: link:../tidewater-terrain
+      '@dgreenheck/tidewater-ui':
+        specifier: workspace:*
+        version: link:../tidewater-ui
+      '@dgreenheck/tidewater-vegetation':
+        specifier: workspace:*
+        version: link:../tidewater-vegetation
+      '@dgreenheck/tidewater-village':
+        specifier: workspace:*
+        version: link:../tidewater-village
+      '@dgreenheck/tidewater-whale':
+        specifier: workspace:*
+        version: link:../tidewater-whale
+      '@dgreenheck/tidewater-wildlife':
+        specifier: workspace:*
+        version: link:../tidewater-wildlife
+    devDependencies:
+      three:
+        specifier: 0.186.0
+        version: 0.186.0
+
   packages/platform:
     dependencies:
       three:
@@ -120,11 +455,34 @@ importers:
 
   packages/world-sources/tidewater:
     dependencies:
+      '@dgreenheck/tidewater-gulls':
+        specifier: workspace:*
+        version: link:../../components/tidewater-gulls
+      '@dgreenheck/tidewater-rocks':
+        specifier: workspace:*
+        version: link:../../components/tidewater-rocks
       three:
         specifier: 0.186.0
         version: 0.186.0
 
 packages:
+
+  '@babel/helper-string-parser@7.29.7':
+    resolution: {integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-validator-identifier@7.29.7':
+    resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/parser@7.29.9':
+    resolution: {integrity: sha512-CjXrNHTnvqBVqHgdBysY3vk2T8tpJHb5/RMeHJBTyVa9xgugCB0CJTx/3oO8RV2QRQP391RWpB7D6hLjm8V9uA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
+  '@babel/types@7.29.8':
+    resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
+    engines: {node: '>=6.9.0'}
 
   '@cloudflare/kv-asset-handler@0.5.0':
     resolution: {integrity: sha512-jxQYkj8dSIzc0cD6cMMNdOc1UVjqSqu8BZdor5s8cGjW2I8BjODt/kWPVdY+u9zj3ms75Q5qaZgnxUad83+eAg==}
@@ -1548,6 +1906,19 @@ packages:
     resolution: {integrity: sha512-rLfVLB4FgQneDr0dv1oddCVZmKjcJ6yX6mS4pU82Mq/Dt9a3cLZQ62pDBL4AUO+uVrCvtWz3ZFUL2HFAFJ/BXQ==}
 
 snapshots:
+
+  '@babel/helper-string-parser@7.29.7': {}
+
+  '@babel/helper-validator-identifier@7.29.7': {}
+
+  '@babel/parser@7.29.9':
+    dependencies:
+      '@babel/types': 7.29.8
+
+  '@babel/types@7.29.8':
+    dependencies:
+      '@babel/helper-string-parser': 7.29.7
+      '@babel/helper-validator-identifier': 7.29.7
 
   '@cloudflare/kv-asset-handler@0.5.0': {}
 

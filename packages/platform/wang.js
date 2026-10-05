@@ -1,4 +1,5 @@
 import {navigationIssue} from './navigation.js';
+import {waterProtectionAt} from './tile-requirements.js';
 import * as previous from './wang-v3.js';
 import {DESIGNS,DESIGN_STYLES,DESIGN_VARIANTS} from './tile-designs.js';
 import {createDesignTile,designHeight,designFootprint,regionFloor} from './wang-v4.js';
@@ -17,25 +18,39 @@ export function buildContains(tile,points,role='world'){
  return tile.slot.regions.some(r=>points.every(p=>p[1]/scale+origin.y>=regionFloor(tile,r)-.001&&p[1]/scale+origin.y<=regionFloor(tile,r)+tile.slot.height+.001&&Math.hypot(p[0]/scale+origin.x-r.x,p[2]/scale+origin.z-r.z)<=r.radius+.001));
 }
 export function edgesMatch(a,b){return a.kind===b.kind&&a.waterY===b.waterY&&a.start===b.end&&a.end===b.start&&a.samples.every((h,i)=>Math.abs(h-b.samples[24-i])<.0001)&&a.ports.length===b.ports.length&&a.ports.every((p,i)=>p.kind===b.ports[b.ports.length-1-i].kind&&p.width===b.ports[b.ports.length-1-i].width&&Math.abs(p.t+b.ports[b.ports.length-1-i].t-1)<.0001&&Math.abs(p.y-b.ports[b.ports.length-1-i].y)<.0001);}
-const actual=tiles=>tiles.map(t=>t.contract?(typeof t.contract==='string'?JSON.parse(t.contract):t.contract):t);
+const actual=tiles=>tiles.map(t=>t.contract?(typeof t.contract==='string'?JSON.parse(t.contract):t.contract):t).filter(t=>!waterProtectionAt(t.q,t.r));
 const neighboring=(a,b)=>DIRECTIONS.findIndex(([q,r])=>b.q===a.q+q&&b.r===a.r+r),key=t=>`${t.q},${t.r}`;
+// Native adapters must not turn an all-water host into a shoreline or add paths.
+const waterOnlyIssue=tile=>tile.recipe?.kind==='water'&&tile.edges.some(e=>e.samples.some(y=>y>=0)||e.ports.length)?'Open water requires submerged edges on all six sides. Choose a position beside open sea.':null;
+// Open sea can terminate a coastal host at its shoreline. The coastal host
+// closes its exposed edge down to the seabed; no land or paths enter the sea tile.
+function waterMeetsCoast(water,edge,coast,opposite){
+ return water.recipe?.kind==='water'&&coast.version>=4&&!coast.recipe?.floating&&edge.kind==='sea'&&edge.ports.length===0&&edge.samples.every(y=>y<0)&&edge.waterY===opposite.waterY&&['shore','sea'].includes(opposite.kind);
+}
+function tilesMatch(a,i,b){
+ const edge=a.edges[i],opposite=b.edges[(i+3)%6];
+ return edgesMatch(edge,opposite)||waterMeetsCoast(a,edge,b,opposite)||waterMeetsCoast(b,opposite,a,edge);
+}
 export function compatibleChoices(q,r,tiles=[],{lookahead=false}={}){
+ if(waterProtectionAt(q,r))return [];
  const all=actual(tiles),neighbors=all.filter(t=>neighboring({q,r},t)>=0),adapters=neighbors.flatMap(t=>t.version===1?[neighboring({q,r},t)]:[]),choices=[];
  for(const v of WANG_VARIANTS)for(let rotation=0;rotation<6;rotation++){
   const tile=createDesignTile(q,r,v.id,rotation,adapters);
-  if(neighbors.some(n=>n.version>=2&&!edgesMatch(tile.edges[neighboring(tile,n)],n.edges[neighboring(n,tile)])))continue;
+  if(waterOnlyIssue(tile))continue;
+  if(neighbors.some(n=>n.version>=2&&!tilesMatch(tile,neighboring(tile,n),n)))continue;
   if(lookahead&&placementIssue(tile,tiles,{checkNeighbors:false}))continue;
   choices.push({variant:v.id,rotation,legacyEdges:tile.legacyEdges});
  }return choices;
 }
 export function placementIssue(tile,tiles=[],{checkNeighbors=true}={}){
  const waterIssue=navigationIssue(tile,tiles);if(waterIssue)return waterIssue;
+ const waterOnly=waterOnlyIssue(tile);if(waterOnly)return waterOnly;
  const all=actual(tiles),occupied=new Set([...all,...ORIGINAL_TILES].map(key));
- if(checkNeighbors&&all.some(n=>{const i=neighboring(tile,n);return i>=0&&n.version>=2&&!edgesMatch(tile.edges[i],n.edges[(i+3)%6]);}))return 'This layout does not match the neighboring paths, water or corner heights.';
- for(const [dq,dr]of DIRECTIONS){const q=tile.q+dq,r=tile.r+dr;if(ring(q,r)>99||occupied.has(`${q},${r}`))continue;
+ if(checkNeighbors&&all.some(n=>{const i=neighboring(tile,n);return i>=0&&n.version>=2&&!tilesMatch(tile,i,n);}))return 'This layout does not match the neighboring paths, water or corner heights.';
+ for(const [dq,dr]of DIRECTIONS){const q=tile.q+dq,r=tile.r+dr;if(ring(q,r)>99||occupied.has(`${q},${r}`)||waterProtectionAt(q,r))continue;
   const neighbors=[...all,tile].filter(t=>neighboring({q,r},t)>=0);if(neighbors.filter(t=>t.version>=2).length<2)continue;
   const adapters=neighbors.flatMap(t=>t.version===1?[neighboring({q,r},t)]:[]);
-  if(!WANG_VARIANTS.some(v=>Array.from({length:6},(_,rotation)=>createDesignTile(q,r,v.id,rotation,adapters)).some(candidate=>neighbors.every(n=>n.version<2||edgesMatch(candidate.edges[neighboring(candidate,n)],n.edges[neighboring(n,candidate)])))))return 'This placement would leave a neighboring position without a compatible layout. Choose another layout or rotation.';
+  if(!WANG_VARIANTS.some(v=>Array.from({length:6},(_,rotation)=>createDesignTile(q,r,v.id,rotation,adapters)).some(candidate=>!waterOnlyIssue(candidate)&&neighbors.every(n=>n.version<2||tilesMatch(candidate,neighboring(candidate,n),n)))))return 'This placement would leave a neighboring position without a compatible layout. Choose another layout or rotation.';
  }
  return null;
 }

@@ -1,8 +1,8 @@
 import {writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import * as T from 'three-world';
-import {buildRockGeometry} from '../../packages/world-sources/tidewater/src/world/terrain/RockGeometry.js';
-import {buildPalmFar,buildYoungPalm,buildFern} from '../../packages/world-sources/tidewater/src/world/vegetation/PlantGeometry.js';
+import {buildRockGeometry} from '@dgreenheck/tidewater-rocks';
+import {buildPalmFar,buildYoungPalm,buildFern} from '@dgreenheck/tidewater-vegetation/world/vegetation/PlantGeometry.js';
 import {writeLandmarkGLB} from './landmark-glb.mjs';
 
 // Build-time imports only: the map ships small geometry, not the source game's

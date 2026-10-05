@@ -1,0 +1,92 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/core/CDLOD.js",
+      "file": "src/core/CDLOD.js",
+      "sha256": "b45e4ef575db4e25884a6298833e4be1349693dd6d6c1305598fa44aa7c92918",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/DebugViews.js",
+      "file": "src/core/DebugViews.js",
+      "sha256": "7f5c587d54a5c576a45f153f7fead271c602fcf0670fcfe434b4f71c255887d2",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/Engine.js",
+      "file": "src/core/Engine.js",
+      "sha256": "9e2c2ee8efe6c57141a2ea43da81042021120f34299996955a4deca2f9be1ea3",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/Globals.js",
+      "file": "src/core/Globals.js",
+      "sha256": "62a6661b6fc55bf0e495039f123bc9b610956d74792d8a9685b880457aa7ad3e",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/Input.js",
+      "file": "src/core/Input.js",
+      "sha256": "837aede0dd64ed6e8bea9aa885e6e034e7d810740561a02edfdee9b8b828f646",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/Profiler.js",
+      "file": "src/core/Profiler.js",
+      "sha256": "3264fd022c0df17002f14a3319ce7c2ef77da71c7bd418a8606fa4df5f8e14ee",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/SceneRenderer.js",
+      "file": "src/core/SceneRenderer.js",
+      "sha256": "d282e63e1d3016e0a58487f5912a400e464f96f51a29a259a2167d457ad5f37f",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/core/TSLPatches.js",
+      "file": "src/core/TSLPatches.js",
+      "sha256": "0d1e5fe5c15d85b5439cd412e219074054ae3b99068f69fcefc28b60e2577277",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/CameraVelocity.js",
+      "file": "src/post/CameraVelocity.js",
+      "sha256": "4281b8e60eb57ada9305d06c4f35e012f77479cad767ec5355e7910c83896f1f",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/util/Noise.js",
+      "file": "src/util/Noise.js",
+      "sha256": "3f12e6968b085bdb4674481480b279b5110848c70999141d6116a3f22626b0b0",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/WorldLayout.js",
+      "file": "src/world/WorldLayout.js",
+      "sha256": "ce919f159c6a5df208166f5ef47d377963875a603e2912e0a71dccae0fe62aaa",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/DetailTextures.js",
+      "file": "src/world/terrain/DetailTextures.js",
+      "sha256": "43a2b0c500d8ff4ec0ce963c1644c43bf0751ed1f0f5967035fb0387d83f8df3",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/TerrainNoise.js",
+      "file": "src/world/terrain/TerrainNoise.js",
+      "sha256": "bbc9e37ab0167ef2444678da359f6ed00a90ef5f839200e9a8817eeb3a1da2f7",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/TerrainShading.js",
+      "file": "src/world/terrain/TerrainShading.js",
+      "sha256": "312a52f6ae6d4f3c5715150ab087a6bdafc517d2c25cd4dbe257e1468ea08ed4",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

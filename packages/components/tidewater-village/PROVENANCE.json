@@ -1,0 +1,56 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Pier.js",
+      "file": "src/world/Pier.js",
+      "sha256": "fd81a3a3644db4417c50c93491a46d77a78fb6d88b5d70fe6a457caa39c49115",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/Props.js",
+      "file": "src/world/Props.js",
+      "sha256": "d2b11244640972fad9631ef9469b2d20005a24105a59e8b764aef4da27d23631",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/Village.js",
+      "file": "src/world/Village.js",
+      "sha256": "00f4347c452c5e80309cbb5d6e2956b0ea19cf2f4b27e660b1aabb1ea552448e",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/village/Boardwalk.js",
+      "file": "src/world/village/Boardwalk.js",
+      "sha256": "423c2496af0bd45720641e9d7c7eeefa7e24b5fad3378c9b0c7226aa6eda19a1",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/village/Buildings.js",
+      "file": "src/world/village/Buildings.js",
+      "sha256": "9dcbe3a2c131299b6819e85aad8cf37043518b9a0616341286cbb46d6cf54c37",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/village/GeoBuilder.js",
+      "file": "src/world/village/GeoBuilder.js",
+      "sha256": "32f5d05246b99678d34370dafb9a75ff3502ec3acda527c96544848f491d1e34",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/village/TextureBaker.js",
+      "file": "src/world/village/TextureBaker.js",
+      "sha256": "f6eef9b4a82b86691692a09504a45f384f06999b5e693f3d852bce45e2dd5b70",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/village/VillageMaterials.js",
+      "file": "src/world/village/VillageMaterials.js",
+      "sha256": "7b46526f91f7cca988407404d608698871ae58083426a7203d279f7733526a9b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

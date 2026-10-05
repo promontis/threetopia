@@ -1,0 +1,20 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/App.js",
+      "file": "src/App.js",
+      "sha256": "d987e1cbf290e625f03fe06b5524e9af69d02fe2ca5397ae3eadce427c1bc8ad",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/main.js",
+      "file": "src/main.js",
+      "sha256": "ef317cc8df3be98007ae25bc7c8de8046b428249f25e04ba07b330a8b3780aa2",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

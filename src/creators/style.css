@@ -181,6 +181,10 @@ input[readonly] { background: var(--theme-subtle) }
 .owned-tile-package { font-size: var(--text-small); font-weight: var(--weight-medium); color: var(--accent) }
 .tile-thumbnail-renderer { position: fixed; left: -10000px; top: 0; width: 800px; height: 500px; border: 0; pointer-events: none }
 .badge.reserved { background: var(--theme-warning-soft); color: var(--theme-warning) }
+.badge.protected { background: #e0f2f4; color: #21636d }
+.protected-water-content p { margin-top: 16px; line-height: 1.6 }
+.protected-water-symbol { margin: 32px 0 24px; color: #4d929d; font-size: 64px; line-height: 1 }
+.protected-water-reason { font-weight: 600 }
 @media(max-width:1180px) {
 .workspace { margin-left: 200px; padding: 40px var(--page-gutter) 60px }
 .page-heading { flex-wrap: wrap }
@@ -376,4 +380,3 @@ input[readonly] { background: var(--theme-subtle) }
 @media(max-width:800px) {
 input:not([type=checkbox]):not([type=radio]),textarea,select { font-size: var(--text-body) }
 }
-

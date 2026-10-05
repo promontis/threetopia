@@ -36,7 +36,7 @@ const request=(id=own,audience='owner',etag='',user='alice',headers:Record<strin
 beforeAll(async()=>{
   platform=await getPlatformProxy({configPath:'tests/fixtures/thumbnails.wrangler.json',persist:false,remoteBindings:false,envFiles:[]});
   db=platform.env.DB;env={DB:db,PACKAGES:platform.env.PACKAGES,SITE_URL:'https://creators.threetopia.com',ASSETS:{fetch:vi.fn(async()=>new Response('asset'))}} as any;
-  for(const file of ['0001_platform.sql','0002_package_discovery.sql'])await db.batch(unstable_splitSqlQuery(readFileSync(`migrations-creators/${file}`,'utf8')).map(sql=>db.prepare(sql)));
+  for(const file of ['0001_platform.sql','0002_package_discovery.sql','0004_managed_namespaces.sql'])await db.batch(unstable_splitSqlQuery(readFileSync(`migrations-creators/${file}`,'utf8')).map(sql=>db.prepare(sql)));
   await run("INSERT INTO creators VALUES('alice','alice@example.test','alice','Alice',1)");await tile(own,-1,1);
   await db.batch(unstable_splitSqlQuery(readFileSync('migrations-creators/0003_tile_thumbnails.sql','utf8')).map(sql=>db.prepare(sql)));
   backfill=(await db.prepare('SELECT COUNT(*) AS n FROM tile_thumbnails').first<any>()).n;

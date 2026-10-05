@@ -1,4 +1,6 @@
 import seams from './seams.json' with {type:'json'};
+import {sha256} from './integrity.js';
+export {sha256};
 /** Canonical host geometry. Creators fill a slot; they never replace this shell. */
 export const CONTRACT_VERSION = 1;
 export const TILE_RADIUS = 300;
@@ -6,7 +8,14 @@ export const MAP_SCALE = .03;
 export const SLOT = Object.freeze({ radius: 190, height: 480, floorY: 24, mapRadius: 5.7, mapHeight: 14.4 });
 export const DIRECTIONS = [[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]];
 export const ORIGINAL_TILES = [
-  { q:0,r:0,title:'Lagoon',id:'lagoon' }, { q:1,r:0,title:'Tidewater',id:'tidewater' },
+  { q:0,r:0,title:'Lagoon',id:'lagoon' },
+  { q:1,r:0,title:'Tidewater',id:'tidewater',requiredOpenWater:[{
+    id:'whale',reason:'Kept clear for Tidewater’s whale.',oceanConnected:true,
+    // Axial offsets from Tidewater. Together with its own water these cover
+    // the entire animated whale, including flippers, tail and a 20 m margin.
+    // The wildlife regression test checks the actual rig throughout its route.
+    cells:[{q:1,r:0},{q:0,r:1}],
+  }] },
   { q:0,r:-1,title:'Sakura',id:'sakura' }, { q:1,r:-1,title:'Punk',id:'punk' },
 ];
 const families = [
@@ -43,7 +52,6 @@ export function canonicalTile(q,r,variantId){
     boundaries:boundaryProfiles(q,r),edges:DIRECTIONS.map(([dq,dr])=>[`${q},${r}`,`${q+dq},${r+dr}`].sort().join('|')),recipe:{...variant}};
 }
 export const canonicalJSON = value => JSON.stringify(value,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
-export async function sha256(bytes){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',typeof bytes==='string'?new TextEncoder().encode(bytes):bytes)),n=>n.toString(16).padStart(2,'0')).join('');}
 export async function tileContract(q,r,variant){const tile=canonicalTile(q,r,variant);return {...tile,hash:await sha256(canonicalJSON(tile))};}
 export async function verifyTile(tile){if(!tile||typeof tile!=='object')return false;try{return canonicalJSON(tile)===canonicalJSON(await tileContract(tile.q,tile.r,tile.variant));}catch{return false;}}
 export function corners(radius=TILE_RADIUS){return Array.from({length:6},(_,i)=>{const a=(i*60-30)*Math.PI/180;return [Math.cos(a)*radius,Math.sin(a)*radius];});}

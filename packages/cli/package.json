@@ -1,6 +1,6 @@
 {
   "name": "@threetopia/cli",
-  "version": "0.5.1",
+  "version": "0.7.2",
   "type": "module",
   "description": "Authenticate, create, validate, preview, install and publish Threetopia packages.",
   "bin": {

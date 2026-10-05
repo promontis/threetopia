@@ -6,6 +6,13 @@ import {setFrameOffset,framedTarget} from '../../src/tiles/lite/orthographic-fra
 import {disposeObject} from '../../packages/platform/render.js';
 
 describe('creator tile picker',()=>{
+  it('marks protected water with a dashed outline and no terrain or build area',()=>{
+    const tile=createBlankTile({q:1,r:1,status:'protected'}),outline=tile.getObjectByName('Protected water outline') as T.LineSegments;
+    expect(tile.userData.status).toBe('protected');expect(tile.children).toHaveLength(1);
+    expect((outline.material as T.LineDashedMaterial).isLineDashedMaterial).toBe(true);
+    expect(outline.geometry.getAttribute('lineDistance')).toBeTruthy();
+    expect((tile.material as T.Material).visible).toBe(false);disposeObject(tile);
+  });
   it('draws only an outline above the sea while keeping the whole hex selectable',()=>{
     const tile=createBlankTile({q:-1,r:0,status:'available'});
     const bounds=new T.Box3().setFromObject(tile);

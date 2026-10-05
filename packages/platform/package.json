@@ -1,20 +1,24 @@
 {
   "name": "@threetopia/sdk",
-  "version": "0.5.0",
+  "version": "0.7.2",
   "type": "module",
   "description": "Threetopia immutable tiles, package contracts and geometry validation",
   "exports": {
     ".": "./index.js",
     "./tiles": "./tiles.js",
     "./validate": "./validate.js",
-    "./render": "./render.js"
+    "./render": "./render.js",
+    "./code": "./code.js",
+    "./scene": "./scene.js",
+    "./runtime": "./runtime.js"
   },
   "files": [
     "*.js",
     "*.json",
     "*.d.ts",
     "README.md",
-    "HOST-ASSETS-LICENSE.md"
+    "HOST-ASSETS-LICENSE.md",
+    "BABEL-LICENSE.txt"
   ],
   "peerDependencies": {
     "three": ">=0.184.0 <0.187.0"

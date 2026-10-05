@@ -1,10 +1,13 @@
+import {validateCodeFiles, JAVASCRIPT_EXT} from '../../../packages/platform/code.js';
+import {validateRuntimeFiles} from '../../../packages/platform/runtime.js';
 import {navigationIssue,PROTECTED_WATER_ACCESS} from '../../../packages/platform/navigation.js';
 import {auth,body,bytes,fail,json,ownPackage,requireCreator,uuid,type Env} from './common';
-import {tileSlots,TILE_VARIANTS,ORIGINAL_TILES,BUILTIN_TILES,tileContract,sha256,compatibleChoices,placementIssue} from '../../../packages/platform/tiles.js';
+import {tileSlots,TILE_VARIANTS,ORIGINAL_TILES,BUILTIN_TILES,tileContract,sha256,compatibleChoices,placementIssue,waterProtectionAt,protectedWaterIssue} from '../../../packages/platform/tiles.js';
 import {validateManifest,inspectGLB,validVersion,validName,versionCompare} from '../../../packages/platform/validate.js';
 import {searchCatalog,searchCreators} from './catalog';
 import {validateDiscovery} from '../package-discovery';
 import {tilePhotos} from './thumbnails';
+import {requireNamespace} from './namespaces';
 function discovery(value:any){try{return validateDiscovery(value);}catch(error){return fail(422,(error as Error).message);}}
 const parse=(v:any)=>({...v,manifest:v.manifest?JSON.parse(v.manifest):undefined,report:v.report?JSON.parse(v.report):undefined,contract:v.contract?JSON.parse(v.contract):undefined});
 export async function tileState(env:Env){
@@ -17,24 +20,31 @@ export async function tileState(env:Env){
 }
 export async function registryRoutes(req:Request,env:Env,path:string):Promise<Response|null>{
   const url=new URL(req.url),method=req.method;
+  if(path==='/api/namespaces'&&method==='GET'){
+    const {user}=await requireCreator(req,env);
+    const rows=(await env.DB.prepare('SELECT namespace,reason FROM managed_namespaces WHERE creator_id=? ORDER BY namespace').bind(user.id).all()).results;
+    return json({owner:user.handle,namespaces:[{namespace:user.handle,reason:'Own creator handle'},...rows]});
+  }
   if(path==='/api/tiles'&&method==='GET'){
     const {tiles,slots}=await tileState(env),a=await auth(req,env,false),photos=await tilePhotos(env,a?.user.id);
-    return json({protectedWaterAccess:[PROTECTED_WATER_ACCESS],original:ORIGINAL_TILES.map(t=>({...t,contract:BUILTIN_TILES.find(c=>c.builtin===t.id)})),slots:slots.map(s=>({...s,...(s.status==='available'?{choices:compatibleChoices(s.q,s.r,tiles,{lookahead:true})}:{})})),tiles:tiles.map(t=>({id:t.id,q:t.q,r:t.r,variant:t.variant,contract:JSON.parse(t.contract),creator:{handle:t.handle,displayName:t.display_name},packageId:t.published_version||a?.user.id===t.creator_id?t.package_id:null,name:t.published_version||a?.user.id===t.creator_id?t.name:null,title:t.published_version?t.title:null,version:t.published_version,mine:a?.user.id===t.creator_id,thumbnail:photos.get(t.id)})),variants:TILE_VARIANTS});
+    return json({protectedWaterAccess:[PROTECTED_WATER_ACCESS],original:ORIGINAL_TILES.map(t=>({...t,contract:BUILTIN_TILES.find(c=>c.builtin===t.id)})),slots:slots.map(s=>({...s,...(s.status==='available'?{choices:compatibleChoices(s.q,s.r,tiles,{lookahead:true})}:{})})),tiles:tiles.map(t=>({id:t.id,q:t.q,r:t.r,variant:t.variant,contract:JSON.parse(t.contract),protection:waterProtectionAt(t.q,t.r),creator:{handle:t.handle,displayName:t.display_name},packageId:t.published_version||a?.user.id===t.creator_id?t.package_id:null,name:t.published_version||a?.user.id===t.creator_id?t.name:null,title:t.published_version?t.title:null,version:t.published_version,mine:a?.user.id===t.creator_id,thumbnail:photos.get(t.id)})),variants:TILE_VARIANTS});
   }
   if(path==='/api/tiles/reserve'&&method==='POST'){
     const {user}=await requireCreator(req,env),{q,r,variant,rotation=0}=await body(req),{slots,tiles}=await tileState(env);
-    const current=await env.DB.prepare('SELECT COUNT(*) AS n FROM tiles WHERE creator_id=? AND id NOT IN (SELECT tile_id FROM packages WHERE tile_id IS NOT NULL)').bind(user.id).first<{n:number}>();
+    const protection=protectedWaterIssue({q,r});if(protection)fail(409,protection);
+    const protectedIds=JSON.stringify(tiles.filter(t=>waterProtectionAt(t.q,t.r)).map(t=>t.id));
+    const current=await env.DB.prepare('SELECT COUNT(*) AS n FROM tiles WHERE creator_id=? AND id NOT IN (SELECT tile_id FROM packages WHERE tile_id IS NOT NULL) AND id NOT IN (SELECT value FROM json_each(?))').bind(user.id,protectedIds).first<{n:number}>();
     if((current?.n||0)>=2)fail(409,'Use or release your existing reservations before selecting another tile.');
     if(!slots.some(s=>s.q===q&&s.r===r&&s.status==='available'))fail(409,'Choose a free tile that shares an edge with a published world.');
     const choice=compatibleChoices(q,r,tiles).find(c=>c.variant===variant&&c.rotation===rotation);if(!choice)fail(422,'Choose a compatible layout and rotation for this position.');
     const contract=await tileContract(q,r,variant,rotation,choice.legacyEdges),issue=placementIssue(contract,tiles);if(issue)fail(409,issue);
-    const id=uuid();let inserted;try{inserted=await env.DB.prepare(`INSERT INTO tiles(id,creator_id,q,r,variant,contract,created_at) SELECT ?,?,?,?,?,?,? WHERE (SELECT COUNT(*) FROM tiles)=? AND NOT EXISTS(SELECT 1 FROM tiles WHERE id NOT IN (SELECT value FROM json_each(?))) AND (SELECT COUNT(*) FROM tiles WHERE creator_id=? AND id NOT IN (SELECT tile_id FROM packages WHERE tile_id IS NOT NULL))<2 RETURNING id`).bind(id,user.id,q,r,variant,JSON.stringify(contract),Date.now(),tiles.length,JSON.stringify(tiles.map(t=>t.id)),user.id).first();}catch{return fail(409,'Another creator just reserved this tile. Choose a different position.');}
+    const id=uuid();let inserted;try{inserted=await env.DB.prepare(`INSERT INTO tiles(id,creator_id,q,r,variant,contract,created_at) SELECT ?,?,?,?,?,?,? WHERE (SELECT COUNT(*) FROM tiles)=? AND NOT EXISTS(SELECT 1 FROM tiles WHERE id NOT IN (SELECT value FROM json_each(?))) AND (SELECT COUNT(*) FROM tiles WHERE creator_id=? AND id NOT IN (SELECT tile_id FROM packages WHERE tile_id IS NOT NULL) AND id NOT IN (SELECT value FROM json_each(?)))<2 RETURNING id`).bind(id,user.id,q,r,variant,JSON.stringify(contract),Date.now(),tiles.length,JSON.stringify(tiles.map(t=>t.id)),user.id,protectedIds).first();}catch{return fail(409,'Another creator just reserved this tile. Choose a different position.');}
     if(!inserted)fail(409,'The tile neighborhood changed. Refresh the map and select a compatible layout.');
     return json({id,contract,expiresAt:Date.now()+7*86400000},201);
   }
   const tm=path.match(/^\/api\/tiles\/([a-f0-9-]+)$/);
   if(tm){const {user}=await requireCreator(req,env),t=await env.DB.prepare('SELECT * FROM tiles WHERE id=? AND creator_id=?').bind(tm[1],user.id).first<any>();if(!t)fail(404,'Reservation not found.');
-    if(method==='GET')return json(parse(t));
+    if(method==='GET')return json({...parse(t),protection:waterProtectionAt(t.q,t.r)});
     if(method==='DELETE'){const inUse=await env.DB.prepare('SELECT id FROM packages WHERE tile_id=?').bind(t.id).first();if(inUse)fail(409,'This tile belongs to a world package. Delete the unpublished package first.');await env.DB.prepare('DELETE FROM tiles WHERE id=? AND creator_id=?').bind(t.id,user.id).run();return json({ok:true});}
   }
   if(path==='/api/packages'&&method==='GET'){
@@ -52,12 +62,13 @@ export async function registryRoutes(req:Request,env:Env,path:string):Promise<Re
   if(path==='/api/packages'&&method==='POST'){
     const {user}=await requireCreator(req,env),b=await body(req);
     const metadata=discovery(b);
-    if(!validName(b.name)||!b.name.startsWith(`@${user.handle}/`))fail(422,'Use your own creator namespace.');
+    if(!validName(b.name))fail(422,'Use a scoped package name.');
+    await requireNamespace(env,user,b.name.slice(1).split('/')[0]);
     if(!['asset','world'].includes(b.kind)||typeof b.title!=='string'||b.title.length<2||b.title.length>100)fail(422,'Choose asset or world and a title of 2–100 characters.');
     if(typeof (b.description??'')!=='string'||(b.description||'').length>1000)fail(422,'Description is too long.');
     if((await env.DB.prepare('SELECT COUNT(*) AS n FROM packages WHERE creator_id=?').bind(user.id).first<{n:number}>())!.n>=50)fail(409,'Your account has reached its 50-package limit.');
     let tile:any=null;
-    if(b.kind==='world'){tile=await env.DB.prepare('SELECT * FROM tiles WHERE id=? AND creator_id=?').bind(b.tileId||'',user.id).first<any>();if(!tile)fail(422,'Choose and reserve a tile before creating a world package.');}
+    if(b.kind==='world'){tile=await env.DB.prepare('SELECT * FROM tiles WHERE id=? AND creator_id=?').bind(b.tileId||'',user.id).first<any>();if(!tile)fail(422,'Choose and reserve a tile before creating a world package.');const issue=protectedWaterIssue(tile);if(issue)fail(409,issue);}
     else if(b.tileId)fail(422,'Asset packages do not occupy a tile.');
     const id=uuid();try{await env.DB.prepare('INSERT INTO packages(id,creator_id,name,kind,title,description,tile_id,created_at,updated_at,category,tags) VALUES(?,?,?,?,?,?,?,?,?,?,?)').bind(id,user.id,b.name,b.kind,b.title,b.description||'',tile?.id||null,Date.now(),Date.now(),metadata.category,JSON.stringify(metadata.tags)).run();}catch{return fail(409,'This name or tile is already used by another package.');}
     return json({id,name:b.name,kind:b.kind,tile:tile?JSON.parse(tile.contract):null,tileId:tile?.id||null},201);
@@ -109,11 +120,14 @@ export async function registryRoutes(req:Request,env:Env,path:string):Promise<Re
     if(sub==='validate'&&method==='POST'){
       if(!['uploading','rejected'].includes(v.state))return json({state:v.state,report:JSON.parse(v.report||'{}')});
       const manifest=JSON.parse(v.manifest),files=(await env.DB.prepare('SELECT * FROM files WHERE version_id=?').bind(v.id).all<any>()).results,errors:string[]=[],metrics:Record<string,unknown>={};
+      const codeFiles=new Map<string,Uint8Array>(files.filter(f=>f.uploaded).map(f=>[f.path,new Uint8Array()]));
       for(const f of files){if(!f.uploaded){errors.push(`Upload ${f.path}.`);continue;}const roles=manifest.kind==='world'?Object.entries(manifest.content).filter(([,path])=>path===f.path).map(([role])=>role):f.path.endsWith('.glb')?['asset']:[];
-        if(!roles.length)continue;const object=await env.PACKAGES.get(f.object_key);if(!object){errors.push(`${f.path} is missing.`);continue;}
-        const data=await object.arrayBuffer();for(const role of roles)try{metrics[role]=inspectGLB(data,role,manifest.tile);}catch(error){errors.push(`${f.path}: ${(error as Error).message}`);}
+        const isCode=JAVASCRIPT_EXT.test(f.path)||f.path==='package.json'||f.path===manifest.runtime?.coverage;if(!roles.length&&!isCode)continue;const object=await env.PACKAGES.get(f.object_key);if(!object){errors.push(`${f.path} is missing.`);continue;}
+        const data=await object.arrayBuffer();if(isCode)codeFiles.set(f.path,new Uint8Array(data));for(const role of roles)try{metrics[role]=inspectGLB(data,role,manifest.tile);}catch(error){errors.push(`${f.path}: ${(error as Error).message}`);}
       }
-      const report={errors,metrics,validatedAt:Date.now()},state=errors.length?'rejected':'ready';
+      const code=validateCodeFiles(codeFiles,manifest);errors.push(...code.diagnostics.filter(d=>d.severity==='error').map(d=>`${d.file}: ${d.message}`));
+      errors.push(...validateRuntimeFiles(manifest,codeFiles));
+      const report={errors,metrics,code:{modules:code.modules,executed:false,diagnostics:code.diagnostics},validatedAt:Date.now()},state=errors.length?'rejected':'ready';
       const updated=await env.DB.prepare("UPDATE versions SET state=?,report=? WHERE id=? AND state IN ('uploading','rejected') RETURNING id").bind(state,JSON.stringify(report),v.id).first();if(!updated)fail(409,'This version changed during validation. Refresh its status.');return json({state,report},errors.length?422:200);
     }
     if(sub==='publish'&&method==='POST'){
@@ -137,6 +151,7 @@ export async function registryRoutes(req:Request,env:Env,path:string):Promise<Re
   }
   if(action==='versions'&&method==='POST'){
     const manifest=await body(req),tile=p.tile_id?JSON.parse((await env.DB.prepare('SELECT contract FROM tiles WHERE id=?').bind(p.tile_id).first<any>()).contract):undefined;
+    if(tile){const issue=protectedWaterIssue(tile);if(issue)fail(409,issue);}
     const errors=await validateManifest(manifest,tile);if(manifest.name!==p.name||manifest.kind!==p.kind)errors.push('Package identity and kind cannot change.');
     if(errors.length)fail(422,'Package manifest is invalid.',errors);
     const deps:any[]=[];

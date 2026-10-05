@@ -11,6 +11,12 @@ vi.mock('../../src/creators/construction-site',()=>({createConstructionSite:()=>
 const reservation=()=>({id:'oasis',q:-1,r:1,version:null,contract:canonicalTile(-1,1,'desert-oasis',2)});
 
 describe('reserved registry terrain',()=>{
+  it('keeps old reservations in whale habitat out of the terrain and water field',async()=>{
+    const load=vi.fn(),reserved=createReservedTiles(load),parent=new T.Group();
+    const tiles=[{q:1,r:1},{q:2,r:0}].map(t=>({...t,id:JSON.stringify(t),contract:canonicalTile(t.q,t.r,'open-water')}));
+    const prepared=(await reserved.prepare(tiles,tiles[0]))!;prepared.commit(parent);
+    expect(load).not.toHaveBeenCalled();expect(prepared.contracts).toEqual([]);expect(parent.children).toEqual([]);reserved.dispose();
+  });
   it('uses the saved preset and rotation for both the real host and its water, including on selection',async()=>{
     const load=vi.fn(async(contract,options)=>createHostTile(contract,options)),reserved=createReservedTiles(load),tile=reservation(),parent=new T.Group();
     const prepared=(await reserved.prepare([tile]))!;

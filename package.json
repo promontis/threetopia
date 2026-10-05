@@ -39,7 +39,19 @@
     "deploy:docs": "pnpm build:docs && wrangler deploy --config wrangler.docs.jsonc",
     "build:creators": "pnpm build:world-map && vite build --config vite.creators.config.ts && node scripts/creators/build-site.mjs",
     "dev:creators": "wrangler d1 migrations apply DB --local --config wrangler.creators.jsonc && wrangler dev --config wrangler.creators.jsonc --port 55020 --host 127.0.0.1:55020 --var AUTH_LOCAL:true",
-    "deploy:creators": "pnpm build:creators && wrangler d1 migrations apply DB --remote --config wrangler.creators.jsonc && wrangler deploy --config wrangler.creators.jsonc"
+    "deploy:creators": "pnpm build:creators && wrangler d1 migrations apply DB --remote --config wrangler.creators.jsonc && wrangler deploy --config wrangler.creators.jsonc",
+    "example:tidewater": "node examples/tidewater/build.mjs",
+    "dev:example:tidewater": "vite --config vite.tidewater.config.ts",
+    "build:example:tidewater": "vite build --config vite.tidewater.config.ts",
+    "test:cli:integration": "node scripts/creators/run-integration.mjs",
+    "test:conversion": "playwright test --config playwright.tidewater.config.ts",
+    "check:quality": "pnpm build:cli && pnpm typecheck && pnpm test && pnpm test:cli:integration && pnpm test:cli:release && pnpm test:conversion",
+    "test:cli:release": "node scripts/creators/release-test.mjs",
+    "example:tidewater:full": "node examples/tidewater/build-full.mjs",
+    "dev:example:tidewater:full": "node scripts/creators/serve-full-scene.mjs",
+    "test:scene:full": "playwright test --config playwright.full-scene.config.ts",
+    "extract:tidewater": "node scripts/creators/extract-tidewater-packages.mjs",
+    "example:tidewater:packages": "node examples/tidewater/build-packages.mjs"
   },
   "dependencies": {
     "@threetopia/source-lagoon": "workspace:*",
@@ -52,9 +64,14 @@
     "three": "0.184.0",
     "three-fenestra": "0.3.0",
     "three-mesh-bvh": "0.9.13",
-    "three-world": "npm:three@0.186.0"
+    "three-world": "npm:three@0.186.0",
+    "@dgreenheck/tidewater-rocks": "workspace:*",
+    "@dgreenheck/tidewater-gulls": "workspace:*",
+    "@dgreenheck/tidewater-map-tile": "workspace:*",
+    "@dgreenheck/tidewater-vegetation": "workspace:*"
   },
   "devDependencies": {
+    "@babel/parser": "7.29.9",
     "@cloudflare/puppeteer": "1.4.0",
     "@cloudflare/vite-plugin": "1.60.2",
     "@cloudflare/workers-types": "5.20260927.1",

@@ -20,5 +20,7 @@ export default defineConfig(({ command, isPreview }) => ({
   environments: {
     client: { build: { rollupOptions: { input: { home: root + 'index.html', world: root + 'world/index.html', atlas: root + 'atlas/index.html', map: root + 'map/index.html', lagoon: root + 'map/lagoon/index.html', lagoonLite: root + 'map/lagoon-lite/index.html', mapLite: root + 'map/lite/index.html', docs: root + 'docs/index.html' } } } },
   },
-  test: { include: ['src/**/*.test.ts', 'tests/unit/**/*.test.ts'] },
+  // Geometry builds and local D1 tests compete for CPU and memory. Bound workers
+  // so their existing per-test deadlines remain meaningful on laptops and CI.
+  test: { include: ['src/**/*.test.ts', 'tests/unit/**/*.test.ts'], maxWorkers: 4 },
 }));

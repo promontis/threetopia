@@ -1,6 +1,8 @@
 import './package-preview.css';
 import {mountPreview} from './preview';
 import {previewChoices,previewVersions,type PreviewVersion} from './preview-content';
+import {mountScene} from '../../packages/platform/scene.js';
+import {mountSceneReference} from './scene-reference';
 
 const esc=(value:string)=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const resetIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg>';
@@ -20,7 +22,7 @@ export function mountPackagePreview(root:HTMLElement,data:any,options:Options={}
     return ()=>{disposed=true;};
   }
   let selected:PreviewVersion=initial;
-  root.innerHTML=`<header class="package-preview-toolbar"><strong>3D preview</strong><label class="package-preview-version">Version<span class="package-preview-select"><select aria-label="Preview version">${versions.map(v=>`<option value="${esc(v.version)}">v${esc(v.version)}${v.state==='ready'?' · Private':''}</option>`).join('')}</select>${chevronIcon}</span></label>${isWorld?`<label class="package-preview-choice">View<span class="package-preview-select"><select aria-label="Preview representation"></select>${chevronIcon}</span></label>`:''}<div class="package-preview-actions"><button type="button" data-preview-reset title="Reset view" aria-label="Reset view" disabled>${resetIcon}</button></div></header><div class="package-preview-stage"><div class="package-preview-canvas"></div><div class="package-preview-status" role="status"><span class="package-preview-spinner" aria-hidden="true"></span><p>Loading 3D preview…</p></div></div><footer class="package-preview-footer"><span>Drag to rotate <i>·</i> Scroll or pinch to zoom</span><span data-preview-state></span></footer>`;
+  root.innerHTML=`<header class="package-preview-toolbar"><strong>3D preview</strong><label class="package-preview-version">Version<span class="package-preview-select"><select aria-label="Preview version">${versions.map(v=>`<option value="${esc(v.version)}">v${esc(v.version)}${v.state==='ready'?' · Private':''}</option>`).join('')}</select>${chevronIcon}</span></label><label class="package-preview-choice">View<span class="package-preview-select"><select aria-label="Preview representation"></select>${chevronIcon}</span></label><div class="package-preview-actions"><button type="button" data-preview-reset title="Reset view" aria-label="Reset view" disabled>${resetIcon}</button></div></header><div class="package-preview-stage"><div class="package-preview-canvas"></div><div class="package-preview-status" role="status"><span class="package-preview-spinner" aria-hidden="true"></span><p>Loading 3D preview…</p></div></div><footer class="package-preview-footer"><span>Drag to rotate <i>·</i> Scroll or pinch to zoom</span><span data-preview-state></span></footer>`;
   const versionSelect=root.querySelector<HTMLSelectElement>('[aria-label="Preview version"]')!,choiceSelect=root.querySelector<HTMLSelectElement>('.package-preview-choice select'),canvas=root.querySelector<HTMLElement>('.package-preview-canvas')!,status=root.querySelector<HTMLElement>('.package-preview-status')!,reset=root.querySelector<HTMLButtonElement>('[data-preview-reset]')!;
   versionSelect.value=selected.version;
   function setChoices(){
@@ -39,12 +41,25 @@ export function mountPackagePreview(root:HTMLElement,data:any,options:Options={}
     const load=async()=>{const response=await fetch(`/api/packages/${data.package.id}/versions/${v.version}/files?path=${encodeURIComponent(choice.file)}`,{signal});if(!response.ok)throw Error('This model could not be loaded.');return response.arrayBuffer();};
     try{
       let handle:Handle;
-      if(isWorld){signal.throwIfAborted();handle=await mountPreview(canvas,{contract:v.manifest.tile,mode:choice.id,showSlot:!!(options.expanded&&data.owner),load,signal});}
+      // The scene has its own loader. Once it starts, expose the frame: covering
+      // an opaque-origin frame can suspend its rendering/loader animation.
+      const sceneProgress=()=>{if(!disposed&&request===ticket)status.hidden=true;};
+      if(choice.id==='context') {
+        handle=await mountSceneReference(canvas,v.manifest,location.origin,signal,sceneProgress);
+        root.querySelector('.package-preview-footer span')!.textContent='Component in Tidewater · Open component settings in the scene';
+      }else if(choice.id==='scene'&&v.manifest.runtime){
+        handle=await mountScene(canvas,{manifest:v.manifest,signal,onProgress:sceneProgress,loadFile:async file=>{
+          const response=await fetch(`/api/packages/${data.package.id}/versions/${v.version}/files?path=${encodeURIComponent(file)}`,{signal});
+          if(!response.ok)throw Error(`Scene file could not be loaded: ${file}`);return response.arrayBuffer();
+        }});
+        root.querySelector('.package-preview-footer span')!.textContent=v.manifest.runtime.purpose==='component-preview'?'Component preview · Drag to orbit · Change settings inside':'Complete scene · Use the original in-scene controls';
+      }else if(isWorld){signal.throwIfAborted();handle=await mountPreview(canvas,{contract:v.manifest.tile,mode:choice.id,showSlot:!!(options.expanded&&data.owner),load,signal});}
       else{const {mountAssetPreview}=await import('./asset-preview');signal.throwIfAborted();handle=await mountAssetPreview(canvas,load,signal);}
       if(disposed||request!==ticket){handle();return;}current=handle;root.dataset.previewState='ready';canvas.setAttribute('aria-busy','false');status.hidden=true;reset.disabled=false;
     }catch(error){
       if(disposed||signal.aborted||request!==ticket)return;
       canvas.replaceChildren();canvas.setAttribute('aria-busy','false');root.dataset.previewState='error';
+      status.hidden=false;
       status.innerHTML='<p>We couldn’t load this 3D preview.</p><button type="button" class="button secondary">Try again</button>';
       status.querySelector('button')!.addEventListener('click',()=>void show(),{once:true});
       console.warn('Package preview could not load.',error instanceof Error?error.message:'Preview error');

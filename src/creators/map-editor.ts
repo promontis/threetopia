@@ -5,8 +5,8 @@ import {createReservedTiles} from './reserved-tiles';
 import {frameOffset,setFrameOffset} from '../tiles/lite/orthographic-frame';
 import {registryWater} from './registry-water';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {disposeObject,setHostDetail} from '../../packages/platform/render.js';
-import {centre,MAP_SCALE,tileContract,contentOrigin} from '../../packages/platform/tiles.js';
+import {disposeObject,setHostDetail,blendHostBiomes} from '../../packages/platform/render.js';
+import {centre,MAP_SCALE,tileContract,contentOrigin,waterProtectionAt} from '../../packages/platform/tiles.js';
 import {createBlankTile,fitTileView,tileOverviewPoints,type PickerPanel,type TileCoordinate} from './tile-picker';
 /** Host terrain and published packages share the real map scene and camera. */
 export async function mountRegistryMap(world:any,{editor=false,signal}:{editor?:boolean;signal:AbortSignal}){
@@ -117,7 +117,7 @@ export async function mountRegistryMap(world:any,{editor=false,signal}:{editor?:
       }
     }
 
-    for(const tile of info.tiles){if(tile.version&&!published.has(`${tile.id}:${tile.version}`)){
+    for(const tile of info.tiles){if(waterProtectionAt(tile.q,tile.r))continue;if(tile.version&&!published.has(`${tile.id}:${tile.version}`)){
       try{const r=await fetch(`${registry}/api/resolve?name=${encodeURIComponent(tile.name)}&version=${tile.version}`,{signal});if(!r.ok){if(thumbnailMode)throw Error('Thumbnail package could not load.');continue;}const v=await r.json();const loaded=await Promise.allSettled(['map','overview'].map(async role=>{const f=await fetch(`${registry}/api/packages/${tile.packageId}/versions/${tile.version}/files?path=${encodeURIComponent(v.manifest.content[role])}`,{signal});if(!f.ok)throw Error('Package file not found.');return (await new GLTFLoader().parseAsync(await f.arrayBuffer(),'')).scene;}));
         if(loaded.some(r=>r.status==='rejected')){for(const r of loaded)if(r.status==='fulfilled')disposeObject(r.value);if(thumbnailMode)throw Error('Thumbnail models could not load.');continue;}
         const [near,far]=loaded.map(r=>(r as PromiseFulfilledResult<T.Group>).value);if(disposed||serial!==request){disposeObject(near);disposeObject(far);return;}
@@ -130,7 +130,7 @@ export async function mountRegistryMap(world:any,{editor=false,signal}:{editor?:
     if(!nextReserved||serial!==request||disposed)return;
     if(editor){
       for(const contract of info.studyTiles||[]){const id=`study:${contract.q},${contract.r}`;if(!published.has(id)){const host=await hostLoader.load(contract,{map:true,lod:true});if(!host||disposed||serial!==request){if(host)disposeObject(host);return;}softenMapShadows(host);const c=centre(contract.q,contract.r,MAP_SCALE);host.position.set(c.x,0,c.z);host.name=`Study: ${contract.recipe.title}`;group.add(host);published.set(id,host);}}
-      if(selected){const t=info.tiles.find((t:any)=>t.q===selected.q&&t.r===selected.r);if(!t&&!info.studyTiles?.some((t:any)=>t.q===selected.q&&t.r===selected.r)){const contract=await tileContract(selected.q,selected.r,variant,rotation,legacyEdges);if(serial!==request||disposed)return;const key=JSON.stringify(contract);nextSelected=hostCache.get(key)||await hostLoader.load(contract,{map:true,slot:true});if(!nextSelected||serial!==request||disposed){if(nextSelected&&!hostCache.has(key))disposeObject(nextSelected);return;}softenMapShadows(nextSelected);hostCache.delete(key);hostCache.set(key,nextSelected);const c=centre(selected.q,selected.r,MAP_SCALE);nextSelected.position.set(c.x,0,c.z);nextSelected.name='Selected creator tile';}}
+      if(selected&&!waterProtectionAt(selected.q,selected.r)){const t=info.tiles.find((t:any)=>t.q===selected.q&&t.r===selected.r);if(!t&&!info.studyTiles?.some((t:any)=>t.q===selected.q&&t.r===selected.r)){const contract=await tileContract(selected.q,selected.r,variant,rotation,legacyEdges);if(serial!==request||disposed)return;const key=JSON.stringify(contract);nextSelected=hostCache.get(key)||await hostLoader.load(contract,{map:true,slot:true});if(!nextSelected||serial!==request||disposed){if(nextSelected&&!hostCache.has(key))disposeObject(nextSelected);return;}softenMapShadows(nextSelected);hostCache.delete(key);hostCache.set(key,nextSelected);const c=centre(selected.q,selected.r,MAP_SCALE);nextSelected.position.set(c.x,0,c.z);nextSelected.name='Selected creator tile';}}
     }
     group.userData.preparing=true;
     const contracts=[...published.values()].map(host=>host.userData.contract).filter(Boolean).concat(nextReserved.contracts,nextSelected?.userData.contract?[nextSelected.userData.contract]:[]);
@@ -140,14 +140,15 @@ export async function mountRegistryMap(world:any,{editor=false,signal}:{editor?:
       (async()=>{for(const host of [...nextReserved.hosts,...(nextSelected?[nextSelected]:[])])if(!host.parent)await world.renderer.compileAsync(host,camera,world.scene);})(),
     ]);
     if(disposed||serial!==request||!commitWater)return;
-    commitWater();nextReserved.commit(group);world.nature?.setTiles(contracts);selectedGroup?.removeFromParent();selectedGroup=nextSelected;if(selectedGroup)group.add(selectedGroup);tick();
+    commitWater();nextReserved.commit(group);world.nature?.setTiles(contracts);selectedGroup?.removeFromParent();selectedGroup=nextSelected;if(selectedGroup)group.add(selectedGroup);
+    blendHostBiomes([...published.values(),...nextReserved.hosts,...(selectedGroup?[selectedGroup]:[])]);tick();
     const ghosts=JSON.stringify([info.slots,selected?.q,selected?.r,allowSelection,info.studyTiles]);
     if(editor&&!thumbnailMode&&ghosts!==lastGhosts){
       lastGhosts=ghosts;clearGhosts();
       const drawnEdges=new Set<string>();
-      for(const s of info.slots){if(s.status!=='available')continue;const c=centre(s.q,s.r,MAP_SCALE);extent=Math.max(extent,Math.abs(c.x)+10,Math.abs(c.z)+10);
-        if(selected?.q===s.q&&selected?.r===s.r)continue;
-        const mesh=createBlankTile(s,drawnEdges);if(info.studyTiles?.some((t:any)=>t.q===s.q&&t.r===s.r)){for(const c of [...mesh.children])disposeObject(c);}group.add(mesh);if(allowSelection&&s.status==='available')hitTargets.push(mesh);
+      for(const s of [...info.slots].sort((a,b)=>Number(b.status==='protected')-Number(a.status==='protected'))){if(!['available','protected'].includes(s.status))continue;const c=centre(s.q,s.r,MAP_SCALE);extent=Math.max(extent,Math.abs(c.x)+10,Math.abs(c.z)+10);
+        if(s.status!=='protected'&&selected?.q===s.q&&selected?.r===s.r)continue;
+        const mesh=createBlankTile(s,drawnEdges);if(info.studyTiles?.some((t:any)=>t.q===s.q&&t.r===s.r)){for(const c of [...mesh.children])disposeObject(c);}group.add(mesh);if(allowSelection)hitTargets.push(mesh);
       }
     }
     for(const [key,host]of hostCache){if(hostCache.size<=12)break;if(host!==selectedGroup){hostCache.delete(key);disposeObject(host);}}
@@ -171,7 +172,7 @@ export async function mountRegistryMap(world:any,{editor=false,signal}:{editor?:
           try{
             if(!await update(e.data.data,undefined,undefined,false,false))throw Error('Tile preparation was interrupted.');
             const tile=e.data.data.tiles.find((t:any)=>t.id===e.data.tileId);
-            const host=[...reserved.hosts,...published.values()].find(h=>h.userData.contract?.q===tile?.q&&h.userData.contract?.r===tile?.r);
+            const host=tile&&waterProtectionAt(tile.q,tile.r)?new T.Group():[...reserved.hosts,...published.values()].find(h=>h.userData.contract?.q===tile?.q&&h.userData.contract?.r===tile?.r);
             if(!tile||!host)throw Error('Tile is unavailable.');
             const blob=await world.captureTileThumbnail(tile.contract,host);
             if(!signal.aborted)parent.postMessage({type:'creator:thumbnail-result',id:e.data.id,blob},location.origin);

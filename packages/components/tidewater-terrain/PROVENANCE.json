@@ -1,0 +1,56 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Rocks.js",
+      "file": "src/world/Rocks.js",
+      "sha256": "7079ed77307126a2fbe547a63b0736bb3532a5002db3304bcab029764e31c82b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/ShoreField.js",
+      "file": "src/world/ShoreField.js",
+      "sha256": "bcc6caaf75c58566fc6e69387896b8e8728b7711fa22af1f80ced0f900e18aaf",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/Terrain.js",
+      "file": "src/world/Terrain.js",
+      "sha256": "25eb89fe3e2ee012d978fc45ac545d0b3d2d23eb6f62479ed54ba24912b5cc2e",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/TerrainData.js",
+      "file": "src/world/TerrainData.js",
+      "sha256": "ed68c52057e5b0b3e3c301f63afe05caa0b4fb3ee9db4eeb0050d8af8181b998",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/TerrainGPU.js",
+      "file": "src/world/TerrainGPU.js",
+      "sha256": "9ecc5e1a2917075a21735c71b77dfb5947931a119c3384f01967364fdcc84382",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/IslandShape.js",
+      "file": "src/world/terrain/IslandShape.js",
+      "sha256": "184069a9b9ae45bb30c96ec9a0bfda806a7a0634ecf769de58a8998ee39d8aa1",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/RockGeometry.js",
+      "file": "src/world/terrain/RockGeometry.js",
+      "sha256": "2df40e8de643089526035025912a0239b89cd0b4ecd7d20f360a8a4f83a13667",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/terrain/TerrainBake.js",
+      "file": "src/world/terrain/TerrainBake.js",
+      "sha256": "e22faf0b9eaa2e95e05038d2a1f5f5f6eff005d5cee0cab52ce161b9aa60c09f",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

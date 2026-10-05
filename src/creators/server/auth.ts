@@ -32,6 +32,8 @@ export async function authRoutes(req:Request,env:Env,path:string):Promise<Respon
     if(typeof b.displayName!=='string'||b.displayName.trim().length<2||b.displayName.length>60)fail(422,'Your display name must contain 2–60 characters.');
     const handle=String(b.handle||'');if(!/^[a-z][a-z0-9-]{2,29}$/.test(handle)||(['threetopia','admin','support','api','docs','creators','system'].includes(handle)&&a.user.handle!==handle))fail(422,'Choose a handle with 3–30 lowercase letters, numbers and hyphens.');
     if(a.user.handle&&a.user.handle!==handle)fail(409,'Handles are permanent because they identify your packages.');
+    const assigned=await env.DB.prepare('SELECT creator_id FROM managed_namespaces WHERE namespace=?').bind(handle).first<{creator_id:string}>();
+    if(assigned&&assigned.creator_id!==a.user.id)fail(409,'This handle is reserved for a managed package namespace. Contact support to arrange its transfer.');
     let changed;try{changed=await env.DB.prepare('UPDATE creators SET handle=?,display_name=? WHERE id=? AND (handle IS NULL OR handle=?) RETURNING id').bind(handle,b.displayName.trim(),a.user.id,handle).first();}catch{return fail(409,'This handle is already taken.');}
     if(!changed)fail(409,'Your handle has already been set and cannot change.');
     return json({creator:profile({...a.user,handle,display_name:b.displayName.trim()})});

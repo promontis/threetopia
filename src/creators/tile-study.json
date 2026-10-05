@@ -30,56 +30,56 @@
     "rotation": 0
   },
   {
-    "q": -2,
-    "r": 1,
+    "q": 0,
+    "r": 2,
     "variant": "tidal-wetland",
-    "rotation": 0
+    "rotation": 1
   },
   {
     "q": -1,
     "r": 0,
     "variant": "tropical-inlet",
-    "rotation": 5
-  },
-  {
-    "q": 2,
-    "r": 0,
-    "variant": "sheltered-marina",
     "rotation": 4
   },
   {
     "q": -1,
+    "r": -1,
+    "variant": "sheltered-marina",
+    "rotation": 1
+  },
+  {
+    "q": 1,
     "r": 2,
     "variant": "industrial-docks",
-    "rotation": 1
+    "rotation": 0
   },
   {
-    "q": 0,
-    "r": 2,
+    "q": 2,
+    "r": 1,
     "variant": "coastal-terraces",
-    "rotation": 1
-  },
-  {
-    "q": -1,
-    "r": -1,
-    "variant": "basalt-coast",
-    "rotation": 5
-  },
-  {
-    "q": -2,
-    "r": 2,
-    "variant": "alpine-pass",
     "rotation": 0
   },
   {
     "q": 3,
-    "r": 0,
+    "r": -1,
+    "variant": "basalt-coast",
+    "rotation": 2
+  },
+  {
+    "q": -1,
+    "r": 3,
+    "variant": "alpine-pass",
+    "rotation": 0
+  },
+  {
+    "q": -2,
+    "r": 3,
     "variant": "desert-oasis",
     "rotation": 0
   },
   {
-    "q": -3,
-    "r": 1,
+    "q": -1,
+    "r": -2,
     "variant": "autumn-woodland",
     "rotation": 0
   },
@@ -87,6 +87,12 @@
     "q": -3,
     "r": 3,
     "variant": "garden-boulevard",
+    "rotation": 0
+  },
+  {
+    "q": 2,
+    "r": -3,
+    "variant": "open-water",
     "rotation": 0
   }
 ]

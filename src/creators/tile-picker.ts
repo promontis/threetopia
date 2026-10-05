@@ -8,11 +8,12 @@ const floor=SLOT.floorY*MAP_SCALE;
 const focusHeight=1.4;
 
 /** Available places have only an outline; an invisible face keeps the whole hex clickable. */
-export function createBlankTile(tile:TileCoordinate&{status:'available'},drawnEdges=new Set<string>()){
+export function createBlankTile(tile:TileCoordinate&{status:'available'|'protected'},drawnEdges=new Set<string>()){
+  const protectedWater=tile.status==='protected';
   const c=centre(tile.q,tile.r,MAP_SCALE);
   const geometry=new T.CircleGeometry(radius,6,Math.PI/6).rotateX(-Math.PI/2);
   const mesh=new T.Mesh(geometry,new T.MeshBasicMaterial({visible:false}));
-  mesh.name='Available tile';mesh.position.set(c.x,floor,c.z);
+  mesh.name=protectedWater?'Protected water':'Available tile';mesh.position.set(c.x,protectedWater ? .08 : floor,c.z);
   mesh.userData={ghost:true,skipWaterCapture:true,...tile};
   const vertices=corners(radius).map(([x,z])=>new T.Vector3(x,0,z)),segments:T.Vector3[]=[];
   const key=(p:T.Vector3)=>`${Math.round((p.x+c.x)*1e5)},${Math.round((p.z+c.z)*1e5)}`;
@@ -20,8 +21,10 @@ export function createBlankTile(tile:TileCoordinate&{status:'available'},drawnEd
     const a=vertices[i],b=vertices[(i+1)%6],edge=[key(a),key(b)].sort().join('|');
     if(!drawnEdges.has(edge)){drawnEdges.add(edge);segments.push(a,b);}
   }
-  const outline=new T.LineSegments(new T.BufferGeometry().setFromPoints(segments),new T.LineBasicMaterial({color:'#d6eee8',transparent:true,opacity:.7,depthWrite:false,toneMapped:false}));
-  outline.name='Available tile outline';outline.renderOrder=2;mesh.add(outline);
+  const lineOptions={color:protectedWater?'#83d8ea':'#d6eee8',transparent:true,opacity:.7,depthWrite:false,toneMapped:false};
+  const outline=new T.LineSegments(new T.BufferGeometry().setFromPoints(segments),protectedWater?new T.LineDashedMaterial({...lineOptions,dashSize:.35,gapSize:.22}):new T.LineBasicMaterial(lineOptions));
+  if(protectedWater)outline.computeLineDistances();
+  outline.name=protectedWater?'Protected water outline':'Available tile outline';outline.renderOrder=2;mesh.add(outline);
   return mesh;
 }
 

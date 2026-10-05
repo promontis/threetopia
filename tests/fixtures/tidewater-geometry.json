@@ -1,0 +1,152 @@
+{
+  "source": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "rocks": [
+    {
+      "style": 0,
+      "seed": 17,
+      "detail": 0,
+      "position": "56b66cd0e4092fcfe06f0b7986fd4b7b196d0b2bee8c89b2d126318dc835f2bd",
+      "normal": "88f35c7ccf8fe7539d27dc3cab6fa23fc696d63eee2c195531841070f272d18f",
+      "ao": "abc2c2d7577c71247072f744fc1dd76bfdc3ce4573df5ab14d7e627e8ceef41f",
+      "index": "0576199cb224ac989941753a4eabc3dfbbf0213213eeb9a2d5114adfb2448ebd"
+    },
+    {
+      "style": 0,
+      "seed": 17,
+      "detail": 1,
+      "position": "20e27ca692c527553a01d94a438a0d1e264fc1c85d2a5bd0859d473bdf64b961",
+      "normal": "c5e88e4405b75fc22caa340907c1f68a398d6bc735ca8244caa141b32399862e",
+      "ao": "414ff5e7e9257362d70743b7d03b7cc2859801ad7336cc3fc4ae4d9dd0b3864b",
+      "index": "b3a9a576b34b349f922c3297d19e4d01673eb7ae440901e8dde57dc9ff1fe3e4"
+    },
+    {
+      "style": 0,
+      "seed": 17,
+      "detail": 2,
+      "position": "f3d3cdd0b42182619bd40b8a1210b99512b7b4c121fd639dd8fba9282b24f501",
+      "normal": "c5596ab90af1baf8fe8fa0d417e69a88740ce413ffd0ae9ede29e3cc617b9965",
+      "ao": "f641d9ac070c8418d1d512b10e8c9cfae9bdd6b9c9a8ca69ac5afae41453d108",
+      "index": "ac51a3aa12a764b1dbe0812eb5ae2af911afa84ef4154e6449d6d26ac145666a"
+    },
+    {
+      "style": 0,
+      "seed": 17,
+      "detail": 3,
+      "position": "4394e21ed5e6e8e212d99f19bd277850049aba442b68bbebc8ec5a14cf09ffad",
+      "normal": "80933b181e7c7cbb534eb92bc995fc76af280e3e5283f34fa36efe867aa3b579",
+      "ao": "2218674ca7a37534eec6bcadf6aa6b9dfd987dca431fad7866af96a09b27de24",
+      "index": "bc42f14e63b8dd5167b439b669f6f927e89cd7918f093d9a7921f8b4712d33f4"
+    },
+    {
+      "style": 1,
+      "seed": 118,
+      "detail": 0,
+      "position": "9ce63cc1f32ae3d1bf671539716445f0f30e6a0834337069328c64f4fbb6e0d4",
+      "normal": "d6595b5999615b63c461507cbe7e3d823f62534eb25f945b14e6475d6481a32c",
+      "ao": "5e9b9d233aefe5638aa0d8fee49036d363450754037139ab838bfd9752c220b5",
+      "index": "0576199cb224ac989941753a4eabc3dfbbf0213213eeb9a2d5114adfb2448ebd"
+    },
+    {
+      "style": 1,
+      "seed": 118,
+      "detail": 1,
+      "position": "751ef5507f548adc419f03f212a3fa645de897c4865011d4cbb2e451bba12abe",
+      "normal": "e041547eac8b94791eb82eb503adb37071cd58f30cae352c6afb7e15597d01bd",
+      "ao": "d0efbb5f6fb1a61a1adf6650d8d6ed28528f2cd8ce90f60d2592ddef0041098b",
+      "index": "b3a9a576b34b349f922c3297d19e4d01673eb7ae440901e8dde57dc9ff1fe3e4"
+    },
+    {
+      "style": 1,
+      "seed": 118,
+      "detail": 2,
+      "position": "97ba31b238b64d094714c248c58beede168179a75c86546b7ea860dbc86b6d10",
+      "normal": "cda2316ccffb624551eb209aadf508724ed00e9ac742b65915e89c3364039a5a",
+      "ao": "7c85930f5855338e62913e75cc8140b2879257ea3da75300199efca976003063",
+      "index": "ac51a3aa12a764b1dbe0812eb5ae2af911afa84ef4154e6449d6d26ac145666a"
+    },
+    {
+      "style": 1,
+      "seed": 118,
+      "detail": 3,
+      "position": "bb8b8f52eb2d4d4446c06416e0f56f5963570a6c39665f5916ea8dd25a66c507",
+      "normal": "d0f89e7e7f89d26c6df9bb80db550d23ada7e52feb22ff7f11904ac6ad0c2951",
+      "ao": "2c6a4784037bf554e2a3bd19706e2f845848a14020502fb34775a71d5a8b4b2c",
+      "index": "bc42f14e63b8dd5167b439b669f6f927e89cd7918f093d9a7921f8b4712d33f4"
+    },
+    {
+      "style": 2,
+      "seed": 219,
+      "detail": 0,
+      "position": "b53054fa86b098f6e2dbf084c6a411e82cbea9fcf45c2e04abf0b1fe49bdc0e9",
+      "normal": "f3baef871fe85fb273d45ebeb798954dd174ae80bb159e8427fe5c320e60286d",
+      "ao": "d61f4bb384232b4f50a6fc37af6567293650189f7073f5506247499ad0cd85fb",
+      "index": "0576199cb224ac989941753a4eabc3dfbbf0213213eeb9a2d5114adfb2448ebd"
+    },
+    {
+      "style": 2,
+      "seed": 219,
+      "detail": 1,
+      "position": "eb4a75b6636311f67cc5831e38119514387ecb9b34f8c5987a213337e38c84df",
+      "normal": "a9d8961830f24593af0a87c170e2a1eea1e581775a5dadb2e94b5a0a40eca811",
+      "ao": "86f731e47c8ce3606903b6ea73811b2aa2729d021aaa5b60fcd2be2a44bceac9",
+      "index": "b3a9a576b34b349f922c3297d19e4d01673eb7ae440901e8dde57dc9ff1fe3e4"
+    },
+    {
+      "style": 2,
+      "seed": 219,
+      "detail": 2,
+      "position": "ec938062ebff90eaa505ab7a66570bbfce2ace0d63e38745e9cc60b6f37a2e70",
+      "normal": "e6756611375551bf2f5f9c0322cc63153d3a7963dfbd24ed1d071ceefc6da2dc",
+      "ao": "639977fd7a9df945f060e1dfb4852405184f7fe4eb8282f0aec5e99823f67166",
+      "index": "ac51a3aa12a764b1dbe0812eb5ae2af911afa84ef4154e6449d6d26ac145666a"
+    },
+    {
+      "style": 2,
+      "seed": 219,
+      "detail": 3,
+      "position": "4fe4d78e1b987e9712c6006dde51cbb10d7197ce823ee06370b53746ebc5093f",
+      "normal": "647b761f593073f6fda7e5008d2bb1a440eb96be9cc892e82fd5b5dc7f3abe47",
+      "ao": "e013c5822060bfccb074707408ea83313a4c85a60d8ec655512db4eeaf831184",
+      "index": "bc42f14e63b8dd5167b439b669f6f927e89cd7918f093d9a7921f8b4712d33f4"
+    },
+    {
+      "style": 3,
+      "seed": 320,
+      "detail": 0,
+      "position": "ff7939b02c2a1b4e26c1c3f314527bcdd116f632b5d0027c9fef6ca959ea4c5a",
+      "normal": "8aa7eb3d2be03ef4228274df6f3f0cef82e27066780634a837dffbe8f16c9a12",
+      "ao": "2dbf92bed966ae1f7b1a58bf029fec3e8471ae40a649c73acada3ec523f60919",
+      "index": "0576199cb224ac989941753a4eabc3dfbbf0213213eeb9a2d5114adfb2448ebd"
+    },
+    {
+      "style": 3,
+      "seed": 320,
+      "detail": 1,
+      "position": "c4a9313c40786eb5dc81e399633b9b821df32f9446c369d65ce65c54a733eb9f",
+      "normal": "31050b6f1c0167cd6ce62964db72dedb1f1bcfb4fb7578753e21c9b6c69e96b2",
+      "ao": "19de067640d1b2afba1a6b684491c52a53615360909478678dabc9cf2af17fed",
+      "index": "b3a9a576b34b349f922c3297d19e4d01673eb7ae440901e8dde57dc9ff1fe3e4"
+    },
+    {
+      "style": 3,
+      "seed": 320,
+      "detail": 2,
+      "position": "8f867ebf84944d0469f77b3bc9127900e26005ec02aa72aab10a298de8e95899",
+      "normal": "94bc9b662516e36daf8191f782e50e58992cb133af9e9a6701629c9eb134f781",
+      "ao": "eb4b40b113e0a4c4e7662a81453451635abab6ba4c61fc974825ae7017937d5a",
+      "index": "ac51a3aa12a764b1dbe0812eb5ae2af911afa84ef4154e6449d6d26ac145666a"
+    },
+    {
+      "style": 3,
+      "seed": 320,
+      "detail": 3,
+      "position": "8df4391229379ebf679cdea5b241486bfd8c783601a5e266e65dadd98399cfa5",
+      "normal": "c570bc94fc7fdc2227a90b6d1c3059cee25f57fe2e1ce9bec97d44cb36504840",
+      "ao": "5f244882da7dab6c7eb7291d7d2bff30f452d662389eaeb18e49f4abd95fd455",
+      "index": "bc42f14e63b8dd5167b439b669f6f927e89cd7918f093d9a7921f8b4712d33f4"
+    }
+  ]
+}

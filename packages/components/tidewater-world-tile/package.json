@@ -1,0 +1,52 @@
+{
+  "name": "@dgreenheck/tidewater-world-tile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Complete playable composition consuming the extracted system packages",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./src/*",
+    "./entry": "./entry.js"
+  },
+  "files": [
+    "src",
+    "assets",
+    "index.js",
+    "LICENSE",
+    "PROVENANCE.json",
+    "README.md",
+    "entry.js",
+    "component-preview.js"
+  ],
+  "dependencies": {
+    "@dgreenheck/tidewater-audio": "workspace:*",
+    "@dgreenheck/tidewater-boat": "workspace:*",
+    "@dgreenheck/tidewater-core": "workspace:*",
+    "@dgreenheck/tidewater-debris": "workspace:*",
+    "@dgreenheck/tidewater-lighting": "workspace:*",
+    "@dgreenheck/tidewater-map-tile": "workspace:*",
+    "@dgreenheck/tidewater-ocean": "workspace:*",
+    "@dgreenheck/tidewater-player": "workspace:*",
+    "@dgreenheck/tidewater-postprocessing": "workspace:*",
+    "@dgreenheck/tidewater-reef": "workspace:*",
+    "@dgreenheck/tidewater-sky": "workspace:*",
+    "@dgreenheck/tidewater-terrain": "workspace:*",
+    "@dgreenheck/tidewater-ui": "workspace:*",
+    "@dgreenheck/tidewater-vegetation": "workspace:*",
+    "@dgreenheck/tidewater-village": "workspace:*",
+    "@dgreenheck/tidewater-whale": "workspace:*",
+    "@dgreenheck/tidewater-wildlife": "workspace:*"
+  },
+  "peerDependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "three": "0.186.0"
+  },
+  "threetopia": {
+    "role": "world-tile",
+    "sourceRevision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  }
+}

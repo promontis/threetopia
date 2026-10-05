@@ -1,0 +1,23 @@
+{
+  "name": "@dgreenheck/tidewater-map-tile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Lightweight Tidewater map and overview composition from shared component packages",
+  "license": "MIT",
+  "exports": {".": {"types":"./index.d.ts","import":"./index.js"}, "./source": "./source.js"},
+  "files": ["*.js", "*.d.ts", "assets", "LICENSE", "PROVENANCE.json", "README.md"],
+  "dependencies": {
+    "@dgreenheck/tidewater-core": "workspace:*",
+    "@dgreenheck/tidewater-terrain": "workspace:*",
+    "@dgreenheck/tidewater-village": "workspace:*",
+    "@dgreenheck/tidewater-boat": "workspace:*",
+    "@dgreenheck/tidewater-player": "workspace:*",
+    "@dgreenheck/tidewater-vegetation": "workspace:*",
+    "@dgreenheck/tidewater-rocks": "workspace:*",
+    "@dgreenheck/tidewater-gulls": "workspace:*"
+  },
+  "peerDependencies": {"three": "0.186.0"},
+  "devDependencies": {"three": "0.186.0"},
+  "threetopia": {"role": "map-tile"}
+}

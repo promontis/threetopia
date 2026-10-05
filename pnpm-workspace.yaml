@@ -3,3 +3,4 @@ packages:
   - 'packages/world-map'
   - 'packages/cli'
   - 'packages/platform'
+  - 'packages/components/*'

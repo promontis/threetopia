@@ -1,7 +1,12 @@
 import assert from 'node:assert/strict';
-import {spawn} from 'node:child_process';
+import {spawn,execFile} from 'node:child_process';
+import {promisify} from 'node:util';
 import {readFile,writeFile,mkdir,stat} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {buildTidewaterPackages} from '../../examples/tidewater/build-packages.mjs';
+import {verifyInstalledTidewater} from './verify-installed-tidewater.mjs';
+import {buildExample} from '../../examples/tidewater/build.mjs';
 import {sha256,starterGLB,DIRECTIONS} from '../../packages/platform/index.js';
 const origin=process.env.THREETOPIA_TEST_ORIGIN||'http://127.0.0.1:55020';if(!/^http:\/\/(127\.0\.0\.1|localhost):/.test(origin))throw Error('Integration test is local-only.');
 const root=resolve('.context/creator-platform/integration-'+Date.now());await mkdir(root,{recursive:true});
@@ -10,7 +15,7 @@ async function account(label){const handle=label+'-'+Date.now().toString(36),ema
 async function run(who,args,cwd=root){return new Promise((resolvePromise,reject)=>{const p=spawn(process.execPath,[resolve('packages/cli/bin/threetopia.js'),...args,'--registry',origin],{cwd,env:{...process.env,THREETOPIA_HOME:who.home},stdio:['ignore','pipe','pipe']});let output='';p.stdout.on('data',d=>output+=d);p.stderr.on('data',d=>output+=d);p.on('close',code=>code?reject(Error(output)):resolvePromise(output));});}
 const a=await account('alpha'),b=await account('bravo');
 await request('/profile',{cookie:a.cookie,method:'PATCH',body:{handle:a.handle,displayName:'Changed'},originHeader:'https://evil.example',expected:403});
-const catalog=(await request('/tiles')).data;assert.equal(catalog.variants.length,15);
+const catalog=(await request('/tiles')).data;assert.equal(catalog.variants.length,16);
 const harbor=catalog.slots.find(t=>t.q===1&&t.r===1);if(harbor?.status==='available'){
  assert.ok(!harbor.choices.some(c=>['alpine-pass','desert-oasis','autumn-woodland'].includes(c.variant)));
  const blocked=await request('/tiles/reserve',{token:a.token,method:'POST',body:{q:1,r:1,variant:'alpine-pass'},expected:409});assert.match(blocked.data.message,/harbor/);
@@ -28,6 +33,20 @@ await request('/tiles/reserve',{token:b.token,method:'POST',body:{...available,v
 await request('/packages',{token:b.token,method:'POST',body:{name:`@${b.handle}/stolen-world`,kind:'world',title:'Stolen world',tileId:reserved.id},expected:422});
 await request('/packages',{token:a.token,method:'POST',body:{name:`@${a.handle}/no-tile`,kind:'world',title:'No tile'},expected:422});
 console.log('✓ Email-code login, device approval, replay protection, CSRF and tile ownership.');
+// Operators assign namespaces; account authentication and package ownership do
+// not change. Exercise the actual CLI and D1 route, not just a policy mock.
+const managed='source-'+Date.now().toString(36),managedName=`@${managed}/managed-demo`;
+await request('/packages',{token:a.token,method:'POST',body:{name:managedName,kind:'asset',title:'Managed demo'},expected:403});
+const config=process.env.THREETOPIA_TEST_WRANGLER_CONFIG,state=process.env.THREETOPIA_TEST_STATE;
+assert(config&&state,'Managed namespace integration needs the isolated local D1 config.');
+await promisify(execFile)(process.execPath,[resolve('node_modules/wrangler/bin/wrangler.js'),'d1','execute','DB','--local','--config',config,'--persist-to',state,'--command',`INSERT INTO managed_namespaces(namespace,creator_id,reason,created_at) SELECT '${managed}',id,'Integration fixture',1 FROM creators WHERE handle='${a.handle}'`,'--json']);
+assert(JSON.parse(await run(a,['namespaces','--json'])).namespaces.some(row=>row.namespace===managed));
+await request('/packages',{token:b.token,method:'POST',body:{name:managedName,kind:'asset',title:'Not authorized'},expected:403});
+const managedDir=join(root,'managed-demo');
+await run(a,['create',managedDir,'--name',managedName,'--kind','asset']);await run(a,['push'],managedDir);await run(a,['publish'],managedDir);
+const managedRelease=(await request('/resolve?name='+encodeURIComponent(managedName))).data;
+assert.equal(managedRelease.package.handle,a.handle);assert.equal(managedRelease.package.name,managedName);
+console.log('✓ CLI publishes an explicitly managed namespace under the existing owner account; other creators cannot claim it.');
 await run(a,['create','coral-garden','--kind','world','--tile',reserved.id]);const projectDir=join(root,'coral-garden'),project=JSON.parse(await readFile(join(projectDir,'threetopia.json'),'utf8'));
 await run(a,['check'],projectDir);await run(a,['push'],projectDir);
 const own=(await request('/packages/'+project.packageId,{token:a.token})).data;assert.equal(own.versions[0].state,'ready');assert.equal(own.versions[0].manifest.changelog,'Initial version.');
@@ -56,6 +75,57 @@ await run(a,['install',asset.manifest.name+'@0.1.0'],projectDir);await run(a,['u
 await run(b,['uninstall',asset.manifest.name],bDir);const after=(await request('/packages/'+asset.packageId,{token:a.token})).data;assert.equal(after.installers.some(i=>i.handle===b.handle),false);
 await run(a,['build'],projectDir);assert.ok((await stat(join(projectDir,'dist-threetopia','preview.js'))).size>10000);
 console.log('✓ Asset publishing, checksum-verified installation, package reuse, installer visibility, uninstall and portable previews.');
+// Real Tidewater packages cross the registry boundary and work in another creator's project.
+const examples=await buildExample(join(root,'tidewater-source'),{creator:a.handle,registry:origin,tile:reserved.contract});
+for(const example of examples){
+ const slug=example.name.split('/')[1],target=join(root,slug);
+ await run(a,['create',target,'--kind','asset','--from',example.directory]);
+ const checked=JSON.parse(await run(a,['check','--json'],target));assert.equal(checked.valid,true);
+ assert.ok((await readFile(join(target,'AGENTS.md'),'utf8')).includes('already authorized'));
+ await run(a,['push'],target);await run(a,['publish'],target);
+}
+await run(b,['install',`@${a.handle}/tidewater-coast@0.1.0`],bDir);
+await run(a,['install',`@${a.handle}/tidewater-coast@0.1.0`],projectDir);
+for(const role of ['world','map','overview'])await run(a,['use',`@${a.handle}/tidewater-coast`,'--export',role,'--as',role],projectDir);
+const worldUpdate=JSON.parse(await readFile(join(projectDir,'threetopia.json'),'utf8'));worldUpdate.manifest.version='0.2.0';worldUpdate.manifest.changelog='Compose the extracted Tidewater components on the reserved tile.';
+await writeFile(join(projectDir,'threetopia.json'),JSON.stringify(worldUpdate,null,2));await run(a,['check'],projectDir);await run(a,['push'],projectDir);
+const preview=(await request(`/packages/${project.packageId}`,{token:a.token})).data.versions.find(v=>v.version==='0.2.0');assert.equal(preview.state,'ready');
+const imported=JSON.parse(await readFile(join(bDir,'threetopia-lock.json'),'utf8'));
+for(const slug of ['tidewater-rocks','tidewater-gulls'])assert.equal(imported.packages[`@${a.handle}/${slug}`].version,'0.1.0');
+const {createGulls}=await import(pathToFileURL(join(bDir,'threetopia_modules',a.handle,'tidewater-gulls/index.js')));
+const first=createGulls(),second=createGulls();const original=Array.from(second.object.geometry.attributes.position.array);
+try{first.update(4);assert.deepEqual(Array.from(second.object.geometry.attributes.position.array),original);assert.notDeepEqual(Array.from(first.object.geometry.attributes.position.array),original);first.dispose();second.update(8);assert.equal(second.inspect().disposed,false);}finally{first.dispose();second.dispose();}
+const worldSlot=(await request('/tiles')).data.slots.find(s=>s.status==='available');
+const choice=worldSlot.choices[0];
+const worldReservation=(await request('/tiles/reserve',{token:a.token,method:'POST',body:{q:worldSlot.q,r:worldSlot.r,variant:choice.variant,rotation:choice.rotation},expected:201})).data;
+const modular=await buildTidewaterPackages(join(root,'full-scene-source'),{creator:a.handle,registry:origin,tile:worldReservation.contract});
+assert.equal(modular.length,20);
+for(const item of modular.filter(p=>p.kind==='asset'&&!['rocks','gulls'].includes(p.role))){
+  const directory=join(root,'registered-'+item.role);
+  await run(a,['create',directory,'--name',item.name,'--kind','asset','--from',item.directory]);
+  await run(a,['push'],directory);await run(a,['publish'],directory);
+}
+const fullSource=modular.find(p=>p.role==='world-tile').directory;
+const fullDir=join(root,'tidewater-world-tile');
+await assert.rejects(run(a,['create',fullDir,'--kind','world','--tile',reserved.id,'--from',fullSource]),/prepared world must use this reservation/);
+await run(a,['create',fullDir,'--kind','world','--tile',worldReservation.id,'--from',fullSource]);await run(a,['push'],fullDir);await run(a,['publish'],fullDir);
+await run(b,['install',`@${a.handle}/tidewater-world-tile@0.1.0`],bDir);
+const fullLock=JSON.parse(await readFile(join(bDir,'threetopia-lock.json'),'utf8'));
+for(const item of modular)assert.equal(fullLock.packages[item.name].version,'0.1.0');
+await verifyInstalledTidewater(bDir,a.handle);
+await run(b,['use',`@${a.handle}/tidewater-world-tile`,'--export','scene','--as','scene'],bDir);
+const complete=JSON.parse(await run(b,['check','--json'],bDir));assert.equal(complete.valid,true);
+const fullCopy=JSON.parse(await readFile(join(bDir,'threetopia.json'),'utf8'));assert.equal(fullCopy.manifest.runtime.features.length,15);assert.equal(Object.keys(fullCopy.manifest.runtime.assets).length,62);
+fullCopy.manifest.version='0.2.0';fullCopy.manifest.changelog='Install and reuse the complete playable Tidewater scene.';await writeFile(join(bDir,'threetopia.json'),JSON.stringify(fullCopy,null,2));await run(b,['push'],bDir);
+console.log('✓ Tidewater: one reserved world, one map package and 18 sub-packages published locally; all 20 installed by a second creator and rebuilt using only installed package modules.');
+const broken=Buffer.from('export function broken( {');
+const invalid={...asset.manifest,version:'8.0.0',exports:{component:'broken.mjs'},files:[{path:'broken.mjs',bytes:broken.length,sha256:await sha256(broken)}]};
+await request(`/packages/${asset.packageId}/versions`,{token:a.token,method:'POST',body:invalid,expected:201});
+await request(`/packages/${asset.packageId}/versions/8.0.0/files?path=broken.mjs`,{token:a.token,method:'PUT',raw:broken});
+const codeRejected=(await request(`/packages/${asset.packageId}/versions/8.0.0/validate`,{token:a.token,method:'POST',body:{},expected:422})).data;
+assert.equal(codeRejected.state,'rejected');assert.ok(codeRejected.report.code.diagnostics.some(d=>d.code==='CODE_SYNTAX'));
+await request(`/packages/${asset.packageId}/versions/8.0.0/publish`,{token:a.token,method:'POST',body:{},expected:409});
+console.log('✓ Extracted Tidewater packages upload, resolve transitively, install and run independently; direct invalid-code uploads cannot publish.');
 // Browser regression tests reuse local-only authenticated cookies and owned project IDs.
 await writeFile('.context/creator-platform/test-auth.json',JSON.stringify({origin,creator:a,other:b,project,asset,projectDir,root},null,2),{mode:0o600});
 await run(b,['logout']);await request('/packages?mine=1',{token:b.token,expected:401});

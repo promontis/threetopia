@@ -5,7 +5,7 @@ You need Node.js **22.13 or later**, a browser, and an email address you can acc
 ## Install and sign in
 
 ```sh
-npm install -g https://docs.threetopia.com/downloads/threetopia-cli-0.5.1.tgz
+npm install -g https://docs.threetopia.com/downloads/threetopia-cli-0.7.2.tgz
 threetopia login
 ```
 

@@ -12,7 +12,7 @@ export const regionFloor=(tile,r)=>r.floorY??tile.slot.floorY;
 export function createDesignTile(q,r,id,rotation=0,legacyEdges=[]){
  const d=DESIGNS.find(d=>d.id===id);if(!d)throw Error('Unknown tile design.');
  const inherited=previous(q,r,d.base,rotation,legacyEdges),edges=inherited.edges.map(e=>structuredClone(e));
- if(d.floating){
+ if(d.floating||d.kind==='water'){
   for(let i=0;i<6;i++)if(!inherited.legacyEdges.includes(i))edges[i]={kind:'sea',start:'water',end:'water',samples:Array(25).fill(-40),waterY:0,ports:[]};
   // Measured native corners remain fixed, including the ends of a sea socket.
   for(const i of inherited.legacyEdges)for(const [neighbor,end,value]of [[(i+5)%6,24,edges[i].samples[0]],[(i+1)%6,0,edges[i].samples[24]]]){
@@ -23,7 +23,7 @@ export function createDesignTile(q,r,id,rotation=0,legacyEdges=[]){
  const origin={x:regions[0].x,y:regions[0].floorY,z:regions[0].z},radius=Math.max(...regions.map(r=>Math.hypot(r.x-origin.x,r.z-origin.z)+r.radius));
  return {...inherited,version:4,variant:id,recipe:{...DESIGN_VARIANTS.find(v=>v.id===id),kind:d.kind,floating:!!d.floating},
   slot:{origin,regions,radius:round(radius),height:480,floorY:floor,mapRadius:round(radius*MAP_SCALE),mapHeight:14.4},edges,boundaries:edges.map(e=>e.samples),
-  connections:{path:d.floating?'deck-and-teleport':'connected',water:d.floating?'open-sea':d.rivers.length?'connected':d.wet.length?'sea':'enclosed',waterY:0},
+  connections:{path:d.kind==='water'?'none':d.floating?'deck-and-teleport':'connected',water:d.floating||d.kind==='water'?'open-sea':d.rivers.length?'connected':d.wet.length?'sea':'enclosed',waterY:0},
   navigation:{minimumWidth:42,minimumDepth:10,minimumClearance:16,protectedBuildAreas:true},art:{kit:'host-designs-1',seed:DESIGNS.indexOf(d)+103}}
 }
 function curve(a,b,bend=0){const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz)||1;return Array.from({length:33},(_,i)=>{const t=i/32,k=Math.sin(t*Math.PI)*bend;return [a[0]+dx*t-dz/length*k,a[1]+dz*t+dx/length*k];});}
@@ -31,6 +31,7 @@ const plans=new WeakMap();
 export function waterPlan(tile){
  let cached=plans.get(tile);if(cached)return cached;
  const d=designFor(tile),channels=[],edgeEnds=[];
+ if(d.kind==='water'){cached={channels,design:d};plans.set(tile,cached);return cached;}
  for(const i of d.rivers){const edge=(i+tile.rotation)%6,e=tile.edges[edge];let from=-1,best=null;
   for(let j=0;j<=25;j++){if(j<25&&e.samples[j]<-10){if(from<0)from=j;}else if(from>=0){const run={start:from/24,end:(j-1)/24};if(!best||run.end-run.start>best.end-best.start)best=run;from=-1;}}
   if(best&&best.end-best.start>.06)edgeEnds.push(edgePoint(edge,(best.start+best.end)/2));
@@ -56,7 +57,7 @@ export function waterPlan(tile){
 }
 export function waterDistance(tile,x,z){
  const {design:d,channels}=waterPlan(tile),[u,v]=rotate([x,z],-tile.rotation);
- if(d.floating)return -100;
+ if(d.floating||d.kind==='water')return -100;
  let signed=Infinity;
  const width=d.kind==='canal'?39:d.kind==='wetland'?31:37;
  for(const line of channels)for(let i=1;i<line.length;i++)signed=Math.min(signed,segment(x,z,line[i-1],line[i]).d-width);
@@ -68,8 +69,8 @@ export function waterDistance(tile,x,z){
 }
 export function rawHeight(tile,x,z){
  const d=designFor(tile),[u,v]=rotate([x,z],-tile.rotation),sd=waterDistance(tile,x,z);
- let h=d.floating?-240:24;
- if(!d.floating){
+ let h=d.floating?-240:d.kind==='water'?-40:24;
+ if(!d.floating&&d.kind!=='water'){
   const beach=d.kind==='canal'||d.kind==='docks'?12:d.kind==='basalt'?18:d.kind==='wetland'?34:44;
   h=-34+(34+(d.floor??24))*smooth((sd+12)/beach);
   if(sd>beach){
@@ -87,6 +88,7 @@ const footprints=new WeakMap();
 export function designFootprint(tile){
  if(footprints.has(tile))return footprints.get(tile);
  const d=designFor(tile),nodes=tile.edges.flatMap((e,i)=>e.ports.map(p=>({p:edgePoint(i,p.t),y:p.y}))),routes=[];
+ if(d.kind==='water'){const result={channels:[],routes};footprints.set(tile,result);return result;}
  if(d.floating){
   for(const n of nodes){const p=n.p,inner=p.map(v=>v*.77);routes.push([[...p.slice(0,1),n.y,p[1]],[inner[0],d.floor,inner[1]]]);}
  }else {

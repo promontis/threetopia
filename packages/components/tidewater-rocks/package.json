@@ -1,0 +1,28 @@
+{
+  "name": "@dgreenheck/tidewater-rocks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable tidewater rocks extracted from Dan Greenheck\u2019s Tidewater",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./geometry": "./geometry.js"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "README.md",
+    "LICENSE",
+    "PROVENANCE.json"
+  ],
+  "peerDependencies": {
+    "three": ">=0.184.0 <0.187.0"
+  },
+  "devDependencies": {
+    "three": "0.186.0"
+  }
+}

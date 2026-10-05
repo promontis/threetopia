@@ -1,0 +1,104 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/fx/MarineSnow.js",
+      "file": "src/fx/MarineSnow.js",
+      "sha256": "a1a9690243a1acf033029563b784a23f8b77ee373f977406c810a57ad2c1b923",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/fx/Spray.js",
+      "file": "src/fx/Spray.js",
+      "sha256": "b65744564cf94ef998a9ea047a049a6cb708c047dd565140308d295cdcbc7e4e",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/Breakers.js",
+      "file": "src/ocean/Breakers.js",
+      "sha256": "9f38fdcdecc7685be36ea62ad7d51762fd88a3bf8efa823984c4bcb063f8004b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/Caustics.js",
+      "file": "src/ocean/Caustics.js",
+      "sha256": "258c947dc48a923baab563589fafeb62a518888a1eb3a36cbb1baada2d3fa354",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/FoamTexture.js",
+      "file": "src/ocean/FoamTexture.js",
+      "sha256": "2d53758baacf5fa05070a70c07b2716c679011b0ce530e515eaf5055bc36d69b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/OceanFFT.js",
+      "file": "src/ocean/OceanFFT.js",
+      "sha256": "59cb1c4a7c35ba3cf4f14b313a111dfd323f18eaca33281c737e64f812a5de7e",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/SeaDetail.js",
+      "file": "src/ocean/SeaDetail.js",
+      "sha256": "d45290c3aa1b0774d23b5d4c8b020a5af5201ad5d4d71c4999dd178d0b4db385",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/ShoreSim.js",
+      "file": "src/ocean/ShoreSim.js",
+      "sha256": "99ed59721606fcb187c4c666025a87944e302150d70fed682e5129004fdcd002",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/ShoreWaves.js",
+      "file": "src/ocean/ShoreWaves.js",
+      "sha256": "e0ebe6c2524ef5affd33445a5cb32db803e46588111eab3ab232a2688844fb5d",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/SurfFoam.js",
+      "file": "src/ocean/SurfFoam.js",
+      "sha256": "b5fd1bcd353e12204845843b88d237eaf47a7b74eba14d1b877ef709814da28d",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/UnderwaterLighting.js",
+      "file": "src/ocean/UnderwaterLighting.js",
+      "sha256": "9eeb058ea75853fdfe8b17410a6c511e4d75099c3f6c33bb29395e102fad7465",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/WakeSim.js",
+      "file": "src/ocean/WakeSim.js",
+      "sha256": "4f37d0fafbfb484400e699841ebd29a745ff4b28def0b77882b94531736ab0e8",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/WaterMaterial.js",
+      "file": "src/ocean/WaterMaterial.js",
+      "sha256": "5d790f2592cced08e1aaefa8d21a6a9302fbc9da3f7268915acb378e01f817b3",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/WaterQuery.js",
+      "file": "src/ocean/WaterQuery.js",
+      "sha256": "47fbe7b910891a62819624164ea9ed7a769d8e6555bf112dd0613aa1dca68ea9",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/WaterSurface.js",
+      "file": "src/ocean/WaterSurface.js",
+      "sha256": "6a6516056f689592606e8d465f3508d3ea8f8d499c67da675808e17cf328c460",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/ocean/WhaleWater.js",
+      "file": "src/ocean/WhaleWater.js",
+      "sha256": "ea85f73eda7f7f14202aa9225c9eb84d5203f00fbc57cbb95cdec4cdc381df04",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import {BUILTIN_TILES} from './builtin-tiles.js';
 import {hostHeight as legacyHeight} from './wang-v3.js';
 import {rawHeight,rotate,hexInset} from './wang-v4.js';
 import {designFor} from './tile-designs.js';
+import {protectedWaterTiles,waterProtectionAt,protectedWaterIssue} from './tile-requirements.js';
 // The native lobster boat faces +Z at local X=5.5*0.4806299 map metres.
 // Its approach crosses Tidewater's south-east edge at t=.6608476. This
 // registry policy is separate from the already published native contract.
@@ -54,7 +55,12 @@ export function exteriorOcean(tiles){
  return sea;
 }
 export function navigationIssue(candidate,rows=[]){
- const tiles=[...BUILTIN_TILES,...actual(rows).filter(t=>key(t)!==key(candidate)),candidate],byKey=new Map(tiles.map(t=>[key(t),t])),sea=exteriorOcean(tiles),port=PROTECTED_WATER_ACCESS,[dq,dr]=DIRECTIONS[port.edge],start={q:port.source.q+dq,r:port.source.r+dr,edge:(port.edge+3)%6,t:1-port.t},queue=[start],seen=new Set();
+ const protectedIssue=protectedWaterIssue(candidate);if(protectedIssue)return protectedIssue;
+ const tiles=[...BUILTIN_TILES,...actual(rows).filter(t=>key(t)!==key(candidate)&&!waterProtectionAt(t.q,t.r)),candidate],byKey=new Map(tiles.map(t=>[key(t),t])),sea=exteriorOcean(tiles);
+ // Whale habitat needs an unoccupied connection to exterior sea. A narrow
+ // canal, floating deck or buildable water tile cannot replace that space.
+ for(const tile of protectedWaterTiles())if(tile.protection.oceanConnected&&!sea.has(key(tile)))return `Keep ${tile.protection.source.title}’s whale connected to the open ocean. This placement encloses its protected water.`;
+ const port=PROTECTED_WATER_ACCESS,[dq,dr]=DIRECTIONS[port.edge],start={q:port.source.q+dq,r:port.source.r+dr,edge:(port.edge+3)%6,t:1-port.t},queue=[start],seen=new Set();
  for(let i=0;i<queue.length;i++){
   const node=queue[i],k=key(node);if(k===key(port.source))continue;if(sea.has(k))return null;
   const tile=byKey.get(k);

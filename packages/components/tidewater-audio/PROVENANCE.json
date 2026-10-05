@@ -1,0 +1,20 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/audio/SoundScape.js",
+      "file": "src/audio/SoundScape.js",
+      "sha256": "f02587a62dc62e0434d356719637943ff26e63c0c92df33e0dcaa4a455dc643a",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/audio/soundBank.js",
+      "file": "src/audio/soundBank.js",
+      "sha256": "06f8bedbd36363a2acecaa9e18095bb7984f554f08a012dee09a8ead4c7a9bd0",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

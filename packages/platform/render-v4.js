@@ -28,15 +28,27 @@ export function createDesignHost(tile,{map=false,ghost=false,slot=false,detail='
   for(let i=0;i<n;i++)for(let j=0;j<n-i;j++){indices.push(at(i,j),at(i,j+1),at(i+1,j));if(i+j<n-1)indices.push(at(i+1,j),at(i,j+1),at(i+1,j+1));}
  }
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(points,3));g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.setIndex(indices);g.computeVertexNormals();kit.add(g,'terrain',[0,0,0],[1,1,1],[0,0,0],'#ffffff',true);g.dispose();
+ // Coast edges may face an open-water host instead of matching raised terrain.
+ // Seal that exposed face at the exact terrain vertices, inside this host's hex.
+ if(!d.floating&&d.kind!=='water')for(let side=0;side<6;side++){
+  if(!['shore','sea'].includes(tile.edges[(side+tile.rotation)%6].kind))continue;
+  const a=cs[side],b=cs[(side+1)%6],at=j=>{const i=vertex((a[0]*(n-j)+b[0]*j)/n,(a[1]*(n-j)+b[1]*j)/n);return points.slice(i*3,i*3+3);};
+  for(let j=0;j<n;j++){const p=at(j),q=at(j+1),bed=Math.min(-80,p[1],q[1]);kit.quad('stone',[p,q,[q[0],bed,q[2]],[p[0],bed,p[2]]],styles[d.family].rock);}
+ }
  group.userData.crossings=routes(tile,kit);infrastructure(tile,kit);group.userData.dressing=dressHost(tile,kit);
  kit.finish(group,styles[d.family].sand);
- if(!d.floating){
+ if(!d.floating&&d.kind!=='water'){
   const pathMask=bakeHostPaths(tile);group.userData.pathMask=pathMask;
   const material=group.getObjectByName('Host terrain').material;
   applyHostPaths(material,pathTexture(pathMask),{finish:['canal','docks','boulevard','marina','terraces'].includes(d.kind)?'paved':'natural',pathColor:['canal','boulevard','docks','marina','terraces'].includes(d.kind)?'#b2b3a2':d.kind==='oasis'?'#d8c49e':d.kind==='basalt'?'#7b8580':'#c5b38b',sand:styles[d.family].sand});
  }
  if(ghost)group.traverse(o=>{if(o.isMesh){o.material.transparent=true;o.material.opacity=.3;o.material.depthWrite=false;o.castShadow=false;}});
  for(const mesh of group.children)mesh.userData.hostLOD=detail;
+ // An empty sea host needs a visible footprint while choosing its build area.
+ if(slot&&d.kind==='water'){
+  const geometry=new T.RingGeometry(299.5*scale,300.5*scale,6,1,Math.PI/6),material=new T.MeshBasicMaterial({color:'#d6eee8',transparent:true,opacity:.7,side:T.DoubleSide,depthWrite:false,toneMapped:false});
+  const outline=new T.Mesh(geometry,material);outline.rotation.x=-Math.PI/2;outline.position.y=24*scale;outline.name='Water tile outline';outline.renderOrder=2;outline.userData.skipWaterCapture=true;group.add(outline);
+ }
  if(slot)for(const r of tile.slot.regions){
   const geom=new T.RingGeometry((r.radius-.55)*scale,(r.radius+.55)*scale,96,1,0,Math.PI*2),m=new T.MeshBasicMaterial({color:'#e9e8cc',transparent:true,opacity:.38,side:T.DoubleSide,depthWrite:false});
   const mesh=new T.Mesh(geom,m);mesh.rotation.x=-Math.PI/2;mesh.position.set(r.x*scale,(r.floorY+1.5)*scale,r.z*scale);mesh.name='Creator build area';group.add(mesh);

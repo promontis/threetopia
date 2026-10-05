@@ -49,4 +49,8 @@ Use glTF 2.0 binary `.glb`, one scene, Y up, embedded PNG/JPEG textures, standar
 
 The first package format accepts **static exported geometry**. Skins, animations, morph targets, GPU instancing, Draco, meshopt compression, KTX2/Basis textures and custom shader extensions are rejected. Existing hand-integrated showcase worlds have their own animation adapters; that does not mean arbitrary package runtime code is executed in the shared map.
 
-Reusable JavaScript can be distributed in asset packages and imported by developers in their own projects. The creator preview never executes uploaded package code. See [packages](/packages) and [validation](/validation).
+Reusable JavaScript can be distributed in asset packages and imported by developers
+in their own projects. Ordinary code exports are not executed by the preview.
+An explicit [complete scene runtime](/scenes) runs verified bundles in an isolated
+scene document, alongside the static map representations. See the [Tidewater package
+graph](/tidewater) for a world-tile, a separate map-tile and reusable system packages.

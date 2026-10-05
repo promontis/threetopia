@@ -4,12 +4,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-import {TerrainData} from '@threetopia/source-tidewater/world/TerrainData.js';
-import {Noise2D} from '@threetopia/source-tidewater/util/Noise.js';
-import {Village} from '@threetopia/source-tidewater/world/Village.js';
-import {Colliders} from '@threetopia/source-tidewater/world/Colliders.js';
-import {BoatModel} from '@threetopia/source-tidewater/world/BoatModel.js';
-import {WORLD} from '@threetopia/source-tidewater/world/WorldLayout.js';
+import {TerrainData,Noise2D,Village,Colliders,BoatModel,WORLD} from '@dgreenheck/tidewater-map-tile/source';
 
 const renderer=new T.WebGLRenderer();renderer.setSize(64,64);document.body.append(renderer.domElement);
 const encode=a=>{const b=new Uint8Array(a.buffer,a.byteOffset,a.byteLength);let s='';for(let i=0;i<b.length;i+=32768)s+=String.fromCharCode(...b.subarray(i,i+32768));return btoa(s);};

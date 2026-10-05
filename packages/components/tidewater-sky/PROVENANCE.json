@@ -1,0 +1,32 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/sky/Atmosphere.js",
+      "file": "src/sky/Atmosphere.js",
+      "sha256": "c1f927f8b9f3446ae98eb531176f53160ad385666d9b52d526bc2366c1045367",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/sky/Clouds.js",
+      "file": "src/sky/Clouds.js",
+      "sha256": "48ede25618d14439f4ea5fb151c9942773f9ecc1bf3c0934f6a1e983d429bf7d",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/sky/Environment.js",
+      "file": "src/sky/Environment.js",
+      "sha256": "da3949462d4d90802f976117c595207211562e06f965afae2ef472ccec495680",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/sky/Sky.js",
+      "file": "src/sky/Sky.js",
+      "sha256": "3c0d8647a76e58512ee55fc4f8cf9dedd2cb2bb5e61ce135f967b8bcb37e53a5",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

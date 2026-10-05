@@ -1,0 +1,92 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Gulls.js",
+      "file": "src/world/Gulls.js",
+      "sha256": "ce25c06ab1cf61e070fdd23167f8b24338211a158b625c2607f13581bcb1b4f6",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/BirdBatch.js",
+      "file": "src/world/wildlife/BirdBatch.js",
+      "sha256": "fcdb5f97967c640a95e6a920c9947a53f133a7f17723a9f5cf3b8e95725aaebd",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/BirdPose.js",
+      "file": "src/world/wildlife/BirdPose.js",
+      "sha256": "da867d016ce2a9a535fa570c0e0eaee15f67b042ccf7982f4721725722d33095",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/BirdShapes.js",
+      "file": "src/world/wildlife/BirdShapes.js",
+      "sha256": "4c8056a71b1cca5834069e3f55e1415510db342d1b84269f017215d80d6c86c4",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Birds.js",
+      "file": "src/world/wildlife/Birds.js",
+      "sha256": "58f97f961acab856c66254c178e66726737244e0b1781ca82ba13094486cc076",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Crabs.js",
+      "file": "src/world/wildlife/Crabs.js",
+      "sha256": "dc8b3a67be30c41f7c7874ec71517159d8f8a087b22169322ab4280cce5691a7",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/CritterBatch.js",
+      "file": "src/world/wildlife/CritterBatch.js",
+      "sha256": "fb2fa4f54436d505d75ef6c8f66dac0f3150e8e31a4b9728e3667879016613b4",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/CritterShapes.js",
+      "file": "src/world/wildlife/CritterShapes.js",
+      "sha256": "257a6fecaf2207ccad785bb65cb064ea4836e6ff97baf227aa968a04f8636b4c",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Flight.js",
+      "file": "src/world/wildlife/Flight.js",
+      "sha256": "7c1195850811a3c696632e816f947ea006ebcdc4c5b1f51d95c415ea1aa67b05",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Kit.js",
+      "file": "src/world/wildlife/Kit.js",
+      "sha256": "c219873a2e6d23ee9e2261ea7db500ac4fd74e0cc21be4ccfe36a8383717cd3b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/ShadowBlobs.js",
+      "file": "src/world/wildlife/ShadowBlobs.js",
+      "sha256": "fb86806ba3dbb3d219c68363ca0bac226b39e937c7b12313aada239cf5e5ebae",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Shorebirds.js",
+      "file": "src/world/wildlife/Shorebirds.js",
+      "sha256": "ef764a672a82853e51425c81bb0fa3e8e05858f5c24acfac4287ae6dd5ba5d24",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/SwashProbe.js",
+      "file": "src/world/wildlife/SwashProbe.js",
+      "sha256": "3ac9d834e88e83c1578480c9c5056fa4179fe75e5ff3a347d6b4c585684dcaf3",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/wildlife/Wildlife.js",
+      "file": "src/world/wildlife/Wildlife.js",
+      "sha256": "2e8bd118ee7cb88beb5b32e391380c0578bbd4fec0994e92ca8c1168386c5193",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

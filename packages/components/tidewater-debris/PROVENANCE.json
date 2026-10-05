@@ -1,0 +1,44 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Debris.js",
+      "file": "src/world/Debris.js",
+      "sha256": "d5b343e65d557dafe2335f0c9265143913a144aebb06464bd58146859f60c511",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/debris/DebrisPlacement.js",
+      "file": "src/world/debris/DebrisPlacement.js",
+      "sha256": "86bf70463fb1b6f9c4413b3566bf9bb4e471daebc6108d861263fae3ddd67d33",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/debris/DebrisShapes.js",
+      "file": "src/world/debris/DebrisShapes.js",
+      "sha256": "e779375d2a75c9b85759db3648178890657f9b65cb489ed6bdd0e55f11070882",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/debris/NatureMaterial.js",
+      "file": "src/world/debris/NatureMaterial.js",
+      "sha256": "04bae9fdcf5bc595f8cdfa1fa67b8008f1fcc86c05adb806972f726bde7c0ffe",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/debris/PebbleField.js",
+      "file": "src/world/debris/PebbleField.js",
+      "sha256": "cb5eb38e461c63d890bebbe48630d5c0e3aaed3e6912f84b1065fec90e819806",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/debris/ScannedDebris.js",
+      "file": "src/world/debris/ScannedDebris.js",
+      "sha256": "1ba10f7cfcf73c1decd46dbc1c098236fdeb1c2895335c15441634fad94ea618",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

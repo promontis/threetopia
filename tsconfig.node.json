@@ -16,6 +16,9 @@
     "vite.config.ts",
     "vite.world-map.config.ts",
     "playwright.config.ts",
-    "tests"
+    "tests",
+    "vite.tidewater.config.ts",
+    "playwright.tidewater.config.ts",
+    "playwright.full-scene.config.ts"
   ]
 }
