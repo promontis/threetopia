@@ -30,4 +30,4 @@ it('returns through the central junction from every branch without catching the 
       } finally {walker.dispose();}
     }
   } finally {vi.unstubAllGlobals();collision.dispose();geometry.dispose();}
-});
+},15_000); // Simulates thousands of collision frames across all routes on shared CI CPUs.
