@@ -1,0 +1,14 @@
+{
+  "creator": "Dan Greenheck",
+  "copyright": "2026 DRG Software Solutions LLC",
+  "url": "https://github.com/dgreenheck/tidewater",
+  "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3",
+  "license": "MIT",
+  "files": [
+    "src/world/Gulls.js"
+  ],
+  "adaptations": [
+    "Standalone Three.js peer dependency; instance-owned resources and explicit options.",
+    "Original geometry retained; the host supplies placement and the animation clock."
+  ]
+}

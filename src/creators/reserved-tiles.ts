@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {centre,MAP_SCALE} from '../../packages/platform/tiles.js';
+import {centre,MAP_SCALE,waterProtectionAt} from '../../packages/platform/tiles.js';
 import {disposeObject} from '../../packages/platform/render.js';
 import {softenMapShadows} from '../tiles/lite/shadows';
 import {createConstructionSite} from './construction-site';
@@ -16,7 +16,7 @@ export function createReservedTiles(load:LoadHost){
     async prepare(tiles:Reservation[],selected?:TileCoordinate){
       const ticket=++revision,next=new Map<string,T.Group>();
       for(const tile of tiles){
-        if(tile.version||!tile.contract)continue;
+        if(tile.version||!tile.contract||waterProtectionAt(tile.q,tile.r))continue;
         const key=JSON.stringify([tile.id,tile.contract]);
         let host=cache.get(key);
         if(!host){

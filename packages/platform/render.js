@@ -12,3 +12,4 @@ export function setHostDetail(root,overview){for(const mesh of root.children){if
 
 
 export {setHostTime} from './host-material.js';
+export {blendHostBiomes} from './host-biomes.js';

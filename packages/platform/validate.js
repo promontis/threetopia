@@ -1,4 +1,5 @@
 import {verifyTile,SLOT,canonicalJSON,buildContains} from './tiles.js';
+import {validateRuntime} from './runtime.js';
 export const BUDGETS=Object.freeze({
   world:{triangles:500000,drawCalls:160,bytes:32*1024*1024,textures:24,textureBytes:128*1024*1024},
   map:{triangles:36000,drawCalls:4,bytes:768*1024,textures:2,textureBytes:2*1024*1024},
@@ -34,6 +35,7 @@ export async function validateManifest(m,tile){
     if(!await verifyTile(m.tile))errors.push('The host tile is immutable. Restore tile.lock.json from your reservation.');
     if(tile&&canonicalJSON(tile)!==canonicalJSON(m.tile))errors.push('This world does not match its reserved tile.');
   }else if(m.tile!==undefined)errors.push('Asset packages cannot own a world tile.');
+  errors.push(...validateRuntime(m));
   return [...new Set(errors)];
 }
 const identity=()=>[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];

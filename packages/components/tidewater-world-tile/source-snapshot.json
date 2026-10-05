@@ -1,0 +1,529 @@
+{
+  "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3",
+  "files": [
+    {
+      "path": "src/App.js",
+      "sha": "e2d5d1075bc4b44926c1a4b1617450642fa57539"
+    },
+    {
+      "path": "src/audio/SoundScape.js",
+      "sha": "19aa6004709575778e0302a2c380ec6c7215d3e8"
+    },
+    {
+      "path": "src/audio/soundBank.js",
+      "sha": "6ebfabcd14fe033ef2e13e354e176afb7184362c"
+    },
+    {
+      "path": "src/core/CDLOD.js",
+      "sha": "18012a442b1d10e0f21893143fd1e979d8f44105"
+    },
+    {
+      "path": "src/core/DebugViews.js",
+      "sha": "fec9195e34edada0deb9dc6037dde60eef37e240"
+    },
+    {
+      "path": "src/core/Engine.js",
+      "sha": "3fa4648ba7ba6196806065ff3f74fca618378aae"
+    },
+    {
+      "path": "src/core/Globals.js",
+      "sha": "8b1334fe5b6c253cf3c0e1b65ebbe8d3c8f182b1"
+    },
+    {
+      "path": "src/core/Input.js",
+      "sha": "0f18f6c0179c7bfccadf63d24dbf5a0550abde60"
+    },
+    {
+      "path": "src/core/Profiler.js",
+      "sha": "88bd6c26c8b69432354aa25fa8bfd04063f33318"
+    },
+    {
+      "path": "src/core/SceneRenderer.js",
+      "sha": "33f4bdb9eaaed1213b7ed02e1b8b000709d7d993"
+    },
+    {
+      "path": "src/core/TSLPatches.js",
+      "sha": "ea30d533760ecab70fc0265509e29462b123608a"
+    },
+    {
+      "path": "src/fx/AirMotes.js",
+      "sha": "201a098e1bd7ebaaf0d220c30c0b7f24acbd33f3"
+    },
+    {
+      "path": "src/fx/MarineSnow.js",
+      "sha": "c913a3484c03bc2c116e55149319d6f3c47b692c"
+    },
+    {
+      "path": "src/fx/Spray.js",
+      "sha": "e3c6ffda562ee7e594980360d278b59c965966c8"
+    },
+    {
+      "path": "src/main.js",
+      "sha": "e8fc1dc4c5d6c02fc91ff55f82476ea135b1737c"
+    },
+    {
+      "path": "src/materials/ContactShadows.js",
+      "sha": "cc76d20712310cec3b1c2374c17b86c32acf38e2"
+    },
+    {
+      "path": "src/materials/GroundBounce.js",
+      "sha": "acf385a0379220c6e0ab59d818e554c9c50dd8d3"
+    },
+    {
+      "path": "src/materials/LODFade.js",
+      "sha": "15f7442020b5c299b5a9fd56e2d7a5197626dff5"
+    },
+    {
+      "path": "src/materials/LocalLights.js",
+      "sha": "572110f88881f82431b26e4499201ca42a8cfaf9"
+    },
+    {
+      "path": "src/materials/Materials.js",
+      "sha": "af079b7adb93d01a8c31ffbc9424e8b331cbac8e"
+    },
+    {
+      "path": "src/materials/SceneLighting.js",
+      "sha": "9130a107f18b5fae33b7b87522702e0cc78e5639"
+    },
+    {
+      "path": "src/materials/SunShadowFilter.js",
+      "sha": "c0eb15e9d33c86703e5f465aef7ab27bb0b8b108"
+    },
+    {
+      "path": "src/ocean/Breakers.js",
+      "sha": "bf4f8930c63571ef37237a445fd0b3775662b743"
+    },
+    {
+      "path": "src/ocean/Caustics.js",
+      "sha": "f02d4264ad45768ed21a1eb75b8783b60c4a3af8"
+    },
+    {
+      "path": "src/ocean/FoamTexture.js",
+      "sha": "d7e2fe97c3abc02906f9830b837c4abd54f770ee"
+    },
+    {
+      "path": "src/ocean/OceanFFT.js",
+      "sha": "cd157b4d762f5ee178e2ed2fa9607ec120dcd8ca"
+    },
+    {
+      "path": "src/ocean/SeaDetail.js",
+      "sha": "ff5df0c2fae14fa222f4b35f9e8807acfaa4fe2d"
+    },
+    {
+      "path": "src/ocean/ShoreSim.js",
+      "sha": "2164a44680d9c04d38fad4572e1fa6bd23b72363"
+    },
+    {
+      "path": "src/ocean/ShoreWaves.js",
+      "sha": "33efe50f8137b13c75b44daf44bdde1d995eec46"
+    },
+    {
+      "path": "src/ocean/SurfFoam.js",
+      "sha": "431f49b1b0f0a2cfdf5cfef3cb1b536ede21719d"
+    },
+    {
+      "path": "src/ocean/UnderwaterLighting.js",
+      "sha": "f2523b308ab7a61727d357b05d1cc283243f8308"
+    },
+    {
+      "path": "src/ocean/WakeSim.js",
+      "sha": "8767ae2bbe644e32a878f97f20b90c27cb4d2e23"
+    },
+    {
+      "path": "src/ocean/WaterMaterial.js",
+      "sha": "8aa7600565311d331a4343a51f4dea793db340d0"
+    },
+    {
+      "path": "src/ocean/WaterQuery.js",
+      "sha": "bc1478c4814a947c842167af275077261d9342ea"
+    },
+    {
+      "path": "src/ocean/WaterSurface.js",
+      "sha": "411cdb43fdecf13b86ca9bd049082e35c6c62a45"
+    },
+    {
+      "path": "src/ocean/WhaleWater.js",
+      "sha": "6161d1c1e4314229a3c8a43dd417b03fb09c408b"
+    },
+    {
+      "path": "src/player/BoatController.js",
+      "sha": "3fb013a610c3f2c98464277e3a45b84b8430b8d0"
+    },
+    {
+      "path": "src/player/BoatSpray.js",
+      "sha": "859d7aa45b7c9b96d0dca52be5dca58fa04994ed"
+    },
+    {
+      "path": "src/player/FlyCamera.js",
+      "sha": "f489c9beecf995d19664aa3a8889a530e24f3a35"
+    },
+    {
+      "path": "src/player/Player.js",
+      "sha": "56d02fc6becda540ecb1603f50d51a2f68a69b78"
+    },
+    {
+      "path": "src/post/AirHaze.js",
+      "sha": "2b139adbf0cbeab952885eb949e0a3afedde8dd6"
+    },
+    {
+      "path": "src/post/CameraVelocity.js",
+      "sha": "657885de2df807172fd6027590d0d2926f72fa90"
+    },
+    {
+      "path": "src/post/LensDroplets.js",
+      "sha": "4cb33f80c53e5c6ad97a7875ed4fcd206cda0418"
+    },
+    {
+      "path": "src/post/LensFlare.js",
+      "sha": "c9f3165c0c80eb4f8b3eb21d9b05744cb3ccbdfd"
+    },
+    {
+      "path": "src/post/MotionBlur.js",
+      "sha": "0c0aa168d96922b2345b98e9df8804938d05f534"
+    },
+    {
+      "path": "src/post/PostFX.js",
+      "sha": "7fe3b39b30b6e19aef946b0a899fb3c14b6e47d8"
+    },
+    {
+      "path": "src/post/TemporalUpscale.js",
+      "sha": "2ecc2a6fd9b6b2a47d28d90e88f2029d31e2f1ef"
+    },
+    {
+      "path": "src/post/Underwater.js",
+      "sha": "c7574d31f4ea289962cfab9ed41f576feae52570"
+    },
+    {
+      "path": "src/sky/Atmosphere.js",
+      "sha": "5f0069b3d09314c700da73b80b4f49fecbb52758"
+    },
+    {
+      "path": "src/sky/Clouds.js",
+      "sha": "fd9038972d095f8774fdf9a1f3d4cb7cc1c39e38"
+    },
+    {
+      "path": "src/sky/Environment.js",
+      "sha": "f92e80d363ea33005ba09555dae821ab899ca6b8"
+    },
+    {
+      "path": "src/sky/Sky.js",
+      "sha": "edfaf1d84ff85c245af7027463184cb38beebb33"
+    },
+    {
+      "path": "src/ui/AppUI.js",
+      "sha": "4b88a5a4e8c456d42de7229b6bdf9cff856aafba"
+    },
+    {
+      "path": "src/ui/UI.js",
+      "sha": "1784a91c53ccbd8eff4e268d2302d2b6b8826c0b"
+    },
+    {
+      "path": "src/ui/icons.js",
+      "sha": "8ceb66ecb05b3b6cbfbf3001da47efcd531b6cea"
+    },
+    {
+      "path": "src/ui/ui.css",
+      "sha": "640f3bfa82d9f0edb539438876801feed57d1587"
+    },
+    {
+      "path": "src/util/Noise.js",
+      "sha": "43f787fa071916076094b8252e31f68bc0fb3efe"
+    },
+    {
+      "path": "src/world/BoatModel.js",
+      "sha": "6f27d80a5ccb656ec775be7d4d162627b6f20c56"
+    },
+    {
+      "path": "src/world/Colliders.js",
+      "sha": "344bd7ca44114b44d87f9895b6233ea3d051d41c"
+    },
+    {
+      "path": "src/world/Debris.js",
+      "sha": "acdefeb63d28c4a377b2be24d05caeb0eb04eb05"
+    },
+    {
+      "path": "src/world/Fish.js",
+      "sha": "d3efae2b5d8eb6e07ab2101b0ef813bcd4e0af49"
+    },
+    {
+      "path": "src/world/Gulls.js",
+      "sha": "819fb5f9cc044d21add46b4572ce830e10e14440"
+    },
+    {
+      "path": "src/world/Pier.js",
+      "sha": "78f231218de360697e90c2ab8bb9899ab03cd366"
+    },
+    {
+      "path": "src/world/Props.js",
+      "sha": "b124693fb0f4fabdde7da12ce0396477629cdf42"
+    },
+    {
+      "path": "src/world/Reef.js",
+      "sha": "93e024fb7b59e9ba4fbe96a70bbca2d3fd834a65"
+    },
+    {
+      "path": "src/world/Rocks.js",
+      "sha": "96502ccd6d7a467df4d596524a9be95f88c5d337"
+    },
+    {
+      "path": "src/world/ShoreField.js",
+      "sha": "4e92cc53efec12f53771d19c0049acac380d02a6"
+    },
+    {
+      "path": "src/world/Terrain.js",
+      "sha": "1a3361c83e2fdbdb61d1143a23831412da732b0b"
+    },
+    {
+      "path": "src/world/TerrainData.js",
+      "sha": "6ac6788f9effb334f9e649308466d3f55b0e3b0c"
+    },
+    {
+      "path": "src/world/TerrainGPU.js",
+      "sha": "3fdd95da6af58264dd829dbd2742cab5cec9239c"
+    },
+    {
+      "path": "src/world/Vegetation.js",
+      "sha": "daf0d6fa5090f793bbaf6e21c4e18060a3035ad4"
+    },
+    {
+      "path": "src/world/Village.js",
+      "sha": "cf3c834e2da90679c2a04f5f031824a722860adb"
+    },
+    {
+      "path": "src/world/WorldLayout.js",
+      "sha": "c965006b257665b2c23436149157ab009d602a00"
+    },
+    {
+      "path": "src/world/boat/BoatMaterials.js",
+      "sha": "bb8af7263bc551c246c26c2599e42bb5566a0515"
+    },
+    {
+      "path": "src/world/boat/DeckGear.js",
+      "sha": "e3f1152e2235b32e2da053389da3a2041002777e"
+    },
+    {
+      "path": "src/world/boat/GeoKit.js",
+      "sha": "8b783ec7d589ff4f1387116ebb2615251505fded"
+    },
+    {
+      "path": "src/world/boat/HullBuilder.js",
+      "sha": "fc4ae2921a330be039542648d1542f748a5d41ed"
+    },
+    {
+      "path": "src/world/boat/HullLines.js",
+      "sha": "b2c886e01405c17d615d11be491a316751ad7f3f"
+    },
+    {
+      "path": "src/world/boat/Running.js",
+      "sha": "ba389f71d11bc8d7f390216697cf170d80a61299"
+    },
+    {
+      "path": "src/world/boat/Wheelhouse.js",
+      "sha": "b3800f50d99f9b45aa377e9567217bda09fdb046"
+    },
+    {
+      "path": "src/world/debris/DebrisPlacement.js",
+      "sha": "667fbc5125281d8345dcfa240dc81c8cc26b1280"
+    },
+    {
+      "path": "src/world/debris/DebrisShapes.js",
+      "sha": "89b5a1f15512e4f24e3d5390ca810dadb65dc4a0"
+    },
+    {
+      "path": "src/world/debris/NatureMaterial.js",
+      "sha": "ba821e3ee8836775cb18e8de8b3acfca7ba8b25e"
+    },
+    {
+      "path": "src/world/debris/PebbleField.js",
+      "sha": "c605b860f2b0a184a6fed2b55eec1049d77c3fc9"
+    },
+    {
+      "path": "src/world/debris/ScannedDebris.js",
+      "sha": "3dd4a8bf88ab45a5e96fa13bdc4eb42f264c9b1f"
+    },
+    {
+      "path": "src/world/fish/CreatureGeometry.js",
+      "sha": "2f569224721eb5e62fa29db73d88642b58947d27"
+    },
+    {
+      "path": "src/world/fish/FishGeometry.js",
+      "sha": "ff8c0b4499c182a681f6ccb7361fcac28161cfd8"
+    },
+    {
+      "path": "src/world/fish/FishMaterial.js",
+      "sha": "41e8f725b3f0a0e83ccd0934e5f0b2351840de59"
+    },
+    {
+      "path": "src/world/fish/FishProps.js",
+      "sha": "e9bdffdb01815b28b2129cd2cfc11e08ffbc284d"
+    },
+    {
+      "path": "src/world/fish/FishSpecies.js",
+      "sha": "eb2b960d6285664ee761aa7fcaa3f560e6ce5c25"
+    },
+    {
+      "path": "src/world/marine/Whale.js",
+      "sha": "37ca1162b01ea0fab908359cc2e73ff5c4090317"
+    },
+    {
+      "path": "src/world/marine/WhaleBrain.js",
+      "sha": "5a68e928bb63636276432e21d86bf4c04d3f435b"
+    },
+    {
+      "path": "src/world/marine/WhaleTextures.js",
+      "sha": "bbc0348e1ce738863e2b4f109dddcedd01882e08"
+    },
+    {
+      "path": "src/world/reef/ReefBatch.js",
+      "sha": "d5ecb15254fd827d03ea770b3ba034136a4f14b4"
+    },
+    {
+      "path": "src/world/reef/ReefGeometry.js",
+      "sha": "e0931229874e0cfae2b9a23c8d814c3a6f62a0da"
+    },
+    {
+      "path": "src/world/reef/ReefMaterials.js",
+      "sha": "0b60fa2fc29bd54bd6fa5a8557630d02bd656f9d"
+    },
+    {
+      "path": "src/world/reef/ReefNoise.js",
+      "sha": "eb373120b8e61acae1c26793e266e6859901c299"
+    },
+    {
+      "path": "src/world/terrain/DetailTextures.js",
+      "sha": "4539243845e64133b8e1811696f1b43b986280d0"
+    },
+    {
+      "path": "src/world/terrain/IslandShape.js",
+      "sha": "243d898cd63b3d3cd7719df24c71a9a875391d30"
+    },
+    {
+      "path": "src/world/terrain/RockGeometry.js",
+      "sha": "c6f227deb6d354bfd7e5d6f71fc30cf08edb61b5"
+    },
+    {
+      "path": "src/world/terrain/TerrainBake.js",
+      "sha": "82fb56e48927b0dd0878409f37eca6870d61546d"
+    },
+    {
+      "path": "src/world/terrain/TerrainNoise.js",
+      "sha": "c90aafbe978621518cb1c8b8fc462576dda5e9c7"
+    },
+    {
+      "path": "src/world/terrain/TerrainShading.js",
+      "sha": "c6ad36817265f8f2c9e2747ba46cab7aa76ece8f"
+    },
+    {
+      "path": "src/world/vegetation/GeoBuilder.js",
+      "sha": "6a93905d7e9ef725e0ec90fd72509bf1e5f611da"
+    },
+    {
+      "path": "src/world/vegetation/GrassField.js",
+      "sha": "94d2be7e979315a099bb84ff020ea9f7ffac97df"
+    },
+    {
+      "path": "src/world/vegetation/Impostors.js",
+      "sha": "eaee4fd2dae3c25d2cc94623562ec8cdf0ab1128"
+    },
+    {
+      "path": "src/world/vegetation/InstanceLOD.js",
+      "sha": "dd248591f8f559cf94484e14e4e7b830996a5d3f"
+    },
+    {
+      "path": "src/world/vegetation/LeafTextures.js",
+      "sha": "aa730a6b2182c7b4b34d286088a48446cb758486"
+    },
+    {
+      "path": "src/world/vegetation/PlantGeometry.js",
+      "sha": "caf242870a709e6328529f39c16a61bebf337989"
+    },
+    {
+      "path": "src/world/vegetation/Scatter.js",
+      "sha": "5bbb81ea29447f3a7d2a65b7f35c2bb7c36d22d8"
+    },
+    {
+      "path": "src/world/vegetation/VegMaterials.js",
+      "sha": "3a3c0685834f415921aad2a5d6a5814c7b59ffb6"
+    },
+    {
+      "path": "src/world/vegetation/VegNodes.js",
+      "sha": "d7d1f1aef310cfaf90e722f1e811b0b2521a0d1b"
+    },
+    {
+      "path": "src/world/village/Boardwalk.js",
+      "sha": "cea3fe4bcba852875fbad8f7fcc182ff36107fba"
+    },
+    {
+      "path": "src/world/village/Buildings.js",
+      "sha": "c20049f6dd06c63dc469c9078fffdd046e6ca3b4"
+    },
+    {
+      "path": "src/world/village/GeoBuilder.js",
+      "sha": "b2db534b20080c321f9d9f13bb332fcb4b9238ba"
+    },
+    {
+      "path": "src/world/village/TextureBaker.js",
+      "sha": "a5ba1e3a16d4247d13f934331ad2d00f157d8408"
+    },
+    {
+      "path": "src/world/village/VillageMaterials.js",
+      "sha": "f790185b8f915656b4cf929734646df580af59ed"
+    },
+    {
+      "path": "src/world/wildlife/BirdBatch.js",
+      "sha": "a99387fcaae295f93fbf2f04110442d4751af59e"
+    },
+    {
+      "path": "src/world/wildlife/BirdPose.js",
+      "sha": "18c2b944ad388339df1e94564d08acfd8252a51a"
+    },
+    {
+      "path": "src/world/wildlife/BirdShapes.js",
+      "sha": "e9b0123339b5c87588bd7142ae59b4e167d4f320"
+    },
+    {
+      "path": "src/world/wildlife/Birds.js",
+      "sha": "29662efed9b23aceaa11a5d7d838028d85f6c904"
+    },
+    {
+      "path": "src/world/wildlife/Crabs.js",
+      "sha": "7954f7c3fac3d5727cb3bebfefb29ca751b65c0e"
+    },
+    {
+      "path": "src/world/wildlife/CritterBatch.js",
+      "sha": "b9092f8bb18cdb03909605f6731cb944e89090d9"
+    },
+    {
+      "path": "src/world/wildlife/CritterShapes.js",
+      "sha": "715427a189166320f7e3f8db6304a8cf02232dc0"
+    },
+    {
+      "path": "src/world/wildlife/Flight.js",
+      "sha": "49b927e608d24f17452635393aace012deb42528"
+    },
+    {
+      "path": "src/world/wildlife/Kit.js",
+      "sha": "10d60ac9c2047550ad1769524902e491b874f353"
+    },
+    {
+      "path": "src/world/wildlife/ShadowBlobs.js",
+      "sha": "be5e5317b61335e637196466eb48067a8fc36062"
+    },
+    {
+      "path": "src/world/wildlife/Shorebirds.js",
+      "sha": "27759f37b5c69bc5adc94559f580c4b35b696e16"
+    },
+    {
+      "path": "src/world/wildlife/SwashProbe.js",
+      "sha": "8bf429bf79f1aedbc851219028755742526de98c"
+    },
+    {
+      "path": "src/world/wildlife/Wildlife.js",
+      "sha": "95ca3c3d8b8e51bd48df40aa6aebbc809c400861"
+    }
+  ],
+  "adaptations": {
+    "src/world/Gulls.js": "Imports the extracted identical geometry factory.",
+    "src/world/terrain/RockGeometry.js": "Re-exports the extracted geometry; pre-extraction hashes cover every style and detail."
+  }
+}

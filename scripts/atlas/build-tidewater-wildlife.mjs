@@ -2,7 +2,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
 import {execFileSync} from 'node:child_process';
-import * as THREE from 'three-world';
+import {createGullGeometry} from '@dgreenheck/tidewater-gulls';
 
 // Retain the light whale body, with the original medium-LOD flukes so the
 // notched, curved tail silhouette holds up when a whole tile fills the map.
@@ -28,11 +28,10 @@ async function source(name){
 }
 const [raw,bin]=await Promise.all([source('humpback.json'),source('humpback.bin'),source('humpback_albedo.png')]);
 const manifest=JSON.parse(raw);
-const gullSource=await readFile('packages/world-sources/tidewater/src/world/Gulls.js','utf8');
-const gullHash=hash(gullSource);
-if(gullHash!=='134c21634d3b766d2d445b941bef44f5d5df555f5fb5db4ec884a5ce48a4e3c9')throw Error('Review the updated Tidewater gull before rebaking.');
-// Evaluate only the source's standalone geometry factory; no TSL/world imports.
-const gull=new Function('THREE',`${gullSource.slice(gullSource.indexOf('function gullGeometry()'))}\nreturn gullGeometry();`)(THREE);
+// Pinned upstream source attribution; the extracted factory is regression-tested
+// against the shipped geometry, without evaluating source strings.
+const gullHash='134c21634d3b766d2d445b941bef44f5d5df555f5fb5db4ec884a5ce48a4e3c9';
+const gull=createGullGeometry();
 const chunks=[];let length=0;
 function pack(array){
   const padding=(4-length%4)%4;if(padding){chunks.push(Buffer.alloc(padding));length+=padding;}

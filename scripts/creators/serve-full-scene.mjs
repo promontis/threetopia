@@ -1,0 +1,13 @@
+import {mkdir, mkdtemp} from 'node:fs/promises';
+import {resolve, join} from 'node:path';
+import {spawn} from 'node:child_process';
+import {parseArgs} from 'node:util';
+import {buildFullTidewater} from '../../examples/tidewater/build-full.mjs';
+const {values} = parseArgs({options: {port: {type: 'string', default: '5197'}}});
+await mkdir('.context/tidewater-full', {recursive: true});
+const root = await mkdtemp(resolve('.context/tidewater-full/preview-'));
+const project = join(root, 'scene');
+await buildFullTidewater(project);
+const child = spawn(process.execPath, ['packages/cli/bin/threetopia.js', 'preview', project, '--port', values.port], {stdio: 'inherit'});
+process.once('SIGINT', () => child.kill('SIGINT')); process.once('SIGTERM', () => child.kill('SIGTERM'));
+child.on('exit', code => { process.exitCode = code ?? 0; });

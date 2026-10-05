@@ -1,0 +1,276 @@
+{
+  "repository": "https://github.com/dgreenheck/tidewater",
+  "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3",
+  "files": [
+    {
+      "path": "public/audio/CREDITS.md",
+      "sha": "f48452c51b874a8cf488cc7713c99ad2917b5667",
+      "size": 7861
+    },
+    {
+      "path": "public/audio/big_splash.ogg",
+      "sha": "27bbe2d67127b8161da5cd0c76115e7f7ed6ac2f",
+      "size": 31718
+    },
+    {
+      "path": "public/audio/bird_dove.ogg",
+      "sha": "c1d5983d383ba638c5492c8c6154d20cb04b6d10",
+      "size": 128894
+    },
+    {
+      "path": "public/audio/bird_forest.ogg",
+      "sha": "92388eab613f6da9ac8c566127a6df15a7b6b2c6",
+      "size": 159596
+    },
+    {
+      "path": "public/audio/birds_dawn.ogg",
+      "sha": "f7b2c6d7de42031f8f49d7c2586132c2b244cd5a",
+      "size": 378131
+    },
+    {
+      "path": "public/audio/boat_engine.ogg",
+      "sha": "6f160303f19a02ddc20fd369c2590f0c3994ef90",
+      "size": 411828
+    },
+    {
+      "path": "public/audio/boat_lap.ogg",
+      "sha": "73f333b2769ecfc181433eac46cc22ab25a6d336",
+      "size": 293262
+    },
+    {
+      "path": "public/audio/boat_rush.ogg",
+      "sha": "4be1aaa7c615a8079881f7549e78d894fae04fbe",
+      "size": 318170
+    },
+    {
+      "path": "public/audio/crickets.ogg",
+      "sha": "b5ec27d9267490578f39afb83fc37e203704d141",
+      "size": 341489
+    },
+    {
+      "path": "public/audio/emerge.ogg",
+      "sha": "345fc567e646f4b3da32a8cb5d8ce8b8802178f5",
+      "size": 9254
+    },
+    {
+      "path": "public/audio/gull.ogg",
+      "sha": "a946b4069925c7701d7d26dada9fcde89e73d5b9",
+      "size": 55921
+    },
+    {
+      "path": "public/audio/hull_slap.ogg",
+      "sha": "4d6696e73f3771bba3e48a52cd1e88f56fac8b4c",
+      "size": 27436
+    },
+    {
+      "path": "public/audio/palms.ogg",
+      "sha": "77a52f66564fa412e869e4a627740871b12cad59",
+      "size": 357078
+    },
+    {
+      "path": "public/audio/pier_lap.ogg",
+      "sha": "528985eb150fbb63c46ece2bf085d6ab776f2849",
+      "size": 287231
+    },
+    {
+      "path": "public/audio/splash.ogg",
+      "sha": "38bd0f259b4835b72f851a17cdf94828db82942d",
+      "size": 63034
+    },
+    {
+      "path": "public/audio/step_grass.ogg",
+      "sha": "b8903cf62e9ca873d83ca8679e0f7b2dfcfca774",
+      "size": 19268
+    },
+    {
+      "path": "public/audio/step_rock.ogg",
+      "sha": "92544f5e5d34a2dd8127c2943f4a986d763f5bc1",
+      "size": 21541
+    },
+    {
+      "path": "public/audio/step_sand.ogg",
+      "sha": "9a5ae6d959a4b53a0269f03d04e05e87918a728c",
+      "size": 22902
+    },
+    {
+      "path": "public/audio/step_water.ogg",
+      "sha": "233eb7cdf68c786dfaebe219b48ec703eee46b34",
+      "size": 37998
+    },
+    {
+      "path": "public/audio/step_wetsand.ogg",
+      "sha": "654b57f2e63fc290f4b290e921b6a9116a5b76ef",
+      "size": 17584
+    },
+    {
+      "path": "public/audio/step_wood.ogg",
+      "sha": "fdd4e59a647b39f514fb186105a2519df4eb7cab",
+      "size": 22476
+    },
+    {
+      "path": "public/audio/submerge.ogg",
+      "sha": "474922afc58e35ffb61d3a5462d4a1c5cc821e2d",
+      "size": 15989
+    },
+    {
+      "path": "public/audio/surf_backwash.ogg",
+      "sha": "051af71d71825aa79104961adc298d6d75d7580f",
+      "size": 108825
+    },
+    {
+      "path": "public/audio/surf_crash.ogg",
+      "sha": "9779455f7c45a0d646bc232c1a9b2e9c3119a03b",
+      "size": 132426
+    },
+    {
+      "path": "public/audio/surf_far.ogg",
+      "sha": "b25de23dc5181765fd401ca03d3a6c100c4ba256",
+      "size": 365150
+    },
+    {
+      "path": "public/audio/surf_wash.ogg",
+      "sha": "4cdf54b120560f9d18db9d2c04c8e72eb527a71b",
+      "size": 75291
+    },
+    {
+      "path": "public/audio/swim.ogg",
+      "sha": "0fd87a0f13a55a01451966892bd598061a2dce8c",
+      "size": 29543
+    },
+    {
+      "path": "public/audio/tern.ogg",
+      "sha": "05be93d4e325bb8f2c34dc2c84dc03791a9a4a79",
+      "size": 108719
+    },
+    {
+      "path": "public/audio/under_reef.ogg",
+      "sha": "c2d028cfdafb85cb0c255d53149d857db5512c53",
+      "size": 412371
+    },
+    {
+      "path": "public/audio/uw_swim.ogg",
+      "sha": "53bdb7e545966e73069ca3214b6093333d932bf8",
+      "size": 37646
+    },
+    {
+      "path": "public/audio/whale_blow.ogg",
+      "sha": "9b5c8c9994ff7e8e8614ed4d4b03534924a43d70",
+      "size": 37617
+    },
+    {
+      "path": "public/audio/whale_song.ogg",
+      "sha": "6b79cb7aad30fac816856c963e9b71aaf4556035",
+      "size": 373991
+    },
+    {
+      "path": "public/audio/wind.ogg",
+      "sha": "b7a6f66bb1f24d4a21fbb945d65cf59513088ba0",
+      "size": 415921
+    },
+    {
+      "path": "public/models/debris/CREDITS.md",
+      "sha": "2ef257c4db6ac11e772a5466eb3f3d9d91de4c3a",
+      "size": 1390
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_01.glb",
+      "sha": "788b363d64aa40711801221cfb6c49fcd8c0e0f4",
+      "size": 107568
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_01_albedo.jpg",
+      "sha": "038b1ebf6f376b082ad0dfcf796083d1c6cf4f46",
+      "size": 720703
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_01_arm.jpg",
+      "sha": "1c4bc55117ac748b513e8bdc87afad50787c5cad",
+      "size": 595028
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_01_normal.jpg",
+      "sha": "1fc84f214a504cd374ab06e6df417e6d56070b9a",
+      "size": 1023490
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_02.glb",
+      "sha": "357ee925251b6e6a48fd16d8aaa15d1a07d72b3f",
+      "size": 106644
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_02_albedo.jpg",
+      "sha": "5c72aff393fcd1cc2c8c0601ca2cca0f2410a3f1",
+      "size": 617273
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_02_arm.jpg",
+      "sha": "a0fc2ef3c99aa0bad5a6ca7761925c6151d1836c",
+      "size": 501350
+    },
+    {
+      "path": "public/models/debris/dead_quiver_branch_02_normal.jpg",
+      "sha": "c6a3057732de2857cdb9801299e7c44fbf140356",
+      "size": 737343
+    },
+    {
+      "path": "public/models/debris/dead_quiver_trunk.glb",
+      "sha": "2fe26c9233b7b6c9b5edc2a554c62edf008bedb8",
+      "size": 128644
+    },
+    {
+      "path": "public/models/debris/dead_quiver_trunk_albedo.jpg",
+      "sha": "1e6fe281b339b44a1af83391c196d2c2465979b6",
+      "size": 768713
+    },
+    {
+      "path": "public/models/debris/dead_quiver_trunk_arm.jpg",
+      "sha": "9263cd2461403d3f88ac641d5394fde8a150011a",
+      "size": 514214
+    },
+    {
+      "path": "public/models/debris/dead_quiver_trunk_normal.jpg",
+      "sha": "944737030efcffbd647a37f3273e5ded7a634cef",
+      "size": 573241
+    },
+    {
+      "path": "public/models/debris/lambis_shell.glb",
+      "sha": "617ec04f16d11c26b2e8a0ca767cf04660cdd774",
+      "size": 64276
+    },
+    {
+      "path": "public/models/debris/lambis_shell_albedo.jpg",
+      "sha": "e8c5485ae57781e55e2da25057701d493892e34f",
+      "size": 785669
+    },
+    {
+      "path": "public/models/debris/lambis_shell_arm.jpg",
+      "sha": "4cfecccab48664b928f88234a06322d2872b11d9",
+      "size": 567463
+    },
+    {
+      "path": "public/models/debris/lambis_shell_normal.jpg",
+      "sha": "83c1c9828f553e80f00d1eea074119a469f1fe4c",
+      "size": 582208
+    },
+    {
+      "path": "public/models/whale/humpback.bin",
+      "sha": "29b235f9c1c8a532811d597884b87080aece1226",
+      "size": 3469416
+    },
+    {
+      "path": "public/models/whale/humpback.json",
+      "sha": "991e934bada71e39c13fadd1ab069782dacdb704",
+      "size": 4106
+    },
+    {
+      "path": "public/models/whale/humpback_albedo.png",
+      "sha": "a81c8713cf21711506a40ce24f0d0e0e879a6f46",
+      "size": 4289686
+    },
+    {
+      "path": "public/models/whale/humpback_height.png",
+      "sha": "4e99d41d83a24621946dee3561288454d7966759",
+      "size": 12896017
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/player/BoatController.js",
+      "file": "src/player/BoatController.js",
+      "sha256": "7bc1880dbd12084f4ab6119f8957238557284058f749bafaf6fa0cef1c1153ab",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/player/BoatSpray.js",
+      "file": "src/player/BoatSpray.js",
+      "sha256": "110fdb5470b5887ce13c96b6423d68e5c23ab6a6c059d65d7400d12d4c1585b6",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/BoatModel.js",
+      "file": "src/world/BoatModel.js",
+      "sha256": "f7136a6d1851e612eeb3c17026c9843e174cbd7b6267875fa7074cb0a887f1e9",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/BoatMaterials.js",
+      "file": "src/world/boat/BoatMaterials.js",
+      "sha256": "fe7546a7dcfc71ecb524d12cfd924cf8dbe39f0ea98f3436c09dc3d6218af16d",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/DeckGear.js",
+      "file": "src/world/boat/DeckGear.js",
+      "sha256": "6493972da534ab7d9fa422900afcbdf79e3147ba5a9d6a1e71b8fbee7ad15dbd",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/GeoKit.js",
+      "file": "src/world/boat/GeoKit.js",
+      "sha256": "fc2a9e38c50debac814008843f9b8ce3bfd04231b2039c042d521b8f5b4159e8",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/HullBuilder.js",
+      "file": "src/world/boat/HullBuilder.js",
+      "sha256": "be2ce1234811de766fdb8ff5884f9c3deed50ff79273e1cb77c58c5b4459da83",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/HullLines.js",
+      "file": "src/world/boat/HullLines.js",
+      "sha256": "7d55bb870ef91eeeee879f92c18fccbfa6c4ef57a2ad30fd9481fcd1193e4ded",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/Running.js",
+      "file": "src/world/boat/Running.js",
+      "sha256": "5047a8c2a679b55cc4cea4f8bd67c0d0d2e4db309e9b2151f4afbb32894f9b80",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/boat/Wheelhouse.js",
+      "file": "src/world/boat/Wheelhouse.js",
+      "sha256": "b2a8813e4779e9ad0030a9d1710ef17e34a35302a7ccef5dacc8e7d72a959bbf",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

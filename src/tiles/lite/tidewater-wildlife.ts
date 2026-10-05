@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {createGulls} from '@dgreenheck/tidewater-gulls';
 import {mapCentre,MAP_TILES} from './layout';
 
 // Dan Greenheck's Tidewater, MIT: native Gulls.js geometry/flight and Whale.js
@@ -89,42 +90,14 @@ export function createTidewaterWildlife(manifest:WildlifeManifest,buffer:ArrayBu
     positions.needsUpdate=normals.needsUpdate=true;geometry.computeBoundingSphere();geometry.computeBoundingBox();
   }
 
-  const g=manifest.gull,gPos=f32(g.position),gCol=f32(g.color),side=f32(g.side),span=f32(g.span),gIndex=u16(g.index);
-  const flockGeo=new T.BufferGeometry(),colors=new Float32Array(gCol.length*GULLS),indices=new Uint16Array(gIndex.length*GULLS);
-  for(let i=0;i<GULLS;i++){colors.set(gCol,i*gCol.length);indices.set(gIndex.map(n=>n+i*g.vertices),i*gIndex.length);}
-  flockGeo.setIndex(new T.BufferAttribute(indices,1));
-  flockGeo.setAttribute('position',new T.BufferAttribute(new Float32Array(gPos.length*GULLS),3).setUsage(T.DynamicDrawUsage));
-  flockGeo.setAttribute('normal',new T.BufferAttribute(new Float32Array(gPos.length*GULLS),3).setUsage(T.DynamicDrawUsage));
-  flockGeo.setAttribute('color',new T.BufferAttribute(colors,3));
-  const feathers=new T.MeshStandardMaterial({name:'Native Tidewater gull feathers',vertexColors:true,roughness:.75,side:T.DoubleSide});
-  const gulls=new T.Mesh(flockGeo,feathers);gulls.name='Native Tidewater seagulls';root.add(gulls);
-  gulls.userData.aboveWaterOnly=true;
-  let seed=7;const rand=()=>((seed=Math.imul(seed^(seed>>>15),2246822519)+0x6D2B79F5>>>0)/4294967296);
-  const birds=Array.from({length:GULLS},()=>({x:origin.x+1+(rand()-.5)*5,z:1+(rand()-.5)*4,radius:1.6+rand()*1.7,
-    height:3.6+rand()*2,phase:rand()*TAU,speed:.45+rand()*.2,flap:rand()*100,dir:rand()<.5?-1:1,scale:.36+rand()*.08}));
-  function updateGulls(t:number){
-    const pos=flockGeo.attributes.position;
-    for(let j=0;j<GULLS;j++){
-      const b=birds[j],th=b.phase+t*b.speed/b.radius*b.dir;
-      const px=b.x+Math.cos(th)*b.radius,py=b.height+Math.sin(th*2+b.flap)*.4,pz=b.z+Math.sin(th)*b.radius;
-      const fx=-Math.sin(th)*b.dir,fz=Math.cos(th)*b.dir,cb=Math.cos(-.45*b.dir),sb=Math.sin(-.45*b.dir);
-      const clock=t*.58,gate=T.MathUtils.smoothstep(Math.sin(clock*.23+b.flap)*.5+.5,.55,.8);
-      const lift=gate*Math.sin(clock*3.1*TAU+b.flap*7)*.55+.08;
-      for(let i=0;i<g.vertices;i++){
-        let x=gPos[i*3],y=gPos[i*3+1];const z=gPos[i*3+2];
-        if(side[i]!==0){const ang=lift*(span[i]*.6+.4)+span[i]**2*(1-gate)*-.18;y+=Math.abs(x)*Math.sin(ang);x*=Math.cos(ang);}
-        const rx=x*cb-y*sb,ry=x*sb+y*cb;
-        pos.setXYZ(j*g.vertices+i,px+(fz*rx+fx*z)*b.scale,py+ry*b.scale,pz+(-fx*rx+fz*z)*b.scale);
-      }
-    }
-    pos.needsUpdate=true;flockGeo.computeVertexNormals();flockGeo.computeBoundingSphere();flockGeo.computeBoundingBox();
-  }
+  const flock=createGulls({center:[origin.x+1,0,1]});
+  const gulls=flock.object;root.add(gulls);gulls.userData.aboveWaterOnly=true;
   let last=NaN;
-  function update(){if(last===time.value)return;last=time.value;updateWhale(last);updateGulls(last);root.updateMatrixWorld(true);}
+  function update(){if(last===time.value)return;last=time.value;updateWhale(last);flock.update(last);root.updateMatrixWorld(true);}
   update();
   return {root,whale,gulls,wake,update,
-    inspect:()=>({gulls:GULLS,whales:1,triangles:w.triangles+g.triangles*GULLS,drawCalls:2,whalePosition:whale.position.toArray(),routeSeconds:WHALE_PERIOD}),
-    dispose(){geometry.dispose();skin.dispose();flockGeo.dispose();feathers.dispose();albedo.dispose();root.removeFromParent();},
+    inspect:()=>({gulls:GULLS,whales:1,triangles:w.triangles+flock.inspect().triangles,drawCalls:2,whalePosition:whale.position.toArray(),routeSeconds:WHALE_PERIOD}),
+    dispose(){geometry.dispose();skin.dispose();flock.dispose();albedo.dispose();root.removeFromParent();},
   };
 }
 

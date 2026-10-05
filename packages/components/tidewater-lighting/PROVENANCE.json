@@ -1,0 +1,50 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/materials/ContactShadows.js",
+      "file": "src/materials/ContactShadows.js",
+      "sha256": "63f444313105bcfffea068bbe09b972b67858bf19e3481c36cde6a4c5a9aab5b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/GroundBounce.js",
+      "file": "src/materials/GroundBounce.js",
+      "sha256": "e93fb4a7231ed028835cb518f9ede62b1f5e87d3f0313582bbf8a1f4425973e9",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/LODFade.js",
+      "file": "src/materials/LODFade.js",
+      "sha256": "e2ff0e9605d163c558236a40636380043e293cd963762575cfc7bbafe31656ed",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/LocalLights.js",
+      "file": "src/materials/LocalLights.js",
+      "sha256": "7898a2c59b8740f7da70fad84708a091779451a4be944caca8eecc35edf71226",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/Materials.js",
+      "file": "src/materials/Materials.js",
+      "sha256": "a021f0ba99042bf2dda90b42a83910ce3ed7bc2994031005eb8e8355dca8c732",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/SceneLighting.js",
+      "file": "src/materials/SceneLighting.js",
+      "sha256": "be663e01521115dc757d9d145d756a030ff55c1b789fffe9e70b857003eee94b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/materials/SunShadowFilter.js",
+      "file": "src/materials/SunShadowFilter.js",
+      "sha256": "48d58efba64a6d9cfab222eb34ffe22cb1c5aa3a43355718d41f935e631edd1a",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

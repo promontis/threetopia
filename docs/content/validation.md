@@ -29,3 +29,11 @@ The slot is intentionally smaller than the host tile. The outer terrain band and
 - **Missing map/overview**: both are mandatory for a world package, even if your detailed world already renders well.
 
 Run `threetopia check` before upload. The server repeats the checks on `threetopia push`. A rejected draft is never publicly served as a published package.
+
+## Code exports
+
+CLI and registry parse included JavaScript without executing it. Invalid syntax, missing relative imports, undeclared external dependencies and uncompiled TypeScript/JSX exports reject validation. Include `package.json` with `type: "module"` for `.js` ESM and declare external dependencies or peerDependencies. Code is limited to 2 MiB per module and 8 MiB per package. Node utilities may import `node:` built-ins; that does not make them browser components.
+
+Warnings identify runtime features requiring review. Passing checks does not prove lifecycle correctness, visual parity or renderer compatibility. Run the component and browser tests described in the [conversion guide](/conversion). Registry previews still render GLBs and never execute uploaded code.
+
+Complete scene runtimes must name included, self-contained classic bundles, styles, assets and a consistent coverage report with no omitted features. The CLI and server check the same contract. These checks do not execute code or prove visual/behavioral parity; the complete-scene GPU acceptance test provides that evidence for Tidewater.

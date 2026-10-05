@@ -1,0 +1,8 @@
+.package-readme{margin:24px 0;line-height:1.7;overflow-wrap:anywhere;min-width:0}
+.package-readme h1{font-size:24px;line-height:1.25;margin:0 0 20px}
+.package-readme h2{font-size:19px;margin:30px 0 12px}
+.package-readme p,.package-readme ul,.package-readme ol{margin:12px 0}
+.package-readme pre{overflow:auto;background:#112b33;color:#e7f4f2;padding:20px;border-radius:10px;line-height:1.65;font-size:12px;tab-size:2}
+.package-readme :not(pre)>code{font-size:.88em;background:#edf4f3;padding:2px 5px;border-radius:4px}
+.package-readme pre code{font:inherit;white-space:pre}
+.package-readme a{color:#177660;text-decoration:underline}

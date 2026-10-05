@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Package host fixture</title>
+<body><section id="package"></section><script type="module">
+import {mountPackagePreview} from '../../src/creators/package-preview.ts';
+const data=await fetch('/api/package-host-fixture').then(r=>r.json());
+mountPackagePreview(document.getElementById('package'),data);
+</script></body></html>

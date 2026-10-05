@@ -1,0 +1,68 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Vegetation.js",
+      "file": "src/world/Vegetation.js",
+      "sha256": "d4b505ea34878fd26894588858964d75c311529d5ba28aa4473044cc3682a93b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/GeoBuilder.js",
+      "file": "src/world/vegetation/GeoBuilder.js",
+      "sha256": "3bc380003b3f9d4bce5ed6788d987164ecc72630a7ad57b31850fa9b921c48cf",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/GrassField.js",
+      "file": "src/world/vegetation/GrassField.js",
+      "sha256": "f453dedc939b1761b0b0409ebc862b6bf67c779bb9d5251a0ab5ad1183a1c339",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/Impostors.js",
+      "file": "src/world/vegetation/Impostors.js",
+      "sha256": "66e4bfd1c8465001202d6d2f17fe25828906c9165e3aa22391d71183131c8063",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/InstanceLOD.js",
+      "file": "src/world/vegetation/InstanceLOD.js",
+      "sha256": "bfa0ccf968fc505d7ddeb53ddd7cd640da76bb6315455c1c7060a9f771d4aa94",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/LeafTextures.js",
+      "file": "src/world/vegetation/LeafTextures.js",
+      "sha256": "a8c0741ddd4688be521f4b2f3e5dcae5d403778b9cbdbbefb4a14c90a4934cd6",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/PlantGeometry.js",
+      "file": "src/world/vegetation/PlantGeometry.js",
+      "sha256": "21e60c618ade82928d38d31a2d38e98a74f618f933e20ad5a8b89bcdab072d6b",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/Scatter.js",
+      "file": "src/world/vegetation/Scatter.js",
+      "sha256": "efa9ecff1568e9fe6d05e675ac24fed9ccc275f9eaa2d0f8fa253fe6dc51f790",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/VegMaterials.js",
+      "file": "src/world/vegetation/VegMaterials.js",
+      "sha256": "439ecc500569c0d72f4ea26e843e5d463f5899dc92b061d83cee70bb9acf4656",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/vegetation/VegNodes.js",
+      "file": "src/world/vegetation/VegNodes.js",
+      "sha256": "f11237a608d22d8f2c86c25d9db8fcb49cdaeb7214b6a10087540e2b62553cef",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

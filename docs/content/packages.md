@@ -11,6 +11,8 @@ threetopia install @threetopia/beacon@1.0.0
 
 `@threetopia/beacon` is an original, MIT-licensed Threetopia example. Its `model` export fits a map slot; its `world` export is scaled for world coordinates. It is an example building block, not an asset copied from a showcase creator.
 
+For an existing scene, start with the [conversion workflow](/conversion): analyze the source, propose cohesive components, then prove reuse. The [Tidewater study](/tidewater) is an executable example.
+
 ## Find a package
 
 The [package library](https://creators.threetopia.com/packages) searches package names, titles, descriptions, creator names and tags. Multiple words narrow the results; partial words match the start of a word, so `light` finds `lighthouse`.
@@ -80,3 +82,7 @@ threetopia check
 `use` checks the actual geometry against the selected role before copying it into your world’s content file. For a larger composition, import installed GLBs in your modelling or build tools, then export the combined scene. Its combined geometry must fit the slot and budget.
 
 For code exports, import the installed file in your own application or bundler. Installation does not execute package scripts, and uploaded JavaScript never runs automatically on the creator website.
+
+## Managed namespaces
+
+The package scope and the managing account can differ when a platform operator explicitly assigns a managed namespace. `threetopia namespaces` lists your allowed scopes. Use `threetopia create directory --name @namespace/package --kind asset --from prepared-package` to keep the prepared identity; `--from` preserves the source name by default. Permissions still belong to the managing account. README attribution identifies the source author separately. A later operator-assisted transfer must move the namespace grant, package owners and associated world tiles together; published names, versions and stored file references remain unchanged. There is no public endpoint for claiming another creator’s namespace.

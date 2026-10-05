@@ -48,7 +48,7 @@ export function worldSources(): Plugin {
     enforce: 'pre',
     async resolveId(source, importer) {
       if (!importer || !(/^three(?:\/|$)/.test(source))) return;
-      if (!importer.includes('/packages/world-sources/') && !importer.includes('/packages/world-map/') && !importer.includes('/packages/platform/') && !importer.includes('/src/creators/') && !importer.includes('/src/explore/') && !importer.includes('/src/tiles/') && !importer.includes('/three@0.186.0/') && !importer.includes('/three-mesh-bvh@') && !importer.includes('/three-fenestra')) return;
+      if (!importer.includes('/packages/world-sources/') && !importer.includes('/packages/world-map/') && !importer.includes('/packages/components/') && !importer.includes('/examples/tidewater/') && !importer.includes('/packages/platform/') && !importer.includes('/src/creators/') && !importer.includes('/src/explore/') && !importer.includes('/src/tiles/') && !importer.includes('/three@0.186.0/') && !importer.includes('/three-mesh-bvh@') && !importer.includes('/three-fenestra')) return;
       return this.resolve(source.replace(/^three/, 'three-world'), importer, { skipSelf: true });
     },
     transform(code, id) {

@@ -4,6 +4,8 @@ import {gunzipSync} from 'node:zlib';
 import {Box3,BufferAttribute,Texture,Vector3} from 'three';
 import {createTidewaterWildlife,WHALE_PERIOD} from '../../src/tiles/lite/tidewater-wildlife';
 import {createLandscapeSampler} from '../../src/tiles/lite/landscape';
+import {protectedWaterTiles,centre,MAP_SCALE,ORIGINAL_TILES} from '../../packages/platform/tiles.js';
+import {hexInset} from '../../packages/platform/wang-v4.js';
 
 it('keeps the native whale rig above the seabed, clear of the pier and boat, and continuous around its route',()=>{
   const base='public/map/lite/tidewater/wildlife/',manifest=JSON.parse(readFileSync(base+'wildlife.json','utf8'));
@@ -13,6 +15,10 @@ it('keeps the native whale rig above the seabed, clear of the pier and boat, and
   const boat=new Box3(new Vector3(17.2,-.3,-.95),new Vector3(19.1,2.5,3.5)),pier=new Box3(new Vector3(8.4,-3,-7),new Vector3(17,2,3.5));
   const whale=wildlife.whale,p=new Vector3(),initial=Array.from(whale.geometry.attributes.position.array);
   const used=new Set(whale.geometry.index!.array);
+  const source=ORIGINAL_TILES.find(t=>t.id==='tidewater')!;
+  const habitat=[source,...protectedWaterTiles().filter(t=>t.protection.source.id===source.id)].map(t=>centre(t.q,t.r));
+  const margin=Array.from({length:16},(_,i)=>({x:Math.cos(i*Math.PI/8)*20,z:Math.sin(i*Math.PI/8)*20}));
+  let leavesHabitat=false;
   let clearance=Infinity,maxY=-Infinity,minTop=Infinity,changed=false,collision=false,normalError=0;
   const n=new Vector3();
   try{
@@ -21,6 +27,8 @@ it('keeps the native whale rig above the seabed, clear of the pier and boat, and
       const positions=whale.geometry.attributes.position as BufferAttribute,normals=whale.geometry.attributes.normal;
       for(const i of used){
         p.fromBufferAttribute(positions,i).applyMatrix4(whale.matrixWorld);
+        // Test the moving mesh (not just its route centre), with 20 m clearance.
+        leavesHabitat||=margin.some(d=>!habitat.some(c=>hexInset(p.x/MAP_SCALE+d.x-c.x,p.z/MAP_SCALE+d.z-c.z)>=0));
         clearance=Math.min(clearance,p.y-sampler.heightAt(p.x,p.z));top=Math.max(top,p.y);
         collision||=boat.containsPoint(p)||pier.containsPoint(p);
         const length=n.fromBufferAttribute(normals,i).length();
@@ -33,6 +41,7 @@ it('keeps the native whale rig above the seabed, clear of the pier and boat, and
     }
     expect(clearance).toBeGreaterThan(.1);expect(maxY).toBeGreaterThan(.15);expect(minTop).toBeLessThan(-.1);expect(changed).toBe(true);
     expect(collision).toBe(false);expect(normalError).toBeLessThan(.001);
+    expect(leavesHabitat,'Whale and clearance must fit Tidewater’s required open water').toBe(false);
     const final=whale.geometry.attributes.position.array;
     expect(Math.max(...initial.map((v,i)=>Math.abs(v-final[i])))).toBeLessThan(.00001);
     expect(wildlife.inspect().triangles).toBeLessThan(3200);expect(wildlife.inspect().drawCalls).toBe(2);

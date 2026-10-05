@@ -105,10 +105,10 @@ export function mountTileCatalog(root:HTMLElement,{onSelect,onRotate}:{onSelect:
       }
       root.querySelector<HTMLElement>('[data-selected-title]')!.textContent=entry.variant.title;
       root.querySelector<HTMLElement>('[data-selected-title]')!.title=entry.variant.description;
-      root.querySelector<HTMLElement>('[data-selected-style]')!.textContent=entry.style;
+      root.querySelector<HTMLElement>('[data-selected-style]')!.textContent=`${entry.style} · Tile ${contract.q}, ${contract.r}`;
       root.querySelector('output')!.textContent=`${rotation*60}°`;
       const total=contract.slot.regions?.length||1,sizes=contract.slot.regions?.map((r:any)=>`${r.radius*2} m`).join(' · ')||'380 m';
-      root.querySelector<HTMLElement>('[data-selected-facts]')!.textContent=`${total} build ${total===1?'area':'areas'} · ${sizes} diameter`;
+      root.querySelector<HTMLElement>('[data-selected-facts]')!.textContent=`${total} ${contract.recipe.kind==='water'?'water-level ':''}build ${total===1?'area':'areas'} · ${sizes} diameter`;
       for(const button of root.querySelectorAll<HTMLButtonElement>('[data-rotate]')){
         const direction=Number(button.dataset.rotate) as 1|-1,next=nextTileRotation(entry.choices,rotation,direction);
         button.disabled=next===rotation;

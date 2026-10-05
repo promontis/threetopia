@@ -1,0 +1,35 @@
+{
+  "name": "@dgreenheck/tidewater-boat",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Boat geometry, fittings, controls, buoyancy and spray",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./src/*"
+  },
+  "files": [
+    "src",
+    "assets",
+    "index.js",
+    "LICENSE",
+    "PROVENANCE.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "@dgreenheck/tidewater-core": "workspace:*",
+    "@dgreenheck/tidewater-lighting": "workspace:*",
+    "@dgreenheck/tidewater-ocean": "workspace:*"
+  },
+  "peerDependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "three": "0.186.0"
+  },
+  "threetopia": {
+    "role": "component",
+    "sourceRevision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  }
+}

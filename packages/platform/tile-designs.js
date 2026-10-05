@@ -1,4 +1,4 @@
-// The fifteen approved host designs. Dimensions use world metres; the map is
+// The approved host designs. Dimensions use world metres; the map is
 // the same host at MAP_SCALE. Buildings belong to the creator, never this kit.
 export const DESIGNS=[
  {id:'tropical-inlet',title:'Tropical inlet',family:'tropical',base:'bay-coast',kind:'inlet',wet:[0,1],rivers:[],regions:[[-78,-35,101]],description:'A turquoise inlet, pale sand, mangrove roots and palm-lined rock gardens.'},
@@ -16,12 +16,14 @@ export const DESIGNS=[
  {id:'circuit-deck',title:'Circuit deck',family:'scifi',base:'skyport-scifi',kind:'circuit',floating:true,wet:[0,1,2,3,4,5],rivers:[],floor:84,regions:[[0,0,154,84]],description:'A charcoal floating deck with an oval race loop, teleport pads and cyan ring engines.'},
  {id:'neon-docks',title:'Neon docks',family:'scifi',base:'skyport-scifi',kind:'neon',floating:true,wet:[0,1,2,3,4,5],rivers:[],floor:84,regions:[[-31,-30,137,84]],description:'An asymmetric suspended dock, a service road and a broad open city deck.'},
  {id:'sky-terraces',title:'Sky terraces',family:'scifi',base:'skyport-scifi',kind:'sky',floating:true,wet:[0,1,2,3,4,5],rivers:[],floor:108,regions:[[-81,-78,86,108],[92,128,52,74]],description:'Two floating city terraces joined by a wide supported ramp, with pocket gardens.'},
+ {id:'open-water',title:'Open water',family:'water',base:'skyport-scifi',kind:'water',wet:[0,1,2,3,4,5],rivers:[],floor:0,regions:[[0,0,190]],description:'Uninterrupted open sea on all six sides, with a submerged seabed and a water-level build area for floating creations.'},
 ];
 export const DESIGN_STYLES={
  tropical:{title:'Tropical',land:'#769052',sand:'#e2d4af',rock:'#92958a',path:'#dbca9e'},
  alpine:{title:'Alpine',land:'#839265',sand:'#bcb696',rock:'#92928b',path:'#c9b890'},
  autumn:{title:'Autumn',land:'#8a9261',sand:'#b8a482',rock:'#898d7b',path:'#c9b38d'},
  limestone:{title:'Limestone',land:'#cabf9d',sand:'#dfd0ac',rock:'#b4ae96',path:'#e1d5b7'},
+ water:{title:'Water',land:'#579f9d',sand:'#c8d7cf',rock:'#879b99',path:'#c8d7cf'},
 };
 export const DESIGN_VARIANTS=DESIGNS.map(d=>({id:d.id,layout:d.id,family:d.family,title:d.title,description:d.description,orientation:0,color:DESIGN_STYLES[d.family]?.land||'#8b9b7a'}));
 export const designFor=tile=>DESIGNS.find(d=>d.id===tile.recipe.id||d.id===tile.variant);

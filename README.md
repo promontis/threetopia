@@ -20,6 +20,16 @@ The local integration uses two synthetic accounts and the local D1/R2 bindings; 
 
 Deployment configurations are separate: `wrangler.creators.jsonc` (creator Worker + D1 + private R2), `wrangler.docs.jsonc` (static docs), `wrangler.world-map.jsonc` (map), and `wrangler.jsonc` (landing + waitlist). Use explicit configs for deployment. Build docs before creators so versioned downloads and LLM links are available. The older image/scene prototype CLI remains in `packages/cli/bin/legacy.js`; the current CLI entry uses the registry workflow described above.
 
+### Scene conversion and quality
+
+`pnpm dev:example:tidewater:full` runs the complete pinned Tidewater on port 5197, including ocean, simulation, wildlife, gameplay, audio and original controls. `pnpm example:tidewater:full` exports its self-contained registry package. `pnpm test:scene:full` is the full Chrome/WebGPU acceptance gate. See [complete scene packages](docs/content/scenes.md).
+
+`pnpm threetopia analyze packages/world-sources/tidewater --json` inventories the source without executing it.
+`pnpm example:tidewater` builds local rock, gull and composition packages; `pnpm dev:example:tidewater` opens the independent reuse study on port 5196.
+Read [the conversion workflow](docs/content/conversion.md) and [Tidewater walkthrough](docs/content/tidewater.md).
+
+`pnpm check:quality` builds the standalone CLI, typechecks, runs the unit suite, boots an isolated local registry for CLI/concurrency tests, verifies a clean installation of the release tarball and its previews, and renders the browser example. The pull-request CI runs this same gate.
+
 ### Saved tile photographs
 
 **My tiles** loads versioned 800×500 WebP images from R2, without a hidden map iframe or WebGL renderer. D1 migration `0003_tile_thumbnails.sql` adds a transactional outbox: tile reservations, contract changes, deletions/expiry, validated uploads, draft deletion and publication invalidate the appropriate images. Neighbors within two hexes are included when public scenery changes. Owner images can include the latest validated private map; other viewers only receive public content. Authorized private image requests use a private cache and ETag.
@@ -255,3 +265,8 @@ The public map loads only the captures and one WebGL scene. Its water and subtle
 Creators start with a real GLB and required version 3 scene map. `world.scene` must match `map.source`. The CLI validates source agreement, geometry, placement and file budgets, and builds a portable preview. Explicit `--format image` imports remain supported for captured layers. See `/docs/#image-layers` and `packages/world-map/README.md`.
 
 Run `pnpm test` for unit/CLI checks and `pnpm test:e2e tests/e2e/image-map.spec.ts` for composition, alignment and zoom checks. On macOS, `THREETOPIA_GPU_TESTS=1 pnpm test:e2e tests/e2e/world.spec.ts` uses installed Chrome with WebGPU for walking tests.
+
+The complete Tidewater conversion has one world-tile composition, one map-tile and
+18 reusable sub-packages. Run `pnpm example:tidewater:packages --output NEW_DIRECTORY`
+(add `--creator HANDLE --tile WORLD/tile.lock.json` for a registered-world export).
+See [the package inventory](docs/content/tidewater.md).

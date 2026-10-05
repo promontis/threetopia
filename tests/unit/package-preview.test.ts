@@ -1,8 +1,17 @@
 import {describe,expect,it} from 'vitest';
 import {PerspectiveCamera,Vector3} from 'three';
 import {assetCameraFit,previewChoices,previewVersions} from '../../src/creators/preview-content';
+import {validateRuntime} from '../../packages/platform/runtime.js';
 
 describe('Package preview content',()=>{
+  it('distinguishes component demonstrations from complete-scene runtimes',()=>{
+    expect(previewChoices({runtime:{purpose:'component-preview',entry:'preview.js'}})[0].label).toBe('Component preview');
+    expect(previewChoices({runtime:{entry:'scene.js'}})[0].label).toBe('Complete scene');
+    const preview={format:'scene-reference-v1',package:'@dgreenheck/tidewater-world-tile',version:'0.1.0',focus:'ocean'};
+    expect(validateRuntime({name:'@dgreenheck/tidewater-ocean',preview})).toEqual([]);
+    expect(previewChoices({preview})[0].id).toBe('context');
+    for(const bad of [{...preview,version:'latest'},{...preview,package:'https://evil.test'},{...preview,focus:'../script'},{...preview,package:'@dgreenheck/tidewater-ocean'}])expect(validateRuntime({name:'@dgreenheck/tidewater-ocean',preview:bad})).not.toEqual([]);
+  });
   it('offers all GLB exports without trying to render code, textures or invalid entries',()=>{
     expect(previewChoices({kind:'asset',exports:{model:'beacon.glb',world_model:'beacon-world.GLB',shader:'water.js',texture:'water.webp',missing:null}})).toEqual([
       {id:'model',label:'Model',file:'beacon.glb'},

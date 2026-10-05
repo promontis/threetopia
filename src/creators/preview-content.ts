@@ -2,8 +2,9 @@ export type PreviewChoice={id:string;label:string;file:string};
 export type PreviewVersion={version:string;state:string;manifest:any};
 
 export function previewChoices(manifest:any):PreviewChoice[]{
-  if(manifest.kind==='world')return ['map','world','overview'].filter(role=>typeof manifest.content?.[role]==='string').map(role=>({id:role,label:role[0].toUpperCase()+role.slice(1),file:manifest.content[role]}));
-  return Object.entries(manifest.exports||{}).filter((entry):entry is [string,string]=>typeof entry[1]==='string'&&/\.glb$/i.test(entry[1])).map(([id,file])=>({id,label:id.replace(/[-_]/g,' ').replace(/^./,c=>c.toUpperCase()),file}));
+  const runtime=manifest.runtime?[{id:'scene',label:manifest.runtime.purpose==='component-preview'?'Component preview':'Complete scene',file:manifest.runtime.entry}]:manifest.preview?[{id:'context',label:'Component in Tidewater',file:''}]:[];
+  if(manifest.kind==='world')return [...runtime,...['map','world','overview'].filter(role=>typeof manifest.content?.[role]==='string').map(role=>({id:role,label:role[0].toUpperCase()+role.slice(1),file:manifest.content[role]}))];
+  return [...runtime,...Object.entries(manifest.exports||{}).filter((entry):entry is [string,string]=>typeof entry[1]==='string'&&/\.glb$/i.test(entry[1])).map(([id,file])=>({id,label:id.replace(/[-_]/g,' ').replace(/^./,c=>c.toUpperCase()),file}))];
 }
 export function previewVersions(versions:PreviewVersion[]){return versions.filter(v=>['ready','published'].includes(v.state)&&previewChoices(v.manifest).length>0);}
 

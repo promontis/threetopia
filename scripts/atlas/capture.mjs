@@ -11,12 +11,14 @@ await mkdir(output);await mkdir(staging+'/tiles');
 async function files(root){
   const list=[];
   for(const entry of await readdir(root,{withFileTypes:true})){
+    if(entry.name==='node_modules'||entry.name.startsWith('.'))continue;
     const path=root+'/'+entry.name;
     if(entry.isDirectory())list.push(...await files(path));else list.push(path);
   }
   return list;
 }
 const inputs=[...(await files('src/explore')).filter(f=>/\.(ts|js)$/.test(f)),
+  ...(await files('packages/components')).filter(f=>/\.js$/.test(f)),
   ...(await files('packages/world-sources/tidewater/src')),...(await files('packages/world-sources/punk/src')),
   ...(await files('public/world-assets')),'packages/world-map/scene-camera.js'].sort();
 async function sourceRevision(){const hash=createHash('sha256');for(const f of inputs){hash.update(f);hash.update(await readFile(f));}return hash.digest('hex');}

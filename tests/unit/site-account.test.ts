@@ -53,7 +53,7 @@ describe('browser and CLI session handling',()=>{
   beforeAll(async()=>{
     platform=await getPlatformProxy<{DB:D1Database}>({configPath:'tests/fixtures/account.wrangler.json',persist:false,remoteBindings:false,envFiles:[]});
     db=platform.env.DB;
-    await db.batch(unstable_splitSqlQuery(readFileSync('migrations-creators/0001_platform.sql','utf8')).map(sql=>db.prepare(sql)));
+    for(const file of ['0001_platform.sql','0004_managed_namespaces.sql'])await db.batch(unstable_splitSqlQuery(readFileSync('migrations-creators/'+file,'utf8')).map(sql=>db.prepare(sql)));
     env={DB:db} as Env;
   },60_000);
   afterAll(async()=>{await platform?.dispose();});

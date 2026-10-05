@@ -68,7 +68,7 @@ export function dressHost(tile,kit){
   }else kit.asset('rock-'+Math.floor(rand()*(r>28?3:6))+(r<19?'-small':''),'stone',[x,y+r*.25,z],[r,r*tall,r*.86],rand()*6.28,d.kind==='alpine'?'#babbb3':'#ffffff');
   placed.push({kind:'rock',x,z,radius:r*1.30});
  }
- if(d.floating)return placed;
+ if(d.floating||d.kind==='water')return placed;
  const arid=d.kind==='oasis',coastal=['inlet','marina'].includes(d.kind),engineered=['canal','docks','boulevard'].includes(d.kind);
  if(d.kind==='alpine')for(const [cx,cz,count]of [[-86,-187,18],[74,198,14]])for(let i=0;i<count;i++){const a=rand()*6.28,r=rand()*67;rock(cx+Math.cos(a)*r,cz+Math.sin(a)*r,20+rand()*30,'rock',1+rand()*.5);}
  if(arid)for(const [cx,cz]of [[-149,-167],[-195,85],[122,-171]])for(let i=0;i<5;i++)rock(cx+(rand()-.5)*65,cz+(rand()-.5)*55,18+rand()*28,'sandstone');

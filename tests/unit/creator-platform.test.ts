@@ -8,16 +8,17 @@ describe('creator contracts',()=>{
   it('all variants match shared boundary heights across adjacent positions',async()=>{const a=await tileContract(-1,0,'coast-01'),b=await tileContract(-2,0,'volcanic-12'),ac=centre(-1,0),bc=centre(-2,0),cs=corners();for(let j=0;j<=24;j++){const p=cs[3].map((x,i)=>x+(cs[4][i]-x)*j/24);const ay=terrainHeight(p[0],p[1],a.recipe,a.boundaries),by=terrainHeight(p[0]+ac.x-bc.x,p[1]+ac.z-bc.z,b.recipe,b.boundaries);expect(ay).toBeCloseTo(by,4);}});
   it('opens every shared edge around the original worlds, including outer-ring positions',()=>{
     const slots=tileSlots([]),available=slots.filter(s=>s.status==='available');
-    expect(new Set(available.map(s=>`${s.q},${s.r}`))).toEqual(new Set(['-1,0','-1,1','0,1','-1,-1','0,-2','1,-2','2,-2','2,-1','2,0','1,1']));
+    expect(new Set(available.map(s=>`${s.q},${s.r}`))).toEqual(new Set(['-1,0','-1,1','0,1','-1,-1','0,-2','1,-2','2,-2','2,-1']));
+    expect(slots.filter(s=>s.status==='protected')).toHaveLength(2);
     expect(slots.filter(s=>s.status==='occupied')).toHaveLength(4);
     expect(slots.some(s=>s.q===-2&&s.r===0)).toBe(false);
   });
   it('opens neighbors after publication while inner-ring gaps remain available',()=>{
-    const reserved=tileSlots([],[{q:2,r:0}]);
-    expect(reserved.find(s=>s.q===2&&s.r===0)?.status).toBe('reserved');
-    expect(reserved.some(s=>s.q===3&&s.r===0)).toBe(false);
-    const published=tileSlots([{q:2,r:0}]);
-    expect(published.find(s=>s.q===3&&s.r===0)?.status).toBe('available');
+    const reserved=tileSlots([],[{q:2,r:-1}]);
+    expect(reserved.find(s=>s.q===2&&s.r===-1)?.status).toBe('reserved');
+    expect(reserved.some(s=>s.q===3&&s.r===-1)).toBe(false);
+    const published=tileSlots([{q:2,r:-1}]);
+    expect(published.find(s=>s.q===3&&s.r===-1)?.status).toBe('available');
     expect(published.find(s=>s.q===-1&&s.r===0)?.status).toBe('available');
   });
   it('keeps a long connected frontier sparse and inside the supported coordinate range',()=>{

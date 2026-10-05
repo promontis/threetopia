@@ -3,13 +3,20 @@ export const TILE_RADIUS:number;
 export const MAP_SCALE:number;
 export const SLOT:{radius:number;height:number;floorY:number;mapRadius:number;mapHeight:number};
 export const DIRECTIONS:number[][];
-export const ORIGINAL_TILES:Array<{q:number;r:number;title:string;id:string}>;
+export interface OpenWaterRequirement {id:string;reason:string;oceanConnected:boolean;cells:Array<{q:number;r:number}>}
+export interface TileSource {q:number;r:number;title:string;id:string;rotation?:number;requiredOpenWater?:OpenWaterRequirement[]}
+export interface WaterProtection {id:string;reason:string;oceanConnected:boolean;source:{id:string;title:string;q:number;r:number}}
+export interface TileSlot {q:number;r:number;ring:number;status:string;protection?:WaterProtection}
+export const ORIGINAL_TILES:TileSource[];
 export interface TileVariant {id:string;family:string;title:string;color:string;relief?:number;seed?:number;ridges?:number;orientation:number;layout?:string;description:string}
 export const TILE_VARIANTS:TileVariant[];
 export function ring(q:number,r:number):number;
 export function centre(q:number,r:number,scale?:number):{x:number;z:number};
 export function coordinates(radius:number):Array<{q:number;r:number;ring:number}>;
-export function tileSlots(occupied:Array<{q:number;r:number}>,reservations?:Array<{q:number;r:number}>):Array<{q:number;r:number;ring:number;status:string}>;
+export function tileSlots(occupied:Array<{q:number;r:number}>,reservations?:Array<{q:number;r:number}>):TileSlot[];
+export function protectedWaterTiles(sources?:TileSource[]):Array<{q:number;r:number;protection:WaterProtection}>;
+export function waterProtectionAt(q:number,r:number):WaterProtection|undefined;
+export function protectedWaterIssue(tile:{q:number;r:number}):string|null;
 export function canonicalTile(q:number,r:number,variantId:string,rotation?:number,legacyEdges?:number[],version?:number):any;
 export function tileContract(q:number,r:number,variantId:string,rotation?:number,legacyEdges?:number[],version?:number):Promise<any>;
 export function verifyTile(tile:any):Promise<boolean>;

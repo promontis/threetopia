@@ -21,7 +21,7 @@ export function createTerrainField(contracts,cache=new Map()){
    let nearest=Infinity,bx=0,bz=0;
    for(let i=0;i<6;i++){const a=cs[i],b=cs[(i+1)%6],dx=b[0]-a[0],dz=b[1]-a[1],t=Math.max(0,Math.min(1,((px-a[0])*dx+(pz-a[1])*dz)/(dx*dx+dz*dz))),xx=a[0]+dx*t,zz=a[1]+dz*t,d=Math.hypot(px-xx,pz-zz);if(d<nearest){nearest=d;bx=xx;bz=zz;}}
    const edge=h.sample(bx,bz);
-   if(h.tile.version>=4&&(h.tile.recipe.floating||['canal','docks','boulevard'].includes(h.tile.recipe.kind))){const bed=edge<-.05?edge:-1.6,blend=smooth(0,4.3,nearest);y=bed*(1-blend)+Math.min(y,-3.6)*blend;continue;}
+   if(h.tile.version>=4&&(h.tile.recipe.floating||['water','canal','docks','boulevard'].includes(h.tile.recipe.kind))){const bed=edge<-.05?edge:-1.6,blend=smooth(0,4.3,nearest);y=bed*(1-blend)+Math.min(y,-3.6)*blend;continue;}
    const width=2.1+noise(x*.7,z*.7)*1.2,t=smooth(0,width,nearest),apron=edge*(1-t)-3.6*t;
    const outer=smooth(width,4.3,nearest);y=Math.max(y,apron*(1-outer)-10*outer);
   }

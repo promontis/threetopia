@@ -1,0 +1,31 @@
+{
+  "name": "@dgreenheck/tidewater-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared scene context, renderer services, input, layout and shader/terrain primitives",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./src/*"
+  },
+  "files": [
+    "src",
+    "assets",
+    "index.js",
+    "LICENSE",
+    "PROVENANCE.json",
+    "README.md"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "three": "0.186.0"
+  },
+  "threetopia": {
+    "role": "component",
+    "sourceRevision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  }
+}

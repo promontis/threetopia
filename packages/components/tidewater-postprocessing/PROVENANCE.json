@@ -1,0 +1,56 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/fx/AirMotes.js",
+      "file": "src/fx/AirMotes.js",
+      "sha256": "190f8bcd0fccfa25ead1ef490fbda5e107233f1443c2883bd06ee3ec682e9cff",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/AirHaze.js",
+      "file": "src/post/AirHaze.js",
+      "sha256": "b3930eda06ee3ce355fa7ee9751cd9ae4a342551d89afbebbe025289c3a28dbb",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/LensDroplets.js",
+      "file": "src/post/LensDroplets.js",
+      "sha256": "7f1f17e0466ec59875d102ec914ce5f1ef575ba80675cb54d82b71d238da18ce",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/LensFlare.js",
+      "file": "src/post/LensFlare.js",
+      "sha256": "dac45245f4acf29b477a8edc36e4a33315f68d6874cc39e50d0b29159d738dd8",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/MotionBlur.js",
+      "file": "src/post/MotionBlur.js",
+      "sha256": "7e8f552d6d6260867c926169201819d1ed311c950e99535881348553594b4d99",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/PostFX.js",
+      "file": "src/post/PostFX.js",
+      "sha256": "7b60b62cc22ee0fd85378bdd62627a6b7502f33be7e8d70795b784173e3b3d86",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/TemporalUpscale.js",
+      "file": "src/post/TemporalUpscale.js",
+      "sha256": "8d5ab5e5e72f9276d77a48c5b1faa05aeb95b7b00d93037bff6eb848985df022",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/post/Underwater.js",
+      "file": "src/post/Underwater.js",
+      "sha256": "3af976d9677c6e26adeaa6d511766acebb14a3dadad2f2455230f8e25c592ceb",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

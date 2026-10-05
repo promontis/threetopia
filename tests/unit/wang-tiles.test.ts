@@ -4,10 +4,10 @@ import {LAYOUTS,TILE_VARIANTS,canonicalTile,tileContract,verifyTile,compatibleCh
 import {createHostTile,disposeObject} from '../../packages/platform/render.js';
 import study from '../../src/creators/tile-study.json';
 describe('Wang hosts',()=>{
- it('offers fifteen distinct designs, including three floating hosts',()=>{expect(LAYOUTS).toHaveLength(15);expect(TILE_VARIANTS).toHaveLength(15);expect(new Set(TILE_VARIANTS.map(v=>v.layout)).size).toBe(15);expect(TILE_VARIANTS.some(v=>v.family==='scifi')).toBe(true);});
+ it('offers sixteen distinct designs, including open water and three floating hosts',()=>{expect(LAYOUTS).toHaveLength(16);expect(TILE_VARIANTS).toHaveLength(16);expect(new Set(TILE_VARIANTS.map(v=>v.layout)).size).toBe(16);expect(TILE_VARIANTS.some(v=>v.id==='open-water')).toBe(true);expect(TILE_VARIANTS.filter(v=>v.family==='scifi')).toHaveLength(3);});
  it('keeps v1 contracts reproducible and rejects rehashed v2 edits',async()=>{const old=await tileContract(-1,0,'coast-01');expect(old.version).toBe(1);expect(await verifyTile(old)).toBe(true);const tile=await tileContract(7,0,'river-blossom',2);expect(await verifyTile(tile)).toBe(true);tile.rotation=3;expect(await verifyTile(tile)).toBe(false);});
  it('has matching edge profiles and path positions throughout the connected study',()=>{
-   const tiles=study.map(t=>canonicalTile(t.q,t.r,t.variant,t.rotation));expect(new Set(tiles.map(t=>t.recipe.layout)).size).toBe(15);
+   const tiles=study.map(t=>canonicalTile(t.q,t.r,t.variant,t.rotation));expect(new Set(tiles.map(t=>t.recipe.layout)).size).toBe(16);
    for(const a of tiles){expect(placementIssue(a,tiles.filter(t=>t!==a))).toBe(null);const ac=centre(a.q,a.r);
     for(const [i,[dq,dr]]of DIRECTIONS.entries()){const b=tiles.find(t=>t.q===a.q+dq&&t.r===a.r+dr);if(!b)continue;expect(a.boundaries[i]).toEqual([...b.boundaries[(i+3)%6]].reverse());const bc=centre(b.q,b.r),cs=corners();
      for(let j=0;j<=48;j++){const p=cs[i].map((v,k)=>v+(cs[(i+1)%6][k]-v)*j/48);expect(hostHeight(a,p[0],p[1])).toBeCloseTo(hostHeight(b,p[0]+ac.x-bc.x,p[1]+ac.z-bc.z),4);}

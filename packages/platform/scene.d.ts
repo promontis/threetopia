@@ -1,0 +1,1 @@
+export function mountScene(element:HTMLElement, options:{manifest:any;loadFile:(path:string)=>Promise<ArrayBuffer|Uint8Array>;signal?:AbortSignal;focus?:string;onProgress?:(progress:{value:number;message:string})=>void}):Promise<(()=>void)&{reset:()=>void;pause:()=>void;resume:()=>void;frame:HTMLIFrameElement}>;

@@ -93,7 +93,7 @@ describe('D1 public package search', () => {
     expect(new Set(pages.flatMap(page => page.packages.map(p => p.id))).size).toBe(218);
     expect((await search('page=999999&perPage=99999')).page).toBe(4);
     expect((await search('page=-2&perPage=nope')).page).toBe(1);
-  });
+  },15_000); // Includes loading 430 statements into the local D1 process.
   it('ranks title matches ahead of description matches', async () => {
     await add('title', {title: 'Lighthouse'});
     expect((await search('q=lighthouse')).packages.map(p => p.id)).toEqual(['title', 'beacon']);

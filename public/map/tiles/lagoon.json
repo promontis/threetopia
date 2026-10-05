@@ -5,7 +5,7 @@
   "radius": 400,
   "capture": {
     "kind": "world-render",
-    "revision": "6eecbbe7b76997a2c8630b115d888b55b4c209f4a0ce5bf7e74fb566cc30ea19",
+    "revision": "1af02f92aa4a4f55c5e35812947fcf02ea51c55366af5e5f14ac35f599e0403d",
     "source": {
       "kind": "runtime",
       "id": "lagoon"

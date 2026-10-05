@@ -1,0 +1,26 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/marine/Whale.js",
+      "file": "src/world/marine/Whale.js",
+      "sha256": "f3bd4f9040022a5a197172adef3945a9785a64f0a29679ba8141ded48850efba",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/marine/WhaleBrain.js",
+      "file": "src/world/marine/WhaleBrain.js",
+      "sha256": "ec60973bf37b5b964bb118a262d414b3cce9e3c69722b9e39c06e161fc7ee710",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/marine/WhaleTextures.js",
+      "file": "src/world/marine/WhaleTextures.js",
+      "sha256": "316830b42ed9014dff43754c6ddf7d87944c7c33327f26618161c8ba7319a09a",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}

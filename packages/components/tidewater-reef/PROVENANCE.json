@@ -1,0 +1,74 @@
+{
+  "upstream": {
+    "url": "https://github.com/dgreenheck/tidewater",
+    "revision": "d32799fcd85b79fb2fde3c4254f9d3805edecee3"
+  },
+  "sources": [
+    {
+      "original": "src/world/Fish.js",
+      "file": "src/world/Fish.js",
+      "sha256": "6dab85d3570d8f40496e042753421cb96716e42ea3d209920723badd321b6aeb",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/Reef.js",
+      "file": "src/world/Reef.js",
+      "sha256": "691beeafd459b74a8f64d6c688a5c3cd19ad52c3e0b6cd6f313734309fe24a70",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/fish/CreatureGeometry.js",
+      "file": "src/world/fish/CreatureGeometry.js",
+      "sha256": "94d435ed0ed089dc5fbd2c1e10d2f0acf8c7ec315d01ab54b6739e10fcba47f6",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/fish/FishGeometry.js",
+      "file": "src/world/fish/FishGeometry.js",
+      "sha256": "23fc92aafe3b9e75e8031d3217c98188b367fc028d3a352f8177342daacba87d",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/fish/FishMaterial.js",
+      "file": "src/world/fish/FishMaterial.js",
+      "sha256": "830fb58f812166a438713b97e2acd202086941e288e13bbe55be3917c4d63865",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/fish/FishProps.js",
+      "file": "src/world/fish/FishProps.js",
+      "sha256": "00f864823130910454d6fc2b6137a8af0364041d187660996402ab1088852b3c",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/fish/FishSpecies.js",
+      "file": "src/world/fish/FishSpecies.js",
+      "sha256": "835ce9452286c1da785273fb1a64fa9b9e9f3f4afd9ef54f6b71ed19d22f2bab",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/reef/ReefBatch.js",
+      "file": "src/world/reef/ReefBatch.js",
+      "sha256": "48a2779fd906d5f7b498344e45eba512266fa6d3801241e6b9ffc197b7cd6734",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/reef/ReefGeometry.js",
+      "file": "src/world/reef/ReefGeometry.js",
+      "sha256": "7a3fc5d5edd55faa250d0d0a00234ba52900a1eb07fe68e358a0abc8540801eb",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/reef/ReefMaterials.js",
+      "file": "src/world/reef/ReefMaterials.js",
+      "sha256": "75ab4e64892d0e6f8558d47ffaa6ccdb37ab49b333929080b639a7ebf5a39740",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    },
+    {
+      "original": "src/world/reef/ReefNoise.js",
+      "file": "src/world/reef/ReefNoise.js",
+      "sha256": "4f84b677ca1f01119ce9ad112cf4170eed02329a0846dfce094b74e800f53b90",
+      "adaptation": "Only cross-package import specifiers rewritten; original implementation retained."
+    }
+  ]
+}
